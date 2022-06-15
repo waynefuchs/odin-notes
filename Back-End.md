@@ -9,9 +9,11 @@ Backend web development consists of three major parts:
     * sends a response
 3. The database: Organization and persistence of data
 
-## Glossary
+# REST
 
-REST: Representational State Transfer
+Representational State Transfer.
+
+The way I understand it, the RESTful app will describe endpoints for a series of micro-services that can be combined to provide functionality across a website. This is entirely different than CRUD.
 
 - Separation of Concerns (server/client code can completely change as long as the protocol between them remains the same)
 - to be RESTful, the client must make a request to the server, *usually consisting of*:
@@ -20,9 +22,9 @@ REST: Representational State Transfer
     3. A path to a resource (such as: `/user/put/{username}`)
     4. An optional message
 
-    
-
 ## CRUD
+
+An API (series of endpoints) specifically to separate the RESTful API from the database.
 
 - Create
 - Read
