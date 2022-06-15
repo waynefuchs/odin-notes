@@ -1,20 +1,26 @@
 # Back End
 
+Backend web development consists of three major parts:
+
+1. The Server: The hardware (or virtual hardware such as docker or virtual machine) that receives requests.
+2. The Application: The software that that:
+    * listens for requests
+    * retrieves data from a database
+    * sends a response
+3. The database: Organization and persistence of data
+
 ## Glossary
 
 REST: Representational State Transfer
-    - Separation of Concerns (server/client code can completely change as long as the protocol between them remains the same)
-    - to be RESTful, the client must make a request to the server, *usually consisting of*:
-        1. An HTTP verb (GET/POST/PUT/DELETE)
-        2. A header (such as: `text/html` or `image/jpeg`)
-        3. A path to a resource (such as: `/user/put/{username}`)
-        4. An optional message
+
+- Separation of Concerns (server/client code can completely change as long as the protocol between them remains the same)
+- to be RESTful, the client must make a request to the server, *usually consisting of*:
+    1. An HTTP verb (GET/POST/PUT/DELETE) [A full list](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+    2. A header (such as: `text/html` or `image/jpeg`)
+    3. A path to a resource (such as: `/user/put/{username}`)
+    4. An optional message
 
     
-    an HTTP verb, which defines what kind of operation to perform
-a header, which allows the client to pass along information about the request
-a path to a resource
-an optional message body containing data
 
 ## CRUD
 
