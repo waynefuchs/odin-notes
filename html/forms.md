@@ -8,6 +8,19 @@
 
 [Styling Checkbox](https://moderncss.dev/pure-css-custom-checkbox-style/)
 
+
+## Recommended CSS
+
+``` css
+/* this ensures that font features are inherited, which is not a given on all browsers */
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+}
+```
+
+## Example of most form elements
+
 ``` html
 <form action="myscript.cgi" method="post">
 
