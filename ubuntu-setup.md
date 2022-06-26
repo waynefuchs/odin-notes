@@ -1,0 +1,70 @@
+# Fix time zone
+
+`timedatectl set-local-rtc 1`
+
+# Add Software
+
+`sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools`
+`git config --global user.name "Wayne Fuchs"`
+`git config --global user.email "wayne.fuchs@icloud.com"`
+
+
+## Snaps
+
+* code
+* discord
+* gimp
+
+## VSCode Modules
+
+* Code Spell Checker
+* Live Server
+* Python
+* Pylance
+
+## Download Nomachine
+
+# Remove Software
+
+## Games
+
+`sudo apt purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex -y & sudo apt autoremove -y`
+
+# Settings
+
+## Accessibility
+
+* Enable Animations: Off
+
+## Appearance
+
+* Dark Mode
+
+## Multitasking
+
+* Workspaces > Fixed number of workspaces: 4
+* Multi-Monitor > Workspaces on all displays
+* Application switching > Include applications from the current workspace only
+
+
+# dconf-editor
+
+* /org/gnome/desktop/background/
+	* color-shading-type: solid
+	* picture-uri: ""
+	* picture-uri-dark: ""
+	* primary-color: "#222222"
+
+* /org/gnome/desktop/wm/keybindings/
+	NOTE: move-to-workspace-right will move focused window AND switch...
+	* switch-to-workspace-right: ['<Ctrl><Super>Right']
+	* switch-to-workspace-left: ['<Ctrl><Super>Left']
+
+* /org/gnome/desktop/background/
+	NOTE: This can be done through gnome-tweaks (shell is faster)
+	`gsettings get org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
+	* focus-change-on-pointer-rest: Disable
+	NOTE: Following command does the same thing...
+	`gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
+
+
