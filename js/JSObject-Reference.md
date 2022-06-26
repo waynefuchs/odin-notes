@@ -62,7 +62,7 @@ myObject.["anotherNewKey"] = "Another way to add a new key";
 
 
 ``` javascript
-delete myObject.newKey);
+delete myObject.newKey; // no parentheses
 ```
 
 The return value of delete has to do with non-configurable properties.

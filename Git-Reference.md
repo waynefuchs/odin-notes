@@ -24,6 +24,15 @@
 
 `git rm <file>`: remove a file from the repository
 
+## Branching
+
+`git checkout -b new-branch-name`: Create a branch called new-branch-name and switch to it. Shorthand for:
+
+   > `git branch new-branch-name`
+   > `git checkout new-branch-name`
+
+
+
 ## Generate ssh key
 
 `ssh-keygen -t ed25519 -C "github-email-address"`:

@@ -1,3 +1,24 @@
+- [Forms](#forms)
+  - [Links](#links)
+  - [Properties](#properties)
+    - [Action](#action)
+    - [Method](#method)
+  - [Recommended CSS](#recommended-css)
+  - [Input](#input)
+    - [`type`](#type)
+    - [Other Input Attributes](#other-input-attributes)
+  - [Example of most form elements](#example-of-most-form-elements)
+  - [Form Validation](#form-validation)
+    - [Styling](#styling)
+      - [`:valid` and `:invalid` and *other psuedo-classes*](#valid-and-invalid-and-other-psuedo-classes)
+    - [Adherence to Input Type](#adherence-to-input-type)
+    - [`required`](#required)
+    - [`minlength` and `maxlength`](#minlength-and-maxlength)
+    - [`min` and `max`](#min-and-max)
+    - [`pattern`](#pattern)
+    - [`title`](#title)
+    - [`placeholder`](#placeholder)
+
 # Forms
 
 ## Links
@@ -8,6 +29,23 @@
 
 [Styling Checkbox](https://moderncss.dev/pure-css-custom-checkbox-style/)
 
+[ClientSide: Validating Forms Using Javascript](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript)
+
+[Form Validation UX](https://css-tricks.com/form-validation-ux-html-css/)
+
+## Properties
+
+### Action
+
+The url to send the form to.
+
+### Method
+
+GET: Get something from the server; as in "GET the results from the server for this search query"
+POST: Send data to the server; as in "POST this comment to this social media site."
+
+Select which HTTP request method to use.
+[HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
 ## Recommended CSS
 
@@ -18,6 +56,66 @@ button, input, select, textarea {
   font-size: 100%;
 }
 ```
+
+## Input
+
+### `type`
+
+| type | description |
+| ---- | ----------- |
+| `button` | a button with no default behavior |
+| `checkbox` | a check/tick box |
+| `color` | a color picker |
+| `date` | a date picker for the year, month, and day |
+| `datetime-local` | a date and time picker |
+| `email` | an email entry field |
+| `file` | a file picker |
+| `hidden` | a hidden field |
+| `image` | a button which displays the image defined by the src attribute |
+| `month` | a month and year picker |
+| `number` | a number entry field |
+| `password` | a password entry field with obscured text |
+| `radio` | a radio button |
+| `range` | a slider control |
+| `reset` | a button that resets all form inputs to their default values (but avoid using this, as it’s rarely useful) |
+| `search` | a search entry field |
+| `submit` | a form submission button |
+| `tel` | a telephone number entry field |
+| `text` | a text entry field |
+| `time` | a time picker with no time zone |
+| `url` | a URL entry field |
+| `week` | a week number and year picker |
+
+### Other Input Attributes
+
+| attribute | description |
+| --------- | ----------- |
+| `accept` | file upload type |
+| `alt` | alternative text for the image types |
+| `autocomplete` | hint for field auto-completion |
+| `autofocus` | focus field on page load |
+| `capture` | media capture input method |
+| `checked` | checkbox/radio is checked |
+| `disabled` | disable the control (it won’t be validated or have its value submitted) |
+| `form` | associate with a form using this ID |
+| `formaction` | URL for submission on submit and image buttons |
+| `inputmode` | data type hint |
+| `list` | ID of <datalist> autocomplete options |
+| `max` | maximum value |
+| `maxlength` | maximum string length |
+| `min` | minimum value |
+| `minlength` | minimum string length |
+| `name` | name of control, as submitted to server |
+| `pattern` | a regular expression pattern, such as [A-Z]+ for one or more uppercase characters |
+| `placeholder` | placeholder text when the field value is empty |
+| `readonly` | the field is not editable, but it will still be validated and submitted |
+| `required` | the field is required |
+| `size` | the size of the control (often overridden in CSS) |
+| `spellcheck` | set true or false spell-checking |
+| `src` | image URL |
+| `step` | incremental values in numbers and ranges |
+| `type` | field type (see above) |
+| `value` | the initial value |
 
 ## Example of most form elements
 
@@ -170,14 +268,122 @@ button, input, select, textarea {
 </script>
 ```
 
-## Action
 
-The url to send the form to.
+## Form Validation
 
-## Method
+Keep in mind that the HTML can be edited by the user, so back-end validation **must** be performed.
 
-GET: Get something from the server; as in "GET the results from the server for this search query"
-POST: Send data to the server; as in "POST this comment to this social media site."
 
-Select which HTTP request method to use.
-[HTTP Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+### Styling
+
+#### `:valid` and `:invalid` and *other psuedo-classes*
+
+[UI Pseudo Classes](https://developer.mozilla.org/en-US/docs/Learn/Forms/UI_pseudo-classes)
+
+``` css
+input {
+    /* black border at start and while editing */
+  border: 2px solid #000;
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+input:invalid,
+input:out-of-range {
+    /* red border when invalid */
+    border-color: red;
+}
+
+input:valid,
+input:in-range {
+    /* green border when valid */
+    border-color: green;
+}
+
+input:checked {
+    color: purple;
+}
+
+input:indeterminate {
+    color: lime;
+}
+
+input:default {
+    color: lightgray;
+}
+
+input:required { 
+    border: 2px dotted #000;
+}
+
+input:optional {
+    border: 2px double #000;
+}
+
+input:enabled,
+input:read-write {
+    background-color: white;
+}
+
+input:disabled,
+input:read-only {
+    background-color: darkgray;
+}
+```
+
+### Adherence to Input Type
+
+> "Please enter a valid email address" (the data you entered is not in the right format).
+
+### `required`
+
+Attribute to make a field required before the form is submitted.
+
+> "This field is required" (You can't leave this field blank).
+
+``` html
+<input type="email" id="user_email" name="user_email" required>
+```
+
+### `minlength` and `maxlength`
+
+Attributes to require length requirements.
+
+``` html
+<input type="email" id="user_email" name="user_email" minlength="7" maxlength="120">
+```
+
+### `min` and `max`
+
+Attributes to require a number in a range
+
+``` html
+<input type="number" id="numx" name="numx" min="100" max="200">
+```
+
+### `pattern`
+
+Attribute to force a match to a regular expression.
+
+Can only be used on `<input>` elements.
+
+> "Please enter your zip code in the format xxxxx-xxxx" (A specific data format is required for it to be considered valid).
+> 
+> "Your password needs to be between 8 and 30 characters long and contain one uppercase letter, one symbol, and a number." (A very specific data format is required for your data).
+
+``` html
+<input type="text" id="zip_code" name="zip_code" pattern="(\d{5}([\-]\d{4})?)" required>
+```
+
+### `title`
+
+Attribute to provide a helpful message when validation is incorrect. Prior to submission, this is a mouse-over effect. When submit is pressed, a message connected to the text box pops up to provide assistance.
+
+``` html
+<input type="text" id="zip_code" name="zip_code" pattern="(\d{5}([\-]\d{4})?)" title="Please enter a valid zip code, example: 65251" required>
+```
+
+### `placeholder`
+
+An attribute to provide example text. This should be used only when formatting assistance is absolutely necessary.
