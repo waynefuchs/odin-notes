@@ -5,7 +5,9 @@
 # Add Software
 
 `sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim`
+
 `git config --global user.name "Wayne Fuchs"`
+
 `git config --global user.email "wayne.fuchs@icloud.com"`
 
 ## Snaps
