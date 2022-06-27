@@ -1,5 +1,6 @@
 - [CSS Notes](#css-notes)
   - [Browser Default CSS](#browser-default-css)
+  - [CSS Resets](#css-resets)
   - [Selectors](#selectors)
   - [Flexbox](#flexbox)
     - [Flex Container](#flex-container)
@@ -18,6 +19,11 @@
 ## Browser Default CSS
 
 * [Chrome](https://chromium.googlesource.com/chromium/blink/+/refs/heads/main/Source/core/css/html.css)
+
+## CSS Resets
+
+* [The Meyer Reset](https://meyerweb.com/eric/tools/css/reset/): Simple and basically removes every default style.
+* [Normalize.css](https://nicolasgallagher.com/about-normalize-css/): Attempts to give all browsers the same starting point.
 
 ## Selectors
 

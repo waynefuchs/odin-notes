@@ -25,6 +25,7 @@
 
 * Code Spell Checker
 * Live Server
+* Markdown All In One
 * Python
 * Pylance
 
@@ -65,8 +66,8 @@
 *WHY* I change these because I get muscle-memory confusion while swapping with windows if I don't
 * /org/gnome/desktop/wm/keybindings/
 	*NOTE* move-to-workspace-right will move focused window AND switch...
-	* switch-to-workspace-right: ['<Ctrl><Super>Right']
-	* switch-to-workspace-left: ['<Ctrl><Super>Left']
+	* switch-to-workspace-right: `['<Ctrl><Super>Right']`
+	* switch-to-workspace-left: `['<Ctrl><Super>Left']`
 
 	*WHY* The following is to allow VSCode ctrl-alt-shift-up/down line-duplication to work
 	* switch-to-workspace-down: []
