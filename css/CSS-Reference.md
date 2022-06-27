@@ -1,4 +1,23 @@
+- [CSS Notes](#css-notes)
+  - [Browser Default CSS](#browser-default-css)
+  - [Selectors](#selectors)
+  - [Flexbox](#flexbox)
+    - [Flex Container](#flex-container)
+    - [Flex Item](#flex-item)
+    - [`flex` Shortcut (`flex-flow` + `flex-shrink` + `flex-basis`)](#flex-shortcut-flex-flow--flex-shrink--flex-basis)
+    - [`flex-flow` Shortcut (`flex-direction` + `flex-wrap`)](#flex-flow-shortcut-flex-direction--flex-wrap)
+    - [Flex Direction](#flex-direction)
+    - [Flex Wrap](#flex-wrap)
+    - [Gap](#gap)
+    - [Justify Content and Align Items](#justify-content-and-align-items)
+  - [Recipes](#recipes)
+    - [Full page alternative CSS box model](#full-page-alternative-css-box-model)
+
 # CSS Notes
+
+## Browser Default CSS
+
+* [Chrome](https://chromium.googlesource.com/chromium/blink/+/refs/heads/main/Source/core/css/html.css)
 
 ## Selectors
 

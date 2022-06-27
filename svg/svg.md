@@ -29,3 +29,4 @@
 ## Tutorials
 
 [Make Awesome SVG Animations with CSS](https://www.youtube.com/watch?v=UTHgr6NLeEw) - Fireship
+[Why the SVG Filter Is Awesome](https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/)
