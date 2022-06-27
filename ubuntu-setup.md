@@ -79,10 +79,10 @@
 * /org/gnome/desktop/background/
 	NOTE: This can be done through gnome-tweaks (shell is faster)
 
-	`gsettings get org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
+	`gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
 	* focus-change-on-pointer-rest: Disable
 	NOTE: Following command does the same thing...
-	
+
 	`gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
 
 
