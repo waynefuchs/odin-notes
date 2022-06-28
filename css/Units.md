@@ -1,6 +1,13 @@
 - [Units](#units)
+  - [Links](#links)
+  - [Absolute Units](#absolute-units)
+  - [Relative Units](#relative-units)
 
 # Units
+
+## Links
+
+* [Fun with Viewport Units](https://css-tricks.com/fun-viewport-units/): css-tricks.com
 
 ## Absolute Units
 
@@ -27,7 +34,7 @@ If the user changes the font size for your website, if you have used Relative Un
 | `em` | ⚠️ | Prefer `rem` to not worry about DOM context | EleMent `font-size`. |
 | `ex` | 🛑 | Limited use | Height of 'x' character in font. |
 | `lh` | 🛑 | Limited use | Line height of the element. |
-| `rem` | ✅ | Based on :root or html | Root EleMent `font-size`. |
+| `rem` | ✔️ | Based on :root or html | Root EleMent `font-size`. |
 | `rlh` | 🛑 | Limited Use | Initial line height of the root element. |
 | `svh` `svw` | ⚠️ | Limited Use | Same as vh/vw returning the smaller of width/height. |
 | `lvh` `lvw` | ⚠️ | Limited Use | Same as vh/vw returning the larger of width/height. |
