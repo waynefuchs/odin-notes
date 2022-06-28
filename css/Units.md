@@ -4,7 +4,7 @@
 
 ## Absolute Units
 
-Where possible in reactive web design, use Relative units where possible.
+Where possible in reactive web design, use Relative units. Padding, Margin, and Borders can benefit from using `px`, as when the page is resized, if a relative unit has been specified, the page can scale in odd ways. The designer should be responsible for determining spacing between elements and whether padding around UI elements should be dependent on things like font size.
 
 | Unit | Use | Reason | Description |
 | ---- | --- | ------ | ----------- |
