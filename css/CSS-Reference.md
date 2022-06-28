@@ -24,6 +24,8 @@
 
 * [The Meyer Reset](https://meyerweb.com/eric/tools/css/reset/): Simple and basically removes every default style.
 * [Normalize.css](https://nicolasgallagher.com/about-normalize-css/): Attempts to give all browsers the same starting point.
+* [History on Resets](https://css-tricks.com/reboot-resets-reasoning/): Interesting and a few other options.
+* [Browser Default Styles](https://browserdefaultstyles.com/): Type in an element, get the differences between browsers
 
 ## Selectors
 
