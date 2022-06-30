@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Test Stuff</title>
+<style>
+html {
+    background-color: #222222;
+}
+div {
+    background-color: blueviolet;
+}
+.static {
+    /* default behavior */
+    position: static;
+    height: 100px;
+    top: 100px;
+}
+.relative {
+    /* default behavior, except top,bottom,left,right will displace the element */
+    position: relative;
+    background-color: green;
+    top: 100px;
+    z-index: 1;
+}
+.absolute {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-color: orange;
+    top: 30px;
+    left: 30px;
+}
+.fixed {
+    position: fixed;
+    background-color: yellow;
+    left: 300px;
+    top: 300px
+}
+.sticky {
+    position: sticky;
+    background-color: blue;
+    top: 200px;
+    left: 50vw;
+}
+.spacer {
+    height: 300px;
+    background-color: #222222;
+}
+.fill-vertical {
+    height: 200vh;
+    background-color: #444444;
+}
+
+</style>
+</head>
+<body>
+    
+    <div class="static">This is static</div>
+    <div class="relative">This is relative</div>
+    <div class="absolute">I'm absolute</div>
+    <div class="fixed"><p>Moo Cow</p><p>When you scroll this box won't move.</p></div>
+    <div class="spacer">Need a bit of space</div>
+    <div class="sticky">What do we have here?</div>
+    <div class="fill-vertical">I am just going to fill a bunch of space at the bottom of the page to give the page a scroll bar.</div>
+
+</body>
+</html>

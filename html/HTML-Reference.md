@@ -1,3 +1,23 @@
+- [HTML Notes](#html-notes)
+  - [Generic Attributes](#generic-attributes)
+  - [Elements](#elements)
+    - [Anchor](#anchor)
+    - [Comments](#comments)
+    - [Content](#content)
+    - [Figure and Caption](#figure-and-caption)
+    - [Heading](#heading)
+    - [Image](#image)
+    - [Lists](#lists)
+    - [List Items](#list-items)
+    - [Paragraph](#paragraph)
+    - [Text Options](#text-options)
+  - [Forms](#forms)
+    - [Button](#button)
+    - [Form](#form)
+    - [Input](#input)
+    - [Label](#label)
+  - [HTML Styling](#html-styling)
+
 # HTML Notes
 
 ## Generic Attributes

@@ -9,8 +9,6 @@
     - [Other Input Attributes](#other-input-attributes)
   - [Example of most form elements](#example-of-most-form-elements)
   - [Form Validation](#form-validation)
-    - [Styling](#styling)
-      - [`:valid` and `:invalid` and *other psuedo-classes*](#valid-and-invalid-and-other-psuedo-classes)
     - [Adherence to Input Type](#adherence-to-input-type)
     - [`required`](#required)
     - [`minlength` and `maxlength`](#minlength-and-maxlength)
@@ -18,6 +16,7 @@
     - [`pattern`](#pattern)
     - [`title`](#title)
     - [`placeholder`](#placeholder)
+  - [Pseudo-Classes](#pseudo-classes)
 
 # Forms
 
@@ -274,64 +273,6 @@ button, input, select, textarea {
 Keep in mind that the HTML can be edited by the user, so back-end validation **must** be performed.
 
 
-### Styling
-
-#### `:valid` and `:invalid` and *other psuedo-classes*
-
-[UI Pseudo Classes](https://developer.mozilla.org/en-US/docs/Learn/Forms/UI_pseudo-classes)
-
-``` css
-input {
-    /* black border at start and while editing */
-  border: 2px solid #000;
-  margin-bottom: 15px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-input:invalid,
-input:out-of-range {
-    /* red border when invalid */
-    border-color: red;
-}
-
-input:valid,
-input:in-range {
-    /* green border when valid */
-    border-color: green;
-}
-
-input:checked {
-    color: purple;
-}
-
-input:indeterminate {
-    color: lime;
-}
-
-input:default {
-    color: lightgray;
-}
-
-input:required { 
-    border: 2px dotted #000;
-}
-
-input:optional {
-    border: 2px double #000;
-}
-
-input:enabled,
-input:read-write {
-    background-color: white;
-}
-
-input:disabled,
-input:read-only {
-    background-color: darkgray;
-}
-```
-
 ### Adherence to Input Type
 
 > "Please enter a valid email address" (the data you entered is not in the right format).
@@ -387,3 +328,8 @@ Attribute to provide a helpful message when validation is incorrect. Prior to su
 ### `placeholder`
 
 An attribute to provide example text. This should be used only when formatting assistance is absolutely necessary.
+
+
+## Pseudo-Classes
+
+See: css/Pseudo-Classes.md
