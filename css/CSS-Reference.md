@@ -6,6 +6,7 @@
     - [Links](#links)
     - [My Selector Notes](#my-selector-notes)
     - [Examples](#examples)
+  - [Positioning](#positioning)
 
 # CSS Notes
 
@@ -92,3 +93,39 @@ img[src="puppy.jpg"] {
 }
 ```
 
+## [Positioning](test/position.html)
+
+The css property: `position: [static|absolute|relative|fixed|sticky]`
+
+Accessibility: `fixed` and `absolute` can obscure other content when the page is zoomed and can create accessibility issues.
+
+Performance: `fixed` and `sticky` can cause stutter and lag, depending on the elements' contents. One fix is to add `will-change: transform;` to that element's styling.
+
+* `static`
+
+  Static is the default.
+
+* `relative`
+  
+  Behaves like static, except 'top|right|bottom|left' moves the element, keeping the initial reserved positioning intact.
+
+  Note: relative positioning is rarely used in conjunction with 'top|right|bottom|left' due to the issues that would cause, and instead is usually paired with a child of position type absolute in order to create a container for another element to position absolutely inside of.
+
+* `absolute`
+
+  An absolute positioning removes the element from the document flow, and everything else on the page will render as if the absolutely positioned element does not exist.
+
+  The 'top|right|bottom|right' properties will absolutely position the element to an x,y position space in that parent container. The parent to be positioned inside of can not have a position property set to static, it must be 'relative|absolute|sticky|fixed', and it will traverse upwards through the DOM until it arrives at an appropriate parent, likely 'head'.
+
+* `fixed`
+
+  Behaves similar to absolute positioning with a few caveats.
+
+  1. Even during a scroll event, the element will remain stationary on the screen in the prescribed position.
+  2. The top|right|bottom|left position is based on the viewport. not a parent element.
+
+* `sticky`
+
+  Combination of relative and fixed into an interesting positioning property.
+
+  Allows you to put an element onto the page and it will stay there as you (attempt to) scroll past it.
