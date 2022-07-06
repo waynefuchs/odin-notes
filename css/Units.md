@@ -33,6 +33,7 @@ If the user changes the font size for your website, if you have used Relative Un
 | `dvh` `dvw` | 🛑 | Performance and Scrolling Issues | Similar to vh and vw. (?) |
 | `em` | ⚠️ | Prefer `rem` to not worry about DOM context | EleMent `font-size`. |
 | `ex` | 🛑 | Limited use | Height of 'x' character in font. |
+| `fr` | ✔️ | Good for responsive grid layouts | Fraction |
 | `lh` | 🛑 | Limited use | Line height of the element. |
 | `rem` | ✔️ | Based on :root or html | Root EleMent `font-size`. |
 | `rlh` | 🛑 | Limited Use | Initial line height of the root element. |
