@@ -17,10 +17,8 @@
     - [`grid-auto-rows:` or `grid-auto-columns:`](#grid-auto-rows-or-grid-auto-columns)
     - [`grid-template-areas`](#grid-template-areas)
     - [`grid-area`](#grid-area-1)
-    - [`grid-template` (shortcut)](#grid-template-shortcut)
     - [`justify-items` and `align-items` or `place-items` (shortcut)](#justify-items-and-align-items-or-place-items-shortcut)
     - [`justify-content` and `align-content` or `place-content` (shortcut)](#justify-content-and-align-content-or-place-content-shortcut)
-    - [`grid-auto-columns` and `grid-auto-rows`](#grid-auto-columns-and-grid-auto-rows)
     - [`grid-auto-flow`](#grid-auto-flow)
     - [`grid` (shortcut)](#grid-shortcut)
 
@@ -96,6 +94,9 @@ Note1 that the columns and rows can be named.
 
 Note2 that `grid-column-gap` and `grid-row-gap` are deprecated versions of the same thing and may show up in legacy code.
 
+TODO: Learn this later. css-tricks says that the `grid` property is recommended over this shortcut. It looks interesting, but is outside of my comfort to use at the moment.
+Note3 `grid-template` (shortcut): Combines `grid-template-rows`, `grid-template-columns`, and `grid-template-areas` into a single declaration.
+
 
 ### `column-gap:` or `row-gap:` or `gap:` (shortcut)
 
@@ -106,8 +107,7 @@ Note2 that `grid-column-gap` and `grid-row-gap` are deprecated versions of the s
 
 ### `grid-auto-rows:` or `grid-auto-columns:`
 
-* Explicitly state what implicit row height should be.
-* Explicitly state what implicit column width should be.
+Specify the size of implicitly generated columns or rows.
 
 
 ### `grid-template-areas`
@@ -135,12 +135,6 @@ Assign a grid-area label to a css element. In the example below it happens to be
 }
 ```
 
-### `grid-template` (shortcut)
-
-Combines `grid-template-rows`, `grid-template-columns`, and `grid-template-areas` into a single declaration.
-
-TODO: Learn this later. css-tricks says that the `grid` property is recommended over this shortcut. It looks interesting, but is outside of my comfort to use at the moment.
-
 
 ### `justify-items` and `align-items` or `place-items` (shortcut)
 
@@ -161,11 +155,6 @@ Options
 Similarly to the `*-items` variant of these properties, this adjusts the alignment of the entire grid.
 
 
-### `grid-auto-columns` and `grid-auto-rows`
-
-Specify the size of implicitly generated columns or rows.
-
-
 ### `grid-auto-flow`
 
 Control how the auto-placement algorithm works for implicitly defined cells.
@@ -175,4 +164,4 @@ Control how the auto-placement algorithm works for implicitly defined cells.
 
 A shorthand that allows the use of most grid properties in a single declaration.
 
-TODO: Dig into this after a bit more experience with grid, perhaps. This, again, is beyond my ability to utilize.
+TODO: Dig into this after a bit more experience with grid, perhaps. This, again, is beyond my ability to utilize at the moment.
