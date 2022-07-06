@@ -8,6 +8,10 @@
 
     <style>
 
+body {
+    padding: 100px;
+}
+
 
 .container > div {
     border: 1px solid black;
@@ -29,9 +33,40 @@
 }
 
 
+
+
+.item-a {
+    grid-area: header;
+    background-color: green;
+}
+.item-b {
+    grid-area: main;
+    background-color: blue;
+}
+.item-c {
+    grid-area: sidebar;
+    background-color: orange;
+}
+.item-d {
+    grid-area: footer;
+    background-color: red;
+}
+.container-test {
+    display: grid;
+    grid-template-columns: 150px 50px 50px 50px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header header header"
+        "main main . sidebar"
+        "footer footer footer footer";
+}
+
     </style>
 </head>
 <body>
+
+    <!-- General Grid -->
+    <h1>general grid testing</h1>
     <div class="container">
         <div>Item 1</div>
         <div>
@@ -42,5 +77,16 @@
         <div>Item 5</div>
         <div>Item 6</div>
       </div>
+
+
+      
+    <!-- Testing grid-template-areas -->
+    <h1>grid-template-areas</h1>
+    <div class="container-test">
+        <div class="item-a">Item 0</div>
+        <div class="item-b">Item 1</div>
+        <div class="item-c">Item 2</div>
+        <div class="item-d">Item 3</div>
+    </div>
 </body>
 </html>
