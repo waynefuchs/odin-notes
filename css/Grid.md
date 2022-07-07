@@ -21,6 +21,9 @@
     - [`justify-items` and `align-items` or `place-items` (shortcut)](#justify-items-and-align-items-or-place-items-shortcut)
     - [`justify-content` and `align-content` or `place-content` (shortcut)](#justify-content-and-align-content-or-place-content-shortcut)
     - [`grid-auto-flow`](#grid-auto-flow)
+    - [`minmax()`](#minmax)
+    - [`resize`](#resize)
+    - [`overflow`](#overflow)
     - [`grid` (shortcut)](#grid-shortcut)
   - [Recipes](#recipes)
     - [Stretch an item across the grid](#stretch-an-item-across-the-grid)
@@ -136,7 +139,7 @@ Can be used to assign a name to an item.
 }
 ```
 
-Can also be used as a shorthand for `grid-row-start` / `grid-column-start` / `grid-row-end` / `grid-column-end:`
+Can also be used as a shorthand for `grid-row-start` / `grid-column-start` / `grid-row-end` / `grid-column-end:` to define an area of cells between lines.
 
 ```css
 .item-d {
@@ -183,6 +186,51 @@ Similarly to the `*-items` variant of these properties, this adjusts the alignme
 
 Control how the auto-placement algorithm works for implicitly defined cells.
 
+
+### `minmax()`
+
+Can only be used in:
+* `grid-template-columns`
+* `grid-template-rows`
+* `grid-auto-columns`
+* `grid-auto-rows`
+
+Minmax benefits significantly from `auto-fit` and `auto-fill`.
+* `auto-fit`: will fill all available space in the grid container, sizing the items up
+* `auto-fill`: will stop item size expansion above the minmax value
+
+```css
+.item {
+  /* cell width will be between 150px and 200px */
+  grid-template-columns: repeat(5, minmax(150px, 200px));
+}
+```
+![Example](../images-for-notes/css_auto-fit_vs_auto-fill.png)
+
+### `resize`
+
+```css
+.element {
+  resize: both | horizontal | vertical | none;
+}
+```
+
+### `overflow`
+
+What to do when the content of an element extends beyond the element bounds.
+
+``` css
+.element {
+  overflow: visible | hidden | clip | scroll | auto | hidden visible;
+}
+```
+
+* visible: render outside the padding box
+* hidden: clip content at the padding / border.
+* scroll: provide scroll bars if content extends
+* auto: leave it up to the browser (desktop provides scroll bars)
+* overlay: behaves the same as auto but with scroll bars drawn on top instead of taking up space.
+* hidden visible: no idea...(?) [source](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
 
 ### `grid` (shortcut)
 
