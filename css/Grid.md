@@ -185,6 +185,13 @@ Similarly to the `*-items` variant of these properties, this adjusts the alignme
 ### `grid-auto-flow`
 
 Control how the auto-placement algorithm works for implicitly defined cells.
+For example, add new flex-items as a new row or column.
+
+```css
+.container {
+  grid-auto-flow: column | row;
+}
+```
 
 
 ### `minmax()`

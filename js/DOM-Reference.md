@@ -82,6 +82,7 @@ div.innerHTML = '<p>hi!</p>';
 ```
 
 
+<<<<<<< HEAD
 ## DOM (From old Javascript-Reference Notes)
 
 Select a container element and append a new paragraph element to it, then change the new paragraph to read "Hello World!".
@@ -93,3 +94,11 @@ output.appendChild(para);
 para.textContent = "Hello World!";
 ```
 
+=======
+## Visibility
+
+``` javascript
+document.querySelector("#something").style.visibility = "hidden";
+document.querySelector("#something").style.visibility = "visible";
+```
+>>>>>>> acd7d49 (Merge remote changes)

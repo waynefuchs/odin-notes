@@ -7,7 +7,7 @@ const variableProperty = "some value from somewhere";
 const newProperty = "tagline";
 var theObject = {
     aProperty: 'has some value',
-    'has multiple word': true,  // cannot be accessed through 'dot access' must use theObject['has multiple words']
+    'has multiple word': true,              // cannot be accessed through 'dot access' must use theObject['has multiple words']
     lastPropertyCanHaveComma: 1234.5678,
     [variableProperty]: "some value",       // 1* See below
 };
