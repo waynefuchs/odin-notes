@@ -1,3 +1,14 @@
+- [DOM Reference](#dom-reference)
+  - [References](#references)
+  - [Selector](#selector)
+  - [Element Creation](#element-creation)
+  - [Styling](#styling)
+  - [Update Attributes](#update-attributes)
+  - [Working with Classes](#working-with-classes)
+  - [Text Content](#text-content)
+  - [HTML Content](#html-content)
+  - [DOM (From old Javascript-Reference Notes)](#dom-from-old-javascript-reference-notes)
+
 # DOM Reference
 
 ## References
@@ -69,3 +80,16 @@ Use sparingly or not at all, can cause security issues. (javascript injection)
 ``` javascript
 div.innerHTML = '<p>hi!</p>';
 ```
+
+
+## DOM (From old Javascript-Reference Notes)
+
+Select a container element and append a new paragraph element to it, then change the new paragraph to read "Hello World!".
+
+``` javascript
+const output = document.querySelector('.output');
+const para = document.createElement('p');
+output.appendChild(para);
+para.textContent = "Hello World!";
+```
+

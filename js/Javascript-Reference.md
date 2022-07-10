@@ -27,16 +27,11 @@
 (AirBnB's JavaScript Style Guide)[https://github.com/airbnb/javascript]
 
 
-## DOM
+## Scope vs. Context
 
-Select a container element and append a new paragraph element to it, then change the new paragraph to read "Hello World!".
+* Scope: What variables you have access to
+* Context: What `this` points at
 
-``` javascript
-const output = document.querySelector('.output');
-const para = document.createElement('p');
-output.appendChild(para);
-para.textContent = "Hello World!";
-```
 
 ## Variables
 
