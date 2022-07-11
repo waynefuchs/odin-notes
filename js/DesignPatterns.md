@@ -19,6 +19,7 @@ TODO: Go through here and consolidate and review this at the end.
 
 ## Links
 
+* O'reilly [JavaScript Design Patterns](https://www.patterns.dev/posts/classic-design-patterns/)
 * The Free Book [You don't know JS](https://github.com/getify/You-Dont-Know-JS/tree/1st-ed#titles) explains how js works under the hood.
 * Explanation of [JavaScript 'this' keyword](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
 * [A Beginner's Guide to JavaScript's Prototype](https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript/)
