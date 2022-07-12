@@ -1,3 +1,7 @@
+# Ubuntu Setup
+
+I have installed ubuntu on three computers. During the second install, I realized that I should have made a step-by-step during the first time. Ah well. The third install went pretty quickly because of this file.
+
 # Fix time zone
 
 `timedatectl set-local-rtc 1`
