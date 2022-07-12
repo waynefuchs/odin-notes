@@ -12,6 +12,7 @@
   - [TOP Lessons](#top-lessons)
     - [Objects and Object Constructors](#objects-and-object-constructors)
     - [Factory Functions and the Module Pattern](#factory-functions-and-the-module-pattern-1)
+    - [Classes](#classes-1)
 
 # Design Patterns
 
@@ -243,3 +244,117 @@ The way to set object inheritance in JS/ES.
   Namespacing is the separation of naming scope, where you can specify two functions in the same program with the same name. 
   
   Example: A calculator module that benefits from having an 'add()' function, and also a UI progress bar that benefits from being able to 'add()' progress. This is possible as long as you don't have namespace collisions.
+
+
+
+### Classes
+
+```javascript
+// Here is an example of what a class looks like
+class MyClass {
+  prop = value; // property
+
+  constructor(...) { // constructor
+    // ...
+  }
+
+  method(...) {} // method
+
+  get something(...) {} // getter method
+  set something(...) {} // setter method
+
+  [Symbol.iterator]() {} // method with computed name (symbol here)
+  // ...
+}
+```
+
+
+* Describe the pros and cons of using classes in JavaScript.
+
+  Pros:
+    * ES6 `class` adds a standard (looking) OOP feature
+
+  Cons:
+    * Isn't actually a "class"
+    * Doesn't work with functional programming
+
+
+
+* Briefly discuss how JavaScript’s object creation differs from a language like Java or Ruby.
+
+  In other OOP languages, the class is used as a structure for their objects. In JS, objects don't really have structure, they are just bits of combined and referenced data.
+
+
+
+* Explain the differences between using a class to define a constructor and other prototype methods.
+
+  * Classes have the internal property `[[IsClassConstructor]]: true;`
+  * Classes are non-enumerable
+  * Classes always `use strict`
+
+  * Classes are not hoisted. Javascript does something called "hoisting," where declarations are moved to the top of their scope prior to code execution.
+  * Classes allow the definition of `static` methods. (no access to `this` and are run in `"use strict"` mode)
+  * Class fields (same as properties, except for the declaration) can be *public* (`height = 0;`) or *private* (`#height = 7;` or `this.#height = constructorHeight;` if declared inside a class method).
+  * Classes can be extended. (`class Dog extends Animal;`) Classes can extend constructable objects in addition to classes.
+  * Use of the `super` keyword to do super calls is allowed. In example, you can call `super.method()` to gain access to the extended class's method. This is not possible with prototype-based inheritance.
+  * Classes can not be redefined. Doing so throws an error.
+
+
+
+* Explain what “getters” & “setters” are.
+
+  Getters and setters are methods that modify fields/properties in a class, allowing for more than just the variable adjustment to take place. (For example, updating the UI along with the variable update.)
+
+  They also allow public access to private fields to protect tampering.
+
+
+
+* Understand what computed names and class fields are.
+
+  Computed names are a way to use a variable as a method name. `method = "method"; ['this' + 'Is' + 'A' + method]() {alert("not a security risk at all... /s");}`
+
+  Class fields are class properties that are defined in the class body. Defining them at the top of the class can help to make the code more self documenting.
+
+  Class properties *must* be defined in methods.
+
+
+
+* Describe function binding.
+
+  You can use `bind()` to create a "bound variant" of a function, meaning that even if the object changes, the original function will be called. This is especially useful when dealing with input events and timers.
+
+
+
+* Be able to use inheritance with classes.
+
+  This is just being able to use the `extends` and `super` keywords, like so:
+
+  ```javascript
+  class Cat {
+    constructor(name) {
+      this.name = name;
+    }
+
+    speak() {
+      console.log(`${this.name} makes a noise.`);
+    }
+  }
+
+  class Lion extends Cat {
+    speak() {
+      super.speak();
+      console.log(`${this.name} roars.`);
+    }
+  }
+
+  const l = new Lion('Fuzzy');
+  l.speak();
+  // Fuzzy makes a noise.
+  // Fuzzy roars.
+  ```
+
+
+
+* Briefly talk about the conflict in JS with functional programming and classes.
+
+  In JavaScript, classes are not enumerable. Functional programming requires enumerable objects. This means that you can not directly use classes in functional programming.

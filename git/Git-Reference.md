@@ -26,12 +26,31 @@
 
 ## Branching
 
-`git checkout -b new-branch-name`: Create a branch called new-branch-name and switch to it. Shorthand for:
+### To Create a new branch
 
-   > `git branch new-branch-name`
-   > `git checkout new-branch-name`
+`git checkout -b <new-branch-name>`: Create a branch called new-branch-name and switch to it. Shorthand for:
 
+   (1) Create a new branch (2) Switch to the branch
 
+   > 1. `git branch <new-branch-name>`
+   > 2. `git checkout <new-branch-name>`
+
+### To merge the changes in the new branch back to main
+
+(1) Switch back to the main branch (2) Merge the branch in
+
+`git checkout main`
+`git merge <new-branch-name>`
+
+### To remove the branch when it is no longer needed
+
+Remove a branch when it has been merged.
+
+`git branch -d <branch-name>`
+
+Remove a branch when it has not been merged.
+
+`git branch -D <branch-name>`
 
 ## Generate ssh key
 
