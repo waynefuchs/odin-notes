@@ -14,19 +14,13 @@
 
 `npm run build`: Will tell npm to run webpack (and others tools!) automatically.
 
+`npm uninstall <packages>`: Uninstall npm packages
+
 ## Dev Packages
 
-[webpack](https://webpack.js.org/): A tool for bundling modules. [Config](https://webpack.js.org/configuration/) docs.
+[webpack](https://webpack.js.org/): See my [webpack](webpack.md) notes.
 
-    `npm install --save-dev style-loader css-loader`: Inject CSS into the DOM and interpret @import and url() like import/requre() and resolve them.
 
-    > [style-loader](https://webpack.js.org/loaders/style-loader/)
-
-    > [css-loader](https://webpack.js.org/loaders/css-loader/)
-
-    [Asset Modules](https://webpack.js.org/guides/asset-modules/): This is built-in, no npm required. It just needs to be set up in the `webpack.config.js`
-
-    [sass](https://sass-lang.com/)
 
 ## Packages
 
