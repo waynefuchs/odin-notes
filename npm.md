@@ -16,6 +16,28 @@
 
 `npm uninstall <packages>`: Uninstall npm packages
 
+
+## Skeleton Project
+
+Create a github project. (Or gitea, or local git, or however you want to handle git...)
+
+`git clone <project-url>`
+
+And then:
+
+```bash
+touch README.md
+curl https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore > .gitignore
+npm init -y
+npm install webpack webpack-cli --save-dev
+mkdir src dist
+touch src/index.js dist/index.html 
+```
+
+```javascript test
+
+```
+
 ## Dev Packages
 
 [webpack](https://webpack.js.org/): See my [webpack](webpack.md) notes.
