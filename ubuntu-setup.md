@@ -8,7 +8,7 @@ I have installed ubuntu on three computers. During the second install, I realize
 
 # Add Software
 
-`sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim`
+`sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro`
 
 `git config --global user.name "Wayne Fuchs"`
 
