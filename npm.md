@@ -3,7 +3,7 @@
   - [Skeleton Project](#skeleton-project)
   - [Dev Packages](#dev-packages)
   - [Packages](#packages)
-  - [eslint](#eslint)
+  - [eslint + prettier](#eslint--prettier)
     - [Installation](#installation)
     - [Running (manual)](#running-manual)
     - [Running (vscode)](#running-vscode)
@@ -74,21 +74,39 @@ touch src/index.js dist/index.html
 
 
 
-## eslint
+## eslint + prettier
 
 ### Installation
 
-Official Installation [Instructions](https://eslint.org/docs/user-guide/getting-started)
+ESLint official installation [instructions](https://eslint.org/docs/user-guide/getting-started)
 
-To install and configure: `npm init @eslint/config`
+Prettier official installation [instructions](prettier.io/docs/en/install.html)
+
+To install and configure: 
+
+```
+npm init @eslint/config
+npm install --save-dev --save-exact prettier
+echo {}> .prettierrc.json
+cp .gitignore .prettierignore
+npm install --save-dev eslint-config-prettier
+```
+
+In the `.eslintrc.js`, change to: 
+`extends: ["airbnb-base", "prettier"],`
 
 ### Running (manual)
 
 `npx eslint filename.js`
 
+`npx prettier --write .` (Format all files)
+
 ### Running (vscode)
 
 Install [this module](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
+
+
 
 
 
