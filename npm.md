@@ -1,3 +1,25 @@
+- [npm](#npm)
+  - [Commands](#commands)
+  - [Skeleton Project](#skeleton-project)
+  - [Dev Packages](#dev-packages)
+  - [Packages](#packages)
+  - [eslint](#eslint)
+    - [Installation](#installation)
+    - [Running (manual)](#running-manual)
+    - [Running (vscode)](#running-vscode)
+  - [Odin Questions](#odin-questions)
+    - [Explain what npm is and where it was commonly used before being adopted on the frontend.](#explain-what-npm-is-and-where-it-was-commonly-used-before-being-adopted-on-the-frontend)
+    - [Describe what npm init does and what package.json is.](#describe-what-npm-init-does-and-what-packagejson-is)
+    - [Know how to install packages using npm.](#know-how-to-install-packages-using-npm)
+    - [Describe what a JavaScript module bundler like webpack is.](#describe-what-a-javascript-module-bundler-like-webpack-is)
+    - [Explain what the concepts “entry” and “output” mean as relates to webpack.](#explain-what-the-concepts-entry-and-output-mean-as-relates-to-webpack)
+    - [Briefly explain what a development dependency is.](#briefly-explain-what-a-development-dependency-is)
+    - [Explain what “transpiling code” means and how it relates to frontend development.](#explain-what-transpiling-code-means-and-how-it-relates-to-frontend-development)
+    - [Briefly describe what a task runner is and how it’s used in frontend development.](#briefly-describe-what-a-task-runner-is-and-how-its-used-in-frontend-development)
+    - [Describe how to write an npm automation script.](#describe-how-to-write-an-npm-automation-script)
+    - [Explain one of the main benefits of writing code in modules.](#explain-one-of-the-main-benefits-of-writing-code-in-modules)
+    - [Explain “named exports” and “default exports”.](#explain-named-exports-and-default-exports)
+
 # npm
 
 ## Commands
@@ -52,58 +74,76 @@ touch src/index.js dist/index.html
 
 
 
+## eslint
+
+### Installation
+
+Official Installation [Instructions](https://eslint.org/docs/user-guide/getting-started)
+
+To install and configure: `npm init @eslint/config`
+
+### Running (manual)
+
+`npx eslint filename.js`
+
+### Running (vscode)
+
+Install [this module](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 
-## Explain what npm is and where it was commonly used before being adopted on the frontend.
+
+## Odin Questions
+
+### Explain what npm is and where it was commonly used before being adopted on the frontend.
 
 > npm is a package manager for JavaScript packages. It was originally 'node package manager' to manage packages for node.js.
 
 
-## Describe what npm init does and what package.json is.
+### Describe what npm init does and what package.json is.
 
 > `npm init` initializes (creates) a new node project, including the `package.json`. That json file is the configuration file for the project, so you don't have to share all of your dependencies, just the project file, and node will handle downloading and arranging all of the files into a deployable project.
 
 
-## Know how to install packages using npm.
+### Know how to install packages using npm.
 
 > `npm install <package> --save`
 > `npm install <package> --save-dev`
 
 
 
-## Describe what a JavaScript module bundler like webpack is.
+### Describe what a JavaScript module bundler like webpack is.
 
 > Webpack will assemble and minify many javascript files into a single transpiled package.
 
 
 
 
-## Explain what the concepts “entry” and “output” mean as relates to webpack.
+### Explain what the concepts “entry” and “output” mean as relates to webpack.
 
 > Entry, in this context, is where webpack goes to start processing files.
 > Output is where the transpiled code is going to be placed.
 
 
 
-## Briefly explain what a development dependency is.
+### Briefly explain what a development dependency is.
 
 > A development dependency is some tool, module, or bit of code that is essential to the build or development process. Webpack is a development dependency and not a normal dependency because webpack is not required to run a site in production, once the site has been transpiled.
 
 
 
-## Explain what “transpiling code” means and how it relates to frontend development.
+### Explain what “transpiling code” means and how it relates to frontend development.
 
 > Transpiling code is the conversion of code from one language to the same language or similar language. This can be some form of near-CSS to CSS, or even javascript to javascript with specific browser support added in.
 
 
 
-## Briefly describe what a task runner is and how it’s used in frontend development.
+### Briefly describe what a task runner is and how it’s used in frontend development.
 
 > A tool that automates steps in the build process.
 
 
 
-## Describe how to write an npm automation script.
+### Describe how to write an npm automation script.
 
 > By adding the following bit of json to the `package.json` file:
 
@@ -116,13 +156,13 @@ touch src/index.js dist/index.html
 
 
 
-## Explain one of the main benefits of writing code in modules.
+### Explain one of the main benefits of writing code in modules.
 
 > You can copy and reuse bits of code easily.
 
 
 
-## Explain “named exports” and “default exports”.
+### Explain “named exports” and “default exports”.
 
 > Named Exports: When you have multiple functions to export, you can specify them all like so:
 
