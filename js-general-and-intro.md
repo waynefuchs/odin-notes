@@ -26,6 +26,10 @@
 
 (AirBnB's JavaScript Style Guide)[https://github.com/airbnb/javascript]
 
+(Google's Style Guide for JS)[https://google.github.io/styleguide/jsguide.html]
+
+(JavaScript Standard Style)[https://standardjs.com/rules.html] Used by companies like NPM and GitHub
+
 
 ## Scope vs. Context
 
