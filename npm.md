@@ -103,9 +103,9 @@ In the `.eslintrc.js`, change to:
 
 ### Running (vscode)
 
-Install [this module](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+Install [this ESLint module](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-
+Install [this Prettier Formatter module](github.com/prettier/prettier-vscode)
 
 
 
