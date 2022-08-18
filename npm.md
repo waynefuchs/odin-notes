@@ -53,11 +53,20 @@ curl https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore > .g
 npm init -y
 npm install webpack webpack-cli --save-dev
 mkdir src dist
-touch src/index.js dist/index.html 
+touch src/index.js dist/index.html webpack.config.js
 ```
 
-```javascript test
+webpack.config.js
+```javascript
+const path = require('path');
 
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+};
 ```
 
 ## Dev Packages
