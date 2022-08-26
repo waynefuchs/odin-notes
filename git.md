@@ -10,7 +10,7 @@
 
 `git status`: show that status of the project files (modified -> staged -> committed)
 
-`git log`: show a history of commits
+`git log`: show a history of commits (add `--oneline` to show only subject)
 
 `git restore --staged <file>`: un-stage a file
 
