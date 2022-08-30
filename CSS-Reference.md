@@ -1,4 +1,4 @@
-- [CSS Notes](#css-notes)
+- [CSS Reference](#css-reference)
   - [Browser Default CSS](#browser-default-css)
   - [CSS Resets](#css-resets)
   - [Specificity](#specificity)
@@ -14,7 +14,7 @@
       - [`min(a, b, ...)`](#mina-b-)
       - [`max(a, b, ...)`](#maxa-b-)
 
-# CSS Notes
+# CSS Reference
 
 ## Browser Default CSS
 
