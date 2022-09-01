@@ -1,5 +1,7 @@
 - [Forms](#forms)
   - [Links](#links)
+    - [HTML](#html)
+    - [JS (Intermediate - Advanced)](#js-intermediate---advanced)
   - [Properties](#properties)
     - [Action](#action)
     - [Method](#method)
@@ -17,20 +19,27 @@
     - [`title`](#title)
     - [`placeholder`](#placeholder)
   - [Pseudo-Classes](#pseudo-classes)
+  - [Validation](#validation)
+    - [Methods](#methods)
+    - [Validity Properties](#validity-properties)
 
 # Forms
 
 ## Links
 
-[UX Form Design for Mobile](https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/)
+### HTML
 
-[Web Form Usability](https://www.smashingmagazine.com/2011/11/extensive-guide-web-form-usability/)
+* [UX Form Design for Mobile](https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/)
+* [Web Form Usability](https://www.smashingmagazine.com/2011/11/extensive-guide-web-form-usability/)
+* [Styling Checkbox](https://moderncss.dev/pure-css-custom-checkbox-style/)
+* [ClientSide: Validating Forms Using Javascript](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript)
+* [Form Validation UX](https://css-tricks.com/form-validation-ux-html-css/)
 
-[Styling Checkbox](https://moderncss.dev/pure-css-custom-checkbox-style/)
+### JS (Intermediate - Advanced)
 
-[ClientSide: Validating Forms Using Javascript](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript)
-
-[Form Validation UX](https://css-tricks.com/form-validation-ux-html-css/)
+* [JS Validation API](https://www.w3schools.com/js/js_validation_api.asp) - Brief
+* [Validating Forms Using JS](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript)
+* [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation)
 
 ## Properties
 
@@ -333,3 +342,47 @@ An attribute to provide example text. This should be used only when formatting a
 ## Pseudo-Classes
 
 See: css/Pseudo-Classes.md
+
+
+## Validation
+
+### Methods
+
+* `element.checkValidity()`
+* `element.reportValidity()`
+* `element.setCustomValidity()`
+
+### Validity Properties
+
+`element.validity.<property>`
+
+| property | description | 
+| ----- | ----- |
+| customError | Set to true, if a custom validity message is set. |
+| patternMismatch | Set to true, if an element's value does not match its pattern  |attribute.
+| rangeOverflow | Set to true, if an element's value is greater than its max  |attribute.
+| rangeUnderflow | Set to true, if an element's value is less than its min  |attribute.
+| stepMismatch | Set to true, if an element's value is invalid per its step  |attribute.
+| tooLong | Set to true, if an element's value exceeds its maxLength attribute. |
+| typeMismatch | Set to true, if an element's value is invalid per its type  |attribute.
+| valueMissing | Set to true, if an element (with a required attribute) has no value. |
+| valid | Set to true, if an element's value is valid. |
+
+
+``` js
+// Validity Example
+const checkValidity = () => {
+    if(element.validity.valueMissing) {
+        element.setCustomValidity('Value is missing');
+    } else if(element.validity.typeMismatch) {
+        element.setCustomValidity('Not a proper email address|number|whatever');
+    } else if(valid) {
+        element.setCustomValidity('');
+        return true;
+    } else {
+        element.setCustomValidity('Some other error');
+    }
+    element.reportValidity();
+    return false;
+}
+```
