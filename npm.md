@@ -7,6 +7,9 @@
     - [Installation](#installation)
     - [Running (manual)](#running-manual)
     - [Running (vscode)](#running-vscode)
+  - [Babel](#babel)
+    - [References](#references)
+    - [Installation](#installation-1)
   - [Odin Questions](#odin-questions)
     - [Explain what npm is and where it was commonly used before being adopted on the frontend.](#explain-what-npm-is-and-where-it-was-commonly-used-before-being-adopted-on-the-frontend)
     - [Describe what npm init does and what package.json is.](#describe-what-npm-init-does-and-what-packagejson-is)
@@ -117,6 +120,38 @@ Install [this ESLint module](https://marketplace.visualstudio.com/items?itemName
 Install [this Prettier Formatter module](github.com/prettier/prettier-vscode)
 
 
+
+## Babel
+
+### References
+
+* [Github page](https://github.com/babel/babel-loader) can be found here.
+* [What is @babel/preset-env and why do i need it](https://blog.jakoblind.no/babel-preset-env/)
+
+
+### Installation
+
+`npm install -D babel-loader @babel/core @babel/preset-env webpack`
+
+Add to `webpack.config.js`:
+```
+module: {
+  rules: [
+    {
+      test: /\.m?js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            ['@babel/preset-env', { targets: "defaults" }]
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 
 ## Odin Questions
