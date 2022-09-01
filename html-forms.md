@@ -1,7 +1,7 @@
 - [Forms](#forms)
   - [Links](#links)
     - [HTML](#html)
-    - [JS (Intermediate - Advanced)](#js-intermediate---advanced)
+    - [JS Validation](#js-validation)
   - [Properties](#properties)
     - [Action](#action)
     - [Method](#method)
@@ -35,11 +35,12 @@
 * [ClientSide: Validating Forms Using Javascript](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript)
 * [Form Validation UX](https://css-tricks.com/form-validation-ux-html-css/)
 
-### JS (Intermediate - Advanced)
+### JS Validation
 
 * [JS Validation API](https://www.w3schools.com/js/js_validation_api.asp) - Brief
 * [Validating Forms Using JS](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#validating_forms_using_javascript)
 * [Constraint Validation API](https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation)
+* [validate.js](https://rickharrison.github.io/validate.js/)
 
 ## Properties
 
