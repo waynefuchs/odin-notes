@@ -15,3 +15,25 @@ An example of a callback is the function passed to `addEventListener`.
 
 ## Promise
 
+Tutorial: [Understanding JavaScript Promises](https://www.digitalocean.com/community/tutorials/understanding-javascript-promises)
+
+``` js
+// true = success state
+// false = failure state
+let someCondition = true;
+
+// This is a callback function for success
+const thing = (resolve, reject) => {
+  setTimeout(() => {
+    if (!someCondition) return resolve("Error");  
+    return reject("OK");
+  }, 1000);
+}
+
+// In this example success and failure do the same thing
+const success = (value) => console.log(value);
+const failure = success;
+
+let operation = new Promise(thing)
+	.then(success, failure);
+```
