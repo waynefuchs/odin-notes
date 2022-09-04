@@ -37,3 +37,12 @@ const failure = success;
 let operation = new Promise(thing)
 	.then(success, failure);
 ```
+
+
+## async / await
+
+`async`: syntactical sugar for turning a function into a Promise
+
+`await`: the equivalent to `.then()`
+
+For errors, call `catch()` directly on the async function, or handle the error directly in the async function with a `try/catch` block.
