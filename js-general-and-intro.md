@@ -1,3 +1,25 @@
+- [Javascript](#javascript)
+  - [Problem Solving](#problem-solving)
+  - [Errors](#errors)
+  - [Clean Code](#clean-code)
+  - [Scope vs. Context](#scope-vs-context)
+  - [Variables](#variables)
+    - [Defining](#defining)
+    - [Types](#types)
+      - [Number](#number)
+        - [Methods](#methods)
+  - [Logical Operators](#logical-operators)
+  - [Bitwise Operators](#bitwise-operators)
+  - [Regular Expressions](#regular-expressions)
+  - [Functions](#functions)
+    - [Naming Guidelines](#naming-guidelines)
+    - [Verb List](#verb-list)
+      - [Alteration](#alteration)
+      - [Creation](#creation)
+      - [Establishment](#establishment)
+      - [Obtain Data](#obtain-data)
+      - [True or False](#true-or-false)
+
 # Javascript
 
 ## Problem Solving
@@ -63,66 +85,6 @@ The following are **primatives**:
 ##### Methods
 
 * toFixed(decimalPlaces): returns a string containing a number rounded to the specified decimal places.
-
-
-#### String
-
-##### Concatenating
-
-Template Literal: \`Using Backticks and ${"this syntax"} to join strings\`
-
-##### Methods
-
-(Exhaustive String Method List)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String]
-
-* `trim()`
-  * Remove all whitespace from start and end
-* `slice(start, end)`
-  * Extract part of a string and return the extraction in a new string
-  * Negative numbers will wrap to the end of the string
-* `substring(start, end)`
-  * Same as slice, but negative numbers are treated as [0]
-  * Omitting 'end' will extract to the end of the string.
-* **DEPRECATED:** ~~`substr(start, length)`~~
-  * same as substring, except has 'length' as 2nd parameter instead of an index
-* `replace(search, replace)`
-  * Replaces the first instance of the matched search substring and returns a new string, leaving the original string unchanged.
-  * Can use regular expression in search
-    * `"World! Hello, World!".replace(/World/g, "Moon");` will return the string: "Moon! Hello, Moon!"
-* `toUpperCase()`
-* `toLowerCase()`
-* `concat()`
-  * `"Hello".concat(" ", "World", "!")`
-  * Useful if you don't want to use the plus operator for concatenation.
-* `padStart(stringLength, characterToPadWith)`
-* `padEnd(stringLength, characterToPadWith)`
-* `charAt(index)` OR `variable[index]`
-  * returns single character at specified index
-* `charCodeAt(index)`
-  * returns utf-16 code
-
-
-
-#### Array
-
-##### Properties
-
-* length
-
-##### Methods
-
-* sort()
-* includes(item)
-* toString(): convert the contents of the array into a string
-* join(strBetweenElements): convert the contents of the array into a string, specifying what to place between elements
-* pop(): remove and return last element in array
-* push(element): adds element to end of the array and returns new array length
-* shift(): remove and return first element in array
-* unshift(element): adds element to beginning of the array and returns new array length
-* concat(array, …): adds array(s) to the end of this array
-* splice(atIndex, deleteHowMany, item(s), …): insert items into an array, and optionally remove items
-* slice(start, end=last): return a new array containing elements from start to end
-
 
 ## Logical Operators
 

@@ -41,8 +41,18 @@ let operation = new Promise(thing)
 
 ## async / await
 
+Async / Await provides a way to write asynchronous code, but make it look and behave (somewhat) like synchronous code.
+
 `async`: syntactical sugar for turning a function into a Promise
 
-`await`: the equivalent to `.then()`
+`await`: the equivalent to `.then()`; This will pause execution of the function until a return value is received.
 
 For errors, call `catch()` directly on the async function, or handle the error directly in the async function with a `try/catch` block.
+
+### Reference
+
+[Async/Await](https://javascript.info/async-await)
+
+[More Advanced](https://pouchdb.com/2015/03/05/taming-the-async-beast-with-es7.html)
+
+[Best Video TOP listed](https://www.youtube.com/watch?v=vn3tm0quoqE)
