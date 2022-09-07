@@ -69,6 +69,16 @@ Perhaps this should be in `js-string-regular-expressions.md`?
 
 ### `padEnd(stringLength, characterToPadWith)`
 
+``` js
+// repeat character at end of line to specific length
+// expected output: "Breaded Mushrooms........"
+const str1 = 'Breaded Mushrooms';
+console.log(str1.padEnd(25, '.'));
+
+// expected output: "200  "
+const str2 = '200';
+console.log(str2.padEnd(5));
+```
 
 ### `padStart(stringLength, characterToPadWith)`
 
