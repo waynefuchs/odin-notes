@@ -1,1 +1,0 @@
-[UX and HTML5](https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/)
