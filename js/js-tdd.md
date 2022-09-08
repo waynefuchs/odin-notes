@@ -82,10 +82,10 @@ npm test
 // The describe block allows tests to be run with different scope
 // in the same file.
 describe('Specific tests with scope' () => {
-  beforeAll((), ()=> {});         //...Once
-  afterAll((), ()=> {});          //...Once
-  beforeEach((), ()=> {});        //...Before Each Test
-  afterEach((), ()=> {});         //...After Each Test
+  beforeAll(()=> {});         //...Once
+  afterAll(()=> {});          //...Once
+  beforeEach(()=> {});        //...Before Each Test
+  afterEach(()=> {});         //...After Each Test
   test('do some test', () => {}); //...
 })
 
