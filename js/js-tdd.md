@@ -41,7 +41,6 @@ I need to revisit this topic and put some more time in here after spending some 
 1. Remove dependencies
 2. Mock in testing
 
-
 ## Setup / Installation
 
 ---
@@ -96,16 +95,22 @@ test.only('ignore all other tests', () {}); // ...
 
 ---
 
-| method               | description                             |
-| -------------------- | --------------------------------------- |
-| `toBe(value)`        | Match exact equality                    |
-| `not.toBe(value)`    | Match inequality (Opposite of Equality) |
-| `toBeNull()`         | Match only `null`                       |
-| `toBeUndefined()`    | Match only `undefined`                  |
-| `toBeDefined()`      | Match everything but `undefined`        |
-| `toBeTruthy()`       | Matches truthy                          |
-| `toFeFalsy()`        | Matches falsy                           |
-| `toContain([array])` | Matches an item in an array or iterable |
+| method                          | description                             |
+| ------------------------------- | --------------------------------------- |
+| `toBe(value)`                   | Match exact equality                    |
+| `toBeGreaterThan(value)`        | Match greater than value                |
+| `toBeGreaterThanOrEqual(value)` | Match greater than or equal to value    |
+| `toBeLessThan(value)`           | Match less than value                   |
+| `toBeLessThanOrEqual(value)`    | Match less than or equal to value       |
+| `toBeCloseTo(value)`            | Match against floating point numbers    |
+| `not.toBe(value)`               | Match inequality (Opposite of Equality) |
+| `not.toBe(value)`               | Match inequality (Opposite of Equality) |
+| `toBeNull()`                    | Match only `null`                       |
+| `toBeUndefined()`               | Match only `undefined`                  |
+| `toBeDefined()`                 | Match everything but `undefined`        |
+| `toBeTruthy()`                  | Matches truthy                          |
+| `toFeFalsy()`                   | Matches falsy                           |
+| `toContain([array])`            | Matches an item in an array or iterable |
 
 ## Examples
 
