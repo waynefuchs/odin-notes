@@ -1,28 +1,35 @@
 # Git Commands
 
+[Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html)
+
 ## The 80%
 
-`git init`: Initialize a repository in an existing directory.
+A list of the commands that I use the most. None of these files will change anything in the git log nor affect any others working on the project.
 
-`git add .`: stage all files in the project
+| Command                              | Description                                                                     |
+| ------------------------------------ | ------------------------------------------------------------------------------- |
+| `git clone <repository>`             | pull a remote repository to local disk                                          |
+| `git init`                           | Initialize a repository in an existing directory.                               |
+| `git add {.\|<file>}`                | Recursively stage all files in the project / specific specified file            |
+| `git reset`                          | Reset git to the place it was before adding a file(s)                           |
+| `git restore --staged <file>`        | Un-stage a file                                                                 |
+| `git status`                         | Show that status of the project files (modified -> staged -> committed)         |
+| `git shortlog`                       | Show user + subject line (similar / better than the `--oneline switch`)         |
+| `git log`                            | Show a history of commits (add `--oneline` to show only subject)                |
+| `git push`                           | push the local disk copy to remote repository (`git push origin main` shortcut) |
+| `git commit -m "Add a subject line"` | When a commit only needs the (< 50 char) subject line                           |
+| `git commit`                         | open editor to write git commit message.                                        |
+| `git rm <file>`                      | remove a file from the repository                                               |
 
-`git add <file>`: stage a single file
+## Git History altering
 
-`git status`: show that status of the project files (modified -> staged -> committed)
+These commands should be executed with caution, and possibly with communication with other team members. (depending on remote sync status)
 
-`git log`: show a history of commits (add `--oneline` to show only subject)
-
-`git restore --staged <file>`: un-stage a file
-
-`git clone <repository>`: pull a remote repository to local disk
-
-`git push` or `git push origin main`: push the local disk copy to remote repository
-
-`git commit -m "concise descriptive message"`: commit all staged files
-
-`git commit`: open editor to write git commit message.
-
-`git rm <file>`: remove a file from the repository
+| Command                    | Description                                                                                 |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| 1. `git rebase -i HEAD~2`  | `-i` is interactive (Read the instructions!) (`--root` in place of HEAD~2 for first commit) |
+| 2. `git commit --amend`    | Replaces the last commit with a new one.                                                    |
+| 3. `git rebase --continue` | Finish the rebase                                                                           |
 
 ## Branching
 
@@ -30,10 +37,10 @@
 
 `git checkout -b <new-branch-name>`: Create a branch called new-branch-name and switch to it. Shorthand for:
 
-   (1) Create a new branch (2) Switch to the branch
+(1) Create a new branch (2) Switch to the branch
 
-   > 1. `git branch <new-branch-name>`
-   > 2. `git checkout <new-branch-name>`
+> 1.  `git branch <new-branch-name>`
+> 2.  `git checkout <new-branch-name>`
 
 ### To merge the changes in the new branch back to main
 
@@ -70,10 +77,11 @@ Don't do these unless necessary:
     `git remote rm origin`: remove url to remote repository
 
     `git remote add origin PATH`: add url to remote repository
-    
+
     `git push --set-upstream origin main`: Tell git to connect main branch to origin. (if origin path has been deleted)
 
 ## Change git editor
+
 `git config --global core.editor "vim"`
 
 `git config --global core.editor "code --wait"`
@@ -88,26 +96,26 @@ Don't do these unless necessary:
 
 `git shortlog`: Group commits by user, showing only the subject line
 
-
 ## Git Commit Guide
+
 1. Limit the subject line to 50 characters
 2. Wrap the body at 72 characters
 3. Separate subject from body with a blank line
 4. Capitalize the subject line
-   * Accelerate to 88 mph
-   * ~~accelerate to 88 mph~~
+   - Accelerate to 88 mph
+   - ~~accelerate to 88 mph~~
 5. Do not end the subject line with a period
 6. Use the imperative mood in the subject line (Not past tense)
-   * Your git subject should always be able to complete this sentence:
+   - Your git subject should always be able to complete this sentence:
      If applied, this commit will **INSERT SUBJECT LINE**
-   * This rule is important in the subject, but can be relaxed in the body.
-   * Examples (good and bad)
-      * Refactor subsystem X for readability
-      * Update getting started documentation
-      * Remove deprecated methods
-      * Release version 1.0.0
-      * ~~Fixed bug with Y~~
-      * ~~Changing behavior of X~~
-      * ~~More fixes for broken stuff~~
+   - This rule is important in the subject, but can be relaxed in the body.
+   - Examples (good and bad)
+     - Refactor subsystem X for readability
+     - Update getting started documentation
+     - Remove deprecated methods
+     - Release version 1.0.0
+     - ~~Fixed bug with Y~~
+     - ~~Changing behavior of X~~
+     - ~~More fixes for broken stuff~~
 7. Use the body to explain what and why vs. how
-   * How is for comments
+   - How is for comments
