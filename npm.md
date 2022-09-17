@@ -41,6 +41,8 @@
 
 `npm uninstall <packages>`: Uninstall npm packages
 
+`npm config set fund false`: Remove fund message spam (I'm all for funding open source projects, just don't want to see it every time i issue an npm command)
+
 
 ## Skeleton Project
 
@@ -79,6 +81,11 @@ module.exports = {
 
 
 ## Packages
+
+[PubSub-JS](https://github.com/mroderick/PubSubJS)
+
+> `npm install pubsub-js`
+> `import PubSub from 'pubsub-js'`
 
 [Lodash](https://lodash.com/): A utility library delivering modularity, performance & extras. (?)
 

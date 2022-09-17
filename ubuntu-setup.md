@@ -1,3 +1,18 @@
+- [Ubuntu Setup](#ubuntu-setup)
+- [Fix time zone](#fix-time-zone)
+- [Rename Sound Card](#rename-sound-card)
+- [Add Software](#add-software)
+	- [Snaps](#snaps)
+	- [VSCode Modules](#vscode-modules)
+	- [Download Nomachine](#download-nomachine)
+- [Remove Software](#remove-software)
+	- [Games](#games)
+- [Settings](#settings)
+	- [Accessibility](#accessibility)
+	- [Appearance](#appearance)
+	- [Multitasking](#multitasking)
+- [dconf-editor](#dconf-editor)
+
 # Ubuntu Setup
 
 I have installed ubuntu on three computers. During the second install, I realized that I should have made a step-by-step during the first time. Ah well. The third install went pretty quickly because of this file.
@@ -5,6 +20,10 @@ I have installed ubuntu on three computers. During the second install, I realize
 # Fix time zone
 
 `timedatectl set-local-rtc 1`
+
+# Rename Sound Card
+
+`pavucontrol`
 
 # Add Software
 
