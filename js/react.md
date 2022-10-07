@@ -1,4 +1,9 @@
 - [React](#react)
+  - [Hooks](#hooks)
+    - [useEffect](#useeffect)
+    - [useState](#usestate)
+    - [useContext / useReducer](#usecontext--usereducer)
+    - [Custom Hooks](#custom-hooks)
   - [Common Packages](#common-packages)
     - [react-router-dom](#react-router-dom)
     - [uniqid](#uniqid)
@@ -10,7 +15,6 @@
 
 # React
 
-<<<<<<< HEAD
 ## Hooks
 
 [Official Hook Introduction Documentation](https://reactjs.org/docs/hooks-intro.html)
@@ -49,7 +53,6 @@ useEffect(() => {
 ### Custom Hooks
 
 Naming Convention: The keyword `use`, such as `useSomething()` where `useSomething()` calls other hooks causes it to be a custom hook, and the React linter uses that to find hook related bugs.
-=======
 ## Common Packages
 
 | Package                  | What the package does    |
@@ -111,4 +114,3 @@ componentDidUpdate(prevProps, prevState, snapshot)
 #### Unmount
 
 componentWillUnmount()
->>>>>>> refs/remotes/origin/main
