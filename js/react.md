@@ -172,8 +172,17 @@ componentWillUnmount()
 
 `create-react-app` sets up and installs all of the necessary packages and takes care of the `package.json` configuration for testing.
 
+Documentation on test functions available for performing tests:
+* [DOM Testing Library Cheat Sheet](https://testing-library.com/docs/dom-testing-library/cheatsheet/)
+* [ByTestId Documentation](https://testing-library.com/docs/queries/bytestid/) for when the standard DOM Testing Library doesn't quite cut it.
 
-[jest-dom Github](https://github.com/testing-library/jest-dom)
+Documentation on jest-dom, an optional extension to the built-in matchers
+* [jest-dom Github](https://github.com/testing-library/jest-dom)
+
+Documentation on how to simulate user input:
+* [User Interactions](https://testing-library.com/docs/user-event/intro/)
+
+Remember that snapshots exist.
 
 ```js
 // Need to place in <Filename>.test.js
@@ -196,3 +205,4 @@ import userEvent from "@testing-library/user-event";
 // No need to import jest since it will automatically detect test files (*.test.js or *.test.jsx).
 import <TestComponent> from "<path-to-test-component>";
 ```
+
