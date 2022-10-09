@@ -206,3 +206,11 @@ import userEvent from "@testing-library/user-event";
 import <TestComponent> from "<path-to-test-component>";
 ```
 
+A Copy-Paste Example From Above:
+
+``` js
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import App from './App';
+```
+	
