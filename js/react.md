@@ -18,6 +18,7 @@
       - [Update](#update)
       - [Unmount](#unmount)
   - [Testing (Jest)](#testing-jest)
+    - [Coverage](#coverage)
 
 # React
 
@@ -213,4 +214,22 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 ```
-	
+
+### Coverage
+
+Add `--coverage` to the `test` command, like so:
+
+```js
+    "test": "react-scripts test --coverage",
+```
+
+Add to `package.json` to remove coverage testing for the `index.js` file.
+
+```js
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.js"
+    ]
+  }
+```
