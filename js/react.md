@@ -18,6 +18,7 @@
       - [Update](#update)
       - [Unmount](#unmount)
   - [Testing (Jest)](#testing-jest)
+    - [`jest-dom` Assertive Functions](#jest-dom-assertive-functions)
     - [Coverage](#coverage)
 
 # React
@@ -173,6 +174,9 @@ componentWillUnmount()
 
 `create-react-app` sets up and installs all of the necessary packages and takes care of the `package.json` configuration for testing.
 
+Tutorial: 
+* [Tutorial I Worked Through](https://academind.com/tutorials/testing-react-apps): A good review / overview of testing React.
+
 Documentation on test functions available for performing tests:
 * [DOM Testing Library Cheat Sheet](https://testing-library.com/docs/dom-testing-library/cheatsheet/)
 * [ByTestId Documentation](https://testing-library.com/docs/queries/bytestid/) for when the standard DOM Testing Library doesn't quite cut it.
@@ -214,6 +218,32 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 ```
+
+### `jest-dom` Assertive Functions
+
+* toBeDisabled
+* toBeEnabled
+* toBeEmpty
+* toBeEmptyDOMElement
+* toBeInTheDocument
+* toBeInvalid
+* toBeRequired
+* toBeValid
+* toBeVisible
+* toContainElement
+* toContainHTML
+* toHaveAttribute
+* toHaveClass
+* toHaveFocus
+* toHaveFormValues
+* toHaveStyle
+* toHaveTextContent
+* toHaveValue
+* toHaveDisplayValue
+* toBeChecked
+* toBePartiallyChecked
+* toHaveDescription
+
 
 ### Coverage
 
