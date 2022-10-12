@@ -18,6 +18,10 @@ I need to revisit this topic and put some more time in here after spending some 
 
 ## Writing Testable Code
 
+[Arrange Act Assert](http://wiki.c2.com/?ArrangeActAssert)
+
+[Testing Asynchronous Code](https://github.com/mrdulin/react-act-examples/blob/master/sync.md)
+
 ### Write Pure Functions
 
 #### Pure functions
