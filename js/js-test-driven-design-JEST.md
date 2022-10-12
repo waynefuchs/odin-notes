@@ -13,7 +13,6 @@
 
 TODO:
 NOTE: Identification of a weak area: 'Mock'
-Whatever grabs my ATTENTION.
 
 I need to revisit this topic and put some more time in here after spending some time with TDD.
 
