@@ -19,6 +19,7 @@
       - [Establishment](#establishment)
       - [Obtain Data](#obtain-data)
       - [True or False](#true-or-false)
+  - [Destructuring](#destructuring)
 
 # Javascript
 
@@ -199,3 +200,37 @@ I know perl regular expressions pretty well. I don't know that I have the patien
 *	has
 *	is
 *	should
+
+
+## Destructuring
+
+[MDN: Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+Destructuring is a way to assign local variables from an object for cleaner code. It is a feature of ES6. I came across it while reading some React code, and there is a really neat use case there.
+
+I will likely forget the syntax on this until I use it a few times, so I am putting this in my notes.
+
+
+**App.js**
+```js
+import MyInput from './MyInput';
+import {useState} from 'react';
+function App() {
+  const [id, setId] = useState("");
+  const CHANGE = (e) => setId(e.target.value);
+  return (
+      <MyInput onChange={CHANGE} id={id} />
+  );
+}
+export default App;
+```
+
+This is where the destructuring happens. Two variables are put into scope for the `MyInput` function; the `onInputChange` and `howNowBrownCow` variables. This is not terribly useful in this particular instance, but in terms of destructuring a massive object into just a few variables that are used in a child component could significantly clean the code.
+
+**MyInput.js**
+```js
+import React from "react";
+const MyInput = ({ onChange: onInputChange, id: howNowBrownCow }) => 
+  <input onChange={onInputChange}>{howNowBrownCow}</input>;
+export default MyInput;
+```
