@@ -1,4 +1,4 @@
-- [Jode](#jode)
+- [Node](#node)
   - [Installation](#installation)
     - [Global (One Time):](#global-one-time)
     - [Each Project:](#each-project)
@@ -6,6 +6,8 @@
       - [1. Passed in from command line:](#1-passed-in-from-command-line)
       - [2. Using an `.env` file:](#2-using-an-env-file)
       - [3. Bypass the require in your <somefile>.js:](#3-bypass-the-require-in-your-somefilejs)
+    - [Debugging](#debugging)
+  - [Global Variable](#global-variable)
   - [HTTP Requests](#http-requests)
     - [Axios](#axios)
       - [GET](#get)
@@ -16,8 +18,9 @@
   - [File Access](#file-access)
     - [Writing to file](#writing-to-file)
     - [Reading from a file](#reading-from-a-file)
+  - [URL Parsing](#url-parsing)
 
-# Jode
+# Node
 
 ## Installation
 
@@ -28,6 +31,8 @@ npm i -g nodemon
 ```
 
 ### Each Project:
+
+Create a directory, and `npm init` inside of it, using defaults or changing options as desired. Ensure that `"private": true,` is added to the package.json file.
 
 `app.js`:
 
@@ -43,6 +48,7 @@ npm i -g nodemon
 2. Make `app.js` executable.
 
 ```
+npm i express
 npm i --save-dev nodemon
 chmod u+x app.js
 ```
@@ -78,6 +84,46 @@ Here are a few ways to access environment variables from within a node script.
 #### 3. Bypass the require in your <somefile>.js:
 
 > $ `node -r dotenv/config index.js`
+
+
+### Debugging
+
+* [VSCode Node.js Debugging](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
+
+  Press `Ctrl-Shift-P` to search for `Toggle Auto Attach`, then choose a suitable option.
+
+* [Debugging a Node.js app using Chrome Dev Tools](https://www.section.io/engineering-education/debug-node-devtools/)
+
+
+* [Youtube Node.js Debugging Tutorial](https://www.youtube.com/watch?v=2oFKNL7vYV8)
+
+
+* [brave://inspect/](brave://inspect/) For Brave Browser
+* [chrome://inspect/](chrome://inspect/) For Chrome
+
+## Global Variable
+
+[Node Global Objects](https://nodejs.org/docs/latest-v16.x/api/globals.html#global-objects) documentation.
+
+In the browser, the global variable is `window`. In Node, the global variable is `global`. Anything you can reference with `global.<thing>` can be referenced, instead, with `thing` directly.
+
+Here is a list of some of the objects that are available, by default, but using node.
+
+> NOTE: `window` and `window.document` are notably missing. But that's okay since DOM manipulation is not desired server-side.
+
+| object                                       | description                                             |
+| -------------------------------------------- | ------------------------------------------------------- |
+| \_\_dirname                                  | The directory name of the current module                |
+| \_\_filename                                 | The file name of the current mdoule                     |
+| exports                                      | (?) See what exports are available (in this module?)    |
+| module                                       | An object containing information about the module.      |
+| require()                                    | A way to import modules, JSON, and local files.         |
+| to0 = setImmediate(callback[,...args])       | Fire callback immediately at the end of this event loop |
+| to1 = setTimeout(callback, delay[,...args])  | Fire a one-off event                                    |
+| to2 = setInterval(callback, delay[,...args]) | Fire an event every (delay) ms                          |
+| clearImmediate(to0)                          | cancel an immediate callback using timeout object       |
+| clearTimeout(to1)                            | cancel a timeout using timeout object                   |
+| clearInterval(to2)                           | cancel an interval using timeout object                 |
 
 ## HTTP Requests
 
@@ -228,7 +274,7 @@ const content = "Some content!";
 
 // Overwrite file if it exists
 // Create a new file containing content if it doesn't exist
-fs.writeFile('/Users/joe/test.txt', content, err => {
+fs.writeFile("/Users/joe/test.txt", content, (err) => {
   if (err) console.error(err);
   // file written successfully
 });
@@ -243,15 +289,33 @@ fs.appendFile("file.log", content, (err) => {
 });
 ```
 
-
 ### Reading from a file
 
 ```js
 const fs = require("fs");
 try {
-  const data = fs.readFileSync('/Users/joe/test.txt', 'utf8');
+  const data = fs.readFileSync("/Users/joe/test.txt", "utf8");
   console.log(data);
 } catch (err) {
   console.error(err);
 }
+```
+
+## URL Parsing
+
+Web Hypertext Application Technology Working Group (WHATWG)
+
+[Node WHATWG URL](https://nodejs.org/api/url.html#url_the_whatwg_url_api)
+
+[WHATWG URL Standard](https://url.spec.whatwg.org/#example-url-parsing)
+
+```js
+let myURL = new URL("https://asdf.com");
+myURL.port = 80;
+myURL.protocol = "http";
+myURL.username = "itsme";
+myURL.password = "thisisnotwise";
+myURL.pathname = "a/path/to/visit";
+myURL.hash = "scrolldowntothis";
+console.log(myURL.href);
 ```
