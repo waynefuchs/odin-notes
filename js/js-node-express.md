@@ -1,10 +1,14 @@
-- [Node](#node)
+- [Node.js + Express](#nodejs--express)
+  - [Quick Notes (Get to the point)](#quick-notes-get-to-the-point)
   - [Installation](#installation)
     - [Global (One Time):](#global-one-time)
-    - [Each Project:](#each-project)
-    - [Environment Variables](#environment-variables)
-      - [1. Passed in from command line:](#1-passed-in-from-command-line)
-      - [2. Using an `.env` file:](#2-using-an-env-file)
+    - [New Project Reminder](#new-project-reminder)
+    - [New Project Commands](#new-project-commands)
+    - [`package.json`](#packagejson)
+    - [Run the node project](#run-the-node-project)
+  - [Environment Variables](#environment-variables)
+    - [1. Passed in from command line:](#1-passed-in-from-command-line)
+    - [2. Using an `.env` file:](#2-using-an-env-file)
       - [3. Bypass the require in your <somefile>.js:](#3-bypass-the-require-in-your-somefilejs)
     - [Debugging](#debugging)
   - [Global Variable](#global-variable)
@@ -19,49 +23,155 @@
     - [Writing to file](#writing-to-file)
     - [Reading from a file](#reading-from-a-file)
   - [URL Parsing](#url-parsing)
+  - [MongoDB](#mongodb)
+  - [Links](#links)
+  - [Glossary](#glossary)
 
-# Node
+# Node.js + Express
+
+## Quick Notes (Get to the point)
+
+> Note: `app.use()` is used to load middleware; call order matters.
+
+Typical boilerplate express setup
+
+```js
+const express = require("express");
+const app = express();
+app.set("view engine", "ejs");                // EJS middleware
+app.use(express.static("public"));            // Middleware to route static content
+const userRouter = require("./routes/users"); // ...not defined here
+app.use("/users", userRouter);                // Middleware module to handle `/users` routing
+app.use(express.urlencoded({extended: true})) // Middleware to access form data (`req.body.<form-element-name>` :: inside some route)
+
+
+app.get("/", (req, res) => {
+  // do something...
+  res.send("This is the home page.");
+});
+
+// param middleware
+router.param("id", (req, res, next, id) => {
+  // could do user validation here
+  console.log(id);
+  next();
+});
+
+// Individual Routing...
+app.get("/user/:id", (req, res) => {
+  res.send(`Got user with ID ${req.params.id}`);
+});
+app.put("/user/:id", (req, res) => {
+  res.send(`Update user with ID ${req.params.id}`);
+});
+app.delete("/user/:id", (req, res) => {
+  res.send(`Deleted user with ID ${req.params.id}`);
+});
+
+// Chained Routing...
+router
+  .route("/user/:id")
+  .get((req, res), => {
+    res.send(`Got user with ID ${req.params.id}`);
+  }).put((req, res) => {
+    res.send(`Update user with ID ${req.params.id}`);
+  }).delete((req, res) => {
+    res.send(`Deleted user with ID ${req.params.id}`);
+  });
+```
+
+| res method                     | description                                                                          |
+| ------------------------------ | ------------------------------------------------------------------------------------ |
+| `res.send(<message>)`          | Send text to the client                                                              |
+| `res.json(<object>)`           | Send json to the client                                                              |
+| `res.sendStatus(<statusCode>)` | Send a status code, can be chained :: `res.sendStatus(500).json({message: 'Error'})` |
+| `res.download(<file>)`         | `<file>` is a string, relative path to project root                                  |
+| `res.render(<file>)`           | render                                                                               |
+| `res.redirect(<path>)`         | redirect the client                                                                  |
 
 ## Installation
 
 ### Global (One Time):
 
 ```bash
-npm i -g nodemon
+npm i -g nodemon              # A package to monitor changes in node project source (and restart the application for you)
+npm i -g express-generator    # Project template set-up: `express <new-express-project-name>` (similar to create-react-app.. for express)
 ```
 
-### Each Project:
+### New Project Reminder
 
-Create a directory, and `npm init` inside of it, using defaults or changing options as desired. Ensure that `"private": true,` is added to the package.json file.
+Just to remind myself exactly what each package is doing...
 
-`app.js`:
+| package | description                                        |
+| ------- | -------------------------------------------------- |
+| express | makes routing a lot cleaner                        |
+| mongodb | the MongoDB database driver                        |
+| ejs     | Embedded JavaScript (View Templates / View Engine) |
+
+### New Project Commands
+
+```bash
+# Maybe start this as a github project and download a Node .gitignore(?)
+git clone <your-project-uri>
+curl https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore > .gitignore
+
+# Using express-generator:
+# This installs quite a few packages by default
+express <new-project-name> --view=ejs   # or --view=pug (or whatever view engine)
+cd <new-project-name>
+npm install
+npm i --save-dev nodemon
+# DEBUG=<new-project-name>:* npm start # meh...
+# Edit the package.json (see below)
+npm run devstart  # (for nodemon)
+
+# otherwise...do it manually
+mkdir <your-project-name>
+cd <your-project-name>
+mkdir views   # This is where EJS files go
+mkdir public  # This is where static files go
+mkdir routes  # This is where routing modules go
+npm init -y
+npm i express mongodb ejs
+npm i --save-dev nodemon
+```
+
+### `package.json`
 
 ```js
-# If using an absolute Path:
-#!/usr/bin/node
+  // after "main"
+  "private:" true,
 
-# Preferred to use environment variable
-#!/usr/bin/env node
+  // if used express-generator
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www",
+    "serverstart": "DEBUG=express-locallibrary-tutorial:* npm run devstart"
+  },
+
+  // ...if manual
+  "scripts": {
+    "devStart": "nodemon <main-startup-file-name>.js"   // WebDevSimplified suggests `server.js`
+  }
 ```
 
-1. Install nodemon as a development dependency.
-2. Make `app.js` executable.
+### Run the node project
 
-```
-npm i express
-npm i --save-dev nodemon
-chmod u+x app.js
+```bash
+npm run devStart
 ```
 
-### Environment Variables
+## Environment Variables
 
 Here are a few ways to access environment variables from within a node script.
 
-#### 1. Passed in from command line:
+I'm not even sure how relevant this is. I'm many lessons in, and have yet to use this.
+
+### 1. Passed in from command line:
 
 > $ `USER_ID=239482 USER_KEY=foobar node app.js`
 
-#### 2. Using an `.env` file:
+### 2. Using an `.env` file:
 
 > `.env`
 >
@@ -85,21 +195,18 @@ Here are a few ways to access environment variables from within a node script.
 
 > $ `node -r dotenv/config index.js`
 
-
 ### Debugging
 
-* [VSCode Node.js Debugging](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
+- [VSCode Node.js Debugging](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
 
   Press `Ctrl-Shift-P` to search for `Toggle Auto Attach`, then choose a suitable option.
 
-* [Debugging a Node.js app using Chrome Dev Tools](https://www.section.io/engineering-education/debug-node-devtools/)
+- [Debugging a Node.js app using Chrome Dev Tools](https://www.section.io/engineering-education/debug-node-devtools/)
 
+- [Youtube Node.js Debugging Tutorial](https://www.youtube.com/watch?v=2oFKNL7vYV8)
 
-* [Youtube Node.js Debugging Tutorial](https://www.youtube.com/watch?v=2oFKNL7vYV8)
-
-
-* [brave://inspect/](brave://inspect/) For Brave Browser
-* [chrome://inspect/](chrome://inspect/) For Chrome
+- [brave://inspect/](brave://inspect/) For Brave Browser
+- [chrome://inspect/](chrome://inspect/) For Chrome
 
 ## Global Variable
 
@@ -319,3 +426,43 @@ myURL.pathname = "a/path/to/visit";
 myURL.hash = "scrolldowntothis";
 console.log(myURL.href);
 ```
+
+## MongoDB
+
+```js
+// Example mongodb connection in Node
+const MongoClient = require("mongodb").MongoClient;
+
+MongoClient.connect("mongodb://localhost:27017/animals", (err, client) => {
+  if (err) throw err;
+
+  const db = client.db("animals");
+  db.collection("mammals")
+    .find()
+    .toArray((err, result) => {
+      if (err) throw err;
+      console.log(result);
+      client.close();
+    });
+});
+```
+
+## Links
+
+- [Serving Static Files](https://expressjs.com/en/starter/static-files.html)
+- [Error Handling Middleware](https://expressjs.com/en/guide/error-handling.html)
+- [Express Maintained Middleware](https://expressjs.com/en/resources/middleware.html)
+- [Database Integration](https://expressjs.com/en/guide/database-integration.html)
+- [Request (req) Object](https://expressjs.com/en/4x/api.html#req) documentation
+- [Response (res) Object](https://expressjs.com/en/4x/api.html#res) documentation
+
+## Glossary
+
+| Term       | Definition                                                                                                                        |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Node       | JavaScript without a browser, based on Chrome's V8 engine.                                                                        |
+| Express    | Node.js framework that implements middleware and DRY concepts                                                                     |
+| Module     | A javascript library / file that can be imported into other js files / code                                                       |
+| Middleware | A JavaScript function that Express calls for you between the time it receives a network request and the time it fires a response. |
+| req        | request object -- contains data from the incoming request                                                                         |
+| res        | response objcet -- used to interact with the client                                                                               |
