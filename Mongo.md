@@ -1,3 +1,17 @@
+
+- [Mongo](#mongo)
+  - [Getting MongoDB up and running on Ubuntu](#getting-mongodb-up-and-running-on-ubuntu)
+  - [MongoDB Compass](#mongodb-compass)
+  - [Courses of Interest](#courses-of-interest)
+  - [General Facts](#general-facts)
+  - [Data Types](#data-types)
+  - [Glossary](#glossary)
+  - [Commands](#commands)
+    - [Import / Export Data](#import--export-data)
+      - [JSON](#json)
+      - [BSON](#bson)
+    - [mongosh](#mongosh)
+
 # Mongo
 
 ## Getting MongoDB up and running on Ubuntu
