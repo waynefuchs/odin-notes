@@ -35,22 +35,31 @@ I have installed ubuntu on three computers. During the second install, I realize
 
 ## Snaps
 
-* code (vscode)
-* brave
-* gimp
-* inkscape
-* blender
-* boxy-svg
-* discord
-* obs-studio
+- code (vscode)
+- brave
+- gimp
+- inkscape
+- blender
+- boxy-svg
+- discord
+- obs-studio
 
 ## VSCode Modules
 
-* Code Spell Checker
-* Live Server
-* Markdown All In One
-* Python
-* Pylance
+| Package Name        | Author               | Description                                                |
+| ------------------- | -------------------- | ---------------------------------------------------------- |
+| Code Spell Checker  | Street Side Software | Spell Checking                                             |
+| Live Server         | Ritwick Dey          | Built-in http server to test raw html/css/js               |
+| Markdown All In One | Yu Zhang             | Markdown tools                                             |
+| Prettier            | Prettier             | Format code with the push of a button.        |
+| REST Client         | Huachao Mao          | Use a `<name>.http` file with `GET http://localhost:3000/` |
+| ~~Python~~          |                      |                                                            |
+| ~~Pylance~~         |                      |                                                            |
+
+* Bind `prettier.forceFormatDocument` to `ScrollLock`
+* Bind `workbench.action.toggleEditorWidths` to `Shift+Alt+Enter`
+* `editor.emmet.action.wrapWithAbbreviation` to `Ctrl+e Ctrl+w`
+* `editor.emmet.action.removeTag` to `Ctrl+e Ctrl+d`
 
 ## Download Nomachine
 
@@ -64,48 +73,51 @@ I have installed ubuntu on three computers. During the second install, I realize
 
 ## Accessibility
 
-* Enable Animations: Off
+- Enable Animations: Off
 
 ## Appearance
 
-* Dark Mode
+- Dark Mode
 
 ## Multitasking
 
-* Workspaces > Fixed number of workspaces: 4
-* Multi-Monitor > Workspaces on all displays
-* Application switching > Include applications from the current workspace only
-
+- Workspaces > Fixed number of workspaces: 4
+- Multi-Monitor > Workspaces on all displays
+- Application switching > Include applications from the current workspace only
 
 # dconf-editor
 
-*WHY* I don't like busy backgrounds.
-* /org/gnome/desktop/background/
-	* color-shading-type: solid
-	* picture-uri: ""
-	* picture-uri-dark: ""
-	* primary-color: "#222222"
+_WHY_ I don't like busy backgrounds.
 
-*WHY* I change these because I get muscle-memory confusion while swapping with windows if I don't
-* /org/gnome/desktop/wm/keybindings/
-	*NOTE* move-to-workspace-right will move focused window AND switch...
-	* switch-to-workspace-right: `['<Ctrl><Super>Right']`
-	* switch-to-workspace-left: `['<Ctrl><Super>Left']`
+- /org/gnome/desktop/background/
+  - color-shading-type: solid
+  - picture-uri: ""
+  - picture-uri-dark: ""
+  - primary-color: "#222222"
 
-	*WHY* The following is to allow VSCode ctrl-alt-shift-up/down line-duplication to work
-	* switch-to-workspace-down: []
-	* switch-to-workspace-up: []
-	* move-to-workspace-down: []
-	* move-to-workspace-up: []
+_WHY_ I change these because I get muscle-memory confusion while swapping with windows if I don't
 
-*WHY* I like moving the mouse pointer to determine focus, and these settings feel the best to me
-* /org/gnome/desktop/background/
-	NOTE: This can be done through gnome-tweaks (shell is faster)
+- /org/gnome/desktop/wm/keybindings/
+  _NOTE_ move-to-workspace-right will move focused window AND switch...
 
-	`gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
-	* focus-change-on-pointer-rest: Disable
-	NOTE: Following command does the same thing...
+  - switch-to-workspace-right: `['<Ctrl><Super>Right']`
+  - switch-to-workspace-left: `['<Ctrl><Super>Left']`
 
-	`gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
+  _WHY_ The following is to allow VSCode ctrl-alt-shift-up/down line-duplication to work
 
+  - switch-to-workspace-down: []
+  - switch-to-workspace-up: []
+  - move-to-workspace-down: []
+  - move-to-workspace-up: []
 
+_WHY_ I like moving the mouse pointer to determine focus, and these settings feel the best to me
+
+- /org/gnome/desktop/background/
+  NOTE: This can be done through gnome-tweaks (shell is faster)
+
+  `gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
+
+  - focus-change-on-pointer-rest: Disable
+    NOTE: Following command does the same thing...
+
+  `gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
