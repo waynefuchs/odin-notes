@@ -76,6 +76,17 @@ module.exports = {
 
 ## Packages
 
+| npm package       | description                                                |
+| ----------------- | ---------------------------------------------------------- |
+| bootstrap         | feature packed front end toolkit                           |
+| dotenv            | read environment variables                                 |
+| express           | fast un-opinionated web framework for Node.js              |
+| express-validator | wrapper for validator.js (validates and sanitizes strings) |
+| luxon             | dates and times                                            |
+| mongoose          | mongodb interface                                          |
+| morgan            | request logger                                             |
+| pug               | view template and markup language                          |
+
 [PubSub-JS](https://github.com/mroderick/PubSubJS)
 
 > `npm install pubsub-js` > `import PubSub from 'pubsub-js'`
