@@ -16,13 +16,14 @@
 
 ## Getting MongoDB up and running on Ubuntu
 
-Since Mongodb doesn't have any options for Ubuntu 22.04+, docker is required. A quick and dirty setup looks something like this.
-
 [MongoDB Docker Hub](https://hub.docker.com/_/mongo)
 
-```
-#!/bin/bash
+Personally, I think docker is the best way to get mongoDB up and running. **USING `docker compose`**! See my notes on [Docker / Mongo / Node](docker-mongo-node.md)
 
+> NOTE: I'm leaving this following example bash script here because I like reviewing various docker commands. This is ***NOT*** a good way to get docker started. This has no data persistence, and manually running docker containers is error prone.
+
+``` bash
+#!/bin/bash
 docker run -d --network=host --name mymongo \
 	-e MONGO_INITDB_ROOT_USERNAME=mongoadmin \
 	-e MONGO_INITDB_ROOT_PASSWORD=secret \

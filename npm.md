@@ -3,6 +3,9 @@
   - [Skeleton Project](#skeleton-project)
   - [Dev Packages](#dev-packages)
   - [Packages](#packages)
+    - [Useful Node Packages](#useful-node-packages)
+    - [View Engines](#view-engines)
+    - ["Honorable" Mentions](#honorable-mentions)
   - [eslint + prettier](#eslint--prettier)
     - [Installation](#installation)
     - [Running (manual)](#running-manual)
@@ -76,24 +79,43 @@ module.exports = {
 
 ## Packages
 
-| npm package       | description                                                |
-| ----------------- | ---------------------------------------------------------- |
-| bootstrap         | feature packed front end toolkit                           |
-| dotenv            | read environment variables                                 |
-| express           | fast un-opinionated web framework for Node.js              |
-| express-validator | wrapper for validator.js (validates and sanitizes strings) |
-| luxon             | dates and times                                            |
-| mongoose          | mongodb interface                                          |
-| morgan            | request logger                                             |
-| pug               | view template and markup language                          |
+### Useful Node Packages
 
-[PubSub-JS](https://github.com/mroderick/PubSubJS)
+| npm package       | description                                                     |
+| ----------------- | --------------------------------------------------------------- |
+| bootstrap         | feature packed front end toolkit                                |
+| dotenv            | read environment variables                                      |
+| express           | fast un-opinionated web framework for Node.js                   |
+| express-session   | manage user session (front-end-cookies linked to back-end data) |
+| express-validator | wrapper for validator.js (validates and sanitizes strings)      |
+| luxon             | dates and times                                                 |
+| mongoose          | mongodb interface                                               |
+| morgan            | request logger                                                  |
+| passport          | Core package for authentication                                 |
+| passport-local    | Passport module for `user` and `password` authentication        |
 
-> `npm install pubsub-js` > `import PubSub from 'pubsub-js'`
+### View Engines
 
-[Lodash](https://lodash.com/): A utility library delivering modularity, performance & extras. (?)
+| view engine                                       | description                       |
+| ------------------------------------------------- | --------------------------------- |
+| [ejs](https://ejs.co/)                            | embedded javascript               |
+| [pug](https://pugjs.org/api/getting-started.html) | view template and markup language |
 
-[moment](https://momentjs.com/): Parse, validate, manipulate, and display dates and times in JavaScript. Note: This project is "done" and other recommendations are made in the site's [project status](https://momentjs.com/docs/#/-project-status/)
+### "Honorable" Mentions
+
+> Note: These are packages that I used or were mentioned by The Odin Project:
+
+* [PubSub-JS](https://github.com/mroderick/PubSubJS)
+
+  $ `npm install pubsub-js`
+
+  `import PubSub from "pubsub-js";`
+
+  > Note: I'm pretty sure I used this package for... maybe the TODO app? One of the Odin projects.
+
+* LEGACY: [Lodash](https://lodash.com/): A utility library delivering modularity, performance & extras. (?) Note: The Odin Project mentioned Lodash several times, but I can't quite figure out what its' purpose is... I think modern JS (ES6+) makes this library irrelevant.
+
+* LEGACY:  [moment](https://momentjs.com/): Parse, validate, manipulate, and display dates and times in JavaScript. Note: This project is "done" and other recommendations are made in the site's [project status](https://momentjs.com/docs/#/-project-status/). (**USE LUXON**)
 
 ## eslint + prettier
 

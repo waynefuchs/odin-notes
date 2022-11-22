@@ -12,6 +12,7 @@
       - [3. Bypass the require in your <somefile>.js:](#3-bypass-the-require-in-your-somefilejs)
     - [Debugging](#debugging)
   - [Global Variable](#global-variable)
+  - [Express Router](#express-router)
   - [HTTP Requests](#http-requests)
     - [Axios](#axios)
       - [GET](#get)
@@ -26,6 +27,9 @@
   - [MongoDB](#mongodb)
   - [Links](#links)
   - [Glossary](#glossary)
+  - [Asynchronous flow control using async](#asynchronous-flow-control-using-async)
+    - [Installation](#installation-1)
+    - [Methods](#methods)
 
 # Node.js + Express
 
@@ -231,6 +235,12 @@ Here is a list of some of the objects that are available, by default, but using 
 | clearImmediate(to0)                          | cancel an immediate callback using timeout object       |
 | clearTimeout(to1)                            | cancel a timeout using timeout object                   |
 | clearInterval(to2)                           | cancel an interval using timeout object                 |
+
+## Express Router
+
+- [Methods / HTTP Verbs](https://expressjs.com/en/api.html#app.METHOD)
+
+Such as: checkout, copy, delete, get, head, lock, merge, mkactivity, mkcol, move, m-search, notify, options, patch, post, purge, put, report, search, subscribe, trace, unlock, unsubscribe.
 
 ## HTTP Requests
 
@@ -466,3 +476,21 @@ MongoClient.connect("mongodb://localhost:27017/animals", (err, client) => {
 | Middleware | A JavaScript function that Express calls for you between the time it receives a network request and the time it fires a response. |
 | req        | request object -- contains data from the incoming request                                                                         |
 | res        | response objcet -- used to interact with the client                                                                               |
+
+## Asynchronous flow control using async
+
+[Async](https://caolan.github.io/async/v3/docs.html) documentation.
+
+### Installation
+
+`npm install async`
+
+### Methods
+
+There are many more (see documentation), but these are the ones I've learned.
+
+| function            | description                                                             |
+| ------------------- | ----------------------------------------------------------------------- |
+| `async.parallel()`  | execute functions that must run at the same time                        |
+| `async.series()`    | ensure functions are performed in series                                |
+| `async.waterfall()` | run each function in series where each function depends on the previous |

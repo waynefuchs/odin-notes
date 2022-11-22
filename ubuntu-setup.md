@@ -2,15 +2,16 @@
 - [Fix time zone](#fix-time-zone)
 - [Rename Sound Card](#rename-sound-card)
 - [Add Software](#add-software)
-	- [Snaps](#snaps)
-	- [VSCode Modules](#vscode-modules)
-	- [Download Nomachine](#download-nomachine)
+  - [Snaps](#snaps)
+  - [VSCode Modules](#vscode-modules)
+  - [gTile](#gtile)
+  - [Download Nomachine](#download-nomachine)
 - [Remove Software](#remove-software)
-	- [Games](#games)
+  - [Games](#games)
 - [Settings](#settings)
-	- [Accessibility](#accessibility)
-	- [Appearance](#appearance)
-	- [Multitasking](#multitasking)
+  - [Accessibility](#accessibility)
+  - [Appearance](#appearance)
+  - [Multitasking](#multitasking)
 - [dconf-editor](#dconf-editor)
 
 # Ubuntu Setup
@@ -46,20 +47,27 @@ I have installed ubuntu on three computers. During the second install, I realize
 
 ## VSCode Modules
 
-| Package Name        | Author               | Description                                                |
-| ------------------- | -------------------- | ---------------------------------------------------------- |
-| Code Spell Checker  | Street Side Software | Spell Checking                                             |
-| Live Server         | Ritwick Dey          | Built-in http server to test raw html/css/js               |
-| Markdown All In One | Yu Zhang             | Markdown tools                                             |
-| Prettier            | Prettier             | Format code with the push of a button.        |
-| REST Client         | Huachao Mao          | Use a `<name>.http` file with `GET http://localhost:3000/` |
-| ~~Python~~          |                      |                                                            |
-| ~~Pylance~~         |                      |                                                            |
+| Package Name         | Author               | Description                                  |
+| -------------------- | -------------------- | -------------------------------------------- |
+| Code Spell Checker   | Street Side Software | Spell Checking                               |
+| Live Server          | Ritwick Dey          | Built-in http server to test raw html/css/js |
+| Markdown All In One  | Yu Zhang             | Markdown tools                               |
+| Prettier             | Prettier             | Format code with the push of a button.       |
+| REST Client          | Huachao Mao          | Perform HTTP calls and see raw output.       |
+| EJS language supprot | DigitalBrainstem     | EJS 'language' support.                      |
+| Python               |                      | Python language support.                     |
+| ~~Pylance~~          |                      |                                              |
 
-* Bind `prettier.forceFormatDocument` to `ScrollLock`
-* Bind `workbench.action.toggleEditorWidths` to `Shift+Alt+Enter`
-* `editor.emmet.action.wrapWithAbbreviation` to `Ctrl+e Ctrl+w`
-* `editor.emmet.action.removeTag` to `Ctrl+e Ctrl+d`
+- Bind `prettier.forceFormatDocument` to `ScrollLock`
+- Bind `workbench.action.toggleEditorWidths` to `Shift+Alt+Enter`
+- `editor.emmet.action.wrapWithAbbreviation` to `Ctrl+e Ctrl+w`
+- `editor.emmet.action.removeTag` to `Ctrl+e Ctrl+d`
+
+## [gTile](https://github.com/gTile/gTile)
+
+This gnome extension makes it so you can snap windows to portions of the screen. It's absolutely necessary for vertical and 4k displays.
+
+Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>`
 
 ## Download Nomachine
 
