@@ -81,18 +81,20 @@ module.exports = {
 
 ### Useful Node Packages
 
-| npm package       | description                                                     |
-| ----------------- | --------------------------------------------------------------- |
-| bootstrap         | feature packed front end toolkit                                |
-| dotenv            | read environment variables                                      |
-| express           | fast un-opinionated web framework for Node.js                   |
-| express-session   | manage user session (front-end-cookies linked to back-end data) |
-| express-validator | wrapper for validator.js (validates and sanitizes strings)      |
-| luxon             | dates and times                                                 |
-| mongoose          | mongodb interface                                               |
-| morgan            | request logger                                                  |
-| passport          | Core package for authentication                                 |
-| passport-local    | Passport module for `user` and `password` authentication        |
+| npm package       | description                                                      |
+| ----------------- | ---------------------------------------------------------------- |
+| bootstrap         | feature packed front end toolkit                                 |
+| bcrypt            | Blowfish hash C++ implementation (more difficult, but faster(?)) |
+| bcryptjs          | Blowfish hashing algorithm to salt passwords                     |
+| dotenv            | read environment variables                                       |
+| express           | fast un-opinionated web framework for Node.js                    |
+| express-session   | manage user session (front-end-cookies linked to back-end data)  |
+| express-validator | wrapper for validator.js (validates and sanitizes strings)       |
+| luxon             | dates and times                                                  |
+| mongoose          | mongodb interface                                                |
+| morgan            | request logger                                                   |
+| passport          | Core package for authentication                                  |
+| passport-local    | Passport module for `user` and `password` authentication         |
 
 ### View Engines
 
@@ -105,17 +107,18 @@ module.exports = {
 
 > Note: These are packages that I used or were mentioned by The Odin Project:
 
-* [PubSub-JS](https://github.com/mroderick/PubSubJS)
+| npm package                                        | description                                     |
+| -------------------------------------------------- | ----------------------------------------------- |
+| [nconf](https://github.com/indexzero/nconf)        | $^{1}$ similar to dotenv                        |
+| [Lodash](https://lodash.com/)                      | $^{3}$ Modern ES6+ makes this irrelevant.       |
+| [moment](https://momentjs.com/)                    | $^{3}$ Date and time. Use Luxon instead.        |
+| [pubsub-js](https://github.com/mroderick/PubSubJS) | $^{2}$ Implementation of the subscriber pattern |
 
-  $ `npm install pubsub-js`
-
-  `import PubSub from "pubsub-js";`
-
-  > Note: I'm pretty sure I used this package for... maybe the TODO app? One of the Odin projects.
-
-* LEGACY: [Lodash](https://lodash.com/): A utility library delivering modularity, performance & extras. (?) Note: The Odin Project mentioned Lodash several times, but I can't quite figure out what its' purpose is... I think modern JS (ES6+) makes this library irrelevant.
-
-* LEGACY:  [moment](https://momentjs.com/): Parse, validate, manipulate, and display dates and times in JavaScript. Note: This project is "done" and other recommendations are made in the site's [project status](https://momentjs.com/docs/#/-project-status/). (**USE LUXON**)
+> $^{1}$  I have not used this, but it looks interesting.
+> 
+> $^{2}$ This pattern made an absolute mess at scale. Maybe I did it wrong.
+> 
+> $^{3}$ Legacy. Do not use. May be encountered in the wild.
 
 ## eslint + prettier
 
