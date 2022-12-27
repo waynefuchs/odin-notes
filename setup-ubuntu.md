@@ -1,9 +1,10 @@
 - [Ubuntu Setup](#ubuntu-setup)
-- [Fix time zone](#fix-time-zone)
-- [Rename Sound Card](#rename-sound-card)
-- [Add Software](#add-software)
+  - [Fix time zone](#fix-time-zone)
+  - [Rename Sound Card](#rename-sound-card)
+  - [Add Software](#add-software)
+  - [Download Software](#download-software)
   - [Snaps](#snaps)
-  - [VSCode Modules](#vscode-modules)
+  - [VSCode Setup](#vscode-setup)
   - [gTile](#gtile)
   - [Download Nomachine](#download-nomachine)
 - [Remove Software](#remove-software)
@@ -18,50 +19,44 @@
 
 I have installed ubuntu on three computers. During the second install, I realized that I should have made a step-by-step during the first time. Ah well. The third install went pretty quickly because of this file.
 
-# Fix time zone
+## Fix time zone
 
 `timedatectl set-local-rtc 1`
 
-# Rename Sound Card
+## Rename Sound Card
 
 `pavucontrol`
 
-# Add Software
+## Add Software
 
-`sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro`
+`sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro gimp`
 
 `git config --global user.name "Wayne Fuchs"`
 
 `git config --global user.email "wayne.fuchs@icloud.com"`
 
+## Download Software
+
+|Software|Note|
+|--|--|
+|[Steam](https://store.steampowered.com/about/)|I install this early to get blender installed and verify GPU is working properly.|
+|blender|The easiest linux install of blender that I have found is through Steam.|
+|[brave](https://brave.com/linux/#release-channel-installation)|Instructions are provided to install the browser.|
+|[vscode](https://code.visualstudio.com/)|Download and install the `.deb`, an update channel is added by the package.|
+|[obs](https://obsproject.com/download#linux)|Open Broadcaster Software|
+
 ## Snaps
 
-- code (vscode)
-- brave
-- gimp
 - inkscape
-- blender
 - boxy-svg
 - discord
 - obs-studio
+- octave
+- docker
 
-## VSCode Modules
+## VSCode Setup
 
-| Package Name         | Author               | Description                                  |
-| -------------------- | -------------------- | -------------------------------------------- |
-| Code Spell Checker   | Street Side Software | Spell Checking                               |
-| Live Server          | Ritwick Dey          | Built-in http server to test raw html/css/js |
-| Markdown All In One  | Yu Zhang             | Markdown tools                               |
-| Prettier             | Prettier             | Format code with the push of a button.       |
-| REST Client          | Huachao Mao          | Perform HTTP calls and see raw output.       |
-| EJS language supprot | DigitalBrainstem     | EJS 'language' support.                      |
-| Python               |                      | Python language support.                     |
-| ~~Pylance~~          |                      |                                              |
 
-- Bind `prettier.forceFormatDocument` to `ScrollLock`
-- Bind `workbench.action.toggleEditorWidths` to `Shift+Alt+Enter`
-- `editor.emmet.action.wrapWithAbbreviation` to `Ctrl+e Ctrl+w`
-- `editor.emmet.action.removeTag` to `Ctrl+e Ctrl+d`
 
 ## [gTile](https://github.com/gTile/gTile)
 
