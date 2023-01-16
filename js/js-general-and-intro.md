@@ -70,6 +70,8 @@
 
 ### Types
 
+> TODO: Remove this section (?) 15JAN2023 => Added `js-data-types-and-structures.md`
+
 The following are **primatives**:
 1. `Number`
 1. `BigInt`: Any number larger than (+/-)(2^53)-1 (9_007_199_254_740_991) - 9 quadrillion. **Note**: Add a 'n' to the end of the number while defining.
