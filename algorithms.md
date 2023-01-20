@@ -5,7 +5,9 @@
   - [Algorithms](#algorithms-1)
     - [Binary Search](#binary-search)
     - [Linear Search](#linear-search)
+  - [Specific Algorithms](#specific-algorithms)
     - [Maximum Subarray Problem with Kadane's Algorithm](#maximum-subarray-problem-with-kadanes-algorithm)
+    - [Prefix Sum](#prefix-sum)
   - [Things to learn](#things-to-learn)
 
 # Algorithms
@@ -91,7 +93,15 @@ WHILE item_found = False
         increment pointer to next item in the list
 ```
 
+## Specific Algorithms
+
+---
+
+While working through leetcode problems, I am coming across many questions that require very niche algorithmic knowledge. This section is where I am going to attempt to document what I have learned to the best of my ability.
+
 ### Maximum Subarray Problem with Kadane's Algorithm
+
+---
 
 An algorithm aimed at solving the [Maximum Subarray Problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem), which is the task of finding a contiguous subarray with the largest sum within a one-dimensional array.
 
@@ -112,10 +122,22 @@ function kadane(nums) {
 }
 ```
 
-## Things to learn
+### Prefix Sum
 
 ---
 
-Depth-first search
-Breadth-first search
-Writing sorting algorithms
+(Cumulative Sum, Inclusive Scan)
+
+Wikipedia describes [Prefix Sum](https://en.wikipedia.org//wiki/Prefix_sum) page describes the algorithm as working off a second data set that contains the running sum of the input data set.
+
+It is useful in finding a contiguous substring within the original data set that sums to a desired total. (See [Leetcode 974](https://leetcode.com/problems/subarray-sums-divisible-by-k/))
+
+## Things to learn
+
+> TODO: Outdated
+
+---
+
+- Depth-first search
+- Breadth-first search
+- Writing sorting algorithms(?)
