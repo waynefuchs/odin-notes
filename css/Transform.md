@@ -1,9 +1,8 @@
 - [CSS Transforms](#css-transforms)
   - [Links](#links)
   - [Gotchas](#gotchas)
-  - [Perspective](#perspective)
-    - [Values](#values)
   - [Coordinate System](#coordinate-system)
+  - [Perspective](#perspective)
   - [Rotate](#rotate)
   - [Scale](#scale)
   - [Skew](#skew)
@@ -23,43 +22,44 @@
 ## Gotchas
 
 - Inline elements don't work with transforms
-
-## Perspective
-
-| function              | description                               |
-| --------------------- | ----------------------------------------- |
-| {perspective: value;} | Distance between z=0 plane, and the user. |
-
-**if you intend to use 3d transforms**: This is a required property, meant to be applied to a parent container to set up the "Camera Lens Matrix" to be applied on top of any other transforms to view perspective.
-
-Close values (eg: 100px) will result in severe fish-eye. Values in the 600-1200px range seem to be fairly appropriate for standard 'phone camera' perspective.
-
-### Values
-
-| value    | description                                             |
-| -------- | ------------------------------------------------------- |
-| none     | disable                                                 |
-| px       | offset in pixels (less than 1px is clamed to 1px)       |
-| em / rem | offset in em or rem                                     |
-| `other`  | I _think_ any length postfix is converted               |
-| global   | `inherit`, `initial`, `revert`, `revert-layer`, `unset` |
+- Pay attention to the order of transforms when chaining.
 
 ## Coordinate System
 
 ![CSS Coordinate System](../_images-for-notes/css-coordinate-system.png)
+
+## Perspective
+
+| property             | description                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| perspective: `dist`; | Distance between z=0 plane, and the physical monitor pixels. |
+
+> Allowed value types for `dist`:
+>
+> | value    | description                                                  |
+> | -------- | ------------------------------------------------------------ |
+> | none     | disable                                                      |
+> | px       | offset in pixels (less than 1px is clamed to 1px)            |
+> | em / rem | offset in em or rem                                          |
+> | `other`  | I _think_ any length value is usable e.g. vw, `calc()`, etc. |
+> | global   | `inherit`, `initial`, `revert`, `revert-layer`, `unset`      |
+
+**if you intend to use 3d transforms**: This is a required property, meant to be applied to a **parent container** to set up the "Camera Lens Matrix" to be applied on top of any other transforms to view perspective.
+
+Close values for `dist` (eg: 100px) will result in severe fish-eye. Values in the 600-1200px range seem to be fairly appropriate for standard 'phone camera' perspective.
 
 ## Rotate
 
 > Allowed parameters for `a` (amount):
 > deg, rad, turn
 
-| function             | description                                                                                                          | 3D  |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------- | --- |
-| rotateX(a)           | Rotate along `x` axis                                                                                                |     |
-| rotateY(a)           | Rotate along `y` axis                                                                                                |     |
-| rotateZ(a)           | Rotate along `z` axis                                                                                                |     |
-| rotate(a)            | Rotate around the origin (see [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin)) |
-| rotate3d(x, y, z, a) | Rotate a normalized [x, y, z] vector by `a`                                                                          | ☑️  |
+| function               | description                                                                                                          | 3D  |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------- | --- |
+| rotate`X`(a)           | Rotate along `x` axis                                                                                                |     |
+| rotate`Y`(a)           | Rotate along `y` axis                                                                                                |     |
+| rotate`Z`(a)           | Rotate along `z` axis                                                                                                | ☑️  |
+| rotate(a)              | Rotate around the origin (see [transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin)) |
+| rotate`3d`(x, y, z, a) | Rotate a normalized [x, y, z] vector by `a`                                                                          | ☑️  |
 
 > Note: In rotate3d, if the vector [x, y, z] does not have a unit length, the vector will be normalized.
 
@@ -71,13 +71,13 @@ Close values (eg: 100px) will result in severe fish-eye. Values in the 600-1200p
 >
 > `%`: Percent is also allowed
 
-| function            | description                                | 3D  |
-| ------------------- | ------------------------------------------ | --- |
-| scaleX(v)           | Resize in the `x` direction                |     |
-| scalelY(v)          | Resize in the `y` direction                |     |
-| scale(vX, vY)       | Resize in the `x` and `y` direction        |     |
-| scaleZ(v)           | Resize along the `z` axis                  | ☑️  |
-| scale3d(vX, vY, vZ) | Resize in the `x`, `y`, and `z` direction. | ☑️  |
+| function              | description                                | 3D  |
+| --------------------- | ------------------------------------------ | --- |
+| scale`X`(v)           | Resize in the `x` direction                |     |
+| scalel`Y`(v)          | Resize in the `y` direction                |     |
+| scale`Z`(v)           | Resize along the `z` axis                  | ☑️  |
+| scale(vX, vY)         | Resize in the `x` and `y` direction        |     |
+| scale`3d`(vX, vY, vZ) | Resize in the `x`, `y`, and `z` direction. | ☑️  |
 
 ## Skew
 
@@ -124,6 +124,10 @@ The values are something along the lines of:
   transform: matrix(1.25, 0, 0, 0.75, 0, 0);
 }
 ```
+
+Matrix math is a part of Linear Algebra if you want to know how this works.
+
+The 3d variant of `matrix` is `matrix3d`.
 
 > Note: the values are floating point numbers, and not units.
 
