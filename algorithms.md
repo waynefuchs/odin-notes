@@ -2,15 +2,24 @@
   - [Terms](#terms)
     - [Dynamic Programming](#dynamic-programming)
     - [Divide and Conquer](#divide-and-conquer)
+    - [Greedy Algorithm](#greedy-algorithm)
   - [Algorithms](#algorithms-1)
     - [Binary Search](#binary-search)
     - [Linear Search](#linear-search)
   - [Specific Algorithms](#specific-algorithms)
-    - [Maximum Subarray Problem with Kadane's Algorithm](#maximum-subarray-problem-with-kadanes-algorithm)
+    - [Dijkstra's Algorithm](#dijkstras-algorithm)
+    - [Kadane's Algorithm (Maximum Subarray Problem)](#kadanes-algorithm-maximum-subarray-problem)
     - [Prefix Sum](#prefix-sum)
+    - [Prim's Algorithm / Kruskal’s Algorithm](#prims-algorithm--kruskals-algorithm)
   - [Things to learn](#things-to-learn)
 
 # Algorithms
+
+I have three books on algorithms. I will reference page numbers where relevant.
+
+- Stephen S. Skiena (2020). _The Algorithm Design Manual_
+- Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein-The MIT Press (2022) (**CLRC**). _Introduction to Algorithms_
+- Gayle Laakmann McDowell (2015). _Cracking the Coding Interview_
 
 ## Terms
 
@@ -35,19 +44,27 @@ Example Uses:
 - Egg dropping puzzle
 - Matrix chain multiplication
 
+---
+
 ### Divide and Conquer
 
 In short: Recursion.
 
 Wikipedia defines [Divide and Conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) algorithms as recursive methods of dividing a problem down into two or more sub problems of the same, or related type, until the problems become simple enough to be solved directly.
 
+---
+
+### Greedy Algorithm
+
+An algorithm that **locally** chooses the best option without regard for the **global** best solution. These algorithms generally produce an approximation, for example, a shortest route between two paths, where the actual fastest route may include a ladder or wormhole that is discarded due to the algorithm's greedy nature. (Wikipedia's [Greedy Algorithm](https://en.wikipedia.org/wiki/Greedy_algorithm) page.)
+
+---
+
 ## Algorithms
 
 ---
 
 ### Binary Search
-
----
 
 `O(log n)`
 
@@ -72,9 +89,9 @@ WHILE customer_found = False:
 1. [BBC: Binary Search Guide](https://www.bbc.co.uk/bitesize/guides/zts8v9q/revision/5)
 2. [Wikipedia: Binary search Algorithm](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
-### Linear Search
-
 ---
+
+### Linear Search
 
 O(n)
 
@@ -93,15 +110,30 @@ WHILE item_found = False
         increment pointer to next item in the list
 ```
 
-## Specific Algorithms
-
 ---
+
+## Specific Algorithms
 
 While working through leetcode problems, I am coming across many questions that require very niche algorithmic knowledge. This section is where I am going to attempt to document what I have learned to the best of my ability.
 
-### Maximum Subarray Problem with Kadane's Algorithm
+---
+
+### Dijkstra's Algorithm
+
+Wikipedia defines [Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm) as a way to find the shortest path between nodes in a graph.
+
+It operates in a similar manner to A\* path-finding, except that it supports things like portals and more abstract graphs where distances between nodes are unknown and possibly not uniform.
+
+- Class
+  - Search algorithm
+  - Greedy algorithm
+  - Dynamic Programming
+- Data Structure (Input): Graph
+- Data Structure (Implementation): Queue or Heap
 
 ---
+
+### Kadane's Algorithm (Maximum Subarray Problem)
 
 An algorithm aimed at solving the [Maximum Subarray Problem](https://en.wikipedia.org/wiki/Maximum_subarray_problem), which is the task of finding a contiguous subarray with the largest sum within a one-dimensional array.
 
@@ -122,9 +154,9 @@ function kadane(nums) {
 }
 ```
 
-### Prefix Sum
-
 ---
+
+### Prefix Sum
 
 (Cumulative Sum, Inclusive Scan)
 
@@ -132,11 +164,25 @@ Wikipedia describes [Prefix Sum](https://en.wikipedia.org//wiki/Prefix_sum) page
 
 It is useful in finding a contiguous substring within the original data set that sums to a desired total. (See [Leetcode 974](https://leetcode.com/problems/subarray-sums-divisible-by-k/))
 
+---
+
+### Prim's Algorithm / Kruskal’s Algorithm
+
+> Skiena pp. 245 / 248
+
+> Wikipedia:
+>
+> [Prim's Algorithm](https://en.wikipedia.org/wiki/Prim's_algorithm)
+>
+> [Kruskal's Algorithm](https://en.wikipedia.org/wiki/Kruskal%27s_algorithm)
+
+Convert a weighted undirected graph into a minimum spanning tree.
+
+---
+
 ## Things to learn
 
 > TODO: Outdated
-
----
 
 - Depth-first search
 - Breadth-first search
