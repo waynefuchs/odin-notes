@@ -1,44 +1,46 @@
 - [Transition](#transition)
+  - [Links](#links)
+  - [Gotchas](#gotchas)
+  - [transition-property](#transition-property)
+  - [transition-duration](#transition-duration)
+  - [transition-timing-function](#transition-timing-function)
+  - [transition-delay](#transition-delay)
+  - [transition](#transition-1)
 
 # Transition
 
 Animation between states.
 
-## Properties associated with transitions
+## Links
 
-### transition
+[MDN Transition Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions): Includes js integration (eg: ball demo)
 
-A shorthand property for
+## Gotchas
 
-```css
-/*
-  Below is shorthand for:
-    transition-property
-    transition-duration
-    transition-timing-function
-    transition-delay
+- Be careful with **_context stacking_**. Performing multiple transforms will force a rerender of all parent elements and can cause performance issues.
+- If performance is important, stick to **_opacity_** and **_transform_** transitions _only_. Other operations, such as animating color, can tax the visitor's browser.
 
-  transition: {property} {duration} {timing-func} {delay};
-*/
+## transition-property
 
-.example1 {
-  background-color: green;
-  transition: background-color 1s ease-out 0.25s;
-}
-.example1:hover {
-  background-color: red;
-}
-```
-
-### transition-property
+---
 
 Define what property will be transitioned.
 
-### transition-duration
+| property   | description                                                                                               |
+| ---------- | --------------------------------------------------------------------------------------------------------- |
+| none       | No properties will transition                                                                             |
+| all        | All properties that can transition will transition                                                        |
+| `specific` | [List of Animatable Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties) |
+
+## transition-duration
+
+---
 
 The length of time the transition will take.
 
-### transition-timing-function
+## transition-timing-function
+
+---
 
 Change the velocity of the transition over the course of its duration.
 
@@ -65,6 +67,30 @@ Change the velocity of the transition over the course of its duration.
 
 For more info, see [transition-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function) at MDN.
 
-### transition-delay
+## transition-delay
 
 How long to wait before performing the transition.
+
+## transition
+
+A shorthand property for
+
+```css
+/*
+  Below is shorthand for:
+    transition-property
+    transition-duration
+    transition-timing-function
+    transition-delay
+
+  transition: {property} {duration} {timing-func} {delay};
+*/
+
+.example1 {
+  background-color: green;
+  transition: background-color 1s ease-out 0.25s;
+}
+.example1:hover {
+  background-color: red;
+}
+```
