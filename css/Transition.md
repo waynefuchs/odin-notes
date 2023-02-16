@@ -25,9 +25,15 @@ Animation between states.
 
 ## will-change
 
-*Use sparingly* - will notify the browser that the css author expects the element to change. Applying the property can cause the browser to waste memory. If the page is performing well, do not use.
+*Use sparingly* - will notify the browser that the css author expects the element to change. Applying the property can cause the browser to waste memory.
+
+If the page is performing well / as intended, do not use.
+
+This property is intended to be predictively set by a script as part of optimization. It can be used in CSS, but will cause the optimizations to be held in memory for much longer than necessary.
 
 - `auto`: default optimizations
+- `scroll-position`: It is expected that the scroll position of the element will change
+- `contents`: It is expected that something about the element's contents will change
 
 ## transition-property
 
