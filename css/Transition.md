@@ -1,6 +1,7 @@
 - [Transition](#transition)
   - [Links](#links)
   - [Gotchas](#gotchas)
+  - [will-change](#will-change)
   - [transition-property](#transition-property)
   - [transition-duration](#transition-duration)
   - [transition-timing-function](#transition-timing-function)
@@ -13,12 +14,20 @@ Animation between states.
 
 ## Links
 
-[MDN Transition Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions): Includes js integration (eg: ball demo)
+- [MDN Transition Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions): Includes js integration (eg: ball demo)
+- [Animations Guide](https://web.dev/animations-guide/): Handy section on debugging slow / janky animations.
 
 ## Gotchas
 
 - Be careful with **_context stacking_**. Performing multiple transforms will force a rerender of all parent elements and can cause performance issues.
+  - `opacity` and `transform` are safe options that do not 
 - If performance is important, stick to **_opacity_** and **_transform_** transitions _only_. Other operations, such as animating color, can tax the visitor's browser.
+
+## will-change
+
+*Use sparingly* - will notify the browser that the css author expects the element to change. Applying the property can cause the browser to waste memory. If the page is performing well, do not use.
+
+- `auto`: default optimizations
 
 ## transition-property
 
