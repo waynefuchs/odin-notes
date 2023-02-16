@@ -14,6 +14,7 @@ Animation between states.
 
 ## Links
 
+- [CSS Triggers List](https://csstriggers.com/): Show what effect various CSS triggers will have on performance.
 - [MDN Transition Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions): Includes js integration (eg: ball demo)
 - [Animations Guide](https://web.dev/animations-guide/): Handy section on debugging slow / janky animations.
 
