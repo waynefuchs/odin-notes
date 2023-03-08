@@ -13,6 +13,12 @@
       - [`clamp(smallest, ideal, largest)`](#clampsmallest-ideal-largest)
       - [`min(a, b, ...)`](#mina-b-)
       - [`max(a, b, ...)`](#maxa-b-)
+  - [CSS Properties](#css-properties)
+    - [`background`](#background)
+    - [`border` and `border-radius`](#border-and-border-radius)
+    - [`box-shadow`](#box-shadow)
+    - [`overflow`](#overflow)
+    - [`opacity`](#opacity)
 
 # CSS Reference
 
@@ -169,3 +175,47 @@ You can perform basic math inside this function. eg: `min(150px, 100vw - 2rem);`
 Functions the same way as min, except returning the larger of the two supplied inputs. It can function as a guard clause against someone that has set a large font to prevent some important bit of information from being lost off screen.
 
 `width: max(100px, 4em, 50%);` - in this case it is possible for the user to size their viewport to a size less than 100px, and 4em could be very small if the user has chosen a default font size to be very small, at which point 100px would be chosen here as kind of a guard clause.
+
+
+
+
+
+
+## CSS Properties
+
+### `background`
+
+* [MDN: background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
+* [CSSTricks: background](https://css-tricks.com/almanac/properties/b/background/)
+
+Set the background of the element to:
+- a solid color
+- gradient
+- vector image
+- raster image
+- multiple images
+
+```css
+background: center / contain no-repeat url("../../media/examples/firefox-logo.svg"), #eee 35% url("../../media/examples/lizard.png");
+```
+The details can get very verbose, it is better to go to the docs to find the bit that you need.
+
+> Note: this can render the background as type 'image'. If you attempt to animate this it will not work and you will waste hours. Allegedly.
+> 
+### `border` and `border-radius`
+
+* [MDN: border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
+* [MDN: border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
+
+### `box-shadow`
+
+* [MDN: box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
+
+### `overflow`
+
+* [MDN: overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
+* [CSSTricks: overflow](https://css-tricks.com/almanac/properties/o/overflow/)
+
+### `opacity`
+
+* [MDN: opacity](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity)
