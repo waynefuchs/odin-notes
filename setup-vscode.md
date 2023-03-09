@@ -14,6 +14,8 @@
 
 ### Python
 
+> Note: These are packages that tend to automatically get installed when I write anything in python.
+
 | Package Name               | Author    | Description              |
 | -------------------------- | --------- | ------------------------ |
 | Python                     | Microsoft | Python language support. |
