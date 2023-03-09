@@ -13,6 +13,8 @@
 
 # CSS Transforms
 
+Defining a change of appearance to an element using CSS.
+
 ## Links
 
 - [MDN transform-function](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function): Mozilla Docs

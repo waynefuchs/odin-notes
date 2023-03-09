@@ -1,5 +1,4 @@
 - [Transition](#transition)
-<<<<<<< HEAD
   - [Links](#links)
   - [Gotchas](#gotchas)
   - [will-change](#will-change)
@@ -8,22 +7,13 @@
   - [transition-timing-function](#transition-timing-function)
   - [transition-delay](#transition-delay)
   - [transition](#transition-1)
-=======
-  - [Properties associated with transitions](#properties-associated-with-transitions)
-    - [transition-property](#transition-property)
-    - [transition-duration](#transition-duration)
-    - [transition-timing-function](#transition-timing-function)
-    - [transition-delay](#transition-delay)
-    - [transition](#transition-1)
->>>>>>> c0e5c7f (Transition)
 
 # Transition
 
-Animation between states.
+***Simple*** Animation between states. *(See [Animation-Keyframes](Animation-Keyframes.md) for complex animation)*
 
 ## Links
 
-<<<<<<< HEAD
 - [CSS Triggers List](https://csstriggers.com/): Show what effect various CSS triggers will have on performance.
 - [MDN Transition Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions): Includes js integration (eg: ball demo)
 - [Animations Guide](https://web.dev/animations-guide/): Handy section on debugging slow / janky animations.
@@ -77,11 +67,7 @@ function removeHint() {
 - `contents`: It is expected that something about the element's contents will change
 
 ## transition-property
-
 ---
-=======
-### transition-property
->>>>>>> c0e5c7f (Transition)
 
 Define what property will be transitioned.
 
@@ -130,12 +116,7 @@ For more info, see [transition-timing-function](https://developer.mozilla.org/en
 
 How long to wait before performing the transition.
 
-<<<<<<< HEAD
 ## transition
-=======
-
-### transition
->>>>>>> c0e5c7f (Transition)
 
 A shorthand property for
 
