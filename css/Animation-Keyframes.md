@@ -19,10 +19,13 @@
 
 ## Links
 
+- MDN [Using CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) (This 'tutorial' was part 1 of the assignment on the "Keyframes" lesson)
 - MDN [@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
 - MDN [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
 
 ## `@keyframes`
+
+---
 
 Define animation transitions.
 
@@ -52,7 +55,10 @@ The `to` keyword = 100% = end
 
 ---
 
+`animation` is a shorthand for several other animation properties and is useful for saving space.
+
 ```css
+/* Usage */
 /* Syntax 1: <@keyframes duration> <easing-function> <animation-delay> <iteration-count> <direction> <fill-mode> <play-state> <name>; */
 animation: 3s ease-in 1s 2 reverse both paused SlideIn;
 
@@ -61,11 +67,22 @@ animation: 3s linear 1s SlideIn;
 
 /* Syntax 3 - Multiple Animations: [Separate using commas] */
 animation: 3s linear SlideIn, 3s ease-out 5s SlideOut;
+
+element {
+  /* Shorthand demonstration */
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-name: slidein;
+
+  /* Becomes */
+  animation: 3s infinite alternate slidein;
+}
 ```
 
 ### Animation Properties
 
-Here are the properties that are (more commonly) set by the `animation` shortcut.
+Here are the properties that are (more commonly) set by the `animation` shorthand defined above.
 
 #### [`animation-delay`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay)
 
@@ -152,7 +169,7 @@ Specify the animation name of one or more `@keyframe` at-rules to apply to an el
 animation-name: none;
 animation-name: slide;
 animation-name: bounce;
-animation-name: slide, bounce;  /* do both */
+animation-name: slide, bounce; /* do both */
 ```
 
 #### [`animation-play-state`](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state)
