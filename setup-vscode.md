@@ -6,6 +6,7 @@
 | -------------------- | -------------------- | -------------------------------------------- |
 | Prettier             | Prettier             | Format code with the push of a button.       |
 | Markdown All In One  | Yu Zhang             | Markdown tools                               |
+| Overtype             | Adam Maras           | Implements Insert / Overtype mode            |
 | REST Client          | Huachao Mao          | Perform HTTP calls and see raw output.       |
 | Code Spell Checker   | Street Side Software | Spell Checking                               |
 | Live Server          | Ritwick Dey          | Built-in http server to test raw html/css/js |
