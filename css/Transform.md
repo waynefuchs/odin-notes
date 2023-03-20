@@ -114,8 +114,6 @@ skewX, skewY, skew (deg, rad)
 
 ## Chaining Transforms
 
-TODO:::: The
-
 ## Matrix
 
 The values are something along the lines of:
