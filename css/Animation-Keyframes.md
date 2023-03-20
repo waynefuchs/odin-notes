@@ -9,9 +9,11 @@
       - [`animation-duration`](#animation-duration)
       - [`animation-fill-mode`](#animation-fill-mode)
       - [`animation-iteration-count`](#animation-iteration-count)
-      - [`animation-name`](#animation-name)
+      - [`animation-name` (Optional)](#animation-name-optional)
       - [`animation-play-state`](#animation-play-state)
       - [`animation-timing-function`](#animation-timing-function)
+
+> TODO: Combine `Animation-Keyframes.md` and `Transition.md`
 
 # Animation using Keyframes
 
@@ -19,6 +21,7 @@
 
 ## Links
 
+- [W3C Source Specification](https://w3c.github.io/csswg-drafts/css-animations/#animation) (Use this. It is the clearest.)
 - MDN [Using CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) (This 'tutorial' was part 1 of the assignment on the "Keyframes" lesson)
 - MDN [@keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
 - MDN [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
@@ -57,26 +60,64 @@ The `to` keyword = 100% = end
 
 `animation` is a shorthand for several other animation properties and is useful for saving space.
 
+> Note: The browser interprets the shorthand inputs, making the syntax a bit challenging to define. I found several "incorrect" examples (counter to the w3 definition) on various websites that worked. I can only assume that the syntax has evolved over time and backwards compatibility has been left in place.
+
+Here is my attempt at it taken from several sources: (Mostly MDN)
+
 ```css
-/* Usage */
-/* Syntax 1: <@keyframes duration> <easing-function> <animation-delay> <iteration-count> <direction> <fill-mode> <play-state> <name>; */
-animation: 3s ease-in 1s 2 reverse both paused SlideIn;
+/*
+Each individual animation is specified as:
 
-/* Syntax 2: <@keyframes duration> <easing-function> <animation-delay> <name> */
-animation: 3s linear 1s SlideIn;
+zero, one, or two occurrences of the <time> value
+zero or one occurrences of the following values:
+  <single-easing-function>
+  <single-animation-iteration-count>
+  <single-animation-direction>
+  <single-animation-fill-mode>
+  <single-animation-play-state>
+*/
 
-/* Syntax 3 - Multiple Animations: [Separate using commas] */
-animation: 3s linear SlideIn, 3s ease-out 5s SlideOut;
+.syntax1 {
+  /*  
+  animation:
+    animation-name
+    animation-duration 
+    animation-timing-function 
+    animation-delay 
+    animation-iteration-count 
+    animation-direction 
+    animation-fill-mode 
+    animation-play-state  */
+
+  animation: SlideIn 3s ease-in 1s 2 reverse both paused;
+}
+
+.syntax2 {
+  /*
+  animation: 
+    animation-name
+    animation-duration 
+    animation-timing-function
+    animation-delay*/
+
+  animation: SlideIn 3s linear 1s;
+}
+
+.syntax3 {
+  /* Multiple Animations: [Separate using commas] */
+  animation: SlideIn 3s linear, SlideOut 3s ease-out 5s;
+}
 
 element {
-  /* Shorthand demonstration */
+  /* Longhand demonstration */
+  animation-name: SlideIn;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-  animation-name: slidein;
 
-  /* Becomes */
-  animation: 3s infinite alternate slidein;
+  /* Becomes (Shorthand) */
+  animation: SlideIn 3s ease infinite;
+  animation: SlideIn 0.5s linear 1s infinite alternate;
 }
 ```
 
@@ -159,11 +200,13 @@ animation-fill-mode: both;
 
 The number of times to play the animation. Floating point counts are allowed. (eg: 1.25 to play 1 and a quarter animations)
 
-#### `animation-name`
+#### `animation-name` (Optional)
 
 ---
 
 Specify the animation name of one or more `@keyframe` at-rules to apply to an element.
+
+`none` can be specified.
 
 ```css
 animation-name: none;
