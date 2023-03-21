@@ -9,6 +9,7 @@
     - [Image](#image)
     - [Lists](#lists)
     - [List Items](#list-items)
+    - [Description Lists](#description-lists)
     - [Paragraph](#paragraph)
     - [Text Options](#text-options)
   - [Forms](#forms)
@@ -96,7 +97,13 @@ Note: List containers require a list item child.
 
 ### List Items
 
-`<li>itemText</li>`: display the item text
+- `<li>itemText</li>`: display the item text
+
+### Description Lists
+
+- `<dl></dl>`: Description List, which requires a `<dt></dt>` or `<dd></dd>` tag. Behaves like `ul` or `ol`.
+- `<dt>descriptionTitle</dt>`: display the item description title
+- `<dd>descriptionText</dd>`: display the item description text
 
 ### Paragraph
 
