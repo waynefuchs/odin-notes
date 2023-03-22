@@ -1,32 +1,113 @@
 - [Accessibility (a11y)](#accessibility-a11y)
   - [Links](#links)
+  - [Semantic HTML](#semantic-html)
+    - [Headings `<h1>` ... `<h6>`](#headings-h1--h6)
+    - [`<button>`](#button)
+    - [`<table>`](#table)
+    - [`<label>`](#label)
+    - [Landmarks](#landmarks)
+  - [Web Content Accessibility Guidelines (WCAG)](#web-content-accessibility-guidelines-wcag)
+    - [WCAG Four Principles:](#wcag-four-principles)
+    - [WCAG Conformance Levels](#wcag-conformance-levels)
   - [Disability Types](#disability-types)
     - [Auditory](#auditory)
       - [Guidelines](#guidelines)
-      - [Glossary](#glossary)
+      - [Auditory Disabilities](#auditory-disabilities)
     - [Cognitive, Learning, and Neurological](#cognitive-learning-and-neurological)
       - [Guidelines](#guidelines-1)
-      - [Glossary](#glossary-1)
+      - [Cognitive, Learning, and Neurological Disabilities](#cognitive-learning-and-neurological-disabilities)
     - [Physical](#physical)
       - [Specialized Hardware](#specialized-hardware)
       - [Guidelines](#guidelines-2)
-      - [Glossary](#glossary-2)
+      - [Physical Disabilities](#physical-disabilities)
     - [Speech](#speech)
       - [Guidelines](#guidelines-3)
-      - [Glossary](#glossary-3)
+      - [Speech Disabilities](#speech-disabilities)
     - [Visual](#visual)
+      - [Guidelines](#guidelines-4)
+      - [Visual Disabilities](#visual-disabilities)
   - [Disability Aspects](#disability-aspects)
   - [Accessibility Tools and Software](#accessibility-tools-and-software)
     - [Screen Readers](#screen-readers)
+  - [Gotchas](#gotchas)
+
+> TODO: What software development tools are available to assist in ensuring a good user experience for someone with disabilities? (Such as, how do I ensure that my site displays properly on a refreshable braille display considering i can't read braille and I don't have said display.)
 
 # Accessibility (a11y)
 
 ## Links
 
-| Page Name                                                                                                                   | Description                                  |
-| --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| [Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)                                 | W3C Explanation of Disabilities              |
-| Wikipedia [WCAG (Web Content Accessibility Guidelines)](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines) | Contains multiple relevant links and history |
+| Page Name                                                                                                                                  | Description                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| [WCAG 2 Guidelines](https://www.w3.org/TR/WCAG22/) ([Local Copy](<../Web%20Content%20Accessibility%20Guidelines%20(WCAG)%202.2.pdf>))      |                                                                                          |
+| [WCAG 2 Checklist](https://webaim.org/standards/wcag/WCAG2Checklist.pdf) ([Local Copy](../WCAG2Checklist.pdf))                             | A checklist that can be useful in ensuring a site is accessible.                         |
+| Wikipedia [WCAG (Web Content Accessibility Guidelines)](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines)                | Contains multiple relevant links and history                                             |
+| [Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)                                                | W3C Explanation of Disabilities                                                          |
+| [How People with Disabilities Access Digital Content](https://www.youtube.com/watch?v=Lu7a5RU5lM0)                                         | A video by UA Technology Accessibility that covers various assistive technologies. (45m) |
+| Google Chrome Developers [a117casts playlist](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=2) | A youtube playlist, by google, that walks through accessibility for developers.          |
+
+> Note:
+>
+> I have had w3.org appear offline through cloudflare. (Why I have local copies)
+
+## Semantic HTML
+
+---
+
+HTML Semantics are important because they provide _meaning_ and _context_ to content.
+
+A tag like `<p></p>` provides meaning, but not context. That paragraph could be your company motto, a sales pitch, or a paragraph in an article. The browser doesn't know.
+
+> Note: In forms, always use `type="<intended use>"`. (See: #type in [forms.md](forms.md#type))
+
+### Headings `<h1>` ... `<h6>`
+
+Headings mark sections of a page. Headings are important to get right for accessibility. A visually impaired person will typically listen to the headings of a page first to orient themselves to the content on the page before proceeding. Sort of like a telephone menu, or like a book index.
+
+Use the heading numbers in nested sequential order.
+
+### `<button>`
+
+Screen readers will pronounce as: "Button Text, Button." (eg: "Submit, Button")
+
+### `<table>`
+
+If you are providing tabular data to your user, use the `<table>` element to make it easier to navigate and understand the data being presented.
+
+### `<label>`
+
+Provide labels for form elements to give a larger surface area to click on and bring the form element into focus and provide context to the field.
+
+### Landmarks
+
+Landmarks mark regions of a page. There are seven of these.
+
+1. `<aside>`
+2. `<footer>`
+3. `<form>`
+4. `<header>`
+5. `<main>`
+6. `<nav>`
+7. `<section>`
+
+## Web Content Accessibility Guidelines (WCAG)
+
+---
+
+WCAG is a standard for web accessibility that assists in making websites more accessible.
+
+### WCAG Four Principles:
+
+1. **Perceivable**: Information and user interface components must be presentable to users in ways they can perceive.
+2. **Operable**: Users must be able to operate any user interfaces or navigation, and interfaces cannot require an interaction the user cannot perform.
+3. **Understandable**: Users must be able to understand the information or user interface that is presented. (Including bad error messages, such as "ERROR 113: ID-10T")
+4. **Robust**: Content must be accessible by current assistive technologies and other user agents, and must remain accessible as those technologies advance.
+
+### WCAG Conformance Levels
+
+- Level A: Essential support (The bare minium)
+- Level AA: Ideal Support (What most sites strive to achieve)
+- Level AAA: Specialized Support (Not recommended for most sites as some content makes this level impossible to reach)
 
 ## Disability Types
 
@@ -47,7 +128,7 @@
   - (and, where possible) Provide important information in sign language
     - Sign language may be preferable / primary language (and the individual may not read as well as they can sign)
 
-#### Glossary
+#### Auditory Disabilities
 
 - **hard of hearing**: mild to moderate hearing impairments in one or both ears
 - **deafness**: substantial, uncorrectable impairment of hearing in both ears
@@ -74,7 +155,7 @@
   - Avoid long passages of text without images, graphs, or illustrations to highlight context
 - grammar and spelling tools, used by CLN individuals require developers to consider web accessibility requirements which are often shared by people with hearing, physical, speech, and visual disabilities.
 
-#### Glossary
+#### Cognitive, Learning, and Neurological Disabilities
 
 - **Attention deficit hyperactivity disorder (ADHD)**: difficulty focusing on a single task, focusing for longer periods, or being easily distracted
 - **Autism spectrum disorder (ASD)**: involves impairments of social communication and interaction abilities, sometimes restricted habits and interests.
@@ -127,7 +208,7 @@ Physical disabilities (motor disabilities) include
 - Provide mechanisms to skip over blocks, such as page headers and navigation bars
 - Provide Consistent, Predictable, and simple navigation mechanisms and page functions
 
-#### Glossary
+#### Physical Disabilities
 
 - **Amputation**: Missing fingers, limbs, or other parts of the human body
 - **Arthritis**: Inflammation, degeneration, or damage to the joints
@@ -141,15 +222,55 @@ Physical disabilities (motor disabilities) include
 
 ### Speech
 
-Speech disabilities include difficulty producing speech that is recognizable by others or by voice recognition software
+---
+
+Speech disabilities include difficulty producing speech that is recognizable by others or by voice recognition software.
 
 #### Guidelines
 
-- Provide alternate options to voice-only interaction (such as text-based chat)
+- Provide some manner of company contact (eg: e-mail or chat) and not just a phone number or voice service
+- Don't limit user interface interaction to voice command (as cool as that could be)
 
-#### Glossary
+#### Speech Disabilities
+
+- **Apraxia of speech (AOS)**: inconsistent articulation and production of speech sounds, and errors producing sounds in the correct order making spoken words and phrases difficult to understand.
+- **Cluttering**: includes increased speaking rate, incorrect rhythm, intonation, and co-articulation of sounds, and other influent speech that is sometimes similar to stuttering.
+- **Dysarthria**: Weakness or complete paralysis of muscles that are necessary to produce speech, including lips, lungs, throat, tongue, and others.
+- **Speech sound disorder**: Inability to produce certain sounds or patterns of sound and sometimes results in addition, distortion, omission, or substitution of such sounds with others.
+- **Stuttering**: influent (not flowing) speech, repetition of individual sounds or entire words and phrases, and misplacement or prolongation of pauses and sounds while speaking that is different from cluttering.
+- **Muteness**: inability to speak due to various reasons such as anxiety, brain injuries, or inability to hear and learn speech.
 
 ### Visual
+
+---
+
+#### Guidelines
+
+- Allow enlarging or reducing text size
+- Ensure information (text, images, etc) is not lost when resizing the page
+- Ensure video content has text or audio alternatives (eg: audio-description track)
+- Keep navigation mechanisms simple, consistent, and standard
+- Ensure there is sufficient contrast between foreground and background in visual content (video, images)
+- Allow custom colors
+- Provide customization settings for fonts, colors, and spacing
+- Ensure lists, headings, tables, and page structure is correctly identified by browsers and assistive technologies
+- Support multiple presentations of the content and multiple ways of interaction
+  - Consider not being able to see color / contrast / seeing entirely modified colors
+  - Consider only seeing small portions of the content at a time
+  - Consider keyboard only navigation due to not being able to see a mouse cursor
+- Provide full keyboard support
+- Ensure there is alt text for Images, Controls, and Structural elements (?)
+- Test Hardware and Software solutions
+  - Listen to text-to-speech (TTS) synthesis of your content
+  - Listen to audio descriptions of visual content on your site
+  - Read your site using refreshable Braille
+
+#### Visual Disabilities
+
+- **Color Blindness**: difficulty distinguishing between colors such as between red and green, or between yellow and blue, and sometimes inability to perceive any color.
+- **Low vision**: Poor acuity (vision not sharp), tunnel vision, central field loss, clouded vision
+- **Blindness**: substantial, uncorrectable loss of vision in both eyes
+- **Deaf-blindness**: substantial, uncorrectable visual and hearing impairments.
 
 ## Disability Aspects
 
@@ -166,6 +287,10 @@ Speech disabilities include difficulty producing speech that is recognizable by 
 
 ### Screen Readers
 
-[NVDA](https://www.nvaccess.org/download/) (Free)
+[NVDA](https://www.nvaccess.org/download/) (Free) (Windows Only)
 
 [JAWS](https://www.freedomscientific.com/products/software/jaws/) ($95-1285/year)
+
+## Gotchas
+
+- Don't work around screen reader mispronunciations using things like `aria-label`, as that changes the captions and is what will be displayed on braille readers. People using screen readers are used to the mispronunciation quirks and prefer that you leave things as they are and let them work around it in their software, if they choose.
