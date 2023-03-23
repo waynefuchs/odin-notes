@@ -6,9 +6,11 @@
     - [`<table>`](#table)
     - [`<label>`](#label)
     - [Landmarks](#landmarks)
+    - [Semantic HTML Landmark Elements](#semantic-html-landmark-elements)
   - [Web Content Accessibility Guidelines (WCAG)](#web-content-accessibility-guidelines-wcag)
     - [WCAG Four Principles:](#wcag-four-principles)
     - [WCAG Conformance Levels](#wcag-conformance-levels)
+  - [ARIA](#aria)
   - [Disability Types](#disability-types)
     - [Auditory](#auditory)
       - [Guidelines](#guidelines)
@@ -29,6 +31,10 @@
   - [Disability Aspects](#disability-aspects)
   - [Accessibility Tools and Software](#accessibility-tools-and-software)
     - [Screen Readers](#screen-readers)
+      - [NVDA](#nvda)
+      - [Orca](#orca)
+      - [ChromeVOX](#chromevox)
+      - [JAWS](#jaws)
   - [Gotchas](#gotchas)
 
 > TODO: What software development tools are available to assist in ensuring a good user experience for someone with disabilities? (Such as, how do I ensure that my site displays properly on a refreshable braille display considering i can't read braille and I don't have said display.)
@@ -37,14 +43,18 @@
 
 ## Links
 
-| Page Name                                                                                                                                  | Description                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| [WCAG 2 Guidelines](https://www.w3.org/TR/WCAG22/) ([Local Copy](<../Web%20Content%20Accessibility%20Guidelines%20(WCAG)%202.2.pdf>))      |                                                                                          |
-| [WCAG 2 Checklist](https://webaim.org/standards/wcag/WCAG2Checklist.pdf) ([Local Copy](../WCAG2Checklist.pdf))                             | A checklist that can be useful in ensuring a site is accessible.                         |
-| Wikipedia [WCAG (Web Content Accessibility Guidelines)](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines)                | Contains multiple relevant links and history                                             |
-| [Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)                                                | W3C Explanation of Disabilities                                                          |
-| [How People with Disabilities Access Digital Content](https://www.youtube.com/watch?v=Lu7a5RU5lM0)                                         | A video by UA Technology Accessibility that covers various assistive technologies. (45m) |
-| Google Chrome Developers [a117casts playlist](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=2) | A youtube playlist, by google, that walks through accessibility for developers.          |
+I have ordered these in the priority order that I think they will be useful to me in the future.
+
+| Page Name                                                                                                                                  | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| [ARIA Landmarks Example](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html)                                           | An example of how to use ARIA Landmarks on a page                                                       |
+| [WCAG 2 Guidelines](https://www.w3.org/TR/WCAG22/) ([Local Copy](<../Web%20Content%20Accessibility%20Guidelines%20(WCAG)%202.2.pdf>))      |                                                                                                         |
+| [WCAG 2 Checklist](https://webaim.org/standards/wcag/WCAG2Checklist.pdf) ([Local Copy](../WCAG2Checklist.pdf))                             | A checklist that can be useful in ensuring a site is accessible.                                        |
+| [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/patterns/)                                                          | By the web accessibility initiative (w3.org), how to use ARIA (for each html element) to assist in a11y |
+| Wikipedia [WCAG (Web Content Accessibility Guidelines)](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines)                | Contains multiple relevant links and history                                                            |
+| [Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)                                                | W3C Explanation of Disabilities                                                                         |
+| [How People with Disabilities Access Digital Content](https://www.youtube.com/watch?v=Lu7a5RU5lM0)                                         | A video by UA Technology Accessibility that covers various assistive technologies. (45m)                |
+| Google Chrome Developers [a117casts playlist](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=2) | A youtube playlist, by google, that walks through accessibility for developers.                         |
 
 > Note:
 >
@@ -80,15 +90,34 @@ Provide labels for form elements to give a larger surface area to click on and b
 
 ### Landmarks
 
-Landmarks mark regions of a page. There are seven of these.
+Landmarks mark regions of a page.
 
-1. `<aside>`
-2. `<footer>`
-3. `<form>`
-4. `<header>`
-5. `<main>`
-6. `<nav>`
-7. `<section>`
+| name          | description                                                                                                                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| banner        | `header`: Contains things like a logo, identity of the site sponsor, site-specific search, etc                                 |
+| complementary | `aside`: Content that complements the main content.                                                                            |
+| contentinfo   | `footer`: Copyright, privacy, and accessibility statements                                                                     |
+| form          | `form`: Grouped inputs, except search (see search landmark)<br/>Form should be identified in an `h` tag using `aria-labeledby` |
+| main          | `main`: primary content on the page                                                                                            |
+| navigation    | `nav`: list of links that are intended to be used for navigation of the website or page                                        |
+| region        | `<section aria-labelledby="region-name">`                                                                                      |
+| search        | search functionality for a website (`role=search` is required for this landmark)                                               |
+
+### Semantic HTML Landmark Elements
+
+There are [seven](https://en.wikipedia.org/wiki/HTML_landmarks) elements which inherit default landmark roles.
+
+|     | html element | associated landmark                                                                             |
+| --- | ------------ | ----------------------------------------------------------------------------------------------- |
+| 1   | aside        | [complementary](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html) |
+| 2   | footer       | [contentinfo](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/contentinfo.html)     |
+| 3   | form         | [form](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/form.html)                   |
+| 4   | header       | [banner](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html)               |
+| 5   | main         | [main](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html)                   |
+| 6   | nav          | [navigation](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html)       |
+| 7   | section      | [region](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html)               |
+
+> NOTE: Do **not** manually set `role=` (legacy), instead use the proper semantic element.
 
 ## Web Content Accessibility Guidelines (WCAG)
 
@@ -108,6 +137,10 @@ WCAG is a standard for web accessibility that assists in making websites more ac
 - Level A: Essential support (The bare minium)
 - Level AA: Ideal Support (What most sites strive to achieve)
 - Level AAA: Specialized Support (Not recommended for most sites as some content makes this level impossible to reach)
+
+## ARIA
+
+I started to make a glossary, but decided I couldn't do better than: [ARIA Important Terms](https://www.w3.org/TR/wai-aria/#dfn-landmark)
 
 ## Disability Types
 
@@ -287,9 +320,30 @@ Speech disabilities include difficulty producing speech that is recognizable by 
 
 ### Screen Readers
 
-[NVDA](https://www.nvaccess.org/download/) (Free) (Windows Only)
+#### [NVDA](https://www.nvaccess.org/download/)
 
-[JAWS](https://www.freedomscientific.com/products/software/jaws/) ($95-1285/year)
+NVDA is modal, meaning there are modes you enter/exit, changing the way you interact with the reader.
+
+For example, entering "application" mode or "form" mode to allow typing in input boxes.
+
+- Free
+- Windows Only
+- [NVDA Shortcuts](https://dequeuniversity.com/screenreaders/nvda-keyboard-shortcuts)
+
+#### Orca
+
+- Free
+- Linux (Gnome) (on/off: `Super` + `Alt` + `S`)
+- $ `orca -s` to access screen reader preferences to configure
+- `/home/user/.local/share/orca` (delete if settings get messed up, like they did for me)
+
+#### [ChromeVOX](https://support.google.com/chromebook/answer/7031755?hl=en)
+
+- ChromeOS
+
+#### [JAWS](https://www.freedomscientific.com/products/software/jaws/)
+
+($95-1285/year)
 
 ## Gotchas
 
