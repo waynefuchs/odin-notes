@@ -3,6 +3,7 @@
   - [Version Control](#version-control)
   - [HTML](#html)
   - [CSS](#css)
+  - [Accessibility](#accessibility)
   - [Programming](#programming)
     - [Programming Books](#programming-books)
     - [Programming Practice Questions](#programming-practice-questions)
@@ -61,6 +62,18 @@
 | [CSS Cubic Bezier Generator](https://www.cssportal.com/css-cubic-bezier-generator/) | If you want a custom easing function for animation                          |
 | [CSS Length Visualizer](https://www.cssportal.com/css-lengths/)                     | Play with relative and absolute CSS Units                                   |
 
+## Accessibility
+
+---
+
+| Site                                                                                                          | Description                                                                    |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| WebAIM [Contrast Checker](https://webaim.org/resources/contrastchecker/)                                      | Helps ensure contrast is high enough (in the design process and) on your site. |
+| [WCAG 2.2](https://www.w3.org/TR/WCAG22/)                                                                     | The Web Content Accessibility Guide                                            |
+| [ARIA Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/)                                                    | A guide to using ARIA for each element                                         |
+| [ARIA Landmark Examples](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/HTML5.html)              | An example for properly setting up ARIA landmarks                              |
+| [WCAG 2 Checklist](https://webaim.org/standards/wcag/WCAG2Checklist.pdf) ([Local Copy](./WCAG2Checklist.pdf)) | A checklist that can be useful in ensuring a site is accessible.               |
+
 ## Programming
 
 ---
@@ -108,19 +121,16 @@ It's too easy to waste time playing with colors... Combine this with a UI/UX too
 
 ### Stock Art
 
-| Site                                                       | Description                                                                 |
-| ---------------------------------------------------------- | --------------------------------------------------------------------------- |
-|[Unsplash](https://unsplash.com/)|It is awesome that this site exists. Free (very high quality) stock art!|
-
+| Site                              | Description                                                              |
+| --------------------------------- | ------------------------------------------------------------------------ |
+| [Unsplash](https://unsplash.com/) | It is awesome that this site exists. Free (very high quality) stock art! |
 
 ### Fonts
 
-| Site                                                       | Description                                                                 |
-| ---------------------------------------------------------- | --------------------------------------------------------------------------- |
-|[Material Icons](https://fonts.google.com/icons?selected=Material+Icons)|Google's Icon Font|
-|[Font Awesome](https://fontawesome.com/icons)|This is harder to use than google's version, but has a lot of good fonts|
-
-
+| Site                                                                     | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| [Material Icons](https://fonts.google.com/icons?selected=Material+Icons) | Google's Icon Font                                                       |
+| [Font Awesome](https://fontawesome.com/icons)                            | This is harder to use than google's version, but has a lot of good fonts |
 
 ## Tools
 
