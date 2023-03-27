@@ -7,6 +7,7 @@
     - [`<label>`](#label)
     - [Landmarks](#landmarks)
     - [Semantic HTML Landmark Elements](#semantic-html-landmark-elements)
+  - [Color Contrast](#color-contrast)
   - [Web Content Accessibility Guidelines (WCAG)](#web-content-accessibility-guidelines-wcag)
     - [WCAG Four Principles:](#wcag-four-principles)
     - [WCAG Conformance Levels](#wcag-conformance-levels)
@@ -55,6 +56,7 @@ I have ordered these in the priority order that I think they will be useful to m
 | [Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)                                                | W3C Explanation of Disabilities                                                                         |
 | [How People with Disabilities Access Digital Content](https://www.youtube.com/watch?v=Lu7a5RU5lM0)                                         | A video by UA Technology Accessibility that covers various assistive technologies. (45m)                |
 | Google Chrome Developers [a117casts playlist](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=2) | A youtube playlist, by google, that walks through accessibility for developers.                         |
+| Implementing [Dark Mode](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)                                                 | A CSS-Tricks page with helpful hints on implementing styles on a webpage.                               |
 
 > Note:
 >
@@ -118,6 +120,13 @@ There are [seven](https://en.wikipedia.org/wiki/HTML_landmarks) elements which i
 | 7   | section      | [region](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html)               |
 
 > NOTE: Do **not** manually set `role=` (legacy), instead use the proper semantic element.
+
+## Color Contrast
+
+|                                  | Level AA | Level AAA |
+| -------------------------------: | :------: | :-------: |
+|    **Normal**<br />`< 18pt/24px` |  4.5:1   |    7:1    |
+| **Large**<br />`>= 14pt/18.66px` |   3:1    |   4.5:1   |
 
 ## Web Content Accessibility Guidelines (WCAG)
 
