@@ -8,6 +8,8 @@
     - [Landmarks](#landmarks)
     - [Semantic HTML Landmark Elements](#semantic-html-landmark-elements)
   - [Color Contrast](#color-contrast)
+  - [Keyboard Guidelines](#keyboard-guidelines)
+    - [Skip Links](#skip-links)
   - [Web Content Accessibility Guidelines (WCAG)](#web-content-accessibility-guidelines-wcag)
     - [WCAG Four Principles:](#wcag-four-principles)
     - [WCAG Conformance Levels](#wcag-conformance-levels)
@@ -57,6 +59,8 @@ I have ordered these in the priority order that I think they will be useful to m
 | [How People with Disabilities Access Digital Content](https://www.youtube.com/watch?v=Lu7a5RU5lM0)                                         | A video by UA Technology Accessibility that covers various assistive technologies. (45m)                |
 | Google Chrome Developers [a117casts playlist](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=2) | A youtube playlist, by google, that walks through accessibility for developers.                         |
 | Implementing [Dark Mode](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)                                                 | A CSS-Tricks page with helpful hints on implementing styles on a webpage.                               |
+| StackOverflow: [Which elements can receive focus?](https://stackoverflow.com/questions/1599660/which-html-elements-can-receive-focus)      | An old question, but has some interesting answers                                                       |
+| [Focusable](https://allyjs.io/data-tables/focusable.html) HTML Elements                                                                    | Test based results, as there is no official list                                                        |
 
 > Note:
 >
@@ -127,6 +131,38 @@ There are [seven](https://en.wikipedia.org/wiki/HTML_landmarks) elements which i
 | -------------------------------: | :------: | :-------: |
 |    **Normal**<br />`< 18pt/24px` |  4.5:1   |    7:1    |
 | **Large**<br />`>= 14pt/18.66px` |   3:1    |   4.5:1   |
+
+## Keyboard Guidelines
+
+- Never remove styling for `:focus` pseudo-classes
+  - Doing so makes keyboard navigation impossible.
+  - Either leave them alone, tweak them if you must, such as changing `transition: scale()`
+- (Best practice) Place tabbable elements in your HTML document in the order that they should be selected
+- Do not mess with `tabindex=''` order (`0` should be used (`-1` to hide elements), if used at all)
+- Setting `tabindex` to -1 will not allow keyboard users to tab into an element
+  - Useful for preventing keyboard tabbing into hidden menus, and can be set to `0` to allow tabbing again (**_BUT_**)
+    - `.focus()` can still be called on that element
+    - if the user is already focused on that element when the value is set, the keyboard user may lose track of where they are on the page
+    - **_a better solution_** is to use the `display:none` or `visibility:hidden` CSS properties, which affects all accessibility methods, not just keyboard input
+- Non-Semantic HTML does not allow focus (?)
+
+### Skip Links
+
+Skip links exist to allow people using a screen reader the ability to skip past content, such as navigation menus, directly to some other (main) content.
+
+Here is a [demo](https://codepen.io/waynefuchs/full/gOdEJNG) that I made, available on codepen. Here is the [source page](https://webaim.org/techniques/skipnav/) for this information.
+
+- The first link on the page, activated with the tab key, should be the skip link.
+- When activated, it should be very visible.
+- Multiple skip links are unnecessary / undesirable (adding several more links does not solve the issue of having a lot of links)
+
+Examples of wording for the skip link: (in personal preference order)
+
+1. Skip to main content
+2. Skip navigation
+3. Skip main navigation
+4. Skip navigation links
+5. Skip to content
 
 ## Web Content Accessibility Guidelines (WCAG)
 
