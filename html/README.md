@@ -23,7 +23,7 @@
 
 ## Generic Attributes
 
-- `id=""`: Identify a _specific_ HTML element (**AVOID USING** where possible)
+- `id=""`: Identify a _specific_ HTML element (**AVOID** where possible - example "allowed" uses: forms and accessibility)
 - `class=""`: Identify a group of HTML elements
 
 ## Elements
