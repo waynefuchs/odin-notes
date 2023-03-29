@@ -1,10 +1,11 @@
 - [WAI-ARIA](#wai-aria)
   - [Links](#links)
-  - [Gotchas](#gotchas)
-  - [The Accessibility Tree](#the-accessibility-tree)
+  - [Accessibility Tree](#accessibility-tree)
   - [Aria Properties](#aria-properties)
     - [Name](#name)
+      - [`aria-label`](#aria-label)
     - [Description](#description)
+      - [`aria-describedby`](#aria-describedby)
   - [ARIA Guidelines](#aria-guidelines)
   - [ARIA Limitations](#aria-limitations)
 
@@ -14,28 +15,48 @@ WAI-ARIA: Web Accessibility Initiative’s Accessible Rich Internet Applications
 
 ## Links
 
-| Title                                                                             | Site | Description                                       |
-| --------------------------------------------------------------------------------- | ---- | ------------------------------------------------- |
-| [ARIA Important Terms](https://www.w3.org/TR/wai-aria/#dfn-landmark)              | W3C  | Glossary of ARIA Terms                            |
-| [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/patterns/) | W3C  | How to use ARIA for every applicable HTML element |
+| Title                                                                                      | Site | Description                                       |
+| ------------------------------------------------------------------------------------------ | ---- | ------------------------------------------------- |
+| [Accessibility tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree) | MDN  | Accessibility tree                                |
+| [ARIA Important Terms](https://www.w3.org/TR/wai-aria/#dfn-landmark)                       | W3C  | Glossary of ARIA Terms                            |
+| [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/patterns/)          | W3C  | How to use ARIA for every applicable HTML element |
 
-## Gotchas
+## Accessibility Tree
 
-- Don't work around screen reader mispronunciations using things like `aria-label`, as that changes the captions and is what will be displayed on braille readers. People using screen readers are used to the mispronunciation quirks and prefer that you leave things as they are and let them work around it in their software, if they choose.
-
-## The Accessibility Tree
-
-The Accessibility Tree exists, based upon the DOM, but outside of it and can only be interacted with through ARIA properties, and not directly.
+After the DOM is generated, an _Accessibility Tree_ is created, which is used by the OS to provide accessibility through assistive technologies. The Accessibility tree can not be directly queried or modified, except through the ARIA attributes.
 
 ## Aria Properties
 
 ### Name
 
-The "accessible name." What assistive tech announce to a user, and what separates elements of the same type from one another.
+The "accessible name." What assistive tech announces to a user, and what separates elements of the same type from one another. This is what assistive technologies announce in addition to its accessible name.
+
+#### `aria-label`
+
+Overrides native labels and modifies the ARIA "Name" property.
+
+This attribute does not work on every element. (Notably has no effect on `<div>` or `<span>` elements).
+
+Do **NOT** use this (or any other) attribute to work around phonetic (mis)pronunciation.
+
+```html
+<!-- "X" has less meaning than "close menu" to someone that is visually impaired -->
+<button type="button" aria-label="Close menu">X</button>
+
+<!-- Another example is to differentiate between navigation elements -->
+<nav aria-label="site navigation">...</nav>
+<nav aria-label="page navigation">...</nav>
+
+<!-- Here's how to use another element as the label -->
+<!-- This button will be read as: Shirts, shop now, button -->
+<!-- Even if the #label element is hidden, the screen reader will correctly read the button label -->
+<h2 id="label">Shirts</h2>
+<button id="shop-btn" aria-labelledby="label shop-btn">Shop Now</button>
+```
 
 ### Description
 
-This is what assistive technologies announce in addition to its accessible name.
+#### `aria-describedby`
 
 ## ARIA Guidelines
 
