@@ -1,5 +1,6 @@
 - [Accessibility (a11y)](#accessibility-a11y)
   - [Links](#links)
+  - [Notes on Specific Accessibility Topics](#notes-on-specific-accessibility-topics)
   - [Disability Types](#disability-types)
   - [Disability Aspects](#disability-aspects)
 
@@ -7,17 +8,27 @@
 
 ## Links
 
-| Page Name                                                                                                                                  | Description                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| [Mobile Web Best Practices 1.0](https://www.w3.org/TR/2008/REC-mobile-bp-20080729/)                                                        | W3C documentation for mobile accessibility                                               |
-| [Mobile Accessibility Guidelines](https://www.bbc.co.uk/accessibility/forproducts/guides/mobile)                                           | BBC documentation for mobile accessibility                                               |
-| Google Chrome Developers [a117casts playlist](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=2) | A youtube playlist, by google, that walks through accessibility for developers.          |
-| Implementing [Dark Mode](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)                                                 | A CSS-Tricks page with helpful hints on implementing styles on a webpage.                |
-| [Alternative Text](https://webaim.org/techniques/alttext/)                                                                                 | A WebAIM page that describes proper alternative text procedure for images                |
-| [Usable and Accessible Form Validation and Error Recovery](https://webaim.org/techniques/formvalidation/)                                  | A WebAIM comprehensive guide on how to handle form creation and validation               |
-| [Making Accessible Links: 15 Golden Rules For Developers](https://www.sitepoint.com/15-rules-making-accessible-links/)                     | A page with some tips and explanations, but it's actually 16 tips. She listed #12 twice. |
-| [How People with Disabilities Access Digital Content](https://www.youtube.com/watch?v=Lu7a5RU5lM0)                                         | A video by UA Technology Accessibility that covers various assistive technologies. (45m) |
-| [Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)                                                | W3C Explanation of Disabilities                                                          |
+| Title                                                                                                                  | Site                        |                                                                     | Description |
+| ---------------------------------------------------------------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------- | ----------- |
+| [Diverse Abilities and Barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/)                            | W3C                         | Explanation of Disabilities                                         |
+| [Mobile Web Best Practices 1.0](https://www.w3.org/TR/2008/REC-mobile-bp-20080729/)                                    | W3C                         | Mobile accessibility                                                |
+| [Mobile Accessibility Guidelines](https://www.bbc.co.uk/accessibility/forproducts/guides/mobile)                       | BBC                         | BBC documentation for mobile accessibility                          |
+| [A11ycasts playlist](https://www.youtube.com/watch?v=HtTyRajRuyY&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g&index=2)      | Google                      | A youtube playlist that walks through accessibility for developers. |
+| [Implementing Dark Mode](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/)                             | CSS Tricks                  | elpful hints on implementing styles on a webpage.                   |
+| [Alternative Text](https://webaim.org/techniques/alttext/)                                                             | WebAIM                      | proper alternative text procedure for images                        |
+| [Usable and Accessible Form Validation and Error Recovery](https://webaim.org/techniques/formvalidation/)              | WebAIM                      | comprehensive guide on how to handle form creation and validation   |
+| [Making Accessible Links: 15 Golden Rules For Developers](https://www.sitepoint.com/15-rules-making-accessible-links/) | Gian Wild                   | A blog with link accessibility tips and explanations                |
+| [How People with Disabilities Access Digital Content](https://www.youtube.com/watch?v=Lu7a5RU5lM0)                     | UA Technology Accessibility | Covers various assistive technologies. (45m)                        |
+
+## Notes on Specific Accessibility Topics
+
+- [WAI-ARIA](./ARIA.md)
+- [Color](./Color.md)
+- [Images](./Images.md)
+- [Keyboard](./Keyboard.md)
+- [Semantic HTML](./SemanticHTML.md)
+- [Tools and Software](./ToolsAndSoftware.md)
+- [WCAG](./WCAG.md)
 
 ## Disability Types
 
