@@ -44,23 +44,20 @@
 
 ## HTML
 
----
-
-| Site                                                                 | Description                   |
-| -------------------------------------------------------------------- | ----------------------------- |
-| [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) | I reference this... a lot     |
-| [CSS Flex](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)  | Another one I reference a lot |
+| Site                                                                                 | Description                           |
+| ------------------------------------------------------------------------------------ | ------------------------------------- |
+| [HTML elements reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) | A comprehensive list of HTML elements |
 
 ## CSS
 
----
-
-| Site                                                                                | Description                                                                 |
-| ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| [Browser Default Styles](https://browserdefaultstyles.com/)                         | Look up elements to find their default properties for all elements          |
-| [{CSS} Portal](https://www.cssportal.com/css-generators.php)                        | A huge resource of CSS generators to make a page look just the way you want |
-| [CSS Cubic Bezier Generator](https://www.cssportal.com/css-cubic-bezier-generator/) | If you want a custom easing function for animation                          |
-| [CSS Length Visualizer](https://www.cssportal.com/css-lengths/)                     | Play with relative and absolute CSS Units                                   |
+| Site                                                                                     | Description                                                                 |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [A Complete Guide to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) | I reference this... a lot                                                   |
+| [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)   | Another one I reference a lot                                               |
+| [Browser Default Styles](https://browserdefaultstyles.com/)                              | Look up elements to find their default properties for all elements          |
+| [{CSS} Portal](https://www.cssportal.com/css-generators.php)                             | A huge resource of CSS generators to make a page look just the way you want |
+| [CSS Cubic Bezier Generator](https://www.cssportal.com/css-cubic-bezier-generator/)      | If you want a custom easing function for animation                          |
+| [CSS Length Visualizer](https://www.cssportal.com/css-lengths/)                          | Play with relative and absolute CSS Units                                   |
 
 ## Accessibility
 
@@ -75,8 +72,6 @@
 | [WCAG 2 Checklist](https://webaim.org/standards/wcag/WCAG2Checklist.pdf) ([Local Copy](./WCAG2Checklist.pdf)) | A checklist that can be useful in ensuring a site is accessible.               |
 
 ## Programming
-
----
 
 ### Programming Books
 
@@ -108,8 +103,6 @@
 
 ## Design
 
----
-
 ### Color Theory
 
 It's too easy to waste time playing with colors... Combine this with a UI/UX tool to save time!
@@ -133,8 +126,6 @@ It's too easy to waste time playing with colors... Combine this with a UI/UX too
 | [Font Awesome](https://fontawesome.com/icons)                            | This is harder to use than google's version, but has a lot of good fonts |
 
 ## Tools
-
----
 
 ### General Web Development Tools
 
