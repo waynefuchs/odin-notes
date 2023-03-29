@@ -10,6 +10,9 @@
   - [Color Contrast](#color-contrast)
   - [Keyboard Guidelines](#keyboard-guidelines)
     - [Skip Links](#skip-links)
+      - [Skip Link Guidelines](#skip-link-guidelines)
+      - [Skip Link Verbiage](#skip-link-verbiage)
+    - [Link Text Guidelines](#link-text-guidelines)
   - [Web Content Accessibility Guidelines (WCAG)](#web-content-accessibility-guidelines-wcag)
     - [WCAG Four Principles:](#wcag-four-principles)
     - [WCAG Conformance Levels](#wcag-conformance-levels)
@@ -67,8 +70,6 @@ I have ordered these in the priority order that I think they will be useful to m
 > I have had w3.org appear offline through cloudflare. (Why I have local copies)
 
 ## Semantic HTML
-
----
 
 HTML Semantics are important because they provide _meaning_ and _context_ to content.
 
@@ -150,13 +151,17 @@ There are [seven](https://en.wikipedia.org/wiki/HTML_landmarks) elements which i
 
 Skip links exist to allow people using a screen reader the ability to skip past content, such as navigation menus, directly to some other (main) content.
 
-Here is a [demo](https://codepen.io/waynefuchs/full/gOdEJNG) that I made, available on codepen. Here is the [source page](https://webaim.org/techniques/skipnav/) for this information.
+Here is a [Codepen Skip Link Demo](https://codepen.io/waynefuchs/full/gOdEJNG).
+
+Here is the [WebAIM Skipnav Page](https://webaim.org/techniques/skipnav/) that I used to learn most of this information.
+
+#### Skip Link Guidelines
 
 - The first link on the page, activated with the tab key, should be the skip link.
 - When activated, it should be very visible.
 - Multiple skip links are unnecessary / undesirable (adding several more links does not solve the issue of having a lot of links)
 
-Examples of wording for the skip link: (in personal preference order)
+#### Skip Link Verbiage
 
 1. Skip to main content
 2. Skip navigation
@@ -164,9 +169,26 @@ Examples of wording for the skip link: (in personal preference order)
 4. Skip navigation links
 5. Skip to content
 
-## Web Content Accessibility Guidelines (WCAG)
+### Link Text Guidelines
 
----
+1. The `text content` in the `<a></a>` tag should
+   - indicate where the link is taking the user
+   - be brief (around 100 characters)
+   - avoid using phrases such as "click here" or "this page"
+2. If the link opens or downloads a file, include text that tells the user what kind of file it is as well as the file size
+3. If a link opens a new tab or window with the `target="_blank"` attribute, this should be indicated to the user in some way
+
+```html
+<!--a id="BAD1a" href='...'>this</a> is a great place to start your career in web development! -->
+<!--a id="BAD1b" href='...'>a site that i used, called The Odin Project, is a great place to learn how to make websites and you might like to check it!</a> -->
+<!--a id="BAD1c" href='...'>click here</a> to visit The Odin Project -->
+<a id="example1" href="...">The Odin Project</a> is a great place to start your
+career in web development!
+<a id="example2" href="...">2021 Sign Up Statistics (PDF, 1MB)</a>
+<a id="example3" href="...">GitHub (opens in new tab)</a>
+```
+
+## Web Content Accessibility Guidelines (WCAG)
 
 WCAG is a standard for web accessibility that assists in making websites more accessible.
 
@@ -191,8 +213,6 @@ I started to make a glossary, but decided I couldn't do better than: [ARIA Impor
 
 ### Auditory
 
----
-
 #### Guidelines
 
 - transcripts and captions of audio content
@@ -213,8 +233,6 @@ I started to make a glossary, but decided I couldn't do better than: [ARIA Impor
 - **deaf-blindness**: substantial, uncorrectable hearing and visual impairment
 
 ### Cognitive, Learning, and Neurological
-
----
 
 #### Guidelines
 
@@ -248,8 +266,6 @@ I started to make a glossary, but decided I couldn't do better than: [ARIA Impor
 - **Seizure disorders**: Includes different types of epilepsy and migraines, which may be in reaction to visual flickering or audio signals at certain frequencies or patterns
 
 ### Physical
-
----
 
 Physical disabilities (motor disabilities) include
 
@@ -300,8 +316,6 @@ Physical disabilities (motor disabilities) include
 
 ### Speech
 
----
-
 Speech disabilities include difficulty producing speech that is recognizable by others or by voice recognition software.
 
 #### Guidelines
@@ -319,8 +333,6 @@ Speech disabilities include difficulty producing speech that is recognizable by 
 - **Muteness**: inability to speak due to various reasons such as anxiety, brain injuries, or inability to hear and learn speech.
 
 ### Visual
-
----
 
 #### Guidelines
 
