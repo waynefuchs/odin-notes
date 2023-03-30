@@ -47,25 +47,25 @@ You can look at the default.css file for each of the browsers.
 
 ### My Selector Notes
 
-|                  Selector | Description                                                                                                                |
-| ------------------------: | -------------------------------------------------------------------------------------------------------------------------- |
-|                       `*` | Selects all elements                                                                                                       |
-|                  `.class` | select all elements with specified class                                                                                   |
-|          `.classA.classB` | select all elements with both classA and classB (more classes may be chained in this manner)                               |
-|         `.classA .classB` | select all elements with classB that is a descendant of an element with classA. Does _not_ have to be a direct descendant! |
-|                     `#id` | select the element with specified id                                                                                       |
-|           `element.class` | select all element that also have specified class                                                                          |
-|      `element1, element2` | match all element1 and element2                                                                                            |
-|         `element element` | select all element2 directly descending element1                                                                           |
-|     `element1 > element2` | select all elements of type element2 that are direct children of element1. (selectors, such as #id and .class can be used) |
-|     `element1 + element2` | select the first element2 that is placed immediately after element1 elements.                                              |
-|     `element1 ~ element2` | select all element2 siblings that are placed after element1.                                                               |
-|             `[attribute]` | select all elements with a class assigned.                                                                                 |
-|       `[attribute=value]` | Select all anchor tags that open a new tab.                                                                                |
-|    `[attribute^="value"]` | attribute's assigned value begins with 'value' (eg: change the styling for 'https' links vs 'http' links)                  |
-|    `[attribute$="value"]` | attribute's assigned value ends with 'value'                                                                               |
-|    `[attribute*="value"]` | attribute contains 'value' (eg: match all 'sitename.com' links, and highlight them.)                                       |
-| `element:nth-child(2n-1)` | Style every 'nth' child, as specified by the formula in parenthesis. **Even** 2n **Odd** 2n-1                              |
+|                  Selector | Description                                                                                                                    |
+| ------------------------: | ------------------------------------------------------------------------------------------------------------------------------ |
+|                       `*` | Selects all elements                                                                                                           |
+|                  `.class` | select all elements with specified class                                                                                       |
+|          `.classA.classB` | select all elements with both classA and classB (more classes may be chained in this manner)                                   |
+|         `.classA .classB` | select all elements with classB that is a descendant of an element with classA.<br/>Does _not_ have to be a direct descendant! |
+|                     `#id` | select the element with specified id                                                                                           |
+|           `element.class` | select all element that also have specified class                                                                              |
+|      `element1, element2` | match all element1 and element2                                                                                                |
+|         `element element` | select all element2 directly descending element1                                                                               |
+|     `element1 > element2` | select all elements of type element2 that are direct children of element1.                                                     |
+|     `element1 + element2` | select the first element2 that is placed immediately after element1 elements.                                                  |
+|     `element1 ~ element2` | select all element2 siblings that are placed after element1.                                                                   |
+|             `[attribute]` | select all elements with a class assigned.                                                                                     |
+|       `[attribute=value]` | Select all anchor tags that open a new tab.                                                                                    |
+|    `[attribute^="value"]` | attribute's assigned value begins with 'value' (eg: change the styling for 'https' links vs 'http' links)                      |
+|    `[attribute$="value"]` | attribute's assigned value ends with 'value'                                                                                   |
+|    `[attribute*="value"]` | attribute contains 'value' (eg: match all 'sitename.com' links, and highlight them.)                                           |
+| `element:nth-child(2n-1)` | Style every 'nth' child, as specified by the formula in parenthesis. **Even** 2n **Odd** 2n-1                                  |
 
 ### Examples
 
