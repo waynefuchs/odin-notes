@@ -64,7 +64,7 @@ You can look at the default.css file for each of the browsers.
 |       `[attribute=value]` | Select all anchor tags that open a new tab.                                                                                    |
 |    `[attribute^="value"]` | attribute's assigned value begins with 'value' (eg: change the styling for 'https' links vs 'http' links)                      |
 |    `[attribute$="value"]` | attribute's assigned value ends with 'value'                                                                                   |
-|    `[attribute*="value"]` | attribute contains 'value' (eg: match all 'sitename.com' links, and highlight them.)                                           |
+|    `[attribute*="value"]` | attribute contains 'value' (eg: match all 'domain.com' links, and highlight them.)                                             |
 | `element:nth-child(2n-1)` | Style every 'nth' child, as specified by the formula in parenthesis. **Even** 2n **Odd** 2n-1                                  |
 
 ### Examples
