@@ -15,6 +15,7 @@
     - [Fonts](#fonts)
   - [Tools](#tools)
     - [General Web Development Tools](#general-web-development-tools)
+    - [Generators](#generators)
     - [UI / UX](#ui--ux)
     - [Project Management](#project-management)
     - [API Tools](#api-tools)
@@ -134,6 +135,13 @@ It's too easy to waste time playing with colors... Combine this with a UI/UX too
 | [Browser Support](https://caniuse.com/)                                 | Look up browser support for various HTML, CSS, and JS features       |
 | [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/) | Format and validate JSON                                             |
 | [Cyber Chef](https://gchq.github.io/CyberChef/)                         | A **very powerful** general purpose tool to look at and analyze data |
+
+### Generators
+
+| Site                                                                                                      | Description                                                                           |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| [Ultimate List of Lorem Ipsum Generators](https://loremipsum.io/ultimate-list-of-lorem-ipsum-generators/) | A bunch of generators similar to Lorem-Ipsum                                          |
+| [Space Ipsum](https://spaceipsum.com/symbol-of-apollo/)                                                   | When you don't want a lot of hits on your spell checker from your placeholder content |
 
 ### UI / UX
 
