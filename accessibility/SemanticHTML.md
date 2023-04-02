@@ -26,7 +26,25 @@ If you are providing tabular data to your user, use the `<table>` element to mak
 
 Provide labels for form elements to give a larger surface area to click on and bring the form element into focus and provide context to the field.
 
-## Landmarks
+## Semantic HTML Landmark Elements
+
+There are [seven HTML sectioning elements](https://en.wikipedia.org/wiki/HTML_landmarks) which inherit default landmark roles.
+
+> NOTE:
+> `role="<role>"` is rarely needed due to semantic html and should not be set manually, with few exceptions.
+> Use the proper semantic element wherever possible. See [Sectioning HTML Element Misuse](https://en.wikipedia.org/wiki/HTML_landmarks#Misuse) from wikipedia.
+
+|     | html element | associated landmark role                                                                        |
+| --- | ------------ | ----------------------------------------------------------------------------------------------- |
+| 1   | aside        | [complementary](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html) |
+| 2   | footer       | [contentinfo](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/contentinfo.html)     |
+| 3   | form         | [form](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/form.html)                   |
+| 4   | header       | [banner](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html)               |
+| 5   | main         | [main](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html)                   |
+| 6   | nav          | [navigation](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html)       |
+| 7   | section      | [region](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html)               |
+
+## Landmark Roles
 
 Landmarks mark regions of a page.
 
@@ -40,21 +58,3 @@ Landmarks mark regions of a page.
 | navigation    | `nav`: list of links that are intended to be used for navigation of the website or page                                        |
 | region        | `<section aria-labelledby="region-name">`                                                                                      |
 | search        | search functionality for a website (`role=search` is required for this landmark)                                               |
-
-### Semantic HTML Landmark Elements
-
-There are [seven HTML sectioning elements](https://en.wikipedia.org/wiki/HTML_landmarks) which inherit default landmark roles.
-
-> NOTE:
-> `role="<role>"` is rarely needed due to semantic html and should not be set manually, with few exceptions.
-> Use the proper semantic element wherever possible. See [Sectioning HTML Element Misuse](https://en.wikipedia.org/wiki/HTML_landmarks#Misuse) from wikipedia.
-
-|     | html element | associated landmark `role`                                                                      |
-| --- | ------------ | ----------------------------------------------------------------------------------------------- |
-| 1   | aside        | [complementary](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/complementary.html) |
-| 2   | footer       | [contentinfo](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/contentinfo.html)     |
-| 3   | form         | [form](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/form.html)                   |
-| 4   | header       | [banner](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/banner.html)               |
-| 5   | main         | [main](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html)                   |
-| 6   | nav          | [navigation](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html)       |
-| 7   | section      | [region](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html)               |
