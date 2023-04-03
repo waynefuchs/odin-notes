@@ -97,13 +97,13 @@ Modify the ARIA Description Property.
 ```html
 <!-- When the input password field gets focus, Orca reads:
     "Password colon. Password text. Password must be at least 10 characters long. Focus Mode." -->
-<label
-  >Password:
+<label>
+  Password:
   <input type="password" aria-describedby="password-requirements" />
 </label>
-<span id="password-requirements"
-  >Password must be at least 10 characters long.</span
->
+<span id="password-requirements">
+  Password must be at least 10 characters long.
+</span>
 ```
 
 ## ARIA Guidelines
