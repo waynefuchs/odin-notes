@@ -31,12 +31,12 @@ After the DOM is generated, an _Accessibility Tree_ is created, which is used by
 
 | Title                                                                                                  | Site        | Description                                                     |
 | ------------------------------------------------------------------------------------------------------ | ----------- | --------------------------------------------------------------- |
-| [Accessibility tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)             | MDN         | Accessibility tree                                              |
-| [ARIA Important Terms](https://www.w3.org/TR/wai-aria/#dfn-landmark)                                   | W3C         | Glossary of ARIA Terms                                          |
 | [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/patterns/)                      | W3C         | How to use ARIA for every applicable HTML element               |
-| [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) | MDN         | How to announce page content changes                            |
-| [An in-depth guide to ARIA roles](https://www.a11yproject.com/posts/an-indepth-guide-to-aria-roles/)   | a11yproject | Explanation of and examples for usage for ARIA roles.           |
+| [Accessibility tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)             | MDN         | Short Accessibility tree overview                               |
 | [WAI-ARIA Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)                | MDN         | ARIA role reference including semantic HTML equivalent elements |
+| [An in-depth guide to ARIA roles](https://www.a11yproject.com/posts/an-indepth-guide-to-aria-roles/)   | a11yproject | Explanation of and examples for usage for ARIA roles.           |
+| [ARIA Important Terms](https://www.w3.org/TR/wai-aria/#dfn-landmark)                                   | W3C         | Glossary of ARIA Terms                                          |
+| [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) | MDN         | How to announce page content changes                            |
 
 ## Hiding Content from the Accessibility Tree
 
