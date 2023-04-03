@@ -43,18 +43,3 @@ There are [seven HTML sectioning elements](https://en.wikipedia.org/wiki/HTML_la
 | 5   | main         | [main](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/main.html)                   |
 | 6   | nav          | [navigation](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html)       |
 | 7   | section      | [region](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/region.html)               |
-
-## Landmark Roles
-
-Landmarks mark regions of a page.
-
-| name          | description                                                                                                                    |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| banner        | `header`: Contains things like a logo, identity of the site sponsor, site-specific search, etc                                 |
-| complementary | `aside`: Content that complements the main content.                                                                            |
-| contentinfo   | `footer`: Copyright, privacy, and accessibility statements                                                                     |
-| form          | `form`: Grouped inputs, except search (see search landmark)<br/>Form should be identified in an `h` tag using `aria-labeledby` |
-| main          | `main`: primary content on the page                                                                                            |
-| navigation    | `nav`: list of links that are intended to be used for navigation of the website or page                                        |
-| region        | `<section aria-labelledby="region-name">`                                                                                      |
-| search        | search functionality for a website (`role=search` is required for this landmark)                                               |

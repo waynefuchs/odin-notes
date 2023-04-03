@@ -1,6 +1,5 @@
 - [WAI-ARIA (Accessibility Tree)](#wai-aria-accessibility-tree)
   - [Links](#links)
-  - [Aria Live Regions](#aria-live-regions)
   - [Hiding Content from the Accessibility Tree](#hiding-content-from-the-accessibility-tree)
   - [ARIA Properties](#aria-properties)
     - [Name Property](#name-property)
@@ -10,6 +9,17 @@
       - [`aria-describedby`](#aria-describedby)
   - [ARIA Guidelines](#aria-guidelines)
   - [ARIA Limitations](#aria-limitations)
+  - [ARIA Roles](#aria-roles)
+    - [Live Region Roles](#live-region-roles)
+      - [`aria-live="<politeness>"`](#aria-livepoliteness)
+    - [Landmark Roles](#landmark-roles)
+    - [Abstract Roles](#abstract-roles)
+    - [Document Structure Roles](#document-structure-roles)
+    - [Widget Roles](#widget-roles)
+      - [Widgets](#widgets)
+      - [Composite Widgets (containers for widgets)](#composite-widgets-containers-for-widgets)
+    - [Window Roles](#window-roles)
+    - [`Restricted Use` Role Tags](#restricted-use-role-tags)
 
 # WAI-ARIA (Accessibility Tree)
 
@@ -19,25 +29,14 @@ After the DOM is generated, an _Accessibility Tree_ is created, which is used by
 
 ## Links
 
-| Title                                                                                                  | Site        | Description                                       |
-| ------------------------------------------------------------------------------------------------------ | ----------- | ------------------------------------------------- |
-| [Accessibility tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)             | MDN         | Accessibility tree                                |
-| [ARIA Important Terms](https://www.w3.org/TR/wai-aria/#dfn-landmark)                                   | W3C         | Glossary of ARIA Terms                            |
-| [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/patterns/)                      | W3C         | How to use ARIA for every applicable HTML element |
-| [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) | MDN         | How to announce page content changes              |
-| [An in-depth guide to ARIA roles](https://www.a11yproject.com/posts/an-indepth-guide-to-aria-roles/)   | a11yproject |                                                   |
-
-## Aria Live Regions
-
-Make dynamic content changes in a way that can be announced by assistive technologies.
-
-`aria-live=""`
-
-| Politeness | Description                                                                                              |
-| ---------- | -------------------------------------------------------------------------------------------------------- |
-| off        | suppress element announcement. **default** for most elements, usually does not have to be explicitly set |
-| polite     | Normally the "correct" choice. Announce when accessibility is idle.                                      |
-| assertive  | Used for time-sensitive/critical notifications. Can be extremely annoying and disruptive. Use sparingly. |
+| Title                                                                                                  | Site        | Description                                                     |
+| ------------------------------------------------------------------------------------------------------ | ----------- | --------------------------------------------------------------- |
+| [Accessibility tree](https://developer.mozilla.org/en-US/docs/Glossary/Accessibility_tree)             | MDN         | Accessibility tree                                              |
+| [ARIA Important Terms](https://www.w3.org/TR/wai-aria/#dfn-landmark)                                   | W3C         | Glossary of ARIA Terms                                          |
+| [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/patterns/)                      | W3C         | How to use ARIA for every applicable HTML element               |
+| [ARIA live regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions) | MDN         | How to announce page content changes                            |
+| [An in-depth guide to ARIA roles](https://www.a11yproject.com/posts/an-indepth-guide-to-aria-roles/)   | a11yproject | Explanation of and examples for usage for ARIA roles.           |
+| [WAI-ARIA Roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)                | MDN         | ARIA role reference including semantic HTML equivalent elements |
 
 ## Hiding Content from the Accessibility Tree
 
@@ -121,3 +120,171 @@ Modify the ARIA Description Property.
 - Can not modify an element's behavior
 - Can not add focusability
 - Can not add keyboard event handling
+
+## ARIA Roles
+
+Manually, **roles** are used to describe elements by setting [ARIA states and properties](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) in a way that is not implemented or does not have full support using semantic HTML to fill gaps in assistive technologies.
+
+> ⚠️ Caution: Do not manually set `role="<role>"` if at all possible.
+
+### Live Region Roles
+
+Present dynamic content changes in a way that can be announced by assistive technologies (see also [`aria-live="<politeness>"`](#aria-livepoliteness))
+
+> ⓘ Note: These roles are used to define _**dynamic**_ elements with information that is normally visually conveyed.
+
+| Role    | Description                                                                                                                   |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| alert   | For an important element with (usually) time-sensitive information                                                            |
+| log     | Information in this element is added in a logical order and older messages may disappear over time                            |
+| marquee | denotes non-essential information which changes frequently                                                                    |
+| status  | contains advisory information for the user that is not important enough to be an alert                                        |
+| timer   | denotes a numerical counter listing the amount of elapsed time from a starting point or the remaining time until an end point |
+
+#### `aria-live="<politeness>"`
+
+| Politeness | Description                                                                                              |
+| ---------- | -------------------------------------------------------------------------------------------------------- |
+| off        | suppress element announcement. **default** for most elements, usually does not have to be explicitly set |
+| polite     | Normally the "correct" choice. Announce when accessibility is idle.                                      |
+| assertive  | Used for time-sensitive/critical notifications. Can be extremely annoying and disruptive. Use sparingly. |
+
+### Landmark Roles
+
+Landmarks mark regions of a page.
+
+> ⓘ Note: See my [Semantic HTML](./SemanticHTML.md) page.
+
+| name          | description                                                                                                                      |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| banner        | `<header>`: Contains things like a logo, identity of the site sponsor, site-specific search, etc                                 |
+| complementary | `<aside>`: Content that complements the main content.                                                                            |
+| contentinfo   | `<footer>`: Copyright, privacy, and accessibility statements                                                                     |
+| form          | `<form>`: Grouped inputs, except search (see search landmark)<br/>Form should be identified in an `h` tag using `aria-labeledby` |
+| main          | `main`: primary content on the page                                                                                              |
+| navigation    | `nav`: list of links that are intended to be used for navigation of the website or page                                          |
+| region        | `<section aria-labelledby="region-label-id">`                                                                                    |
+| search        | search functionality for a website (`role=search` is required for this landmark)                                                 |
+
+### Abstract Roles
+
+Only to be used by the browser to organize and streamline a document.
+
+> ⚠️ WARNING: Do not use abstract roles.
+
+> ⓘ Note: All data taken from this [ARIA role types](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) page. I typed it here to spend some time looking up the elements and attributes that I'm not familiar with.
+
+### Document Structure Roles
+
+| Role                    | Description                                                                                          |
+| ----------------------- | ---------------------------------------------------------------------------------------------------- |
+| toolbar                 | A parent element containing toolbar elements                                                         |
+| tooltip                 | An element containing a text bubble description, appearing on pointer hover or keyboard focus        |
+| feed                    | A dynamic scrollable list of articles (bi-directional first-in-first-out)                            |
+| math                    | Represents a mathematical equation                                                                   |
+| presentation / ~~none~~ | (Synonyms) Remove an elements's implicit ARIA semantics from being exposed to the accessibility tree |
+| note                    | Content is parenthetic or ancillary to the main content                                              |
+
+### Widget Roles
+
+#### Widgets
+
+| Role       | Description                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------ |
+| scrollbar  | element controls scrolling of content within viewing area                                  |
+| searchbox  | use `<input type="search">` instead if at all possible                                     |
+| separator  | a divider; between tools or content (use `<hr>` where possible)                            |
+| slider     | element is an input type and has a range (min/max)                                         |
+| spinbutton | an input type that has several discrete choices                                            |
+| switch     | Similar to a checkbox, but with 'on' and 'off' instead of 'checked' and 'unchecked'        |
+| tab        | indicates an interactive element inside a tablist that will display an associated tabpanel |
+| tabpanel   | a container for an associated tab (label)                                                  |
+| treeitem   | an item in a hierarchial tree (list)                                                       |
+
+#### Composite Widgets (containers for widgets)
+
+| Role     | Description                                                                     |
+| -------- | ------------------------------------------------------------------------------- |
+| combobox | A named input field with a popup providing possible values for that input field |
+| menu     | a list of choices for the user                                                  |
+| menubar  | a list of choices to the user of actions or functions                           |
+| tablist  | A container for a set of tabs                                                   |
+| tree     | A container to hold a list of tree items                                        |
+| treegrid | An container element whose children can be expanded and collapsed               |
+
+### Window Roles
+
+| Role        | Description                                                                                                               |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| alertdialog | Modal alert dialog that interrupts a user's workflow to communicate an important message with required response or action |
+| dialog      | A dialog element that is separate from teh rest of the page's content. Can be modal or non-modal.                         |
+
+### `Restricted Use` Role Tags
+
+This is a list of roles that are not recommended for use (not listed above), grouped by type and acceptability.
+
+- ❌ No reason to use
+- ⚠️ Only use when an appropriate semantic tag does not exist
+
+| Role                     | Type               | Use | Consider Alternative               |
+| :----------------------- | ------------------ | --- | ---------------------------------- |
+| command                  | Abstract           | ❌  |                                    |
+| composite                | Abstract           | ❌  |                                    |
+| input                    | Abstract           | ❌  |                                    |
+| landmark                 | Abstract           | ❌  |                                    |
+| range                    | Abstract           | ❌  |                                    |
+| roletype                 | Abstract           | ❌  |                                    |
+| section                  | Abstract           | ❌  |                                    |
+| sectionhead              | Abstract           | ❌  |                                    |
+| select                   | Abstract           | ❌  |                                    |
+| structure                | Abstract           | ❌  |                                    |
+| widget                   | Abstract           | ❌  |                                    |
+| window                   | Abstract           | ❌  |                                    |
+| application              | Document Structure | ⚠️  |                                    |
+| article                  | Document Structure | ⚠️  | `<article>`                        |
+| cell                     | Document Structure | ⚠️  | `<td>`                             |
+| columnheader             | Document Structure | ⚠️  | `<th scope="col">`                 |
+| definition               | Document Structure | ⚠️  | `<dfn>`                            |
+| directory                | Document Structure | ⚠️  |                                    |
+| document                 | Document Structure | ⚠️  |                                    |
+| figure                   | Document Structure | ⚠️  | `<figure>`                         |
+| group                    | Document Structure | ⚠️  |                                    |
+| heading                  | Document Structure | ⚠️  | `<h1>` .. `<h6>`                   |
+| img                      | Document Structure | ⚠️  | `<img>` or `<picture>`             |
+| list                     | Document Structure | ⚠️  | `<ul>` or `<ol>`                   |
+| listitem                 | Document Structure | ⚠️  | `<li>`                             |
+| meter                    | Document Structure | ⚠️  | `<meter>`                          |
+| row                      | Document Structure | ⚠️  | `<tr>` with `<table>`              |
+| rowgroup                 | Document Structure | ⚠️  | `<thead>`, `<tfoot>`, or `<tbody>` |
+| rowheader                | Document Structure | ⚠️  | `<th scope="row">`                 |
+| separator                | Document Structure | ⚠️  | `<hr>`                             |
+| table                    | Document Structure | ⚠️  | `<table>`                          |
+| term                     | Document Structure | ⚠️  | `<dfn>`                            |
+| associationlist          | Document Structure | ❌  |                                    |
+| associationlistitemkey   | Document Structure | ❌  |                                    |
+| associationlistitemvalue | Document Structure | ❌  |                                    |
+| blockquote               | Document Structure | ❌  |                                    |
+| caption                  | Document Structure | ❌  |                                    |
+| code                     | Document Structure | ❌  |                                    |
+| deletion                 | Document Structure | ❌  |                                    |
+| emphasis                 | Document Structure | ❌  |                                    |
+| insertion                | Document Structure | ❌  |                                    |
+| paragraph                | Document Structure | ❌  |                                    |
+| strong                   | Document Structure | ❌  |                                    |
+| subscript                | Document Structure | ❌  |                                    |
+| superscript              | Document Structure | ❌  |                                    |
+| time                     | Document Structure | ❌  |                                    |
+| button                   | Widget             | ❌  |                                    |
+| checkbox                 | Widget             | ❌  |                                    |
+| gridcell                 | Widget             | ❌  |                                    |
+| link                     | Widget             | ❌  |                                    |
+| menuitem                 | Widget             | ❌  |                                    |
+| menuitemcheckbox         | Widget             | ❌  |                                    |
+| menuitemradio            | Widget             | ❌  |                                    |
+| option                   | Widget             | ❌  |                                    |
+| progressbar              | Widget             | ❌  |                                    |
+| radio                    | Widget             | ❌  |                                    |
+| textbox                  | Widget             | ❌  |                                    |
+| grid                     | Composite Widget   | ❌  |                                    |
+| listbox                  | Composite Widget   | ❌  |                                    |
+| radiogroup               | Composite Widget   | ❌  |                                    |
