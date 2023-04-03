@@ -7,8 +7,8 @@ WCAG is a standard for web accessibility that assists in making websites more ac
 | Title                                                                                                      | Site      | Description                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------ |
 | [WCAG 2 Guidelines](https://www.w3.org/TR/WCAG22/)                                                         | W3C       | The definitive set of guidelines for building accessible content from the W3C's Web Accessibility Initiative |
-| [WCAG 2 Checklist](https://webaim.org/standards/wcag/WCAG2Checklist.pdf)                                   | WebAIM    | A checklist that can be useful in ensuring a site is accessible.                                             |
 | [Web Content Accessibility Guidelines](https://en.wikipedia.org/wiki/Web_Content_Accessibility_Guidelines) | Wikipedia | Links to various versions, and history on the ongoing development of the standards                           |
+| [Auditing](./Auditing.md)                                                                                  | My Notes  | Information on auditing WCAG                                                                                 |
 
 ## WCAG Four Principles:
 

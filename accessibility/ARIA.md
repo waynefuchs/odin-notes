@@ -56,7 +56,7 @@ After the DOM is generated, an _Accessibility Tree_ is created, which is used by
 
 The "accessible name." The name that assistive tech presents to a user, and what separates elements of the same type from one another.
 
-> Note: on "native labels": This is just the Aria Name that an element has. (example: `<h1>Native Label</h1>`)
+> ⓘ Note: on "native labels": This is just the Aria Name that an element has. (example: `<h1>Native Label</h1>`)
 
 #### [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
 
