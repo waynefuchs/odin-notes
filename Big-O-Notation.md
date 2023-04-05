@@ -1,8 +1,9 @@
 - ["Big O" Notation](#big-o-notation)
   - [Links](#links)
-  - [Alternatives](#alternatives)
+  - ["Alternatives" to Big-O](#alternatives-to-big-o)
     - [Big Ω (Omega Notation)](#big-ω-omega-notation)
     - [Big-Θ (Big-Theta Notation)](#big-θ-big-theta-notation)
+  - [Time / Space Complexity](#time--space-complexity)
   - [Orders of Common Functions](#orders-of-common-functions)
   - [Orders of Uncommon Functions](#orders-of-uncommon-functions)
   - [Examples](#examples)
@@ -23,13 +24,15 @@ There can be differences between the same Time Complexity. (eg: `O(n)` = `O(2n)`
 
 ## Links
 
-| Title                                                                                                                                                             | Site              | Description                                |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------ |
-| [Big O Notation in Javascript](https://www.doabledanny.com/big-o-notation-in-javascript)                                                                          | Doable Danny      | The Ultimate Beginners Guide with Examples |
-| [The Big-O Cheat Sheet](https://www.bigocheatsheet.com/)                                                                                                          | Big-O Cheat Sheet | A very cool reference with graphs and data |
-| [Step-by-Step Big O Complexity Analysis Guide, using Javscript](https://www.sahinarslan.tech/posts/step-by-step-big-o-complexity-analysis-guide-using-javascript) | Şahin Arslan      | A beginner friendly presentation of Big-O  |
+| Title                                                                                                                                                             | Site              | Description                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
+| [Big O Notation in Javascript](https://www.doabledanny.com/big-o-notation-in-javascript)                                                                          | Doable Danny      | The Ultimate Beginners Guide with Examples                                      |
+| [The Big-O Cheat Sheet](https://www.bigocheatsheet.com/)                                                                                                          | Big-O Cheat Sheet | A very cool reference with graphs and data                                      |
+| [Step-by-Step Big O Complexity Analysis Guide, using Javscript](https://www.sahinarslan.tech/posts/step-by-step-big-o-complexity-analysis-guide-using-javascript) | Şahin Arslan      | A beginner friendly presentation of Big-O                                       |
+| [Big O: Space Complexity](https://dev.to/mwong068/big-o-space-complexity-lcm)                                                                                     | dev.to            | A beginner-level overview of space complexity.                                  |
+| [Recursion and Space Complexity](https://dev.to/elmarshall/recursion-and-space-complexity-13gc)                                                                   | dev.to            | Uses an analogy to explain the _very_ basics of space complexity and recursion. |
 
-## Alternatives
+## "Alternatives" to Big-O
 
 Big-O makes the most sense to ensure confidence that algorithms scale properly and will work as intended without leaving users frustrated with load times and program lock-ups. However, it can be interesting to consider best-case or average-case complexity.
 
@@ -40,6 +43,10 @@ Considers the "best case" result of an algorithm. This is considered far less us
 ### Big-Θ (Big-Theta Notation)
 
 Simply put, the area between Big-Omega and Big-O.
+
+## Time / Space Complexity
+
+Big-O is often used to discuss time complexity, but it also applies to space complexity (amount of memory an algorithm consumes), which can be important to consider, depending on your deployment environment. (eg: VM renting services, such as linode, are rather restricted in memory usage)
 
 ## Orders of Common Functions
 
