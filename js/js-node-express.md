@@ -9,7 +9,7 @@
   - [Environment Variables](#environment-variables)
     - [1. Passed in from command line:](#1-passed-in-from-command-line)
     - [2. Using an `.env` file:](#2-using-an-env-file)
-      - [3. Bypass the require in your <somefile>.js:](#3-bypass-the-require-in-your-somefilejs)
+      - [3. Bypass the require in your .js:](#3-bypass-the-require-in-your-js)
     - [Debugging](#debugging)
   - [Global Variable](#global-variable)
   - [Express Router](#express-router)
@@ -144,7 +144,7 @@ npm i --save-dev nodemon
 
 ```js
   // after "main"
-  "private:" true,
+  "private": true,
 
   // if used express-generator
   "scripts": {
