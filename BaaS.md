@@ -1,6 +1,7 @@
 - [Backend As A Service](#backend-as-a-service)
-  - [Options](#options)
   - [Links](#links)
+  - [Firebase CLI](#firebase-cli)
+  - [Firebase Project Setup](#firebase-project-setup)
   - [Firebase Project Setup With Next.js](#firebase-project-setup-with-nextjs)
     - [Firebase Console: Add a **project**](#firebase-console-add-a-project)
     - [Firebase Console: Add an **app**](#firebase-console-add-an-app)
@@ -9,11 +10,15 @@
 
 # Backend As A Service
 
+> ⓘ TODO: Fix or delete this page
+
+> ⓘ Note: This entire page is very "work-in-progress."
+
 Offloading functionality for your website, such as analytics, data storage, code hosting, database hosting, etc.
 
-> ⓘ Note: Google Firebase has undergone quite a few changes from v8 to v9, and a lot of the information taught by Odin was incorrect, which slowed me down by quite a bit. I ended up just using google's documentation and trying things. The final key, for me, was converting my old "Library" project from earlier in the course to use Firebase.
+> ⓘ Note: Google Firebase has undergone quite a few changes from v8 to v9, and a lot of the information taught by Odin was incorrect, which slowed me down by quite a bit. I ended up just using google's documentation and trying things. The final key in understanding, for me, was converting my old "Library" project from earlier in the course to use Firebase.
 
-## Options
+## Links
 
 | Service                                                                          | Company | Description                                       |
 | -------------------------------------------------------------------------------- | ------- | ------------------------------------------------- |
@@ -28,13 +33,26 @@ Offloading functionality for your website, such as analytics, data storage, code
 | [Firebase Cloud Storage](https://firebase.google.com/products/storage)           | Google  |                                                   |
 | [Firebase Authentication](https://firebase.google.com/products/auth)             | Google  |                                                   |
 
-## Links
+## Firebase CLI
 
-[Delete Me](https://blog.back4app.com/backend-as-a-service-firebase/)
+```
+firebase deploy --except functions
+```
+
+## Firebase Project Setup
+
+See Google Documentation: [Add Firebase to your Javascript Project](https://firebase.google.com/docs/web/setup?hl=en)
+
+1. Create a Firebase project and register your app
+2. Install the SDK and initialize Firebase (config copy/paste from console)
+3. Access Firebase in your app (write code that utilizes firebase services)
+4. Use a modular bundler (webpack/Rollup) for size reduction
+
+Bonus: Ensure permissions for your database support the chosen hosting method.
 
 ## Firebase Project Setup With Next.js
 
-> ⓘ Note: This will provide a starting point, and lists a few commands. This section is very "work-in-progress."
+> ⓘ Note: This will provide a starting point, and lists a few commands.
 
 ```
 npx create-next-app@latest <project-name>
