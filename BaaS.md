@@ -34,6 +34,8 @@ Offloading functionality for your website, such as analytics, data storage, code
 
 ## Firebase Project Setup With Next.js
 
+> ⓘ Note: This will provide a starting point, and lists a few commands. This section is very "work-in-progress."
+
 ```
 npx create-next-app@latest <project-name>
 ```
