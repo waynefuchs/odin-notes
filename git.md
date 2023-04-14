@@ -119,3 +119,18 @@ Don't do these unless necessary:
      - ~~More fixes for broken stuff~~
 7. Use the body to explain what and why vs. how
    - How is for comments
+
+## Writing a README.md
+
+I was perusing the open issues on The Odin Project, an noticed [Github Issue #24019](https://github.com/TheOdinProject/curriculum/issues/24019). I liked what [Arjun Saili](https://github.com/ArjunSaili1) had to say on the matter, and agree that TOP should have a lesson on writing proper `README.md` files. He also has an interesting Github page that showcases his thoughts:
+
+1. Use Media in READMEs (Photos, Videos, Gifs, etc.)
+2. Provide information on how to run the project
+3. List out the technologies you used
+4. (If applicable) Provide information on how to contribute towards the project
+5. (if applicable) License information
+6. (if applicable) Credit any resources being used (images, starter code, etc.)
+7. ~~Explain your development process~~
+8. ~~Explain your motivation behind the project~~
+
+I somewhat disagree with #7 and #8 (I moved them to the end of the list), as that is more in line with a blog rather than source code and are especially not as relevant to an assigned project for a coding boot camp.
