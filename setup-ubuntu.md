@@ -5,7 +5,7 @@
   - [Download Software](#download-software)
   - [Snaps](#snaps)
   - [VSCode Setup](#vscode-setup)
-  - [gTile](#gtile)
+  - [gTile extension : gTile github](#gtile-extension--gtile-github)
   - [Download Nomachine](#download-nomachine)
 - [Remove Software](#remove-software)
   - [Games](#games)
@@ -37,13 +37,13 @@ I have installed ubuntu on three computers. During the second install, I realize
 
 ## Download Software
 
-|Software|Note|
-|--|--|
-|[Steam](https://store.steampowered.com/about/)|I install this early to get blender installed and verify GPU is working properly.|
-|blender|The easiest linux install of blender that I have found is through Steam.|
-|[brave](https://brave.com/linux/#release-channel-installation)|Instructions are provided to install the browser.|
-|[vscode](https://code.visualstudio.com/)|Download and install the `.deb`, an update channel is added by the package.|
-|[obs](https://obsproject.com/download#linux)|Open Broadcaster Software|
+| Software                                                       | Note                                                                              |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Steam](https://store.steampowered.com/about/)                 | I install this early to get blender installed and verify GPU is working properly. |
+| blender                                                        | The easiest linux install of blender that I have found is through Steam.          |
+| [brave](https://brave.com/linux/#release-channel-installation) | Instructions are provided to install the browser.                                 |
+| [vscode](https://code.visualstudio.com/)                       | Download and install the `.deb`, an update channel is added by the package.       |
+| [obs](https://obsproject.com/download#linux)                   | Open Broadcaster Software                                                         |
 
 ## Snaps
 
@@ -54,15 +54,17 @@ I have installed ubuntu on three computers. During the second install, I realize
 - octave
 - docker
 
-## VSCode Setup
+## [VSCode Setup](./setup-vscode.md)
 
+I have a separate document that discusses vscode specific setup.
 
+## [gTile extension](https://extensions.gnome.org/extension/28/gtile/) : [gTile github](https://github.com/gTile/gTile)
 
-## [gTile](https://github.com/gTile/gTile)
+This gnome extension makes it so you can snap windows to portions of the screen. It's absolutely necessary for vertical and 4k displays. At this point I actually feel this is a necessary feature in the OS to be productive in the previously mentioned case. (personal preference, obviously)
 
-This gnome extension makes it so you can snap windows to portions of the screen. It's absolutely necessary for vertical and 4k displays.
+> ⓘ NOTE: It may be necessary to set the dconf-editor key `/org/gnome/shell/disable-extension-version-validation` to '**true**' in order to install a 'legacy' version of gTile, especially right after a ubuntu version update.
 
-Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>`
+Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>` will move a window to a "side" or "quarter" of the screen.
 
 ## Download Nomachine
 
@@ -90,37 +92,34 @@ Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>`
 
 # dconf-editor
 
-_WHY_ I don't like busy backgrounds.
-
 - /org/gnome/desktop/background/
-  - color-shading-type: solid
-  - picture-uri: ""
-  - picture-uri-dark: ""
-  - primary-color: "#222222"
 
-_WHY_ I change these because I get muscle-memory confusion while swapping with windows if I don't
+  - ⓘ Set a solid color as a background
+    - color-shading-type: solid
+    - picture-uri: ""
+    - picture-uri-dark: ""
+    - primary-color: "#222222"
 
 - /org/gnome/desktop/wm/keybindings/
-  _NOTE_ move-to-workspace-right will move focused window AND switch...
 
-  - switch-to-workspace-right: `['<Ctrl><Super>Right']`
-  - switch-to-workspace-left: `['<Ctrl><Super>Left']`
+  - ⓘ move-to-workspace-right will move focused window AND switch...
 
-  _WHY_ The following is to allow VSCode ctrl-alt-shift-up/down line-duplication to work
+    - switch-to-workspace-right: `['<Ctrl><Super>Right']`
+    - switch-to-workspace-left: `['<Ctrl><Super>Left']`
 
-  - switch-to-workspace-down: []
-  - switch-to-workspace-up: []
-  - move-to-workspace-down: []
-  - move-to-workspace-up: []
+  - ⓘ allow VSCode ctrl-alt-shift-up/down line-duplication to work
 
-_WHY_ I like moving the mouse pointer to determine focus, and these settings feel the best to me
+    - switch-to-workspace-down: []
+    - switch-to-workspace-up: []
+    - move-to-workspace-down: []
+    - move-to-workspace-up: []
 
 - /org/gnome/desktop/background/
-  NOTE: This can be done through gnome-tweaks (shell is faster)
 
-  `gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
+  - ⓘ Set window focus to be the window under the mouse pointer. (This can be done through gnome-tweaks (shell is faster))
 
-  - focus-change-on-pointer-rest: Disable
-    NOTE: Following command does the same thing...
+    - `gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
 
-  `gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
+  - ⓘ focus-change-on-pointer-rest: Disable (Following command does the same thing...)
+
+    - `gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
