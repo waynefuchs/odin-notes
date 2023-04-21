@@ -30,12 +30,17 @@
 
 ## File -> Preferences -> Settings
 
-- Editor: Default Formatter: Prettier - Code Formatter
-- Format On Save: Enabled
+| Setting                   | Value                     | Description                                     |
+| ------------------------- | ------------------------- | ----------------------------------------------- |
+| Editor: Default Formatter | Prettier - Code Formatter | Set prettier as the code formatter              |
+| Format On Save            | Enabled                   | Saving formats code                             |
+| Window: Title Bar Style   | custom                    | Gets rid of the incredibly ugly gnome title bar |
 
 ## Ctrl-K Ctrl-S: Keybinds
 
-- Bind `prettier.forceFormatDocument` to `ScrollLock`
-- Bind `workbench.action.toggleEditorWidths` to `Shift+Alt+Enter`
-- `editor.emmet.action.wrapWithAbbreviation` to `Ctrl+e Ctrl+w`
-- `editor.emmet.action.removeTag` to `Ctrl+e Ctrl+d`
+| Keybinding                               | Value               | Description                                    |
+| ---------------------------------------- | ------------------- | ---------------------------------------------- |
+| prettier.forceFormatDocument             | ScrollLock          | Force a code format without saving             |
+| workbench.action.toggleEditorWidths      | Shift + Alt + Enter | Make focused window _nearly_ full window width |
+| editor.emmet.action.wrapWithAbbreviation | Ctrl+e Ctrl+w       | Wrap html tag                                  |
+| editor.emmet.action.removeTag            | Ctrl+e Ctrl+d       | Remove html tag                                |
