@@ -1,4 +1,5 @@
 - [Backend As A Service](#backend-as-a-service)
+  - [ⓘ Note: This entire page is very "work-in-progress."](#-note-this-entire-page-is-very-work-in-progress)
   - [Links](#links)
   - [Firebase CLI](#firebase-cli)
   - [Firebase Project Setup](#firebase-project-setup)
@@ -10,9 +11,9 @@
 
 # Backend As A Service
 
-> ⓘ TODO: Fix or delete this page
+## ⓘ Note: This entire page is very "work-in-progress."
 
-> ⓘ Note: This entire page is very "work-in-progress."
+> ⓘ TODO: Fix or delete this page
 
 Offloading functionality for your website, such as analytics, data storage, code hosting, database hosting, etc.
 
