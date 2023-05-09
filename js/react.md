@@ -1,4 +1,6 @@
 - [React](#react)
+  - [Links](#links)
+  - [Note](#note)
   - [Hooks](#hooks)
     - [useEffect](#useeffect)
     - [useState](#usestate)
@@ -6,7 +8,7 @@
     - [Custom Hooks](#custom-hooks)
   - [Common Packages](#common-packages)
     - [react-router-dom](#react-router-dom)
-      - [<Outlet context={...} />](#outlet-context-)
+      - [`<Outlet context={...} />`](#outlet-context-)
       - [navigate(location)](#navigatelocation)
       - [const obj = useParams()](#const-obj--useparams)
       - [useSearchParams({...})](#usesearchparams)
@@ -23,7 +25,18 @@
 
 # React
 
-WebDevSimplified's [Learn React Router v6 in 45 Minutes](https://www.youtube.com/watch?v=Ul3y1LXxzdU)
+React is a javascript library for building user interfaces.
+
+## Links
+
+- WebDevSimplified's [React](https://www.youtube.com/watch?v=1wZoGFF_oi4&list=PLZlA0Gpn_vH_NT5zPVp18nGe_W9LqBDQK) Playlist
+- WebDevSimplified's [Learn React Router v6 in 45 Minutes](https://www.youtube.com/watch?v=Ul3y1LXxzdU)
+
+## Note
+
+> ⓘ Note: This page has little valuable content and is a bad reference.
+
+> ⓘ TODO: Come back and update in the future. (Mabye)
 
 ## Hooks
 
@@ -98,7 +111,7 @@ const RouteSwitch = () => {
 export default RouteSwitch;
 ```
 
-#### <Outlet context={...} />
+#### `<Outlet context={...} />`
 
 A way to route nested content from sub-routes.
 
@@ -116,7 +129,6 @@ navigate(1); // simulate hitting the forward button (1 time)
 #### const obj = useParams()
 
 Get parameters passed in from react router ":value" fields.
-
 
 #### useSearchParams({...})
 
@@ -168,24 +180,28 @@ componentDidUpdate(prevProps, prevState, snapshot)
 
 componentWillUnmount()
 
-
-
 ## Testing (Jest)
 
 `create-react-app` sets up and installs all of the necessary packages and takes care of the `package.json` configuration for testing.
 
-Tutorial: 
-* [Tutorial I Worked Through](https://academind.com/tutorials/testing-react-apps): A good review / overview of testing React.
+Usage: `npx create-react-app <app-name>`
+
+Tutorial:
+
+- [Tutorial I Worked Through](https://academind.com/tutorials/testing-react-apps): A good review / overview of testing React.
 
 Documentation on test functions available for performing tests:
-* [DOM Testing Library Cheat Sheet](https://testing-library.com/docs/dom-testing-library/cheatsheet/)
-* [ByTestId Documentation](https://testing-library.com/docs/queries/bytestid/) for when the standard DOM Testing Library doesn't quite cut it.
+
+- [DOM Testing Library Cheat Sheet](https://testing-library.com/docs/dom-testing-library/cheatsheet/)
+- [ByTestId Documentation](https://testing-library.com/docs/queries/bytestid/) for when the standard DOM Testing Library doesn't quite cut it.
 
 Documentation on jest-dom, an optional extension to the built-in matchers
-* [jest-dom Github](https://github.com/testing-library/jest-dom)
+
+- [jest-dom Github](https://github.com/testing-library/jest-dom)
 
 Documentation on how to simulate user input:
-* [User Interactions](https://testing-library.com/docs/user-event/intro/)
+
+- [User Interactions](https://testing-library.com/docs/user-event/intro/)
 
 Remember that snapshots exist.
 
@@ -196,7 +212,7 @@ import React from "react";
 // Get access to useful functions like `render`
 import { ... } from "@testing-library/react";
 
-// includes some handy custom matchers (assertive functions) like `toBeInTheDocument` and more. 
+// includes some handy custom matchers (assertive functions) like `toBeInTheDocument` and more.
 // Jest already has a lot of matchers so this package is not compulsory to use.
 // See jest-dom github for docs
 import "@testing-library/jest-dom";  // optional
@@ -213,37 +229,36 @@ import <TestComponent> from "<path-to-test-component>";
 
 A Copy-Paste Example From Above:
 
-``` js
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+```js
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 ```
 
 ### `jest-dom` Assertive Functions
 
-* toBeDisabled
-* toBeEnabled
-* toBeEmpty
-* toBeEmptyDOMElement
-* toBeInTheDocument
-* toBeInvalid
-* toBeRequired
-* toBeValid
-* toBeVisible
-* toContainElement
-* toContainHTML
-* toHaveAttribute
-* toHaveClass
-* toHaveFocus
-* toHaveFormValues
-* toHaveStyle
-* toHaveTextContent
-* toHaveValue
-* toHaveDisplayValue
-* toBeChecked
-* toBePartiallyChecked
-* toHaveDescription
-
+- toBeDisabled
+- toBeEnabled
+- toBeEmpty
+- toBeEmptyDOMElement
+- toBeInTheDocument
+- toBeInvalid
+- toBeRequired
+- toBeValid
+- toBeVisible
+- toContainElement
+- toContainHTML
+- toHaveAttribute
+- toHaveClass
+- toHaveFocus
+- toHaveFormValues
+- toHaveStyle
+- toHaveTextContent
+- toHaveValue
+- toHaveDisplayValue
+- toBeChecked
+- toBePartiallyChecked
+- toHaveDescription
 
 ### Coverage
 
