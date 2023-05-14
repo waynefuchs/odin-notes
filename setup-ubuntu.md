@@ -2,8 +2,9 @@
   - [Fix time zone](#fix-time-zone)
   - [Rename Sound Card](#rename-sound-card)
   - [Add Software](#add-software)
-  - [Download Software](#download-software)
   - [Snaps](#snaps)
+  - [Download Software](#download-software)
+  - [Docker Containers](#docker-containers)
   - [VSCode Setup](#vscode-setup)
   - [gTile extension : gTile github](#gtile-extension--gtile-github)
   - [Download Nomachine](#download-nomachine)
@@ -13,7 +14,8 @@
   - [Accessibility](#accessibility)
   - [Appearance](#appearance)
   - [Multitasking](#multitasking)
-- [dconf-editor](#dconf-editor)
+  - [dconf-editor](#dconf-editor)
+  - [snap-store glitch](#snap-store-glitch)
 
 # Ubuntu Setup
 
@@ -35,6 +37,15 @@ I have installed ubuntu on three computers. During the second install, I realize
 
 `git config --global user.email "wayne.fuchs@icloud.com"`
 
+## Snaps
+
+- inkscape
+- boxy-svg
+- discord
+- obs-studio
+- octave
+- docker
+
 ## Download Software
 
 | Software                                                       | Note                                                                              |
@@ -44,15 +55,76 @@ I have installed ubuntu on three computers. During the second install, I realize
 | [brave](https://brave.com/linux/#release-channel-installation) | Instructions are provided to install the browser.                                 |
 | [vscode](https://code.visualstudio.com/)                       | Download and install the `.deb`, an update channel is added by the package.       |
 | [obs](https://obsproject.com/download#linux)                   | Open Broadcaster Software                                                         |
+| [pgAdmin 4](https://www.pgadmin.org/)                          | A management tool for PostgreSQL                                                  |
+| [MongoDB Compass](https://www.mongodb.com/products/compass)    | GUI for MongoDB.                                                                  |
 
-## Snaps
+## Docker Containers
 
-- inkscape
-- boxy-svg
-- discord
-- obs-studio
-- octave
-- docker
+I run these using `docker-compose.yaml` files, which auto-start on system load.
+
+| Software                                        | Note                                                                                                                                                 |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Penpot](https://penpot.app/)                   | A _really good_ open source replacement for Figma. The docker-compose file is provided with installation instructions on the self-host install page. |
+| [Mongodb](https://hub.docker.com/_/mongo)       | The MongoDB database                                                                                                                                 |
+| [PostgreSQL](https://hub.docker.com/_/postgres) | The PostgreSQL database                                                                                                                              |
+| [Adminer](https://hub.docker.com/_/adminer)     | A database administration panel                                                                                                                      |
+
+> ⚠️ Caution: There may be a better way to write this `docker-compose.yaml` in terms of security, reliability, data persistence, et cetera. This is what has worked (flawlessly) for me, at the time of this writing, for approximately a year. With that said, use at your own risk.
+
+> ⓘ Note: I combine PostgreSQL and MongoDB into a single docker container to keep database stuff together. This may be better to split out separately.
+
+> ⓘ TODO: Figure out nginx proxy with nodejs.
+
+```
+version: "3.9"
+
+services:
+  # MongoDB service
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    restart: always
+    networks:
+      - dockerdev
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+
+  # PostgreSQL
+  postgres:
+    image: postgres
+    restart: always
+    networks:
+      - dockerdev
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # PostgreSQL Configuration Image
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      - dockerdev
+    ports:
+      - 8080:8080
+
+# Data persistence
+volumes:
+  mongodb: {}
+  pgdata: {}
+
+networks:
+  dockerdev:
+```
+
+`docker compose up -d` to start the containers.
+
+`docker compose down` to stop the containers.
 
 ## [VSCode Setup](./setup-vscode.md)
 
@@ -90,7 +162,7 @@ Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>` will move a window to a "side" or "q
 - Multi-Monitor > Workspaces on all displays
 - Application switching > Include applications from the current workspace only
 
-# dconf-editor
+## dconf-editor
 
 - /org/gnome/desktop/background/
 
@@ -123,3 +195,21 @@ Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>` will move a window to a "side" or "q
   - ⓘ focus-change-on-pointer-rest: Disable (Following command does the same thing...)
 
     - `gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
+
+## snap-store glitch
+
+On my system, `snap-store` will get stuck in a state where it can not upgrade because it is running.
+
+The fix is as follows:
+
+```
+$ pidof snap-store
+4730
+$ kill 4730
+$ sudo apt update && sudo apt upgrade snap
+...
+Unpacking snap (2013-11-29-11) ...
+Setting up snap (2013-11-29-11) ...
+Processing triggers for man-db (2.11.2-1) ...
+$
+```
