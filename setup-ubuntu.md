@@ -73,7 +73,7 @@ I run these using `docker-compose.yaml` files, which auto-start on system load.
 
 > ⓘ Note: I combine PostgreSQL and MongoDB into a single docker container to keep database stuff together. This may be better to split out separately.
 
-> ⓘ TODO: Figure out nginx proxy with nodejs.
+> ⓘ TODO: Figure out nginx proxy with nodejs. I would love to start "containerizing" my applications.
 
 ```
 version: "3.9"
