@@ -4,10 +4,8 @@
   - [Add Software](#add-software)
   - [Snaps](#snaps)
   - [Download Software](#download-software)
-  - [Docker Containers](#docker-containers)
-  - [VSCode Setup](#vscode-setup)
-  - [gTile extension : gTile github](#gtile-extension--gtile-github)
-  - [Download Nomachine](#download-nomachine)
+  - [gTile](#gtile)
+  - [Nomachine](#nomachine)
 - [Remove Software](#remove-software)
   - [Games](#games)
 - [Settings](#settings)
@@ -16,6 +14,8 @@
   - [Multitasking](#multitasking)
   - [dconf-editor](#dconf-editor)
   - [snap-store glitch](#snap-store-glitch)
+- [VSCode Setup](#vscode-setup)
+- [Docker Container Setup](#docker-container-setup)
 
 # Ubuntu Setup
 
@@ -27,17 +27,19 @@ I have installed ubuntu on three computers. During the second install, I realize
 
 ## Rename Sound Card
 
-`pavucontrol`
+I removed this as I can no longer rename my sound card in the new Gnome on Ubuntu, but the `pavucontrol` utility is still useful, so i will mention that. I hope that some day I will be able to rename my sound card again, as I have several audio devices that are exactly the same except one word that is truncated in the drop down list. And it just switches to the wrong one occasionally. Sound in linux is bad, unfortunately. I think it might be getting better, and this is part of the growing pains?
 
 ## Add Software
 
 `sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro gimp`
 
-`git config --global user.name "Wayne Fuchs"`
+`git config --global user.name "YOUR NAME HERE"`
 
-`git config --global user.email "wayne.fuchs@icloud.com"`
+`git config --global user.email "your.email@here"`
 
 ## Snaps
+
+I try and avoid snaps as much as possible. Here are the ones I use.
 
 - inkscape
 - boxy-svg
@@ -46,99 +48,39 @@ I have installed ubuntu on three computers. During the second install, I realize
 - octave
 - docker
 
+And, of course, the nine snaps that ubuntu basically requires and likes to update a few times a day. I really need to investigate switching distros...
+
 ## Download Software
 
-| Software                                                       | Note                                                                              |
-| -------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [Steam](https://store.steampowered.com/about/)                 | I install this early to get blender installed and verify GPU is working properly. |
-| blender                                                        | The easiest linux install of blender that I have found is through Steam.          |
-| [brave](https://brave.com/linux/#release-channel-installation) | Instructions are provided to install the browser.                                 |
-| [vscode](https://code.visualstudio.com/)                       | Download and install the `.deb`, an update channel is added by the package.       |
-| [obs](https://obsproject.com/download#linux)                   | Open Broadcaster Software                                                         |
-| [pgAdmin 4](https://www.pgadmin.org/)                          | A management tool for PostgreSQL                                                  |
-| [MongoDB Compass](https://www.mongodb.com/products/compass)    | GUI for MongoDB.                                                                  |
+| Software                                                               | Note                                                                                          |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| [Steam](https://store.steampowered.com/about/)                         | I install this early to get blender installed and verify GPU is working properly.             |
+| blender                                                                | The easiest linux install of blender that I have found is through Steam.                      |
+| [Brave Browser](https://brave.com/linux/#release-channel-installation) | Download and install using the provided instructions. I prefer over Google's Chrome, for now. |
+| [VSCode](https://code.visualstudio.com/)                               | Download and install the `.deb`, an update channel is added by installing the package.        |
+| [obs](https://obsproject.com/download#linux)                           | Open Broadcaster Software                                                                     |
+| [pgAdmin 4](https://www.pgadmin.org/)                                  | A management tool for PostgreSQL                                                              |
+| [MongoDB Compass](https://www.mongodb.com/products/compass)            | GUI for MongoDB.                                                                              |
 
-## Docker Containers
+## gTile
 
-I run these using `docker-compose.yaml` files, which auto-start on system load.
+This gnome extension makes it so you can snap windows to a grid / portion of the screen. It's absolutely necessary for vertical and 4k displays. At this point I actually feel this is a necessary feature in any OS to be productive in the previously mentioned case. (personal preference, obviously)
 
-| Software                                        | Note                                                                                                                                                 |
-| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Penpot](https://penpot.app/)                   | A _really good_ open source replacement for Figma. The docker-compose file is provided with installation instructions on the self-host install page. |
-| [Mongodb](https://hub.docker.com/_/mongo)       | The MongoDB database                                                                                                                                 |
-| [PostgreSQL](https://hub.docker.com/_/postgres) | The PostgreSQL database                                                                                                                              |
-| [Adminer](https://hub.docker.com/_/adminer)     | A database administration panel                                                                                                                      |
-
-> ⚠️ Caution: There may be a better way to write this `docker-compose.yaml` in terms of security, reliability, data persistence, et cetera. This is what has worked (flawlessly) for me, at the time of this writing, for approximately a year. With that said, use at your own risk.
-
-> ⓘ Note: I combine PostgreSQL and MongoDB into a single docker container to keep database stuff together. This may be better to split out separately.
-
-> ⓘ TODO: Figure out nginx proxy with nodejs. I would love to start "containerizing" my applications.
-
-```
-version: "3.9"
-
-services:
-  # MongoDB service
-  mongodb:
-    container_name: mongodb
-    image: mongo:latest
-    restart: always
-    networks:
-      - dockerdev
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodb:/data/db
-
-  # PostgreSQL
-  postgres:
-    image: postgres
-    restart: always
-    networks:
-      - dockerdev
-    environment:
-      POSTGRES_PASSWORD: example
-    ports:
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
-  # PostgreSQL Configuration Image
-  adminer:
-    image: adminer
-    restart: always
-    networks:
-      - dockerdev
-    ports:
-      - 8080:8080
-
-# Data persistence
-volumes:
-  mongodb: {}
-  pgdata: {}
-
-networks:
-  dockerdev:
-```
-
-`docker compose up -d` to start the containers.
-
-`docker compose down` to stop the containers.
-
-## [VSCode Setup](./setup-vscode.md)
-
-I have a separate document that discusses vscode specific setup.
-
-## [gTile extension](https://extensions.gnome.org/extension/28/gtile/) : [gTile github](https://github.com/gTile/gTile)
-
-This gnome extension makes it so you can snap windows to portions of the screen. It's absolutely necessary for vertical and 4k displays. At this point I actually feel this is a necessary feature in the OS to be productive in the previously mentioned case. (personal preference, obviously)
+The website for [gTile extension](https://extensions.gnome.org/extension/28/gtile/) and the associated [github](https://github.com/gTile/gTile) page. It can be a bit of a hassle to get installed. I use the [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) chrome (brave browser) extension to facilitate the installation.
 
 > ⓘ NOTE: It may be necessary to set the dconf-editor key `/org/gnome/shell/disable-extension-version-validation` to '**true**' in order to install a 'legacy' version of gTile, especially right after a ubuntu version update.
 
 Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>` will move a window to a "side" or "quarter" of the screen.
 
-## Download Nomachine
+Gnome also has a [Gnome Extensions](https://extensions.gnome.org/) site where you can browse for other Gnome modification extensions.
+
+A Microsoft Windows alternative is [AltDrag](https://stefansundin.github.io/altdrag/) by Stefan Sundin. I can never remember what this one is called, so I list it here.
+
+## Nomachine
+
+Download and install [NoMachine](https://www.nomachine.com/)
+
+$ `sudo apt install ./<downloaded-nomachine-file.deb>`
 
 # Remove Software
 
@@ -213,3 +155,11 @@ Setting up snap (2013-11-29-11) ...
 Processing triggers for man-db (2.11.2-1) ...
 $
 ```
+
+# VSCode Setup
+
+I have a separate document that covers my specific [VSCode Setup](./setup-vscode.md).
+
+# Docker Container Setup
+
+This section was becoming big enough that I split it out into a separate [Docker Database Setup](databases/Docker-Database-Setup.md) file.
