@@ -1,9 +1,11 @@
 - [API (Application Programming Interface)](#api-application-programming-interface)
   - [Links](#links)
-  - [Jamstack](#jamstack)
+  - [Authentication](#authentication)
+    - [Passport.js](#passportjs)
   - [REST (Representational State Transfer)](#rest-representational-state-transfer)
   - [Nodejs specifics](#nodejs-specifics)
   - [CORS (Cross Origin Resource Sharing)](#cors-cross-origin-resource-sharing)
+  - [Jamstack](#jamstack)
 
 # API (Application Programming Interface)
 
@@ -24,9 +26,13 @@ An API is a way for two or more pieces of software to communicate. Specifically,
 | [CORS Middleware](https://expressjs.com/en/resources/middleware/cors.html#enabling-cors-pre-flight)                 | expressjs     | ✔️   | Documentation for a middleware that enables CORS       |
 | [How to create a REST API with Express.js in Node.js](https://www.robinwieruch.de/node-express-server-rest-api/)    | Robin Wieruch | ✔️   | Tutorial listed in the "API Basics" lesson             |
 
-## Jamstack
+## Authentication
 
-Odin introduces the concept of "Jamstack," which is touted as 'static, pre-rendered content' without the need for worrying about database security or slow database operations. The reason for this is that someone else is managing that for you. If you need dynamic content, you serve that through an API using SaaS such as Heroku.
+I find this is one of the more interesting topics in all of the Odin work that I've worked on. It is also one of the most difficult topics that I've studied.
+
+### Passport.js
+
+Once authenticated, the `req.user` object contains the user object. In the `passport.serializeUser` and `passport.deserializeUser` functions, ensure that you are returning versions that do not contain the password hash or salt.
 
 ## REST (Representational State Transfer)
 
@@ -49,3 +55,9 @@ Use `res.json()` instead of `res.send()` / `res.render()`.
 CORS exists to prevent a site from performing malicious actions. If I have a site, and I write some javascript code to direct your browser to give me your contact list from your e-mail service, except your browser detects that the request is not originating from your e-mail and blocks that request.
 
 You typically want to block all access from any origin except your frontend website. However, during development it is common to allow access from all origins to make testing and general development easier.
+
+## Jamstack
+
+Odin introduces the concept of "Jamstack," which is described as 'static, pre-rendered content' without the need for worrying about database security or slow database operations. The reason for this is that someone else is managing that for you. If you need dynamic content with jamstack, that is provided by an API using SaaS such as Heroku.
+
+In essence, it's the desire to move away from managing server configurations and towards utilizing a service
