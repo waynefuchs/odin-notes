@@ -33,8 +33,9 @@ While markdown is not complicated, these resources really helped me get started 
 
 Here is a list of emoji for me to easily access to copy/paste throughout these documents. (More to come)
 
-| Emoji | Note        |
-| ----- | ----------- |
-| ⓘ     | Information |
-| ⚠️    | Warning     |
-| 🛑    | Stop        |
+| Emoji | Note               |
+| ----- | ------------------ |
+| ⓘ     | Information        |
+| ⚠️    | Warning            |
+| 🛑    | Stop               |
+| ✔️    | Positive Checkmark |
