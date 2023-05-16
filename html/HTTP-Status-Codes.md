@@ -13,13 +13,13 @@
 
 ## Categories
 
-| range | category description   |
-| ----- | ---------------------- |
-| 1XX   | Information Responses  |
-| 2XX   | Successful Responses   |
-| 3XX   | Redirection Messages   |
-| 4XX   | Client Error Responses |
-| 5XX   | Server Error Responses |
+| range | category      | description                                                                                    |
+| ----- | ------------- | ---------------------------------------------------------------------------------------------- |
+| 1XX   | Informational | Communicates transfer protocol-level information.                                              |
+| 2XX   | Successful    | Indicates that the client’s request was accepted successfully.                                 |
+| 3XX   | Redirection   | Indicates that the client must take some additional action in order to complete their request. |
+| 4XX   | Client Error  | This category of error status codes points the finger at clients.                              |
+| 5XX   | Server Error  | The server takes responsibility for these error status codes.                                  |
 
 ## Codes
 
