@@ -4,6 +4,7 @@
   - [Add Software](#add-software)
   - [Snaps](#snaps)
   - [Download Software](#download-software)
+  - [Postman Icon](#postman-icon)
   - [gTile](#gtile)
   - [Nomachine](#nomachine)
 - [Remove Software](#remove-software)
@@ -64,6 +65,23 @@ And, of course, the nine snaps that ubuntu basically requires and likes to updat
 | [obs](https://obsproject.com/download#linux)                           | Open Broadcaster Software                                                                     |
 | [pgAdmin 4](https://www.pgadmin.org/)                                  | A management tool for PostgreSQL                                                              |
 | [MongoDB Compass](https://www.mongodb.com/products/compass)            | GUI for MongoDB.                                                                              |
+| [Postman](https://www.postman.com/downloads/)                          | Industry standard platform for building and using APIs.                                       |
+
+## Postman Icon
+
+Download Postman and extract it to `/opt/Postman`. Download a postman svg (I got mine from google images) and place it in `/opt/Postman` alongside the executable. In the file: `.local/share/applications/Postman.desktop `, put the following:
+
+```ini
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Postman
+Comment=Postman API platform
+Icon=/opt/Postman/postman-icon.svg
+Exec=/opt/Postman/Postman
+Terminal=false
+Categories=API;REST;Postman
+```
 
 ## gTile
 
