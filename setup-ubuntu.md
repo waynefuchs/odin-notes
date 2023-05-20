@@ -33,9 +33,12 @@ I removed this as I can no longer rename my sound card in the new Gnome on Ubunt
 
 `sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro gimp`
 
-`git config --global user.name "YOUR NAME HERE"`
-
-`git config --global user.email "your.email@here"`
+```bash
+git config --global user.name "{YOUR NAME HERE}"
+git config --global user.email "{your.email@here}"
+# On October 1, 2020, GitHub renamed 'master' to 'main'; the defaultBranch variable will match that locally
+git config --global init.defaultBranch main
+```
 
 ## Snaps
 
