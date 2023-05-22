@@ -57,9 +57,9 @@ Under `File > Preferences > Configure User Snippets` choose `javascript.json` fr
       "// @desc    ${1:Write a description}",
       "// @route   ${2:GET} /api/${3:endpoint}",
       "// @access  ${4:Public}",
-      "export const ${5:verb}${6:noun} = (req, res) => {",
+      "export const ${5:verb}${6:noun} = asyncHandler(async (req, res) => {",
       "  res.json({ message: '$1'})",
-      "}"
+      "})"
     ],
     "description": "Boilerplate to create a controller function"
   }
