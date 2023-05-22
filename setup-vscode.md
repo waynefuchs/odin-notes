@@ -52,13 +52,16 @@ Under `File > Preferences > Configure User Snippets` choose `javascript.json` fr
 ```json
 {
   "API Controller Description": {
-    "prefix": ["api-description"],
+    "prefix": ["api-define-controller"],
     "body": [
       "// @desc    ${1:Write a description}",
-      "// @route   /api/${2:endpoint}",
-      "// @access  ${3:Public}"
+      "// @route   ${2:GET} /api/${3:endpoint}",
+      "// @access  ${4:Public}",
+      "export const ${5:verb}${6:noun} = (req, res) => {",
+      "  res.json({ message: '$1'})",
+      "}"
     ],
-    "description": "Controller function description"
+    "description": "Boilerplate to create a controller function"
   }
 }
 ```
