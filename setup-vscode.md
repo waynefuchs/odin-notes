@@ -44,3 +44,21 @@
 | workbench.action.toggleEditorWidths      | Shift + Alt + Enter | Make focused window _nearly_ full window width |
 | editor.emmet.action.wrapWithAbbreviation | Ctrl+e Ctrl+w       | Wrap html tag                                  |
 | editor.emmet.action.removeTag            | Ctrl+e Ctrl+d       | Remove html tag                                |
+
+## Snippets
+
+Under `File > Preferences > Configure User Snippets` choose `javascript.json` from the drop down menu. This snippet will set up documentation for a controller function, to define the intended purpose in comments.
+
+```json
+{
+  "API Controller Description": {
+    "prefix": ["api-description"],
+    "body": [
+      "// @desc    ${1:Write a description}",
+      "// @route   /api/${2:endpoint}",
+      "// @access  ${3:Public}"
+    ],
+    "description": "Controller function description"
+  }
+}
+```
