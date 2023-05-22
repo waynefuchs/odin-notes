@@ -49,11 +49,16 @@
 
 Under `File > Preferences > Configure User Snippets` choose `javascript.json` from the drop down menu. This snippet will set up documentation for a controller function, to define the intended purpose in comments.
 
+### API Controller Description Helper
+
+This helper snippet makes it very easy to define a controller for a route.
+
 ```json
 {
   "API Controller Description": {
     "prefix": ["api-define-controller"],
     "body": [
+      "////////////////////////////////////////////////////////////////////////////////",
       "// @desc    ${1:Write a description}",
       "// @route   ${2:GET} /api/${3:endpoint}",
       "// @access  ${4:Public}",
@@ -64,4 +69,16 @@ Under `File > Preferences > Configure User Snippets` choose `javascript.json` fr
     "description": "Boilerplate to create a controller function"
   }
 }
+```
+
+Generates (example):
+
+```js
+////////////////////////////////////////////////////////////////////////////////
+// @desc    Get logged in user data
+// @route   GET /api/session
+// @access  Private
+export const getSession = asyncHandler(async (req, res) => {
+  res.json({ message: "Get logged in user data" });
+});
 ```
