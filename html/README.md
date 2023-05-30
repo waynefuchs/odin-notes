@@ -12,11 +12,7 @@
     - [Description Lists](#description-lists)
     - [Paragraph](#paragraph)
     - [Text Options](#text-options)
-  - [Forms](#forms)
-    - [Button](#button)
-    - [Form](#form)
-    - [Input](#input)
-    - [Label](#label)
+  - [HTML Boilerplate](#html-boilerplate)
   - [HTML Styling](#html-styling)
 
 # HTML Notes
@@ -114,35 +110,22 @@ Note: List containers require a list item child.
 `<em></em>`: Emphasize text (typically italic), screen readers with pronounce emphasized text using verbal stress. (Use this instead of `<i></i>`)
 `<strong></strong>`: Identify text with strong importance. (Use this instead of `<b></b>`)
 
-## Forms
+## HTML Boilerplate
 
-### Button
+Easily generated with the Emmet `!` shortcut.
 
-`<button>button-text</button>`: Add a clickable button to the page.
-
-- `type=""`: Specify what kind of button it is
-  - button, submit, reset
-
-### Form
-
-`<form></form>`: Container to hold form elements. (See Input, ...)
-
-- `action=""`: indicate where the data should be sent
-
-### Input
-
-`<input>`: Text box
-
-- `type=""`: Specify rules for the input.
-  - button, checkbox, color, date, datetime-local, email, file, hidden, image, month, number, password, radio, range, reset, search, submit, tel, text, time, url, week
-- `name=""`: How you access the entered value from the forms' action. **Note**: Radio buttons will need to have the same name to function as a group. (See value)
-- `placeholder=""`: Text that will appear in the empty box.
-- `required`: Require the field to be filled out.
-- `value=""`: The value of the form element. **Note**: For radio buttons, specify a value if you need to know which radio button is "on."
-
-### Label
-
-`<label><input> text</label>`: Associate text with an input element. (You can click on the text to interact with the input)
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><!--Document Title--></title>
+  </head>
+  <body></body>
+</html>
+```
 
 ## HTML Styling
 
