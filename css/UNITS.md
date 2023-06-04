@@ -1,20 +1,24 @@
 - [Units](#units)
-  - [Links](#links)
-  - [Absolute Units](#absolute-units)
+- [Links](#links)
+- [Absolute Units](#absolute-units)
   - [Relative Units](#relative-units)
   - [Modifiers to `vb`, `vi`, and (`vh` / `vw`)](#modifiers-to-vb-vi-and-vh--vw)
+  - [Container Units (\*NEW 2023)](#container-units-new-2023)
     - [Examples:](#examples)
 
 # Units
 
-## Links
+I was using several resources to look up units and determine which ones were "good" to use and whatnot. So I decided to build this table.
+
+> ⚠️ Warning: Some of this content is my personal bias and likely some inaccuracies. I mention this because every so often I come back here and realize "Oh, I didn't know this one thing about responsive design that makes my description here on this unit partially incorrect..."
+
+# Links
 
 - [All 24 CSS Viewport Units Explained](https://blog.webdevsimplified.com/2022-08/css-viewport-units/): Web Dev Simplified
 - [Fun with Viewport Units](https://css-tricks.com/fun-viewport-units/): css-tricks.com
 - [All CSS Units Compared And Explained](https://areknawo.com/all-css-units-compared-and-explained/)
 
-
-## Absolute Units
+# Absolute Units
 
 Where possible in reactive web design, use Relative units. Padding, Margin, and Borders can benefit from using `px`, as when the page is resized, if a relative unit has been specified, the page can scale in odd ways. The designer should be responsible for determining spacing between elements and whether padding around UI elements should be dependent on things like font size.
 
@@ -31,34 +35,39 @@ Where possible in reactive web design, use Relative units. Padding, Margin, and 
 
 If the user changes the font size for your website, if you have used Relative Units and responsive design properties, all the page elements will likewise scale.
 
-| Unit        | Use | Reason to Use or Not Use                                                                                                      | Description                                                    |
-| ----------- | --- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-| `ch`        | 🛑  | Limited usefulness                                                                                                            | Width of the "0" glyph in font.                                |
-| `dvh` `dvw` | ⚠️  | "New ([2021](https://github.com/w3c/csswg-drafts/issues/4329))" Unit, Performance and Scrolling Issues, **GREAT** for mobile! | Similar to vh and vw. (?)                                      |
-| `em`        | ⚠️  | Prefer `rem` to not worry about DOM context                                                                                   | EleMent `font-size`.                                           |
-| `ex`        | 🛑  | Limited use                                                                                                                   | Height of 'x' character in font.                               |
-| `fr`        | ✔️  | Good for responsive **grid** layouts                                                                                          | Fraction                                                       |
-| `lh`        | 🛑  | Limited use                                                                                                                   | Line height of the element.                                    |
-| `rem`       | ✔️  | Based on :root or html                                                                                                        | Root EleMent `font-size`.                                      |
-| `rlh`       | 🛑  | Limited Use                                                                                                                   | Initial line height of the root element.                       |
-| `svh` `svw` | ⚠️  | Limited Use                                                                                                                   | Same as vh/vw returning the smaller of width/height.           |
-| `lvh` `lvw` | ⚠️  | Limited Use                                                                                                                   | Same as vh/vw returning the larger of width/height.            |
-| `vh`        | ✔️  | Useful when you want something scaled to the viewport.                                                                        | Percent of viewport height.                                    |
-| `vmin`      | ⚠️  | Keep font size (specifically HERO) under control                                                                              | 1% of the viewport's smaller dimension (Portrait / Landscape). |
-| `vmax`      | ⚠️  | Keep font size (specifically HERO) under control                                                                              | 1% of the viewport's larger dimension. (Portrait / Landscape)  |
-| `vb`        | ⚠️  | Similar to vh for roman language                                                                                              | 1% of the size of the viewport in the block direction.         |
-| `vi`        | ⚠️  | Similar to vw for roman language                                                                                              | 1% of the size of the viewport in the inline direction.        |
-| `vw`        | ✔️  | Viewport scaling is good for full-height/width full screen interfaces.                                                        | Percent of viewport width.                                     |
+| Unit        | Use | Reason to Use or Not Use                                                                                                                                    | Description                                                    |
+| ----------- | --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `ch`        | 🛑  | Limited usefulness                                                                                                                                          | Width of the "0" glyph in font.                                |
+| `dvh` `dvw` | ⚠️  | "New ([2021](https://github.com/w3c/csswg-drafts/issues/4329))" Unit, Performance and Scrolling Issues, **GREAT** for mobile!                               | Similar to vh and vw. (?)                                      |
+| `em`        | ⚠️  | Prefer `rem` to not worry about DOM context and the "Compounding Effect." Use `em` when you want the size of something to depend on an element's font size. | EleMent `font-size`.                                           |
+| `ex`        | 🛑  | Limited use                                                                                                                                                 | Height of 'x' character in font.                               |
+| `fr`        | ✔️  | Good for responsive **grid** layouts                                                                                                                        | Fraction                                                       |
+| `lh`        | 🛑  | Limited use                                                                                                                                                 | Line height of the element.                                    |
+| `rem`       | ✔️  | Based on :root or html                                                                                                                                      | Root EleMent `font-size`.                                      |
+| `rlh`       | 🛑  | Limited Use                                                                                                                                                 | Initial line height of the root element.                       |
+| `svh` `svw` | ⚠️  | Limited Use                                                                                                                                                 | Same as vh/vw returning the smaller of width/height.           |
+| `lvh` `lvw` | ⚠️  | Limited Use                                                                                                                                                 | Same as vh/vw returning the larger of width/height.            |
+| `vh`        | ✔️  | Useful when you want something scaled to the viewport.                                                                                                      | Percent of viewport height.                                    |
+| `vmin`      | ⚠️  | Keep font size (specifically HERO) under control                                                                                                            | 1% of the viewport's smaller dimension (Portrait / Landscape). |
+| `vmax`      | ⚠️  | Keep font size (specifically HERO) under control                                                                                                            | 1% of the viewport's larger dimension. (Portrait / Landscape)  |
+| `vb`        | ⚠️  | Similar to vh for roman language                                                                                                                            | 1% of the size of the viewport in the block direction.         |
+| `vi`        | ⚠️  | Similar to vw for roman language                                                                                                                            | 1% of the size of the viewport in the inline direction.        |
+| `vw`        | ✔️  | Viewport scaling is good for full-height/width full screen interfaces.                                                                                      | Percent of viewport width.                                     |
 
 ## Modifiers to `vb`, `vi`, and (`vh` / `vw`)
 
-| Modifier | Stands For| Description |
-|--|--|--|
-|`d`|Dynamic|Is the current size of the viewport to allow for reactive design on mobile|
-|`l`|Large|Largest possible viewport size, ignoring whether the url bar is shown or not |
-|`s`|Small|Smallest possible viewport size, taking into consideration the space for the url bar on mobile |
+| Modifier | Stands For | Description                                                                                    |
+| -------- | ---------- | ---------------------------------------------------------------------------------------------- |
+| `d`      | Dynamic    | Is the current size of the viewport to allow for reactive design on mobile                     |
+| `l`      | Large      | Largest possible viewport size, ignoring whether the url bar is shown or not                   |
+| `s`      | Small      | Smallest possible viewport size, taking into consideration the space for the url bar on mobile |
 
 > Note: This is for the url bar overlay only, the keyboard is not factored into the size calculation
+
+## Container Units (\*NEW 2023)
+
+| Unit | Use | Reason to Use or Not Use | Description |
+| ---- | --- | ------------------------ | ----------- |
 
 ### Examples:
 
