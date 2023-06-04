@@ -1,28 +1,24 @@
-- [CSS Reference](#css-reference)
-  - [Browser Default CSS](#browser-default-css)
+- [Browser Default CSS](#browser-default-css)
   - [CSS Resets](#css-resets)
-  - [Specificity](#specificity)
-  - [Selectors](#selectors)
-    - [Links](#links)
-    - [My Selector Notes](#my-selector-notes)
-    - [Examples](#examples)
-  - [Positioning](#positioning)
-  - [CSS Functions](#css-functions)
-    - [`calc()`](#calc)
-    - [`clamp` and `min` and `max`](#clamp-and-min-and-max)
-      - [`clamp(smallest, ideal, largest)`](#clampsmallest-ideal-largest)
-      - [`min(a, b, ...)`](#mina-b-)
-      - [`max(a, b, ...)`](#maxa-b-)
-  - [CSS Properties](#css-properties)
-    - [`background`](#background)
-    - [`border` and `border-radius`](#border-and-border-radius)
-    - [`box-shadow`](#box-shadow)
-    - [`overflow`](#overflow)
-    - [`opacity`](#opacity)
+- [Specificity](#specificity)
+- [Selectors](#selectors)
+  - [Examples](#examples)
+- [Positioning](#positioning)
+- [CSS Functions](#css-functions)
+  - [`calc()`](#calc)
+  - [`clamp()`, `min()` and `max()`](#clamp-min-and-max)
+    - [`clamp(smallest, ideal, largest)`](#clampsmallest-ideal-largest)
+    - [`min(a, b, ...)`](#mina-b-)
+    - [`max(a, b, ...)`](#maxa-b-)
+  - [`color-mix(in {colorspace}, color1, color2)`](#color-mixin-colorspace-color1-color2)
+- [CSS Properties](#css-properties)
+  - [`background`](#background)
+  - [`border` and `border-radius`](#border-and-border-radius)
+  - [`box-shadow`](#box-shadow)
+  - [`overflow`](#overflow)
+  - [`opacity`](#opacity)
 
-# CSS Reference
-
-## Browser Default CSS
+# Browser Default CSS
 
 You can look at the default.css file for each of the browsers.
 
@@ -35,17 +31,22 @@ You can look at the default.css file for each of the browsers.
 - [History on Resets](https://css-tricks.com/reboot-resets-reasoning/): Interesting and a few other options.
 - [Browser Default Styles](https://browserdefaultstyles.com/): Type in an element, get the differences between browsers
 
-## Specificity
+# Specificity
 
-- [Specifics on CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/): eg:(0,0,0,0)
+Specificity is how a browser determines which CSS property takes precedence.
 
-## Selectors
+[Specifics on CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/): (a, b, c, d)
 
-### Links
+| Factor                         | Example                                            | Value |
+| ------------------------------ | -------------------------------------------------- | ----- |
+| Style attribute                | `<div style="color:red>this is red</div>`          | Most  |
+| ID                             | `#container`                                       |       |
+| Class, Pseudo-class, Attribute | `.thing`, `:first-child`, `input[type="password"]` |       |
+| Element, Pseudo-element        | `div`                                              | Least |
+
+# Selectors
 
 [Complex Selectors](https://learn.shayhowe.com/advanced-html-css/complex-selectors/)
-
-### My Selector Notes
 
 |                  Selector | Description                                                                                                                    |
 | ------------------------: | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -67,7 +68,7 @@ You can look at the default.css file for each of the browsers.
 |    `[attribute*="value"]` | attribute contains 'value' (eg: match all 'domain.com' links, and highlight them.)                                             |
 | `element:nth-child(2n-1)` | Style every 'nth' child, as specified by the formula in parenthesis. **Even** 2n **Odd** 2n-1                                  |
 
-### Examples
+## Examples
 
 ```css
 [src] {
@@ -107,7 +108,7 @@ img[src="puppy.jpg"] {
 }
 ```
 
-## [Positioning](test/position.html)
+# [Positioning](test/position.html)
 
 The css property: `position: [static|absolute|relative|fixed|sticky]`
 
@@ -144,42 +145,80 @@ Performance: `fixed` and `sticky` can cause stutter and lag, depending on the el
 
   Allows you to put an element onto the page and it will stay there as you (attempt to) scroll past it.
 
-## CSS Functions
+# CSS Functions
 
 [ALL CSS Functions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions)
 
-### `calc()`
+## `calc()`
 
 - Mix Units
 - Nesting: `calc(10vw + calc(var(--header-height) + var(--footer-height)));`
 - Keep in mind that calc() is a tool to be used, but there are likely better solutions and tools available.
 
-### `clamp` and `min` and `max`
+## `clamp()`, `min()` and `max()`
 
 [web.dev: demonstration](https://web.dev/min-max-clamp/)
 
 - Inputs to these functions can be combined with each other.
 - +, -, \*, and / may be used.
 
-#### `clamp(smallest, ideal, largest)`
+### `clamp(smallest, ideal, largest)`
 
 A way to clamp values into a range.
 
-#### `min(a, b, ...)`
+### `min(a, b, ...)`
 
 Will return the low value from a list of values. Useful in situations such as: `min(150px, 100%);` where an image may be allowed to use 150px if they are available, and otherwise the image will scale with the width being the available space.
 
 You can perform basic math inside this function. eg: `min(150px, 100vw - 2rem);`.
 
-#### `max(a, b, ...)`
+### `max(a, b, ...)`
 
 Functions the same way as min, except returning the larger of the two supplied inputs. It can function as a guard clause against someone that has set a large font to prevent some important bit of information from being lost off screen.
 
 `width: max(100px, 4em, 50%);` - in this case it is possible for the user to size their viewport to a size less than 100px, and 4em could be very small if the user has chosen a default font size to be very small, at which point 100px would be chosen here as kind of a guard clause.
 
-## CSS Properties
+## `color-mix(in {colorspace}, color1, color2)`
 
-### `background`
+| rectangular colorspaces |
+| ----------------------- |
+| srgb                    |
+| srgb-linear             |
+| lab                     |
+| oklab                   |
+| xyz                     |
+| xyz-d50                 |
+| xyz-d65                 |
+
+| polar colorspaces |
+| ----------------- |
+| hsl               |
+| hwb               |
+| lch               |
+| oklch             |
+
+Optional hue interpolation method for polar color-spaces:
+[`shorter` | `longer` | `increasing` | `decreasing`] hue
+
+```css
+/* Example */
+div {
+  background-color: color-mix(in srgb, red, blue);
+}
+
+/*
+color-mix(in lch, plum, pink);
+color-mix(in lch, plum 40%, pink);
+color-mix(in srgb, #34c9eb 20%, white);
+color-mix(in hsl longer hue, hsl(120 100% 50%) 20%, white);
+*/
+```
+
+# CSS Properties
+
+>
+
+## `background`
 
 - [MDN: background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
 - [CSSTricks: background](https://css-tricks.com/almanac/properties/b/background/)
@@ -202,20 +241,20 @@ The details can get very verbose, it is better to go to the docs to find the bit
 
 > Note: this can render the background as type 'image'. If you attempt to animate this it will not work and you will waste hours. Allegedly.
 
-### `border` and `border-radius`
+## `border` and `border-radius`
 
 - [MDN: border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
 - [MDN: border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
 
-### `box-shadow`
+## `box-shadow`
 
 - [MDN: box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
 
-### `overflow`
+## `overflow`
 
 - [MDN: overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
 - [CSSTricks: overflow](https://css-tricks.com/almanac/properties/o/overflow/)
 
-### `opacity`
+## `opacity`
 
 - [MDN: opacity](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity)
