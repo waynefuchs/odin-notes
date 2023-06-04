@@ -1,4 +1,9 @@
 - [Forms](#forms)
+- [Elements](#elements)
+  - [\<form\>](#form)
+  - [Button](#button)
+    - [Input](#input)
+    - [Label](#label)
   - [Links](#links)
     - [HTML](#html)
     - [JS Validation](#js-validation)
@@ -6,7 +11,7 @@
     - [Action](#action)
     - [Method](#method)
   - [Recommended CSS](#recommended-css)
-  - [Input](#input)
+  - [Input](#input-1)
     - [`type`](#type)
     - [Other Input Attributes](#other-input-attributes)
   - [Example of most form elements](#example-of-most-form-elements)
@@ -24,6 +29,47 @@
     - [Validity Properties](#validity-properties)
 
 # Forms
+
+Forms are a way to get input from the user. That input can be processed by a server or processed locally using Javascript.
+
+# Elements
+
+## <[form](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form)>
+
+Container to hold form elements.
+
+| Attribute    | Submission | Values                                                                   | Description                                                                                                                                                             |
+| ------------ | ---------- | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| autocomplete |            | on,off                                                                   | Should input fields be auto completed; browsers ignore this for login forms                                                                                             |
+| name         |            | {unique-on-page}                                                         | Name of the form                                                                                                                                                        |
+| rel          |            | [many](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel) | Define relationship between form and submission link; mostly for SEO with some browser optimization and local accessibility and UI improvements depending on the values |
+
+> 🚧 TODO: Finish this....?
+> |action|
+
+- `action=""`: indicate where the data should be sent
+
+## Button
+
+`<button>button-text</button>`: Add a clickable button to the page.
+
+- `type=""`: Specify what kind of button it is
+  - button, submit, reset
+
+### Input
+
+`<input>`: Text box
+
+- `type=""`: Specify rules for the input.
+  - button, checkbox, color, date, datetime-local, email, file, hidden, image, month, number, password, radio, range, reset, search, submit, tel, text, time, url, week
+- `name=""`: How you access the entered value from the forms' action. **Note**: Radio buttons will need to have the same name to function as a group. (See value)
+- `placeholder=""`: Text that will appear in the empty box.
+- `required`: Require the field to be filled out.
+- `value=""`: The value of the form element. **Note**: For radio buttons, specify a value if you need to know which radio button is "on."
+
+### Label
+
+`<label><input> text</label>`: Associate text with an input element. (You can click on the text to interact with the input)
 
 ## Links
 
