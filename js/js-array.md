@@ -1,23 +1,24 @@
-- [Array](#array)
-  - [Creation](#creation)
-    - [Speed](#speed)
-  - [Properties](#properties)
-  - [Methods](#methods)
-    - [`sort()`](#sort)
-    - [`includes(item)`](#includesitem)
-    - [`toString()`](#tostring)
-    - [`join(strBetweenElements)`](#joinstrbetweenelements)
-    - [`pop()`](#pop)
-    - [`push(element)`](#pushelement)
-    - [`shift()`](#shift)
-    - [`unshift(element)`](#unshiftelement)
-    - [`concat(array, …)`](#concatarray-)
-    - [`splice(atIndex, deleteHowMany, item(s), …)`](#spliceatindex-deletehowmany-items-)
-    - [`slice(start, end=last)`](#slicestart-endlast)
+- [Array Creation](#array-creation)
+  - [Speed](#speed)
+- [Properties](#properties)
+- [Methods](#methods)
+  - [`includes(item, *fromIndex)`](#includesitem-fromindex)
+  - [`join(strBetweenElements)`](#joinstrbetweenelements)
+  - [`pop()`](#pop)
+  - [`push(element)`](#pushelement)
+  - [`reverse()`](#reverse)
+  - [`shift()`](#shift)
+  - [`slice(start, end=last)`](#slicestart-endlast)
+  - [`sort()`](#sort)
+  - [`splice(atIndex, *deleteCount, *...item)`](#spliceatindex-deletecount-item)
+  - [🔥 `toReversed()`](#-toreversed)
+  - [🔥 `toSorted()`](#-tosorted)
+  - [🔥 `toSpliced(start, *deleteCount, *...items)`](#-tosplicedstart-deletecount-items)
+  - [`toString()`](#tostring)
+  - [`unshift(element)`](#unshiftelement)
+  - [🔥 `with(index, replaceValue)`](#-withindex-replacevalue)
 
-# Array
-
-## Creation
+# Array Creation
 
 There are many ways to create arrays in JavaScript. Here are a few common ones.
 
@@ -55,7 +56,7 @@ a.unshift(2);
 a.unshift(1);
 ```
 
-### Speed
+## Speed
 
 I have looked this up a few times. Stack Overflow actually has some conflicting and really bad information in the result that keeps getting suggested to me through google. So I set up a rudimentary test for myself. It looks like creating an array with the `new Array(#)` constructor, and self-initializing it to 0 is the most efficient; with map() not too far behind. Fill, on the other hand, takes a significant amount of time. I would guess that error checking is taking place.
 
@@ -90,48 +91,105 @@ const a = new Array(50000000).fill(0);
 a.fill(0);
 ```
 
-## Properties
+# Properties
 
 - length
 
-## Methods
+# Methods
 
-### `sort()`
+This is a non-inclusive list, more along the lines of methods that I was looking up frequently as I transitioned from other languages to javascript at the beginning of my Odin journey. See the MDN [Array.prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) page for an inclusive list.
 
-### `includes(item)`
+## `includes(item, *fromIndex)`
 
-### `toString()`
+Checks to see if `item` exists in the array. There are some "gotchas" that you can read about in MDN's [Array.prototype.includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) page.
 
-convert the contents of the array into a string
+## `join(strBetweenElements)`
 
-### `join(strBetweenElements)`
+Returns a new string containing the contents of each array element converted into a string, with `strBetweenElements` placed between every element.
 
-convert the contents of the array into a string, specifying what to place between elements
+## `pop()`
 
-### `pop()`
+Mutates the array, removing and returning the last element in the array.
 
-remove and return last element in array
+## `push(element)`
 
-### `push(element)`
+Mutates the array, adding an element to end of the array and returns new array length
 
-adds element to end of the array and returns new array length
+## `reverse()`
 
-### `shift()`
+Mutates the array in to reverse order.
+
+## `shift()`
 
 remove and return first element in array
 
-### `unshift(element)`
+## `slice(start, end=last)`
 
-adds element to beginning of the array and returns new array length
+return a new array containing elements from start to end
 
-### `concat(array, …)`
+## `sort()`
 
-adds array(s) to the end of this array
+Mutates the array into sorted order.
 
-### `splice(atIndex, deleteHowMany, item(s), …)`
+## `splice(atIndex, *deleteCount, *...item)`
+
+Returns an array containing the removed items.
+
+Mutates the array to contain remaining items, with `item`s added at the selection point.
+
+```bash
+# Define an array
+> m = [1, 2, 3, 4]
+[ 1, 2, 3, 4 ]
+
+#          | Index 1
+#          |  | 1 item replaced (the 2)
+#          |  |  |-----| inserting [5, 6, 7] at index 1
+> m.splice(1, 1, 5, 6, 7)
+[ 2 ]
+
+# Results in: [1] + [5, 6, 7] + [3, 4], or:
+> m
+[ 1, 5, 6, 7, 3, 4 ]
+```
+
+## 🔥 `toReversed()`
+
+> ⚠️ Requires Node 20.0.0+
+
+Returns a copy of the array in sorted order.
+
+## 🔥 `toSorted()`
+
+> ⚠️ Requires Node 20.0.0+
+
+Returns a copy of the array in sorted order.
+
+## 🔥 `toSpliced(start, *deleteCount, *...items)`
+
+> ⚠️ Requires Node 20.0.0+
+
+Return a new array with some elements removed and/or replaced
 
 insert items into an array, and optionally remove items
 
-### `slice(start, end=last)`
+## `toString()`
 
-return a new array containing elements from start to end
+Returns a new string containing the contents of the array as a comma separated string.
+
+> ⚠️ Warning: There may be unpredictable results if the array contains elements that produce commas when processed to strings.
+
+```
+> [1, 2, 3, "4,", 5].toString()
+'1,2,3,4,,5'
+```
+
+## `unshift(element)`
+
+adds element to beginning of the array and returns new array length
+
+## 🔥 `with(index, replaceValue)`
+
+> ⚠️ Requires Node 20.0.0+
+
+Returns a copy of the array with the value at `index` replaced with `replaceValue`.
