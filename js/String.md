@@ -1,6 +1,5 @@
 - [String](#string)
 - [Concatenating](#concatenating)
-- [Regular Expressions](#regular-expressions)
 - [Methods](#methods)
   - [`charCodeAt(index)`](#charcodeatindex)
   - [`charAt(index)` OR `variable[index]`](#charatindex-or-variableindex)
@@ -21,8 +20,6 @@ The MDN [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 
 # Concatenating
 
----
-
 ```js
 // Template Literal:
 // Be careful... eg: sql injection type issues (don't use with user input)
@@ -33,19 +30,8 @@ const templateLiteral = `Using Backticks and ${"this syntax"} to join strings`;
 const plusSymbol = "you can" + " " + "concatinate this way!";
 ```
 
-# Regular Expressions
-
----
-
-> 🚧 TODO: Add a section on regular expressions
->
-> How: Check for variables in regex eg: /.\*($var)/
-
-Perhaps this should be in `js-string-regular-expressions.md`?
-
 # Methods
 
----
 
 ## `charCodeAt(index)`
 
