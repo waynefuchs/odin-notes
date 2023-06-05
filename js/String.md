@@ -1,6 +1,8 @@
 - [String](#string)
 - [Concatenating](#concatenating)
 - [Methods](#methods)
+  - [`at(index)`](#atindex)
+  - [`charAt(index)`](#charatindex)
   - [`charCodeAt(index)`](#charcodeatindex)
   - [`charAt(index)` OR `variable[index]`](#charatindex-or-variableindex)
   - [`concat()`](#concat)
@@ -32,6 +34,29 @@ const plusSymbol = "you can" + " " + "concatinate this way!";
 
 # Methods
 
+## `at(index)`
+
+Nearly identical to accessing a string index using square brackets (`str[index]`) or `charAt`.
+
+Returns a new string containing a single character. 
+
+* Negative indices will wrap around to the end of the string. 
+* Only UTF-16 characters are valid, meaning emoji will not be properly handled. 
+* Out of bounds (outside -str.length to str.length-1) access will return `undefined`
+
+``` js
+"abcdefghijklmnopqrstuvwxyz".at(-2)   // y
+"abcdefghijklmnopqrstuvwxyz".at(2)    // c
+"abcdefghijklmnopqrstuvwxyz".at(-27)  // undefined
+"abcdefghijklmnopqrstuvwxyz".at(26)   // undefined
+```
+
+## `charAt(index)`
+
+Nearly identical to accessing a string index using square brackets (`str[index]`) or `at(index)`.
+
+* Only UTF-16 characters are valid, meaning emoji will not be properly handled
+* Out of bounds (outside 0 through str.length-1) returns empty string ('')
 
 ## `charCodeAt(index)`
 
