@@ -4,15 +4,17 @@
 
 | Package Name                           | Author               | Description                                         |
 | -------------------------------------- | -------------------- | --------------------------------------------------- |
-| Prettier                               | Prettier             | Format code with the push of a button.              |
+| Prettier                               | Prettier             | Format code with the push of a button. (or on save) |
 | Markdown All In One                    | Yu Zhang             | Markdown tools                                      |
 | Overtype                               | DrMerfy              | Implements Insert / Overtype mode                   |
 | REST Client                            | Huachao Mao          | Perform HTTP calls and see raw output.              |
 | Code Spell Checker                     | Street Side Software | Spell Checking                                      |
 | Live Server                            | Ritwick Dey          | Built-in http server to test raw html/css/js        |
-| EJS language support                   | DigitalBrainstem     | EJS language support                                |
-| pug                                    | amandeepmittal       | pug formatting                                      |
 | ES7+ React/Redux/React-Native snippets | dsznajder            | Provides snippets for React-related things (`rfce`) |
+| Rewrap                                 | stkb                 | Allow (hard) word wrapping comments with `alt-q`    |
+| VSCode Great Icons                     | Emmanuel Béziat      | Change VSCode File Browser Icons                    |
+| pug                                    | amandeepmittal       | pug formatting                                      |
+| EJS language support                   | DigitalBrainstem     | EJS language support                                |
 
 ### Python
 
