@@ -1,20 +1,26 @@
 - [Ubuntu Setup](#ubuntu-setup)
-  - [Fix time zone](#fix-time-zone)
-  - [Rename Sound Card](#rename-sound-card)
-  - [Add Software](#add-software)
-  - [Snaps](#snaps)
-  - [Download Software](#download-software)
-  - [Postman Icon](#postman-icon)
-  - [gTile](#gtile)
-  - [Nomachine](#nomachine)
-- [Remove Software](#remove-software)
-  - [Games](#games)
+- [Fix time zone](#fix-time-zone)
+- [Rename Sound Card](#rename-sound-card)
+- [Add Software](#add-software)
+- [Snaps](#snaps)
+- [Download Software](#download-software)
+- [Postman with Icon](#postman-with-icon)
+- [gTile](#gtile)
+  - [Step 1: Install the shell browser integration](#step-1-install-the-shell-browser-integration)
+  - [Step 2: Install the browser extension](#step-2-install-the-browser-extension)
+- [Nomachine](#nomachine)
+- [Remove Games](#remove-games)
 - [Settings](#settings)
   - [Accessibility](#accessibility)
   - [Appearance](#appearance)
   - [Multitasking](#multitasking)
-  - [dconf-editor](#dconf-editor)
-  - [snap-store glitch](#snap-store-glitch)
+- [dconf-editor](#dconf-editor)
+  - [Set a solid color as a background](#set-a-solid-color-as-a-background)
+  - [Set up shortcuts to navigate virtual desktops](#set-up-shortcuts-to-navigate-virtual-desktops)
+  - [allow VSCode ctrl-alt-shift-up/down line-duplication to work](#allow-vscode-ctrl-alt-shift-updown-line-duplication-to-work)
+  - [Set window focus to be the window under the mouse pointer.](#set-window-focus-to-be-the-window-under-the-mouse-pointer)
+  - [Disable delaying focus change](#disable-delaying-focus-change)
+- [fix snap-store glitch](#fix-snap-store-glitch)
 - [VSCode Setup](#vscode-setup)
 - [Docker Container Setup](#docker-container-setup)
 
@@ -22,15 +28,15 @@
 
 I have installed ubuntu on three computers. During the second install, I realized that I should have made a step-by-step during the first time. Ah well. The third install went pretty quickly because of this file.
 
-## Fix time zone
+# Fix time zone
 
 `timedatectl set-local-rtc 1`
 
-## Rename Sound Card
+# Rename Sound Card
 
 I removed this as I can no longer rename my sound card in the new Gnome on Ubuntu, but the `pavucontrol` utility is still useful, so i will mention that. I hope that some day I will be able to rename my sound card again, as I have several audio devices that are exactly the same except one word that is truncated in the drop down list. And it just switches to the wrong one occasionally. Sound in linux is bad, unfortunately. I think it might be getting better, and this is part of the growing pains?
 
-## Add Software
+# Add Software
 
 `sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro gimp`
 
@@ -41,7 +47,7 @@ git config --global user.email "{your.email@here}"
 git config --global init.defaultBranch main
 ```
 
-## Snaps
+# Snaps
 
 I try and avoid snaps as much as possible. Here are the ones I use.
 
@@ -52,9 +58,9 @@ I try and avoid snaps as much as possible. Here are the ones I use.
 - octave
 - docker
 
-And, of course, the nine snaps that ubuntu basically requires and likes to update a few times a day. I really need to investigate switching distros...
+I really need to switch distros to get away from snaps...
 
-## Download Software
+# Download Software
 
 | Software                                                               | Note                                                                                          |
 | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -67,9 +73,11 @@ And, of course, the nine snaps that ubuntu basically requires and likes to updat
 | [MongoDB Compass](https://www.mongodb.com/products/compass)            | GUI for MongoDB.                                                                              |
 | [Postman](https://www.postman.com/downloads/)                          | Industry standard platform for building and using APIs.                                       |
 
-## Postman Icon
+# Postman with Icon
 
-Download Postman and extract it to `/opt/Postman`. Download a postman svg (I got mine from google images) and place it in `/opt/Postman` alongside the executable. In the file: `.local/share/applications/Postman.desktop `, put the following:
+> ⓘ I prefer the vscode "REST Client" extension. Knowing postman could be a good skill to have.
+
+Download [Postman](https://www.postman.com/downloads/) and extract it to `/opt/Postman`. Download a postman svg (I got mine from google images) and place it in `/opt/Postman` alongside the executable. In the file: `.local/share/applications/Postman.desktop `, put the following:
 
 ```ini
 [Desktop Entry]
@@ -83,13 +91,26 @@ Terminal=false
 Categories=API;REST;Postman
 ```
 
-## gTile
+# gTile
 
 This gnome extension makes it so you can snap windows to a grid / portion of the screen. It's absolutely necessary for vertical and 4k displays. At this point I actually feel this is a necessary feature in any OS to be productive in the previously mentioned case. (personal preference, obviously)
 
-The website for [gTile extension](https://extensions.gnome.org/extension/28/gtile/) and the associated [github](https://github.com/gTile/gTile) page. It can be a bit of a hassle to get installed. I use the [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) chrome (brave browser) extension to facilitate the installation.
+## Step 1: Install the shell browser integration
 
-> ⓘ NOTE: It may be necessary to set the dconf-editor key `/org/gnome/shell/disable-extension-version-validation` to '**true**' in order to install a 'legacy' version of gTile, especially right after a ubuntu version update.
+I use the [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) chrome (brave browser) extension to facilitate the installation, which requires the `chrome-gnome-shell` apt package (ubuntu version through 22.10), which has now been renamed to `gnome-browser-connector`.
+
+``` bash
+# if `lsb-release -a` reports ubuntu version less than 23.04
+sudo apt install chrome-gnome-shell
+# otherwise
+sudo apt install gnome-browser-connector
+```
+
+## Step 2: Install the browser extension
+
+The "official" gnome extension page has the [gTile extension](https://extensions.gnome.org/extension/28/gtile/) from the [github](https://github.com/gTile/gTile) page. It can be a bit of a hassle to get installed manually. This is easier.
+
+> ⓘ It may be necessary to set the dconf-editor key `/org/gnome/shell/disable-extension-version-validation` to '**true**' in order to install a 'legacy' version of gTile, especially right after a ubuntu version update. On 23.04 I haven't had to.
 
 Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>` will move a window to a "side" or "quarter" of the screen.
 
@@ -97,15 +118,13 @@ Gnome also has a [Gnome Extensions](https://extensions.gnome.org/) site where yo
 
 A Microsoft Windows alternative is [AltDrag](https://stefansundin.github.io/altdrag/) by Stefan Sundin. I can never remember what this one is called, so I list it here.
 
-## Nomachine
+# Nomachine
 
 Download and install [NoMachine](https://www.nomachine.com/)
 
-$ `sudo apt install ./<downloaded-nomachine-file.deb>`
+`sudo apt install ./<downloaded-nomachine-file.deb>`
 
-# Remove Software
-
-## Games
+# Remove Games
 
 `sudo apt purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex -y & sudo apt autoremove -y`
 
@@ -125,41 +144,53 @@ $ `sudo apt install ./<downloaded-nomachine-file.deb>`
 - Multi-Monitor > Workspaces on all displays
 - Application switching > Include applications from the current workspace only
 
-## dconf-editor
+# dconf-editor
 
-- /org/gnome/desktop/background/
+## Set a solid color as a background
 
-  - ⓘ Set a solid color as a background
-    - color-shading-type: solid
-    - picture-uri: ""
-    - picture-uri-dark: ""
-    - primary-color: "#222222"
+`/org/gnome/desktop/background/`
 
-- /org/gnome/desktop/wm/keybindings/
+- color-shading-type: solid
+- picture-uri: ""
+- picture-uri-dark: ""
+- primary-color: "#222222"
 
-  - ⓘ move-to-workspace-right will move focused window AND switch...
+## Set up shortcuts to navigate virtual desktops 
 
-    - switch-to-workspace-right: `['<Ctrl><Super>Right']`
-    - switch-to-workspace-left: `['<Ctrl><Super>Left']`
+> ⓘ move-to-workspace-right will move focused window AND switch...
 
-  - ⓘ allow VSCode ctrl-alt-shift-up/down line-duplication to work
+> ⓘ I have recently added ctrl-alt-arrow in addition to ctrl-windows-arrow. I don't even know what operating system has what defaults any more.
 
-    - switch-to-workspace-down: []
-    - switch-to-workspace-up: []
-    - move-to-workspace-down: []
-    - move-to-workspace-up: []
+`/org/gnome/desktop/wm/keybindings/`
 
-- /org/gnome/desktop/background/
+- switch-to-workspace-right: `['<Ctrl><Super>Right']`
+- switch-to-workspace-left: `['<Ctrl><Super>Left']`
 
-  - ⓘ Set window focus to be the window under the mouse pointer. (This can be done through gnome-tweaks (shell is faster))
+## allow VSCode ctrl-alt-shift-up/down line-duplication to work
 
-    - `gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'`
+`/org/gnome/desktop/wm/keybindings/`
 
-  - ⓘ focus-change-on-pointer-rest: Disable (Following command does the same thing...)
+- switch-to-workspace-down: []
+- switch-to-workspace-up: []
+- move-to-workspace-down: []
+- move-to-workspace-up: []
 
-    - `gsettings set org.gnome.mutter focus-change-on-pointer-rest false`
+## Set window focus to be the window under the mouse pointer. 
 
-## snap-store glitch
+> ⓘ (This can be done through gnome-tweaks (...but shell is faster))
+
+```
+gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
+```
+## Disable delaying focus change
+
+Default behavior is to wait until the mouse cursor comes to a complete stop before changing focus.
+
+```
+gsettings set org.gnome.mutter focus-change-on-pointer-rest false
+```
+
+# fix snap-store glitch
 
 On my system, `snap-store` will get stuck in a state where it can not upgrade because it is running.
 
@@ -176,7 +207,6 @@ Setting up snap (2013-11-29-11) ...
 Processing triggers for man-db (2.11.2-1) ...
 $
 ```
-
 # VSCode Setup
 
 I have a separate document that covers my specific [VSCode Setup](./setup-vscode.md).
