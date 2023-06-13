@@ -137,7 +137,7 @@ A Microsoft Windows alternative is [AltDrag](https://stefansundin.github.io/altd
 
 # Nomachine
 
-Remote desktop access, similar to VNC. 
+Remote desktop access, similar to VNC.
 
 Download and install [NoMachine](https://www.nomachine.com/)
 
@@ -145,7 +145,19 @@ Download and install [NoMachine](https://www.nomachine.com/)
 
 # Remove Games
 
-`sudo apt purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex -y & sudo apt autoremove -y`
+```
+sudo apt purge gnome-2048 aisleriot atomix gnome-chess five-or-more hitori iagno gnome-klotski lightsoff gnome-mahjongg gnome-mines gnome-nibbles quadrapassel four-in-a-row gnome-robots gnome-sudoku swell-foop tali gnome-taquin gnome-tetravex -y && sudo apt autoremove -y
+```
+
+If kde is installed...
+
+> There are a few others that need to be uninstalled, but this gets the bulk of them, for now
+
+```
+sudo apt remove blinken bomber bovo cervisia cheese kapman kblocks kbounce kfourinline kgeography kgoldrunner khangman kigo killbots kiriki kiten kjumpingcube klickety kmahjongg kmines knights kolf kollision kreversi kshisen ksirk ksnakeduel kspaceduel ksudoku kturtle kubrick lskat marble minuet picmi umbrello klines granatier knavalbattle ktuberling
+
+&& sudo apt autoremove -y
+```
 
 # Settings
 
@@ -228,6 +240,7 @@ The fix is as follows:
 $ pidof snap-store
 4730
 ```
+
 ## kill the `snap-store` process
 
 ```
@@ -247,4 +260,3 @@ Processing triggers for man-db (2.11.2-1) ...
 # VSCode Setup
 
 I have a separate document that covers my specific [VSCode Setup](./setup-vscode.md).
-
