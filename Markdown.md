@@ -1,17 +1,39 @@
+[figure-heading](.project/_images-for-notes/)
+
+- [Markdown](#markdown)
+- [Bookmarks](#bookmarks)
+- [graph](#graph)
+- [Headings](#headings)
+- [Reference Links](#reference-links)
+  - ["Markdown Variables"](#markdown-variables)
+
 # Markdown
 
-While markdown is not complicated, these resources really helped me get started and taught me what formatting is possible. Using markdown to take notes almost forces "good" note-taking habits. I'm not claiming to have the best notes, at all, but what I _am_ saying is that the quality of my notes improved when I started using markdown.
+Markdown is not complicated. But there is a bit of an art to managing a large markdown project. It's a skill that I am still working on. For the most part, Markdown is understanding what is possible within the constraints of the 'language.'
 
-# Links
+The constraints provided by Markdown force "good" note-taking habits. I'm not claiming to have the "best notes," but what I _am_ claiming is that the quality of my notes improved when I started using markdown.
 
-| Title                                                                                                                                                                                 | Site           | Description                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Official Github Markdown Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) | Github         | Markdown guide, produced by the site that is rendering this markdown; github.                                                                                                                                                                                            |
-| [A Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)                                                                                                                  | Markdown Guide | Has a lot of conicse examples, and an "extended syntax" page that is very good for table formatting.                                                                                                                                                                     |
-| [CommonMark](https://commonmark.org/)                                                                                                                                                 | CommonMark     | Several individuals advocating for a common specification for markdown, with a [Learn Markdown in 60 seconds](https://commonmark.org/help/) and [10 minute markdown tutorial](https://commonmark.org/help/tutorial/) resource. Provides interesting history of Markdown. |
-| [GitHub Markdown: Are Macros and Variables Possible?](https://stackoverflow.com/questions/24580042/github-markdown-are-macros-and-variables-possible)                                 | StackOverflow  | No. And Yes. I actually learned several things from the discussion on this page.                                                                                                                                                                                         |
+# Bookmarks
 
-==highlight words==
+| Title                                                                                                                                                          | Site           | Description                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------- |
+| [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) | Github         | Markdown guide, produced by the site that is rendering this markdown; github.                        |
+| [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)                                                                                                      | Markdown Guide | Has a lot of conicse examples, and an "extended syntax" page that is very good for table formatting. |
+| [Extended Syntax](https://www.markdownguide.org/cheat-sheet/)                                                                                                  | Markdown Guide | Great for making tables behave reasionably in Gitea and on GitHub                                    |
+| [CommonMark](https://commonmark.org/)                                                                                                                          | Common Mark    | Advocate for a common specification for markdown                                                     |
+| [Markdown in 60 sec](https://commonmark.org/help/)                                                                                                             | Common Mark    | Learn Markdown in 60 seconds (It really is this easy to get started.)                                |
+| [Markdown in 10 min](https://commonmark.org/help/tutorial/)                                                                                                    | Common Mark    | A tutorial that has you practice markdown, meant to take about ten minutes.                          |
+| ...[Variables?](https://stackoverflow.com/questions/24580042/github-markdown-are-macros-and-variables-possible)                                                | StackOverflow  | I learned many things from the discussion on this page.                                              |
+
+# graph
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
 
 # Headings
 
@@ -30,6 +52,7 @@ While markdown is not complicated, these resources really helped me get started 
 ```
 
 ![Heading Example](.project/_images-for-notes/../../markdown/headings.png)
+_figure-heading_
 
 # Reference Links
 
