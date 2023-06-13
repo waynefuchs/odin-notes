@@ -2,10 +2,12 @@
 
 - [Markdown](#markdown)
 - [Bookmarks](#bookmarks)
-- [graph](#graph)
 - [Headings](#headings)
 - [Reference Links](#reference-links)
   - ["Markdown Variables"](#markdown-variables)
+- [Mermaid](#mermaid)
+  - [State Diagram](#state-diagram)
+    - [An example State Diagram (Graph)](#an-example-state-diagram-graph)
 
 # Markdown
 
@@ -24,16 +26,6 @@ The constraints provided by Markdown force "good" note-taking habits. I'm not cl
 | [Markdown in 60 sec](https://commonmark.org/help/)                                                                                                             | Common Mark    | Learn Markdown in 60 seconds (It really is this easy to get started.)                                |
 | [Markdown in 10 min](https://commonmark.org/help/tutorial/)                                                                                                    | Common Mark    | A tutorial that has you practice markdown, meant to take about ten minutes.                          |
 | ...[Variables?](https://stackoverflow.com/questions/24580042/github-markdown-are-macros-and-variables-possible)                                                | StackOverflow  | I learned many things from the discussion on this page.                                              |
-
-# graph
-
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
 
 # Headings
 
@@ -91,3 +83,57 @@ Link will direct user here.
 
 [1]: http://somewebsite.org
 [link text itself]: http://www.somewebsite.com
+
+# Mermaid
+
+This is possibly the coolest addition to markdown.
+
+## State Diagram
+
+A state diagram is a type of diagram used in computer science and related fields to describe the behavior of systems. They require that the system described is composed of a finite number of states.
+
+### An example State Diagram (Graph)
+
+```mermaid
+%% It is better to use actual markdown titles because there are circumstances that the title renders poorly
+%% Unless this gets fixed, in the future. Uncomment the three lines below to see what that looks like
+%%---
+%%title: An example State Diagram (Graph)
+%%---
+stateDiagram
+%%  direction TB
+  direction LR
+
+  %% Accessibility - Not required
+  accTitle: This is the accessible title
+  accDescr: This is an accessible description
+
+  %% Set up CSS classes
+  %% Note that CSS changes do not affect positioning, so oddities can occur
+  classDef bad color:red,font-weight:900,font-size:2em;
+
+  %% Assign nodes to CSS classes
+  class C bad
+
+  %% Defining labels for nodes
+  A : Car Stopped
+  B : Car Moving
+  C : Crash Occurred
+
+  a : airbags deploy
+  b : seatbelt engages
+
+  %% Connecting nodes so they can be rendered
+  [*] --> A
+  A --> [*]
+  A --> B
+  B --> C
+  C --> [*]
+
+  state C {
+    %% Uncomment next line for left to right
+    %% direction LR
+    a --> b
+  }
+
+```
