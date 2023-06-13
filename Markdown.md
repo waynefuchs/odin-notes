@@ -110,7 +110,9 @@ stateDiagram
 
   %% Set up CSS classes
   %% Note that CSS changes do not affect positioning, so oddities can occur
-  classDef bad color:red,font-weight:900,font-size:2em;
+  classDef bad color:red,font-weight:900;
+  %% add the following font-size styling in to see what 'oddities' I am talking about
+  %% font-size:2em;
 
   %% Assign nodes to CSS classes
   class C bad
