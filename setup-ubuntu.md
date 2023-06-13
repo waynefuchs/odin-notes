@@ -1,7 +1,9 @@
 - [Ubuntu Setup](#ubuntu-setup)
-- [Fix time zone](#fix-time-zone)
+- [Fix windows dual boot time zone issues](#fix-windows-dual-boot-time-zone-issues)
 - [Rename Sound Card](#rename-sound-card)
 - [Add Software](#add-software)
+- [Install Docker](#install-docker)
+- [Install Databases (if required)](#install-databases-if-required)
 - [Snaps](#snaps)
 - [Download Software](#download-software)
 - [Postman with Icon](#postman-with-icon)
@@ -21,16 +23,22 @@
   - [Set window focus to be the window under the mouse pointer.](#set-window-focus-to-be-the-window-under-the-mouse-pointer)
   - [Disable delaying focus change](#disable-delaying-focus-change)
 - [fix snap-store glitch](#fix-snap-store-glitch)
+  - [Get the process id of the `snap-store` process](#get-the-process-id-of-the-snap-store-process)
+  - [kill the `snap-store` process](#kill-the-snap-store-process)
+  - [Upgrade the `snap-store` package](#upgrade-the-snap-store-package)
 - [VSCode Setup](#vscode-setup)
-- [Docker Container Setup](#docker-container-setup)
 
 # Ubuntu Setup
 
-I have installed ubuntu on three computers. During the second install, I realized that I should have made a step-by-step during the first time. Ah well. The third install went pretty quickly because of this file.
+I'm trying put the changes I make to a default linux setup here in this file to facilitate rapid linux installation in the event that I need to reinstall.
 
-# Fix time zone
+# Fix windows dual boot time zone issues
 
-`timedatectl set-local-rtc 1`
+Windows expects the system clock to be set to local time. Linux defaults to GMT. The easiest solution is to set linux to use local time.
+
+```
+timedatectl set-local-rtc 1
+```
 
 # Rename Sound Card
 
@@ -47,35 +55,44 @@ git config --global user.email "{your.email@here}"
 git config --global init.defaultBranch main
 ```
 
+# Install Docker
+
+[Ubuntu Docker Installation Instructions](https://docs.docker.com/engine/install/ubuntu/) can be found on the docker website. Don't use `apt` or `snap` to install docker. The experience is far better if you install from the docker maintained package sources.
+
+# Install Databases (if required)
+
+See my [Docker Databases](./databases/Docker-Databases.md) information to get up and running with Postgres and Mongodb.
+
+I have a home lab that I now run my databases on, and would recommend that route to anyone that has the ability to do so.
+
 # Snaps
 
 I try and avoid snaps as much as possible. Here are the ones I use.
 
-- inkscape
-- boxy-svg
-- discord
-- obs-studio
-- octave
-- docker
-
-I really need to switch distros to get away from snaps...
+| software   | description                       |
+| ---------- | --------------------------------- |
+| inkscape   | vector graphics                   |
+| boxy-svg   | vector graphics / edit svg        |
+| discord    | used for the odin project discord |
+| obs-studio | to record / share my screen       |
+| octave     | math software package             |
 
 # Download Software
 
-| Software                                                               | Note                                                                                          |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [Steam](https://store.steampowered.com/about/)                         | I install this early to get blender installed and verify GPU is working properly.             |
-| blender                                                                | The easiest linux install of blender that I have found is through Steam.                      |
-| [Brave Browser](https://brave.com/linux/#release-channel-installation) | Download and install using the provided instructions. I prefer over Google's Chrome, for now. |
-| [VSCode](https://code.visualstudio.com/)                               | Download and install the `.deb`, an update channel is added by installing the package.        |
-| [obs](https://obsproject.com/download#linux)                           | Open Broadcaster Software                                                                     |
-| [pgAdmin 4](https://www.pgadmin.org/)                                  | A management tool for PostgreSQL                                                              |
-| [MongoDB Compass](https://www.mongodb.com/products/compass)            | GUI for MongoDB.                                                                              |
-| [Postman](https://www.postman.com/downloads/)                          | Industry standard platform for building and using APIs.                                       |
+| Software                                                               | Note                                                                                   |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| [Steam](https://store.steampowered.com/about/)                         | I install this early to get blender installed and verify GPU is working properly.      |
+| blender                                                                | The easiest linux install of blender that I have found is through Steam.               |
+| [Brave Browser](https://brave.com/linux/#release-channel-installation) | Download and install using the provided instructions. (Instead of Google Chrome)       |
+| [VSCode](https://code.visualstudio.com/)                               | Download and install the `.deb`, an update channel is added by installing the package. |
+| [obs](https://obsproject.com/download#linux)                           | Open Broadcaster Software                                                              |
+| [pgAdmin 4](https://www.pgadmin.org/)                                  | A management tool for PostgreSQL                                                       |
+| [MongoDB Compass](https://www.mongodb.com/products/compass)            | GUI for MongoDB.                                                                       |
+| [Postman](https://www.postman.com/downloads/)                          | Industry standard platform for building and using APIs.                                |
 
 # Postman with Icon
 
-> ⓘ I prefer the vscode "REST Client" extension. Knowing postman could be a good skill to have.
+> ⓘ Use the "REST Client" extension in vscode is easier (for me), but knowing postman could be a good skill to have.
 
 Download [Postman](https://www.postman.com/downloads/) and extract it to `/opt/Postman`. Download a postman svg (I got mine from google images) and place it in `/opt/Postman` alongside the executable. In the file: `.local/share/applications/Postman.desktop `, put the following:
 
@@ -99,7 +116,7 @@ This gnome extension makes it so you can snap windows to a grid / portion of the
 
 I use the [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) chrome (brave browser) extension to facilitate the installation, which requires the `chrome-gnome-shell` apt package (ubuntu version through 22.10), which has now been renamed to `gnome-browser-connector`.
 
-``` bash
+```bash
 # if `lsb-release -a` reports ubuntu version less than 23.04
 sudo apt install chrome-gnome-shell
 # otherwise
@@ -119,6 +136,8 @@ Gnome also has a [Gnome Extensions](https://extensions.gnome.org/) site where yo
 A Microsoft Windows alternative is [AltDrag](https://stefansundin.github.io/altdrag/) by Stefan Sundin. I can never remember what this one is called, so I list it here.
 
 # Nomachine
+
+Remote desktop access, similar to VNC. 
 
 Download and install [NoMachine](https://www.nomachine.com/)
 
@@ -146,6 +165,12 @@ Download and install [NoMachine](https://www.nomachine.com/)
 
 # dconf-editor
 
+If not already downloaded from above:
+
+```
+sudo apt install dconf-editor
+```
+
 ## Set a solid color as a background
 
 `/org/gnome/desktop/background/`
@@ -155,7 +180,7 @@ Download and install [NoMachine](https://www.nomachine.com/)
 - picture-uri-dark: ""
 - primary-color: "#222222"
 
-## Set up shortcuts to navigate virtual desktops 
+## Set up shortcuts to navigate virtual desktops
 
 > ⓘ move-to-workspace-right will move focused window AND switch...
 
@@ -175,13 +200,14 @@ Download and install [NoMachine](https://www.nomachine.com/)
 - move-to-workspace-down: []
 - move-to-workspace-up: []
 
-## Set window focus to be the window under the mouse pointer. 
+## Set window focus to be the window under the mouse pointer.
 
 > ⓘ (This can be done through gnome-tweaks (...but shell is faster))
 
 ```
 gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
 ```
+
 ## Disable delaying focus change
 
 Default behavior is to wait until the mouse cursor comes to a complete stop before changing focus.
@@ -196,21 +222,29 @@ On my system, `snap-store` will get stuck in a state where it can not upgrade be
 
 The fix is as follows:
 
+## Get the process id of the `snap-store` process
+
 ```
 $ pidof snap-store
 4730
+```
+## kill the `snap-store` process
+
+```
 $ kill 4730
+```
+
+## Upgrade the `snap-store` package
+
+```
 $ sudo apt update && sudo apt upgrade snap
 ...
 Unpacking snap (2013-11-29-11) ...
 Setting up snap (2013-11-29-11) ...
 Processing triggers for man-db (2.11.2-1) ...
-$
 ```
+
 # VSCode Setup
 
 I have a separate document that covers my specific [VSCode Setup](./setup-vscode.md).
 
-# Docker Container Setup
-
-This section was becoming big enough that I split it out into a separate [Docker Database Setup](databases/Docker-Databases.md) file.
