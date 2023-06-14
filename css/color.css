@@ -1,0 +1,21 @@
+/* I got tired of coming up with a color scheme for every project,
+   so I developed a scheme and system that I like, and will just reference
+   that file in all of my projects. I'd like to turn this into an NPM
+   package at some point. */
+:root {
+  /* Brand A */
+  --c-brand-light: #f2913d;
+  --c-brand: #f27405;
+  --c-brand-dark: #f25c05;
+
+  /* Neutrals */
+  --c-dark: #102020;
+  --c-light: #f1ede9;
+  --c-shadow: #484c4f;
+
+  /* Messaging */
+  --c-info: #5c96c2;
+  --c-success: #62b875;
+  --c-warning: #f3e742;
+  --c-danger: #ff5555;
+}
