@@ -7,6 +7,7 @@
   - [`charAt(index)` OR `variable[index]`](#charatindex-or-variableindex)
   - [`concat()`](#concat)
   - [`endsWith(searchStr, *endPosition=str.length)`](#endswithsearchstr-endpositionstrlength)
+  - [`padEnd(stringLength, characterToPadWith)`](#padendstringlength-charactertopadwith)
   - [`padStart(stringLength, characterToPadWith)`](#padstartstringlength-charactertopadwith)
   - [`replace(search, replace)`](#replacesearch-replace)
   - [`slice(start, end)`](#slicestart-end)
@@ -38,25 +39,25 @@ const plusSymbol = "you can" + " " + "concatinate this way!";
 
 Nearly identical to accessing a string index using square brackets (`str[index]`) or `charAt`.
 
-Returns a new string containing a single character. 
+Returns a new string containing a single character.
 
-* Negative indices will wrap around to the end of the string. 
-* Only UTF-16 characters are valid, meaning emoji will not be properly handled. 
-* Out of bounds (outside -str.length to str.length-1) access will return `undefined`
+- Negative indices will wrap around to the end of the string.
+- Only UTF-16 characters are valid, meaning emoji will not be properly handled.
+- Out of bounds (outside -str.length to str.length-1) access will return `undefined`
 
-``` js
-"abcdefghijklmnopqrstuvwxyz".at(-2)   // y
-"abcdefghijklmnopqrstuvwxyz".at(2)    // c
-"abcdefghijklmnopqrstuvwxyz".at(-27)  // undefined
-"abcdefghijklmnopqrstuvwxyz".at(26)   // undefined
+```js
+"abcdefghijklmnopqrstuvwxyz".at(-2); // y
+"abcdefghijklmnopqrstuvwxyz".at(2); // c
+"abcdefghijklmnopqrstuvwxyz".at(-27); // undefined
+"abcdefghijklmnopqrstuvwxyz".at(26); // undefined
 ```
 
 ## `charAt(index)`
 
 Nearly identical to accessing a string index using square brackets (`str[index]`) or `at(index)`.
 
-* Only UTF-16 characters are valid, meaning emoji will not be properly handled
-* Out of bounds (outside 0 through str.length-1) returns empty string ('')
+- Only UTF-16 characters are valid, meaning emoji will not be properly handled
+- Out of bounds (outside 0 through str.length-1) returns empty string ('')
 
 ## `charCodeAt(index)`
 
@@ -84,7 +85,7 @@ Check to see if `searchStr` is at the end of the string, with an optional endPos
 "hello world!".endsWith("hello", 5); // true
 ```
 
-##`padEnd(stringLength, characterToPadWith)`
+## `padEnd(stringLength, characterToPadWith)`
 
 ```js
 // repeat character at end of line to specific length
