@@ -1,3 +1,5 @@
+[figure-css-coordinate-system]: ../.project/figures/css/coordinate-system.png
+
 - [CSS Transforms](#css-transforms)
   - [Links](#links)
   - [Gotchas](#gotchas)
@@ -28,7 +30,7 @@ Defining a change of appearance to an element using CSS.
 
 ## Coordinate System
 
-![CSS Coordinate System](../_images-for-notes/css-coordinate-system.png)
+![CSS Coordinate System][figure-css-coordinate-system]
 
 ## Perspective
 

@@ -1,29 +1,40 @@
+[figure-brand-color-picking]: ../.project/figures/design/brand-color-picker.png
+[figure-brand-color-examples]: ../.project/figures/design/brand-color-button-background.png
+
 - [Design](#design)
 - [Links](#links)
 - [Color Palette](#color-palette)
 - [Colors](#colors)
-  - [Brand Colors (1, maybe 2 colors)](#brand-colors-1-maybe-2-colors)
+  - [Brand Colors](#brand-colors)
+    - [Number of Brand Colors](#number-of-brand-colors)
+    - [Should be a "middle color"](#should-be-a-middle-color)
+    - [Should pass the "background test"](#should-pass-the-background-test)
   - [Supporting Colors (4 colors)](#supporting-colors-4-colors)
-  - [Neutral (1 color)](#neutral-1-color)
-- [Color Shades](#color-shades)
-- [Finalizing](#finalizing)
-- [HSB Color Picker](#hsb-color-picker)
+  - [Neutral (3 colors)](#neutral-3-colors)
 
 # Design
 
+> 🚧 TODO: Split Into multiple files(?)
+
+I have started a "Design" section where I can start putting UI/UX design info.
+
 # Links
 
-| Title                                                            | Author   | Description                                             |
-| ---------------------------------------------------------------- | -------- | ------------------------------------------------------- |
-| [Huemint](https://huemint.com/)                                  | Huemint  | Generate color palette for a brand, website, or graphic |
-| [UI Color Palettes](https://www.youtube.com/watch?v=yYwEnLYT55c) | UX Tools | A great video on color                                  |
+| Title                                                                       | Author            | Description                                                                                                     |
+| --------------------------------------------------------------------------- | ----------------- | --------------------------------------------------------------------------------------------------------------- |
+| [US Brand Colors](https://usbrandcolors.com/)                               | U.S. Brand Colors | For a study on UI, why not look at successful brands? Check out the links to specific company brand resources.) |
+| [AirBnB Design Language](https://airbnb.design/building-a-visual-language/) | AirBnB            | A very cool look at design and the design system used at AirBnB                                                 |
+| [Huemint](https://huemint.com/)                                             | Huemint           | Generate color palette for a brand, website, or graphic                                                         |
+| [UI Color Palettes](https://www.youtube.com/watch?v=yYwEnLYT55c)            | UX Tools          | A great video on color                                                                                          |
+| [Color Blender](https://meyerweb.com/eric/tools/color-blend)                | Eric Meyer        | A fantastic site to blend between two colors                                                                    |
+| [Penpot User Manual](https://help.penpot.app/user-guide/introduction/)      | Penpot            | The user manual for Penpot, a Figma replacement                                                                 |
+
+> 🚧 TODO: I would _love_ to write my own Color Blender utility. That is on the horizon for me.
+>
+> What I need is a way to plug in `n` brand colors along with a neutral dark and light point, and generate my `color.css` file. Or just an xml snippet I can paste into penpot. I don't know. But there has to be a better way than manuall coming up with UI colors. Maybe not. It sure takes _(me)_ a long time.
 
 # Color Palette
 
-1. Brand Colors
-   - One or Two colors
-   - Used throughout the site, as "splashes of color" to determine the feel of the site. A good example of this is "facebook blue" which makes the app "feel blue" even though most of the app is "grace"
-   - Usage: `Buttons`, `Links`, `Icons`, `Navigation`
 2. Supporting Colors
    - Used to draw attention or communicate using color
    - Usage: `Error Messages`, `Confirmation`, `Informational Dialogs`
@@ -34,21 +45,36 @@
 
 Attempt at a description for what colors are required in a UI.
 
-## Brand Colors (1, maybe 2 colors)
+## Brand Colors
 
-The brand colors usually come from the business; and will likely have been chosen at the time the company developed their branding package. If there is no branding available, as you will find for small businesses, here are some tips to build a 'Brand Color' for UI/UX.
+Brand Colors are used throughout a website as "splashes of color" to determine the feel of the site. A good example of this is "facebook blue" which makes the app "feel blue" even though most of the app is "grace"
 
-Choose a good "middle color(s)" for your 'Brand Color(s)'
+One or Two colors
 
-This is a color that your lighter and darker colors will be based on.
+-
+- Usage: `Buttons`, `Links`, `Icons`, `Navigation`
 
-- This color will usually come from the upper right of a standard RGB color picker.
+### Number of Brand Colors
 
-  ![Color Picker Location](../_images-for-notes/design/brand-color-picker.png)
+| #   | Effect                                    |
+| --- | ----------------------------------------- |
+| 1   | Clean, but could be considered sterile    |
+| 2   | Can be good, depending on design elements |
+| 3+  | Entering Chaotic territory                |
 
-- This color works well as a button background color
+The brand colors usually come from the business; and will likely have been chosen at the time the company developed their branding package. If there is no branding available, here are some tips to choose 'Brand Color' for UI/UX.
 
-  ![Button Background Examples](../_images-for-notes/design/brand-color-button-background.png)
+### Should be a "middle color"
+
+A "middle color" is a color that has strong saturation and value. (from the highlighted region)
+
+![Color Picker Location][figure-brand-color-picking]
+
+### Should pass the "background test"
+
+A brand color should work well as a button background color.
+
+![Button Background Examples][figure-brand-color-examples]
 
 ## Supporting Colors (4 colors)
 
@@ -63,72 +89,19 @@ Color should not be the _only_ way that this information is conveyed, but things
 
 Supporting colors need to feel like they go along with your brand colors. Pay attention to saturation and brightness levels (HSV) in comparison to the brand colors. Both values (S & B) should be within 5 or 10 of the brand color. Once you have the S and B set, you can adjust the hue to be whatever you like.
 
-## Neutral (1 color)
+## Neutral (3 colors)
 
-Pick a middle gray and follow the same methodology as used in [Color Shades](#color-shades). The HSB neutral curve will go in the opposite direction as the color shade curve to remain in the grays.
+I like to tint my neutrals towards the brand color(s), slightly.
 
-![Neutral Curve](../_images-for-notes/design/color-hsb-neutrals.png)
-
-# Color Shades
-
-It can be helpful to create many shades of each color for use throughout a design. Using 5 or 9 shades is recommended.
-
-Colors on the HSB scale should be chosen using a 0-1000 scale to specify tint, similar to font weight. The image, shown below, indicates the 100, 300, and 500 starting points.
-
-> ⓘ After all hues are chosen, further work should be done to ensure correct monochromatic tint across the site; this method is to find a starting place for your color shades.
-
-![Choosing a Midpoint](../_images-for-notes/design/color-hsb-midpoint.png)
-
-| Step |      Value      |  H  |   S    | B      | Description                                                         |
-| :--: | :-------------: | :-: | :----: | ------ | ------------------------------------------------------------------- |
-|  1   |       500       |  H  |   S    | B      | The chosen color; middle point                                      |
-|  2   |       900       |  H  | 90-100 | 20-30  | Darkest; usually used for text                                      |
-|  3   |       100       |  H  |  0-10  | 90-100 | Lightest; usually used for background                               |
-|  4   |       300       |  H  | curve  | curve  | The light midpoint                                                  |
-|  5   |       700       |  H  | curve  | curve  | The dark midpoint                                                   |
-| 6-9  | 200,400,600,800 |  H  | curve  | curve  | Find the remaining midpoints for each shade, and fill in the values |
-
-# Finalizing
-
-I prefer to minimize the number of colors I use in my site. I would likely only import the colors that were used.
+- Dark (near black)
+- Gray (near midpoint)
+- Light (near white)
 
 ```css
+/* example variable names */
 :root {
-  /* An example */
-  --c-brand-a-100: almost-white;
-  --c-brand-a-200: darker;
-  --c-brand-a-300: darker
-  --c-brand-a-400: darker;
-  --c-brand-a:     #abc123;
-  --c-brand-a-500: var(--c-brand-a);
-  --c-brand-a-600: darker;
-  --c-brand-a-700: darker;
-  --c-brand-a-800: darker;
-  --c-brand-a-900: almost-black;
-
-  --c-brand-b: #123abc;
-  --c-neutral: gray;
-  --c-success: green;
-  --c-warn: orange;
-  --c-error: red;
-  --c-info: blue;
+  --c-dark: black;
+  --c-mid: gray;
+  --c-light: white;
 }
 ```
-
-![All Colors in a Row](../_images-for-notes/design/colors-all-row.png)
-
-# HSB Color Picker
-
-Use the HSB color picker when choosing colors for UI/UX, as it gives "finer control" over colors in a more understandable way.
-
-> `H` Hue (1-365):
->
-> A number that defines color values, all the way around the color wheel
-
-> `S` Saturation (0-100):
->
-> How intense the color is on a percentage scale
-
-> `B` Brightness (1-100)
->
-> How much black or white is being added to the color on a percentage scale. Anything over 50 will have white added, anything under 50 will have black added.
