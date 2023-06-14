@@ -6,6 +6,7 @@
 | -------------------------------------- | -------------------- | --------------------------------------------------- |
 | Prettier                               | Prettier             | Format code with the push of a button. (or on save) |
 | Markdown All In One                    | Yu Zhang             | Markdown tools                                      |
+| Markdown Preview Mermaid Support       | Matt Bierner         | Add Mermaid support for Markdown                    |
 | Overtype                               | DrMerfy              | Implements Insert / Overtype mode                   |
 | REST Client                            | Huachao Mao          | Perform HTTP calls and see raw output.              |
 | Code Spell Checker                     | Street Side Software | Spell Checking                                      |
