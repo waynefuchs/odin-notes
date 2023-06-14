@@ -1,10 +1,9 @@
-
 - [Mongo](#mongo)
-  - [Getting MongoDB up and running on Ubuntu](#getting-mongodb-up-and-running-on-ubuntu)
-  - [MongoDB Compass](#mongodb-compass)
-  - [Courses of Interest](#courses-of-interest)
-  - [General Facts](#general-facts)
-  - [Data Types](#data-types)
+- [Getting MongoDB up and running on Ubuntu](#getting-mongodb-up-and-running-on-ubuntu)
+- [MongoDB Compass](#mongodb-compass)
+- [Courses of Interest](#courses-of-interest)
+- [General Facts](#general-facts)
+- [Data Types](#data-types)
   - [Glossary](#glossary)
   - [Commands](#commands)
     - [Import / Export Data](#import--export-data)
@@ -14,15 +13,20 @@
 
 # Mongo
 
-## Getting MongoDB up and running on Ubuntu
+# Getting MongoDB up and running on Ubuntu
 
 [MongoDB Docker Hub](https://hub.docker.com/_/mongo)
 
-Personally, I think docker is the best way to get mongoDB up and running. **USING `docker compose`**! See my notes on [Docker / Mongo / Node](docker-mongo-node.md)
+Personally, I think docker is the best way to get mongoDB up and running. (USING `docker compose`)
 
-> NOTE: I'm leaving this following example bash script here because I like reviewing various docker commands. This is ***NOT*** a good way to get docker started. This has no data persistence, and manually running docker containers is error prone.
+> ⓘ See my notes on [Docker Databases](./Docker-Databases.md)
 
-``` bash
+> ⚠️ I'm leaving this following example bash script here because I like reviewing various docker commands. This is **_NOT_** a good way to get docker started, aside from testing.
+>
+> 1. This has no data persistence
+> 2. Manually running docker containers for prod (or even dev) is not a good idea (no error handling or auto-start / restart as entry talking points against this)
+
+```bash
 #!/bin/bash
 docker run -d --network=host --name mymongo \
 	-e MONGO_INITDB_ROOT_USERNAME=mongoadmin \
@@ -30,16 +34,16 @@ docker run -d --network=host --name mymongo \
 	mongo
 ```
 
-## MongoDB Compass
+# MongoDB Compass
 
 MongoDB Compass likewise has issues installing on Ubuntu, however it does work. Just the Gnome shell stuff appears to be broken. There's enough here to work through the lessons.
 
-## Courses of Interest
+# Courses of Interest
 
-- M320: Data Modeling -- Teaches best practices for database modeling in MongoDB
 - M103: Basic MongoDB Administration -- Teaches how to manage your own mongodb servers
+- M320: Data Modeling -- Teaches best practices for database modeling in MongoDB
 
-## General Facts
+# General Facts
 
 - `mongosh` is a fully featured javascript interpreter.
 - MongoDB internally stores data in BSON
@@ -47,27 +51,29 @@ MongoDB Compass likewise has issues installing on Ubuntu, however it does work. 
 - The mandatory `_id` field must be unique in the collection and does not need to be an ObjectID type.
 - Deleting all collections in a db will also remove the database
 
-## Data Types
+# Data Types
 
-- Array
-- Binary
-- Boolean
-- Code
-- Date
-- Decimal128
-- Double
-- Int32
-- Int64
-- MaxKey
-- MinKey
-- Null
-- Object
-- ObjectID
-- BSONRegExp
-- String
-- BSONSymbol
-- Timestamp
-- Undefined
+| Type       | Pick Me | Description |
+| ---------- | :-----: | ----------- |
+| Array      |   ✔️    |             |
+| Binary     |         |             |
+| Boolean    |         |             |
+| Code       |         |             |
+| Date       |   ✔️    |             |
+| Decimal128 |         |             |
+| Double     |   ✔️    |             |
+| Int32      |   ✔️    |             |
+| Int64      |         |             |
+| MaxKey     |         |             |
+| MinKey     |         |             |
+| Null       |         |             |
+| Object     |   ✔️    |             |
+| ObjectID   |   ✔️    |             |
+| BSONRegExp |         |             |
+| String     |   ✔️    |             |
+| BSONSymbol |         |             |
+| Timestamp  |   ✔️    |             |
+| Undefined  |         |             |
 
 ## Glossary
 
@@ -141,6 +147,7 @@ mongoimport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.
 | `$lt`                                                                                      | less than                           |
 | `$gte`                                                                                     | greater than or equal to            |
 | `$lte`                                                                                     | less than or equal to               |
+
 | `{$expr:{$<qOper>:[$<field1>,$<field2>]}}`
 
 | [Logic Operators](https://www.mongodb.com/docs/manual/reference/operator/query-logical/) Mongo Doc | description                                    |
@@ -157,22 +164,21 @@ mongoimport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.
 | `{"$set":{"<fieldname>":<value>}}`                                                           | Sets field value to a new specified value |
 | `{"$push":{<field1>:<value1>, ...}}`                                                         | adds an element to an array field         |
 
-|Array Operators|description|
-|--|--|
-|\$size: `<arrayField>:{"$size":<number>}`|Return a cursor with all documents exactly matching the array length|
-|\$all: `<arrayField>:{"$all":<array>}`|Match array elements, regardless of order|
-
+| Array Operators                           | description                                                          |
+| ----------------------------------------- | -------------------------------------------------------------------- |
+| \$size: `<arrayField>:{"$size":<number>}` | Return a cursor with all documents exactly matching the array length |
+| \$all: `<arrayField>:{"$all":<array>}`    | Match array elements, regardless of order                            |
 
 Projection:
 
-> Syntax: 
-> 
+> Syntax:
+>
 > `db.<collection>.find({<query>}, { <projection> })`
 >
 > 1- include the field (and exclude ALL OTHER non-specified FIELDS)
-> 
+>
 > 0- exclude the field (and include ALL OTHER non-specified FIELDS) (`_id` is the only field that you can specify '0' for, if specifying 1 for any other field)
-> 
+>
 > Example Projection: `{ "price": 1, "address": 1, "_id": 0 }`
 
 **$elemMatch**
@@ -180,8 +186,6 @@ Projection:
 Matches documents that contain an array field with at least one element that matches the specified query criteria.
 
 > `{<field>: {"$elemMatch": {<field>: <value>}}}`
->
->
 
 Array Operators and Sub-Document Examples
 
@@ -212,10 +216,10 @@ db.companies.find({ "relationships":
 ```
 
 [Aggregation](https://www.mongodb.com/docs/manual/aggregation/) MongoDB Docs
+
 - .aggregate()
   - $match
   - $group
-
 
 Notes:
 
