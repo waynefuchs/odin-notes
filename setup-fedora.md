@@ -18,7 +18,7 @@
 
 # Fedora
 
-In June 2023 I did an update / upgrade on ubuntu and it caused my system not to boot. Combined with the snap issues I've been having, some nvidia driver issues I've been having, and other general frustration with the way that Canonical has been taking, I have decided to give fedora a shot.
+In June 2023 I did an update / upgrade on ubuntu and it caused my system not to boot. (NVIDIA driver issue that defaulted my system to an oracle kernel) That, combined with the snap issues I've been having, other X11/Wayland related NVIDIA driver issues, and other general frustrations with the direction that Canonical has been taking; I have decided to give Fedora a shot.
 
 # Install Brave
 
