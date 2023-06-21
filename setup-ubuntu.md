@@ -1,32 +1,23 @@
 - [Ubuntu Setup](#ubuntu-setup)
 - [Fix windows dual boot time zone issues](#fix-windows-dual-boot-time-zone-issues)
-- [Rename Sound Card](#rename-sound-card)
+- [~~Rename Sound Card~~](#rename-sound-card)
+- [Configure Gnome](#configure-gnome)
 - [Add Software](#add-software)
 - [Install Docker](#install-docker)
 - [Install Databases (if required)](#install-databases-if-required)
 - [Snaps](#snaps)
 - [Download Software](#download-software)
+- [VSCode Setup](#vscode-setup)
 - [Postman with Icon](#postman-with-icon)
 - [gTile](#gtile)
   - [Step 1: Install the shell browser integration](#step-1-install-the-shell-browser-integration)
   - [Step 2: Install the browser extension](#step-2-install-the-browser-extension)
 - [Nomachine](#nomachine)
 - [Remove Games](#remove-games)
-- [Settings](#settings)
-  - [Accessibility](#accessibility)
-  - [Appearance](#appearance)
-  - [Multitasking](#multitasking)
-- [dconf-editor](#dconf-editor)
-  - [Set a solid color as a background](#set-a-solid-color-as-a-background)
-  - [Set up shortcuts to navigate virtual desktops](#set-up-shortcuts-to-navigate-virtual-desktops)
-  - [allow VSCode ctrl-alt-shift-up/down line-duplication to work](#allow-vscode-ctrl-alt-shift-updown-line-duplication-to-work)
-  - [Set window focus to be the window under the mouse pointer.](#set-window-focus-to-be-the-window-under-the-mouse-pointer)
-  - [Disable delaying focus change](#disable-delaying-focus-change)
-- [fix snap-store glitch](#fix-snap-store-glitch)
+- [⚠️ snap-store glitch](#️-snap-store-glitch)
   - [Get the process id of the `snap-store` process](#get-the-process-id-of-the-snap-store-process)
   - [kill the `snap-store` process](#kill-the-snap-store-process)
   - [Upgrade the `snap-store` package](#upgrade-the-snap-store-package)
-- [VSCode Setup](#vscode-setup)
 
 # Ubuntu Setup
 
@@ -40,9 +31,15 @@ Windows expects the system clock to be set to local time. Linux defaults to GMT.
 timedatectl set-local-rtc 1
 ```
 
-# Rename Sound Card
+~~
+# ~~Rename Sound Card~~
 
-I removed this as I can no longer rename my sound card in the new Gnome on Ubuntu, but the `pavucontrol` utility is still useful, so i will mention that. I hope that some day I will be able to rename my sound card again, as I have several audio devices that are exactly the same except one word that is truncated in the drop down list. And it just switches to the wrong one occasionally. Sound in linux is bad, unfortunately. I think it might be getting better, and this is part of the growing pains?
+~~I removed this as I can no longer rename my sound card in the new Gnome on Ubuntu, but the `pavucontrol` utility is still useful, so i will mention that. I hope that some day I will be able to rename my sound card again, as I have several audio devices that are exactly the same except one word that is truncated in the drop down list. And it just switches to the wrong one occasionally. Sound in linux is bad, unfortunately. I think it might be getting better, and this is part of the growing pains?~~
+
+# Configure Gnome
+
+I made a [Gnome Setup](./setup-gnome.md) page.
+
 
 # Add Software
 
@@ -89,6 +86,10 @@ I try and avoid snaps as much as possible. Here are the ones I use.
 | [pgAdmin 4](https://www.pgadmin.org/)                                  | A management tool for PostgreSQL                                                       |
 | [MongoDB Compass](https://www.mongodb.com/products/compass)            | GUI for MongoDB.                                                                       |
 | [Postman](https://www.postman.com/downloads/)                          | Industry standard platform for building and using APIs.                                |
+
+# VSCode Setup
+
+I have a separate document that covers my specific [VSCode Setup](./setup-vscode.md).
 
 # Postman with Icon
 
@@ -159,76 +160,9 @@ sudo apt remove blinken bomber bovo cervisia cheese kapman kblocks kbounce kfour
 && sudo apt autoremove -y
 ```
 
-# Settings
+# ⚠️ snap-store glitch
 
-## Accessibility
-
-- Enable Animations: Off
-
-## Appearance
-
-- Dark Mode
-
-## Multitasking
-
-- Workspaces > Fixed number of workspaces: 4
-- Multi-Monitor > Workspaces on all displays
-- Application switching > Include applications from the current workspace only
-
-# dconf-editor
-
-If not already downloaded from above:
-
-```
-sudo apt install dconf-editor
-```
-
-## Set a solid color as a background
-
-`/org/gnome/desktop/background/`
-
-- color-shading-type: solid
-- picture-uri: ""
-- picture-uri-dark: ""
-- primary-color: "#222222"
-
-## Set up shortcuts to navigate virtual desktops
-
-> ⓘ move-to-workspace-right will move focused window AND switch...
-
-> ⓘ I have recently added ctrl-alt-arrow in addition to ctrl-windows-arrow. I don't even know what operating system has what defaults any more.
-
-`/org/gnome/desktop/wm/keybindings/`
-
-- switch-to-workspace-right: `['<Ctrl><Super>Right']`
-- switch-to-workspace-left: `['<Ctrl><Super>Left']`
-
-## allow VSCode ctrl-alt-shift-up/down line-duplication to work
-
-`/org/gnome/desktop/wm/keybindings/`
-
-- switch-to-workspace-down: []
-- switch-to-workspace-up: []
-- move-to-workspace-down: []
-- move-to-workspace-up: []
-
-## Set window focus to be the window under the mouse pointer.
-
-> ⓘ (This can be done through gnome-tweaks (...but shell is faster))
-
-```
-gsettings set org.gnome.desktop.wm.preferences focus-mode 'sloppy'
-```
-
-## Disable delaying focus change
-
-Default behavior is to wait until the mouse cursor comes to a complete stop before changing focus.
-
-```
-gsettings set org.gnome.mutter focus-change-on-pointer-rest false
-```
-
-# fix snap-store glitch
+ > ⚠️ This only needs to be done when the glitch occurs
 
 On my system, `snap-store` will get stuck in a state where it can not upgrade because it is running.
 
@@ -256,7 +190,3 @@ Unpacking snap (2013-11-29-11) ...
 Setting up snap (2013-11-29-11) ...
 Processing triggers for man-db (2.11.2-1) ...
 ```
-
-# VSCode Setup
-
-I have a separate document that covers my specific [VSCode Setup](./setup-vscode.md).
