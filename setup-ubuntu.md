@@ -3,6 +3,7 @@
 - [~~Rename Sound Card~~](#rename-sound-card)
 - [Configure Gnome](#configure-gnome)
 - [Add Software](#add-software)
+- [Git](#git)
 - [Install Docker](#install-docker)
 - [Install Databases (if required)](#install-databases-if-required)
 - [Snaps](#snaps)
@@ -44,6 +45,8 @@ I made a [Gnome Setup](./setup-gnome.md) page.
 # Add Software
 
 `sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro gimp`
+
+# Git
 
 ```bash
 git config --global user.name "{YOUR NAME HERE}"
