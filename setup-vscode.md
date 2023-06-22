@@ -1,6 +1,15 @@
+- [Set Up VSCode](#set-up-vscode)
+- [Web Development Extensions](#web-development-extensions)
+- [File -\> Preferences -\> Settings](#file---preferences---settings)
+- [File -\> Preferences -\> Keyboard Shortcuts](#file---preferences---keyboard-shortcuts)
+  - [Snippets](#snippets)
+    - [API Controller Description Helper](#api-controller-description-helper)
+
 # Set Up VSCode
 
-## Web Development Extensions
+My personal settings preferences, as (mostly) recommended by The Odin Project and to play nice with the Prettier extension.
+
+# Web Development Extensions
 
 | Package Name                           | Author               | Description                                         |
 | -------------------------------------- | -------------------- | --------------------------------------------------- |
@@ -17,30 +26,22 @@
 | pug                                    | amandeepmittal       | pug formatting                                      |
 | EJS language support                   | DigitalBrainstem     | EJS language support                                |
 
-### Python
+# File -> Preferences -> Settings
 
-> Note: These are packages that tend to automatically get installed when I write anything in python.
-
-| Package Name               | Author    | Description              |
-| -------------------------- | --------- | ------------------------ |
-| Python                     | Microsoft | Python language support. |
-| Pylance                    | Microsoft |                          |
-| Jupyter Slide Show         | Microsoft |                          |
-| Jupyter Notebook Renderers | Microsoft |                          |
-| Jupyter Cell Tags          | Microsoft |                          |
-| Jupyter Keymap             | Microsoft |                          |
-| Jupyter                    | Microsoft |                          |
-| isort                      | Microsoft |                          |
-
-## File -> Preferences -> Settings
+`Ctrl` + `,`
 
 | Setting                   | Value                     | Description                                     |
 | ------------------------- | ------------------------- | ----------------------------------------------- |
 | Editor: Default Formatter | Prettier - Code Formatter | Set prettier as the code formatter              |
+| Editor: tabSize           | 2                         | Set the spacing to be 2 spaces instead of 4     |
+| Editor: detectIndentation | false                     | Force spaces, don't base on file contents       |
+| Editor: insertSpaces      | true                      | Don't use the tab character                     |
 | Format On Save            | Enabled                   | Saving formats code                             |
 | Window: Title Bar Style   | custom                    | Gets rid of the incredibly ugly gnome title bar |
 
-## Ctrl-K Ctrl-S: Keybinds
+# File -> Preferences -> Keyboard Shortcuts
+
+`Ctrl-K` + `Ctrl-S`
 
 | Keybinding                               | Value               | Description                                    |
 | ---------------------------------------- | ------------------- | ---------------------------------------------- |
