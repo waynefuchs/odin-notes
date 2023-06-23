@@ -19,6 +19,7 @@ My personal settings preferences, as (mostly) recommended by The Odin Project an
 | Overtype                               | DrMerfy              | Implements Insert / Overtype mode                   |
 | REST Client                            | Huachao Mao          | Perform HTTP calls and see raw output.              |
 | Code Spell Checker                     | Street Side Software | Spell Checking                                      |
+| Prisma                                 | Prisma               | Syntax highlighting for `.prisma` files.            |
 | Live Server                            | Ritwick Dey          | Built-in http server to test raw html/css/js        |
 | ES7+ React/Redux/React-Native snippets | dsznajder            | Provides snippets for React-related things (`rfce`) |
 | Rewrap                                 | stkb                 | Allow (hard) word wrapping comments with `alt-q`    |
