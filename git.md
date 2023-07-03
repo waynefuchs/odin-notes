@@ -10,6 +10,7 @@ A list of the commands that I use the most. None of these files will change anyt
 | ------------------------------------ | ------------------------------------------------------------------------------- |
 | `git clone <repository>`             | pull a remote repository to local disk                                          |
 | `git init`                           | Initialize a repository in an existing directory.                               |
+| `git add --patch`                    | Review changes and commit                                                       |
 | `git add {.\|<file>}`                | Recursively stage all files in the project / specific specified file            |
 | `git reset`                          | Reset git to the place it was before adding a file(s)                           |
 | `git restore --staged <file>`        | Un-stage a file                                                                 |
