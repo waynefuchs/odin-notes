@@ -1,29 +1,35 @@
-- [Javascript](#javascript)
-  - [Problem Solving](#problem-solving)
-  - [Errors](#errors)
-  - [Clean Code](#clean-code)
-  - [Scope vs. Context](#scope-vs-context)
-  - [Variables](#variables)
-    - [Defining](#defining)
-    - [Types](#types)
-      - [Number](#number)
-        - [Methods](#methods)
-  - [Logical Operators](#logical-operators)
+- [🚧 Javascript](#-javascript)
+- [Problem Solving](#problem-solving)
+- [Errors](#errors)
+- [Clean Code](#clean-code)
+- [Scope vs. Context](#scope-vs-context)
+- [Variables](#variables)
+  - [Defining](#defining)
+  - [Types](#types)
+    - [🚧 Number](#-number)
+      - [Methods](#methods)
+- [Logical Operators](#logical-operators)
+  - [`||` (OR)](#-or)
+  - [`&&` (AND)](#-and)
+  - [`!` (NOT)](#-not)
+  - [`??` (Nullish Coalescing)](#-nullish-coalescing)
   - [Bitwise Operators](#bitwise-operators)
-  - [Regular Expressions](#regular-expressions)
-  - [Functions](#functions)
-    - [Naming Guidelines](#naming-guidelines)
-    - [Verb List](#verb-list)
-      - [Alteration](#alteration)
-      - [Creation](#creation)
-      - [Establishment](#establishment)
-      - [Obtain Data](#obtain-data)
-      - [True or False](#true-or-false)
-  - [Destructuring](#destructuring)
+- [Regular Expressions](#regular-expressions)
+- [Functions](#functions)
+  - [Naming Guidelines](#naming-guidelines)
+  - [Verb List](#verb-list)
+    - [Alteration](#alteration)
+    - [Creation](#creation)
+    - [Establishment](#establishment)
+    - [Obtain Data](#obtain-data)
+    - [True or False](#true-or-false)
+- [Destructuring Assignment](#destructuring-assignment)
 
-# Javascript
+# 🚧 Javascript
 
-## Problem Solving
+> 🚧 This is one of the first markdown files that I created for my notes and it needs a quick look-over and clean-up.
+
+# Problem Solving
 
 1. Understand the Problem
 2. Plan
@@ -37,42 +43,43 @@
    1. Pseudocode (Write the instructions to solve the problem in plain english)
    2. Write the solution
 
-## Errors
+# Errors
 
-* Syntax: not following grammatical rules for JS
-* Reference: Referencing something that doesn't exist
-* Type: Trying to perform some action on data inappropriately, or modifying a value that cannot be changed
+- Syntax: not following grammatical rules for JS
+- Reference: Referencing something that doesn't exist
+- Type: Trying to perform some action on data inappropriately, or modifying a value that cannot be changed
 
-## Clean Code
+# Clean Code
 
 > Code Tells You How, Comments Tell You Why
 
-(AirBnB's JavaScript Style Guide)[https://github.com/airbnb/javascript]
+[AirBnB's JavaScript Style Guide](https://github.com/airbnb/javascript)
 
-(Google's Style Guide for JS)[https://google.github.io/styleguide/jsguide.html]
+[Google's Style Guide for JS](https://google.github.io/styleguide/jsguide.html)
 
-(JavaScript Standard Style)[https://standardjs.com/rules.html] Used by companies like NPM and GitHub
+[JavaScript Standard Style](https://standardjs.com/rules.html)
 
+# Scope vs. Context
 
-## Scope vs. Context
+- Scope: What variables you have access to
+- Context: What `this` points at
 
-* Scope: What variables you have access to
-* Context: What `this` points at
+# Variables
 
+## Defining
 
-## Variables
+- `let`: use this keyword to define mutable variables
+- `const`: use this keyword to define immutable variables
+- var (older)
 
-### Defining
-
-* `let`: use this keyword to define mutable variables
-* `const`: use this keyword to define immutable variables
-* var (older)
-
-### Types
+## Types
 
 > TODO: Remove this section (?) 15JAN2023 => Added `js-data-types-and-structures.md`
+>
+> ...or move that section back in here and condense
 
 The following are **primatives**:
+
 1. `Number`
 1. `BigInt`: Any number larger than (+/-)(2^53)-1 (9_007_199_254_740_991) - 9 quadrillion. **Note**: Add a 'n' to the end of the number while defining.
 1. `String`
@@ -82,22 +89,23 @@ The following are **primatives**:
 1. `symbol`
 1. `object` <== Special (Not primitive)
 
+### 🚧 Number
 
-#### Number
+Split this out into its own file, like String.
 
-##### Methods
+#### Methods
 
-* toFixed(decimalPlaces): returns a string containing a number rounded to the specified decimal places.
+- toFixed(decimalPlaces): returns a string containing a number rounded to the specified decimal places.
 
-## Logical Operators
+# Logical Operators
 
-`||` (OR)
+## `||` (OR)
 
-* Operands are evaluated left --> right
-* expressions are converted to boolean, if a true result is reached all comparisons stop and the value is returned
-* If all expressions are evaluated as false, the last operand is returned
-* The returned value is returned in its *original form, prior to bool conversion*
-* Precedence of OR is lower than AND
+- Operands are evaluated left --> right
+- expressions are converted to boolean, if a true result is reached all comparisons stop and the value is returned
+- If all expressions are evaluated as false, the last operand is returned
+- The returned value is returned in its _original form, prior to bool conversion_
+- Precedence of OR is lower than AND
 
 ```
 A       B       Out
@@ -107,12 +115,12 @@ true    false   true
 true    true    true
 ```
 
-`&&` (AND)
+## `&&` (AND)
 
-* Evaluated left --> right
-* Returns the first falsy value encountered
-* If all operands are truthy, the last operand is returned
-* Precedence of AND is higher than OR
+- Evaluated left --> right
+- Returns the first falsy value encountered
+- If all operands are truthy, the last operand is returned
+- Precedence of AND is higher than OR
 
 ```
 A       B       Out
@@ -122,117 +130,105 @@ true    false   false
 true    true    true
 ```
 
-`!` (NOT)
+## `!` (NOT)
 
-* Convert operand to boolean and return the inverse
-* Double not (`!!` can be used to convert a value to a boolean)
-* Has highest precedence (Higher than OR and AND)
+- Convert operand to boolean and return the inverse
+- Double not (`!!` can be used to convert a value to a boolean)
+- Has highest precedence (Higher than OR and AND)
 
-`??` (Nullish Coalescing)
+## `??` (Nullish Coalescing)
 
 ## Bitwise Operators
 
-* AND `a & b`
-* OR `a | b`
-* XOR `a ^ b`
-* NOT `~a`
-* LEFT SHIFT `a << 1`
-* RIGHT SHIFT `a >> 1`
-* ZERO-FILL RIGHT SHIFT `a >>> 1` (Shifts negative bit)
+- AND (`a & b`)
+- OR (`a | b`)
+- XOR (`a ^ b`)
+- NOT (`~a`)
+- LEFT SHIFT (`a << 1`)
+- RIGHT SHIFT (`a >> 1`)
+- ZERO-FILL RIGHT SHIFT (`a >>> 1`) - Shifts negative bit
 
+# Regular Expressions
 
-## Regular Expressions
+[A video series on js regular expressions](https://www.youtube.com/playlist?list=PL4cUxeGkcC9g6m_6Sld9Q4jzqdqHd2HiD)
 
-(A video series on js regular expressions)[https://www.youtube.com/playlist?list=PL4cUxeGkcC9g6m_6Sld9Q4jzqdqHd2HiD]
 I know perl regular expressions pretty well. I don't know that I have the patience to sit through an hour and a half of regular expression training right now. But it looks like a pretty decent resources, so I'm saving it here.
 
-## Functions
+# Functions
 
-### Naming Guidelines
+## Naming Guidelines
 
-* Should usually start with a verb
-* One action per function (Don't pop up an alert in a "getAge" function, just return the value and let the calling function handle it from there.)
-* Don't use ultrashort function names, instead choose "concise and descriptive" names.
+- Should usually start with a verb
+- One action per function (Don't pop up an alert in a "getAge" function, just return the value and let the calling function handle it from there.)
+- Don't use ultrashort function names, instead choose "concise and descriptive" names.
 
-### Verb List
+## Verb List
 
-#### Alteration
-*	add
-*	append
-*	change
-*	delete
-*	disable
-*	edit
-*	hide
-*	join
-*	merge
-*	remove
-*	save
-*	separate
-*	set
-* show
-*	split
-*	store
-*	update
+### Alteration
 
-#### Creation
-*	clone
-*	copy
-*	create
-*	generate
-*	make
+- add
+- append
+- change
+- delete
+- disable
+- edit
+- hide
+- join
+- merge
+- remove
+- save
+- separate
+- set
+- show
+- split
+- store
+- update
 
-#### Establishment
-* being
-* open
-* start
+### Creation
 
-#### Obtain Data
-* check
-*	close
-*	fetch
-*	find
-*	get
-*	read
-*	retrieve
-*	search
+- clone
+- copy
+- create
+- generate
+- make
 
-#### True or False
-*	can
-*	has
-*	is
-*	should
+### Establishment
 
+- being
+- open
+- start
 
-## Destructuring
+### Obtain Data
 
-[MDN: Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- check
+- close
+- fetch
+- find
+- get
+- read
+- retrieve
+- search
 
-Destructuring is a way to assign local variables from an object for cleaner code. It is a feature of ES6. I came across it while reading some React code, and there is a really neat use case there.
+### True or False
 
-I will likely forget the syntax on this until I use it a few times, so I am putting this in my notes.
+- can
+- has
+- is
+- should
 
+# Destructuring Assignment
 
-**App.js**
+Destructuring is the assignment of variables through the unpacking of an object.
+
+> ⓘ You can do some really neat things with this (destructuring) tool.
+
+MDN [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) documentation.
+
 ```js
-import MyInput from './MyInput';
-import {useState} from 'react';
-function App() {
-  const [id, setId] = useState("");
-  const CHANGE = (e) => setId(e.target.value);
-  return (
-      <MyInput onChange={CHANGE} id={id} />
-  );
-}
-export default App;
-```
+// Arrays
+const [a, b] = array; // if array = [1, 2], then a=1 and b=2
+const [a, , b] = array; // if array = [1, 2, 3] then a=1 and b=3
 
-This is where the destructuring happens. Two variables are put into scope for the `MyInput` function; the `onInputChange` and `howNowBrownCow` variables. This is not terribly useful in this particular instance, but in terms of destructuring a massive object into just a few variables that are used in a child component could significantly clean the code.
-
-**MyInput.js**
-```js
-import React from "react";
-const MyInput = ({ onChange: onInputChange, id: howNowBrownCow }) => 
-  <input onChange={onInputChange}>{howNowBrownCow}</input>;
-export default MyInput;
+// Objects (Dicts)
+const { a, b } = obj;
 ```
