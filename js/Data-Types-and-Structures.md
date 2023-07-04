@@ -11,7 +11,7 @@
 
 # Data Types and Structures
 
-> TODO: Note to future self: 
+> TODO: Note to future self:
 > This is (currently) basically a copy of [JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 >
 > The reason I started this page was because I have had to look up javascript `dictionary`, `map`, and `object` differences quite a few times. I want to combine several resources here and make kind of an end-all-be-all data structure page here.
@@ -20,15 +20,15 @@
 
 ## Primative Values
 
-| Type | `typeof` return value |
-| ---- | --------------------- |
-|Null|object|
-|Undefined|undefined|
-|Boolean|boolean|
-|Number|number|
-|BigInt|bigint|
-|String|string|
-|Symbol|symbol|
+| Type      | `typeof` return value |
+| --------- | --------------------- |
+| Null      | object                |
+| Undefined | undefined             |
+| Boolean   | boolean               |
+| Number    | number                |
+| BigInt    | bigint                |
+| String    | string                |
+| Symbol    | symbol                |
 
 ### Null
 
@@ -40,10 +40,10 @@ Null is required at the end of a `prototype.chain`
 
 ### Undefined
 
-* `return;` is the same as `return undefined;`
-* Accessing an object property that doesn't exist is `undefined` (eg: `obj.iDoNotExist` will return `undefined`)
-* Variable declaration without initialization will initialize the varaible to `undefined`. (eg: `const x;` is the same as `const x = undefined;`)
-* Many methods (such as `Array.prototype.find()`) will return `undefined` when an element is not found.
+- `return;` is the same as `return undefined;`
+- Accessing an object property that doesn't exist is `undefined` (eg: `obj.iDoNotExist` will return `undefined`)
+- Variable declaration without initialization will initialize the varaible to `undefined`. (eg: `const x;` is the same as `const x = undefined;`)
+- Many methods (such as `Array.prototype.find()`) will return `undefined` when an element is not found.
 
 `undefined` is an identifier (not a keyword) that happens to be a global property. `undefined` should not be redefined or shadowed.
 
@@ -59,12 +59,11 @@ Double precision 64-bit value, capable of storing floating-point numbers between
 
 `NaN` is a special kind of number where the result of an arithmatic operation cannot be expressed as a number.
 
-
 ### BigInt
 
-Data type that can represent integers with arbitrary magnitude. 
+Data type that can represent integers with arbitrary magnitude.
 
-> TODO: (Source? I tried `1234512345123451234512345123451234512345n === 1234512345123451234512345123451234512345n` and it evalued to `true`)  <==> BigInts are not strictly equal to another with the same mathematical vlue. (`1n === 1n` evaluates to `false`)
+> TODO: (Source? I tried `1234512345123451234512345123451234512345n === 1234512345123451234512345123451234512345n` and it evalued to `true`) <==> BigInts are not strictly equal to another with the same mathematical vlue. (`1n === 1n` evaluates to `false`)
 
 To specify a bigint, add a `n` to the end of the number.
 
@@ -76,7 +75,7 @@ console.log(big + 1n);
 // 123456789012345678901234567891n
 ```
 
-Standard numerical operators work with BigInts. (`+`, `-`, `*`, `**`, `/`, and `%`) 
+Standard numerical operators work with BigInts. (`+`, `-`, `*`, `**`, `/`, and `%`)
 
 ### String
 
@@ -85,7 +84,6 @@ See my [String](js-string.md) documentation.
 ### Symbol
 
 A [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) is a unique and immutable primitive value and may be used as the key of an Object property (see below). In some programming languages, Symbols are called "atoms". The purpose of symbols is to create unique property keys that are guaranteed not to clash with keys from other code.
-
 
 ## Object
 
