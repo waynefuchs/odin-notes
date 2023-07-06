@@ -2,11 +2,12 @@
 
 - [🚧 Work In Progress (14JUN2023)](#-work-in-progress-14jun2023)
 - [Markdown](#markdown)
-- [Bookmarks](#bookmarks)
+- [README.md](#readmemd)
+- [Reference Links](#reference-links)
 - [Headings](#headings)
 - [Links](#links)
   - [Link Definitions](#link-definitions)
-- [Mermaid](#mermaid)
+- [🚧 Mermaid](#-mermaid)
   - [State Diagram](#state-diagram)
     - [An example State Diagram (Graph)](#an-example-state-diagram-graph)
 
@@ -14,11 +15,35 @@
 
 # Markdown
 
-Markdown is not complicated. But there is a bit of an art to managing a large markdown project. It's a skill that I am still working on. For the most part, Markdown is understanding what is possible within the constraints of the 'language.'
+The constraints provided by Markdown force "good" note-taking habits. I will not claim to have the "best notes," but what I will say is that the quality of my notes improved when I started using markdown.
 
-The constraints provided by Markdown force "good" note-taking habits. I'm not claiming to have the "best notes," but what I _am_ claiming is that the quality of my notes improved when I started using markdown.
+Markdown is not complicated. But there is a bit of an art to managing a large markdown project. It's a skill that I am still developing. For the most part, Markdown is "just" understanding what is possible within the constraints of the 'language.'
 
-# Bookmarks
+# README.md
+
+The `README.md` is the public face for your project. The ability to write a good one is a _fantastic_ skill to have.
+
+🚧 Here are some guidelines I am curating in regard to writing a good README.md.
+
+1. Use Media in READMEs
+   - Photos
+   - Videos
+   - Gifs
+   - Audio
+2. Provide installation instructions
+3. Provide instructions for operation of the software
+   - Configuration
+   - Options
+   - Standard / Non-standard use cases
+   - CLI Switches
+4. List out the technologies you used
+5. (If applicable) Provide information on how to contribute towards the project
+6. (if applicable) License information
+7. (if applicable) Credit any resources being used (images, boiler plate / starter code, etc.)
+8. (optional/blog) Explain your development process
+9. (optional/blog) Explain your motivation behind the project
+
+# Reference Links
 
 | Title                                                                                                                                                          | Site            | Description                                                                                          |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
@@ -89,9 +114,11 @@ Link will direct user here.
 [1]: http://somewebsite.org
 [link text itself]: http://www.somewebsite.com
 
-# Mermaid
+# 🚧 Mermaid
 
 This is possibly the coolest addition to markdown.
+
+> 🚧 TODO: Add examples in for each mermaid module
 
 ## State Diagram
 
