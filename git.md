@@ -147,15 +147,7 @@ You can have as many remote repositories as you like. Why would you need more th
 2. It can be desirable to use more than one git server.
    1. Collaboration
    2. Backup
-   3. Flexibility [^1]
-
-[^1]: Here are my reasons for self-hosting a local git server
-
-    - I run a home git server for faster git remote access
-    - No storage limitations.
-    - As many private repos as I want
-    - Code I don't push to github doesn't get assimilated into github's copilot
-    - I can mirror select repos to github to maintain those sweet green squares
+   3. Flexibility [^git-self-hosting]
 
 # Git History altering
 
@@ -226,3 +218,11 @@ I have created a [Markdown](./Markdown.md) guide to fill this need.
 | [Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html) | Sam Livingston-Gray | An attempt to thoroughly teach Git            |
 
 # Footnotes
+
+[^git-self-hosting]: My reasons for hosting a local git server
+
+    - I run a home git server for faster git remote access
+    - No storage limitations.
+    - As many private repos as I want
+    - Code I don't push to github doesn't get assimilated into github's copilot
+    - I can mirror select repos to github to maintain those sweet green squares
