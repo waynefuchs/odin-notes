@@ -19,6 +19,7 @@
 - [Git Commit Guidelines](#git-commit-guidelines)
 - [Writing a README.md](#writing-a-readmemd)
 - [Reference Links](#reference-links)
+- [Footnotes](#footnotes)
 
 Git is a distributed version control system. It was developed by Linus Torvalds to provide versioning for the linux kernel. It is (basically) time travel and backup for your files.
 
@@ -223,3 +224,5 @@ I have created a [Markdown](./Markdown.md) guide to fill this need.
 | -------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
 | [Git](https://en.wikipedia.org/wiki/Git)                                         | Wikipedia           | An overview of the history and design of git. |
 | [Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html) | Sam Livingston-Gray | An attempt to thoroughly teach Git            |
+
+# Footnotes
