@@ -1,13 +1,26 @@
-# Git
+# Git <!-- omit in toc -->
 
-Git is a distributed version control system. It was developed by Linus Torvalds to provide versioning for the linux kernel. It is basically time travel and backup for your files.
+- [The 80 percent](#the-80-percent)
+- [Branching](#branching)
+  - [Create Branch Shorthand](#create-branch-shorthand)
+  - [Create Branch Longhand](#create-branch-longhand)
+  - [Merging](#merging)
+  - [Remove a branch](#remove-a-branch)
+  - [Previous Commit "Time Travel"](#previous-commit-time-travel)
+- [Generate SSH Key for Git](#generate-ssh-key-for-git)
+- [Managing remote repositories](#managing-remote-repositories)
+  - [Common Remote Commands](#common-remote-commands)
+  - [Multiple Remote Repositories](#multiple-remote-repositories)
+- [Git History altering](#git-history-altering)
+- [Quick Guide (new repo)](#quick-guide-new-repo)
+  - [Creating a new repository on the command line](#creating-a-new-repository-on-the-command-line)
+  - [Pushing an existing repository from the command line](#pushing-an-existing-repository-from-the-command-line)
+- [Change git editor](#change-git-editor)
+- [Git Commit Guidelines](#git-commit-guidelines)
+- [Writing a README.md](#writing-a-readmemd)
+- [Reference Links](#reference-links)
 
-# Reference Links
-
-| Link                                                                             | Author              | Description                                   |
-| -------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
-| [Git](https://en.wikipedia.org/wiki/Git)                                         | Wikipedia           | An overview of the history and design of git. |
-| [Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html) | Sam Livingston-Gray | An attempt to thoroughly teach Git            |
+Git is a distributed version control system. It was developed by Linus Torvalds to provide versioning for the linux kernel. It is (basically) time travel and backup for your files.
 
 # The 80 percent
 
@@ -143,9 +156,11 @@ You can have as many remote repositories as you like. Why would you need more th
     Code I don't push to github doesn't get assimilated into github's copilot  
     I can mirror select repos to github to maintain those sweet green squares
 
-# ⚠️ Git History altering
+# Git History altering
 
-Don't do this unless absolutely necessary. These commands should be executed with extreme caution and in communication with other team members. (depending on remote push status)
+⚠️ Don't do this unless you have a good reason _and_ you know what you're doing. These commands should be executed with extreme caution and in communication with other team members. (depending on remote push status)
+
+🚧 TODO: Consider removing this section entirely and linking to official git or github documentation.
 
 | #   | Command                 | Description                                                                                 |
 | --- | ----------------------- | ------------------------------------------------------------------------------------------- |
@@ -153,7 +168,7 @@ Don't do this unless absolutely necessary. These commands should be executed wit
 | 2.  | `git commit --amend`    | Replaces the last commit with a new one.                                                    |
 | 3.  | `git rebase --continue` | Finish the rebase                                                                           |
 
-# Gitea / Forgejo Quick Guide (new repo)
+# Quick Guide (new repo)
 
 ## Creating a new repository on the command line
 
@@ -177,9 +192,9 @@ git push -u origin main
 # Change git editor
 
 ```bash
+git config --global core.editor "vim"           # vim (my preference)
 git config --global core.editor "pico"          # default
 git config --global core.editor "code --wait"   # vscode
-git config --global core.editor "vim"           # vim
 ```
 
 # Git Commit Guidelines
@@ -201,3 +216,10 @@ git config --global core.editor "vim"           # vim
 # Writing a README.md
 
 I have created a [Markdown](./Markdown.md) guide to fill this need.
+
+# Reference Links
+
+| Link                                                                             | Author              | Description                                   |
+| -------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
+| [Git](https://en.wikipedia.org/wiki/Git)                                         | Wikipedia           | An overview of the history and design of git. |
+| [Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html) | Sam Livingston-Gray | An attempt to thoroughly teach Git            |
