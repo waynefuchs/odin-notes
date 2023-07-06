@@ -1,12 +1,13 @@
 # Git
 
-Git is a distributed version control system. I like to think of Git as time travel and backup for projects.
+Git is a distributed version control system. It was developed by Linus Torvalds to provide versioning for the linux kernel. It is basically time travel and backup for your files.
 
 # Reference Links
 
-| Link                                                                             | Author              | Description                        |
-| -------------------------------------------------------------------------------- | ------------------- | ---------------------------------- |
-| [Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html) | Sam Livingston-Gray | An attempt to thoroughly teach Git |
+| Link                                                                             | Author              | Description                                   |
+| -------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
+| [Git](https://en.wikipedia.org/wiki/Git)                                         | Wikipedia           | An overview of the history and design of git. |
+| [Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html) | Sam Livingston-Gray | An attempt to thoroughly teach Git            |
 
 # The 80 percent
 
