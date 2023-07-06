@@ -225,4 +225,4 @@ I have created a [Markdown](./Markdown.md) guide to fill this need.
     - No storage limitations.
     - As many private repos as I want
     - Code I don't push to github doesn't get assimilated into github's copilot
-    - I can mirror select repos to github to maintain those sweet green squares
+    - I can mirror select repos to github for an additional backup layer
