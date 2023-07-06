@@ -1,6 +1,8 @@
-# Git Commands
+# Git
 
-# Links
+Git is a distributed version control system. I like to think of Git as time travel and backup for projects.
+
+# Reference Links
 
 | Link                                                                             | Author              | Description                        |
 | -------------------------------------------------------------------------------- | ------------------- | ---------------------------------- |
@@ -8,26 +10,24 @@
 
 # The 80 percent
 
-A list of the commands that I use the most and will cover 80% of all git useage
+A list of the commands that cover 80% of "normal" daily git usage. The commands listed here are "safe" and will not result in data loss, even through misuse. I say that, knowing there are people on this planet that would take that as a personal challenge. With that said, the largest danger with these commands would be unintentionally committing and pushing something sensitive to a remote repo. (eg: API keys.)
 
-None of these commands will change anything in the git log.
-
-| Command                              | Description                                                                              |
-| ------------------------------------ | ---------------------------------------------------------------------------------------- |
-| `git clone <repository>`             | pull a remote repository to local disk                                                   |
-| `git init`                           | Initialize a repository in an existing directory.                                        |
-| `git add --patch`                    | Review changes and commit                                                                |
-| `git add <path>`                     | Stage the specified file or directory (recurisvely)                                      |
-| `git status`                         | Show that status of the project files (modified -> staged -> committed)                  |
-| `git diff --staged`                  | Show changes between commit and staged changes (remove `--staged` for working tree diff) |
-| `git reset`                          | Reset git to the place it was before adding a file(s)                                    |
-| `git restore --staged <file>`        | Un-stage a file                                                                          |
-| `git log --oneline`                  | Quickly view git commits _**with hash**_ (Similar to `git shortlog`)                     |
-| `git show <hash>`                    | Look at the `diff` of a particular commit                                                |
-| `git push`                           | push the local disk copy to remote repository (`git push origin main` shortcut)          |
-| `git commit -m "Add a subject line"` | When a commit only needs the (< 50 char) subject line                                    |
-| `git commit`                         | open editor to write git commit message.                                                 |
-| `git rm <file>`                      | remove a file from the repository                                                        |
+| Command                              | Description                                                                           |
+| ------------------------------------ | ------------------------------------------------------------------------------------- |
+| `git clone <url>`                    | Clone a remote repository to local disk                                               |
+| `git init`                           | Initialize a repository in an existing directory.                                     |
+| `git add --patch`                    | Review changes and commit                                                             |
+| `git add <path>`                     | Stage the specified `file` or `directory` (recurisvely)                               |
+| `git status`                         | Show that status of the project files (modified -> staged -> committed)               |
+| `git diff --staged`                  | Show changes between last commit and staged (remove `--staged` for working tree diff) |
+| `git reset`                          | Reset git staging (removing everything from "staged" state)                           |
+| `git restore --staged <file>`        | Un-stage a file                                                                       |
+| `git log --oneline`                  | Quickly view git commits _**with hash**_ (Similar to `git shortlog`)                  |
+| `git show <hash>`                    | Look at the `diff` of a particular commit                                             |
+| `git push`                           | push the local disk copy to remote repository (`git push origin main` shortcut)       |
+| `git commit -m "Add a subject line"` | When a commit only needs the (< 50 char) subject line                                 |
+| `git commit`                         | open editor to write git commit message.                                              |
+| `git rm <file>`                      | remove a file from the repository                                                     |
 
 > ⓘ Bonus edge-case log command:
 >
@@ -36,16 +36,6 @@ None of these commands will change anything in the git log.
 > The above line shows a brief log containing `short-hash`, `user`, `date`, and `commit message`. This could be useful if working on a team and you want to see the user along with the hash, and the format string makes this incredibly customizable. This would be best as a bash alias in your `.bashrc` (`alias gitteamlog='git log --pretty=format:"%h%x09%an%x09%as%x09%s"'`)
 >
 > See the [git-log](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/git-log.html) manpage (`man git log`) for format string options.
-
-# Git History altering
-
-These commands should be executed with caution, and possibly with communication with other team members. (depending on remote sync status)
-
-| Command                    | Description                                                                                 |
-| -------------------------- | ------------------------------------------------------------------------------------------- |
-| 1. `git rebase -i HEAD~2`  | `-i` is interactive (Read the instructions!) (`--root` in place of HEAD~2 for first commit) |
-| 2. `git commit --amend`    | Replaces the last commit with a new one.                                                    |
-| 3. `git rebase --continue` | Finish the rebase                                                                           |
 
 # Branching
 
@@ -141,6 +131,16 @@ You can have as many remote repositories as you like. Why would you need more th
     As many private repos as I want  
     Code I don't push to github doesn't get assimilated into github's copilot  
     I can mirror select repos to github to maintain those sweet green squares
+
+# ⚠️ Git History altering
+
+Don't do this unless absolutely necessary. These commands should be executed with extreme caution and in communication with other team members. (depending on remote push status)
+
+| #   | Command                 | Description                                                                                 |
+| --- | ----------------------- | ------------------------------------------------------------------------------------------- |
+| 1.  | `git rebase -i HEAD~2`  | `-i` is interactive (Read the instructions!) (`--root` in place of HEAD~2 for first commit) |
+| 2.  | `git commit --amend`    | Replaces the last commit with a new one.                                                    |
+| 3.  | `git rebase --continue` | Finish the rebase                                                                           |
 
 # Gitea / Forgejo Quick Guide (new repo)
 
