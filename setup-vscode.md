@@ -31,14 +31,15 @@ My personal settings preferences, as (mostly) recommended by The Odin Project an
 
 `Ctrl` + `,`
 
-| Setting                   | Value                     | Description                                     |
-| ------------------------- | ------------------------- | ----------------------------------------------- |
-| Editor: Default Formatter | Prettier - Code Formatter | Set prettier as the code formatter              |
-| Editor: tabSize           | 2                         | Set the spacing to be 2 spaces instead of 4     |
-| Editor: detectIndentation | false                     | Force spaces, don't base on file contents       |
-| Editor: insertSpaces      | true                      | Don't use the tab character                     |
-| Format On Save            | Enabled                   | Saving formats code                             |
-| Window: Title Bar Style   | custom                    | Gets rid of the incredibly ugly gnome title bar |
+| Setting                   | Value                     | Description                                             |
+| ------------------------- | ------------------------- | ------------------------------------------------------- |
+| Editor: Default Formatter | Prettier - Code Formatter | Set prettier as the code formatter                      |
+| Editor: tabSize           | 2                         | Set the spacing to be 2 spaces instead of 4             |
+| Editor: detectIndentation | false                     | Force spaces, don't base on file contents               |
+| Editor: insertSpaces      | true                      | Don't use the tab character                             |
+| Format On Save            | Enabled                   | Saving formats code                                     |
+| Window: Title Bar Style   | custom                    | Gets rid of the incredibly ugly gnome title bar         |
+| Editor: minimap > Enabled | false                     | Remove source code 'minimap' to save screen real-estate |
 
 # File -> Preferences -> Keyboard Shortcuts
 
