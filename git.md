@@ -75,6 +75,16 @@ git branch -d <branch-name>
 git branch -D <branch-name>
 ```
 
+## Previous Commit "Time Travel"
+
+```bash
+# "Time Travel" to a previous commit
+git checkout <commit-hash>
+
+# "Come back to the present"
+git checkout main
+```
+
 # Generate SSH Key for Git
 
 `ssh-keygen -t ed25519 -C "github-email-address"`:
