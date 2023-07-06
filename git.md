@@ -19,7 +19,6 @@
 - [Git Commit Guidelines](#git-commit-guidelines)
 - [Writing a README.md](#writing-a-readmemd)
 - [Reference Links](#reference-links)
-- [Footnotes](#footnotes)
 
 Git is a distributed version control system. It was developed by Linus Torvalds to provide versioning for the linux kernel. It is (basically) time travel and backup for your files.
 
@@ -147,7 +146,7 @@ You can have as many remote repositories as you like. Why would you need more th
 2. It can be desirable to use more than one git server.
    1. Collaboration
    2. Backup
-   3. Flexibility [^git-self-hosting]
+   3. Flexibility (eg: onsite git server, _and_ public internet-facing repo)
 
 # Git History altering
 
@@ -216,13 +215,3 @@ I have created a [Markdown](./Markdown.md) guide to fill this need.
 | -------------------------------------------------------------------------------- | ------------------- | --------------------------------------------- |
 | [Git](https://en.wikipedia.org/wiki/Git)                                         | Wikipedia           | An overview of the history and design of git. |
 | [Think Like (a) Git](https://think-like-a-git.net/sections/about-this-site.html) | Sam Livingston-Gray | An attempt to thoroughly teach Git            |
-
-# Footnotes
-
-[^git-self-hosting]: My reasons for hosting a local git server
-
-    - I run a home git server for faster git remote access
-    - No storage limitations.
-    - As many private repos as I want
-    - Code I don't push to github doesn't get assimilated into github's copilot
-    - I can mirror select repos to github for an additional backup layer
