@@ -77,14 +77,7 @@ This gnome extension makes it so you can snap windows to a grid / portion of the
 
 ## Step 1: Install the shell browser integration
 
-I use the [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) chrome extension (in brave browser) to facilitate the installation, which **_also_** requires the `chrome-gnome-shell` apt package (ubuntu version through 22.10), which has now been renamed to `gnome-browser-connector`.
-
-```bash
-# if `lsb-release -a` reports ubuntu version less than 23.04
-sudo apt install chrome-gnome-shell
-# otherwise
-sudo apt install gnome-browser-connector
-```
+I use the [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) chrome extension (in brave browser) to facilitate the installation, which **_also_** requires the `chrome-gnome-shell` apt package (ubuntu version through 22.10), which has now been renamed to `gnome-browser-connector`. See [https://extensions.gnome.org/](https://extensions.gnome.org/) for additional installation / configuration.
 
 ## Step 2: Install the browser extension
 
