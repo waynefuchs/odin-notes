@@ -1,7 +1,8 @@
-<!-- Links to Local Content -->
+<!-- Local Content Links -->
 
-[vscode-setup]: ../VSCode-Configuration.md
-[gnome-setup]: ./Gnome-Configuration.md
+[vscode-setup]: ../vscode-configuration.md
+[gnome-setup]: ./Gnome-configuration.md
+[git-setup]: ../git.md#setup
 
 # Fedora <!-- omit in toc -->
 
@@ -158,7 +159,7 @@ node -v
 
 # Git
 
-See (my) [Git Setup](./git.md#setup) section.
+See (my) [Git Setup][git-setup] section.
 
 # Software
 
