@@ -1,28 +1,24 @@
+# Ubuntu Setup
+
+Ubuntu is a linux distribution that is based on Debian. It is released every 6 months, with each release receiving 9 months of support. Every 2 years, a Long Term Support (LTS) version is released, which is supported for five years.
+
 - [Ubuntu Setup](#ubuntu-setup)
 - [Fix windows dual boot time zone issues](#fix-windows-dual-boot-time-zone-issues)
-- [~~Rename Sound Card~~](#rename-sound-card)
-- [Configure Gnome](#configure-gnome)
 - [Add Software](#add-software)
+- [Configure Gnome](#configure-gnome)
 - [Git](#git)
 - [Install Docker](#install-docker)
 - [Install Databases (if required)](#install-databases-if-required)
 - [Snaps](#snaps)
 - [Download Software](#download-software)
 - [VSCode Setup](#vscode-setup)
-- [Postman with Icon](#postman-with-icon)
-- [gTile](#gtile)
-  - [Step 1: Install the shell browser integration](#step-1-install-the-shell-browser-integration)
-  - [Step 2: Install the browser extension](#step-2-install-the-browser-extension)
+- [Postman with Gnome Launcher](#postman-with-gnome-launcher)
 - [Nomachine](#nomachine)
 - [Remove Games](#remove-games)
 - [⚠️ snap-store glitch](#️-snap-store-glitch)
   - [Get the process id of the `snap-store` process](#get-the-process-id-of-the-snap-store-process)
   - [kill the `snap-store` process](#kill-the-snap-store-process)
   - [Upgrade the `snap-store` package](#upgrade-the-snap-store-package)
-
-# Ubuntu Setup
-
-I'm trying put the changes I make to a default linux setup here in this file to facilitate rapid linux installation in the event that I need to reinstall.
 
 # Fix windows dual boot time zone issues
 
@@ -32,38 +28,36 @@ Windows expects the system clock to be set to local time. Linux defaults to GMT.
 timedatectl set-local-rtc 1
 ```
 
-~~
-# ~~Rename Sound Card~~
-
-~~I removed this as I can no longer rename my sound card in the new Gnome on Ubuntu, but the `pavucontrol` utility is still useful, so i will mention that. I hope that some day I will be able to rename my sound card again, as I have several audio devices that are exactly the same except one word that is truncated in the drop down list. And it just switches to the wrong one occasionally. Sound in linux is bad, unfortunately. I think it might be getting better, and this is part of the growing pains?~~
-
-# Configure Gnome
-
-I made a [Gnome Setup](./setup-gnome.md) page.
-
-
 # Add Software
 
 `sudo apt install git build-essential gt5 dconf-editor gnome-tweaks htop net-tools vim gnome-shell-pomodoro gimp`
 
-# Git
+# Configure Gnome
+
+If you plan on using Gnome extensions, be sure to install the browser connector.
 
 ```bash
-git config --global user.name "{YOUR NAME HERE}"
-git config --global user.email "{your.email@here}"
-# On October 1, 2020, GitHub renamed 'master' to 'main'; the defaultBranch variable will match that locally
-git config --global init.defaultBranch main
+# if `lsb-release -a` reports ubuntu version less than 23.04
+sudo apt install chrome-gnome-shell
+# otherwise
+sudo apt install gnome-browser-connector
 ```
+
+Then, see (my) [Gnome Setup](./setup-gnome.md) page.
+
+# Git
+
+See (my) [Git Setup](./git.md#setup) section.
 
 # Install Docker
 
-[Ubuntu Docker Installation Instructions](https://docs.docker.com/engine/install/ubuntu/) can be found on the docker website. Don't use `apt` or `snap` to install docker. The experience is far better if you install from the docker maintained package sources.
+[Ubuntu Docker Installation Instructions](https://docs.docker.com/engine/install/ubuntu/) can be found on the docker website. Don't use `apt` or `snap` to install docker. The experience is **far better** if you install from the docker maintained package sources.
 
 # Install Databases (if required)
 
-See my [Docker Databases](./databases/Docker-Databases.md) information to get up and running with Postgres and Mongodb.
+See (my) [Docker Databases Setup](./databases/Docker-Databases.md) information to get up and running with Postgres and Mongodb.
 
-I have a home lab that I now run my databases on, and would recommend that route to anyone that has the ability to do so.
+I have a home lab (separate servers) that I now run my databases on, and would recommend that route to anyone that has the ability to do so.
 
 # Snaps
 
@@ -92,11 +86,11 @@ I try and avoid snaps as much as possible. Here are the ones I use.
 
 # VSCode Setup
 
-I have a separate document that covers my specific [VSCode Setup](./setup-vscode.md).
+See (my) [VSCode Setup](./setup-vscode.md).
 
-# Postman with Icon
+# Postman with Gnome Launcher
 
-> ⓘ Use the "REST Client" extension in vscode is easier (for me), but knowing postman could be a good skill to have.
+> ⓘ I prefer the "REST Client" extension in vscode, but knowing postman could be a good skill to have.
 
 Download [Postman](https://www.postman.com/downloads/) and extract it to `/opt/Postman`. Download a postman svg (I got mine from google images) and place it in `/opt/Postman` alongside the executable. In the file: `.local/share/applications/Postman.desktop `, put the following:
 
@@ -111,33 +105,6 @@ Exec=/opt/Postman/Postman
 Terminal=false
 Categories=API;REST;Postman
 ```
-
-# gTile
-
-This gnome extension makes it so you can snap windows to a grid / portion of the screen. It's absolutely necessary for vertical and 4k displays. At this point I actually feel this is a necessary feature in any OS to be productive in the previously mentioned case. (personal preference, obviously)
-
-## Step 1: Install the shell browser integration
-
-I use the [GNOME Shell integration](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) chrome (brave browser) extension to facilitate the installation, which requires the `chrome-gnome-shell` apt package (ubuntu version through 22.10), which has now been renamed to `gnome-browser-connector`.
-
-```bash
-# if `lsb-release -a` reports ubuntu version less than 23.04
-sudo apt install chrome-gnome-shell
-# otherwise
-sudo apt install gnome-browser-connector
-```
-
-## Step 2: Install the browser extension
-
-The "official" gnome extension page has the [gTile extension](https://extensions.gnome.org/extension/28/gtile/) from the [github](https://github.com/gTile/gTile) page. It can be a bit of a hassle to get installed manually. This is easier.
-
-> ⓘ It may be necessary to set the dconf-editor key `/org/gnome/shell/disable-extension-version-validation` to '**true**' in order to install a 'legacy' version of gTile, especially right after a ubuntu version update. On 23.04 I haven't had to.
-
-Shortcut: `Super`+`Alt`+`<NumpadKeyNumber>` will move a window to a "side" or "quarter" of the screen.
-
-Gnome also has a [Gnome Extensions](https://extensions.gnome.org/) site where you can browse for other Gnome modification extensions.
-
-A Microsoft Windows alternative is [AltDrag](https://stefansundin.github.io/altdrag/) by Stefan Sundin. I can never remember what this one is called, so I list it here.
 
 # Nomachine
 
@@ -165,7 +132,7 @@ sudo apt remove blinken bomber bovo cervisia cheese kapman kblocks kbounce kfour
 
 # ⚠️ snap-store glitch
 
- > ⚠️ This only needs to be done when the glitch occurs
+> ⚠️ This only needs to be done when the glitch occurs
 
 On my system, `snap-store` will get stuck in a state where it can not upgrade because it is running.
 

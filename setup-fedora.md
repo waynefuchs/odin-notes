@@ -1,4 +1,9 @@
-- [Fedora](#fedora)
+# Fedora <!-- omit in toc -->
+
+In June 2023 I did an update / upgrade on ubuntu and it caused my system not to boot. (NVIDIA driver issue that defaulted my system to an oracle kernel) That, combined with the snap issues I've been having, other X11/Wayland related NVIDIA driver issues, and other general frustrations with the direction that Canonical has been taking; I have decided to give Fedora a shot.
+
+July 10 Update: It's been 20 days since I installed Fedora. I am _very_ happy with that decision.
+
 - [Install Brave](#install-brave)
 - [Install VSCode](#install-vscode)
 - [Generate a ssl key](#generate-a-ssl-key)
@@ -6,19 +11,16 @@
   - [Update Server SSH Keys](#update-server-ssh-keys)
 - [Install Terminator](#install-terminator)
 - [NVIDIA Drivers](#nvidia-drivers)
+  - [CUDA](#cuda)
+- [Gnome Setup](#gnome-setup)
 - [Nodejs 18](#nodejs-18)
 - [Git](#git)
 - [Software](#software)
-  - [Cuda](#cuda)
   - [blender](#blender)
   - [discord](#discord)
   - [MongoDB Compass](#mongodb-compass)
   - [Docker](#docker)
-  - [Pgadmin](#pgadmin)
-
-# Fedora
-
-In June 2023 I did an update / upgrade on ubuntu and it caused my system not to boot. (NVIDIA driver issue that defaulted my system to an oracle kernel) That, combined with the snap issues I've been having, other X11/Wayland related NVIDIA driver issues, and other general frustrations with the direction that Canonical has been taking; I have decided to give Fedora a shot.
+  - [pgAdmin 4](#pgadmin-4)
 
 # Install Brave
 
@@ -26,11 +28,13 @@ The [Brave Website](https://brave.com/linux/#fedora-centos-streamrhel) has insta
 
 # Install VSCode
 
-One the [VSCode Website](https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions) there are instructions to get vscode up and running. Then, [VSCode Setup](./setup-vscode.md).
+On the [VSCode Website](https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions) there are instructions to get vscode up and running. Then, (my) [VSCode Setup](./setup-vscode.md) for configuration and extensions.
 
 # Generate a ssl key
 
-``` bash
+(for ssh and git)
+
+```bash
 ssh-keygen -t rsa -b 4096 -C "{your-email-address}"
 ```
 
@@ -58,6 +62,8 @@ Ensure to remove any old keys previously in use, and update with the new (public
 - penpot
 - gitea
 - pickle
+- orange
+- spark
 
 # Install Terminator
 
@@ -75,37 +81,9 @@ There are several guides available that use RPM Fusion repos.
 
 [This is the one](https://phoenixnap.com/kb/fedora-nvidia-drivers) that I used.
 
-# Nodejs 18
+## CUDA
 
-``` bash
-# Download and install the repo
-curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
-
-# Install the required tooling and nodejs 18 (from the repo that was just added)
-sudo yum -y install gcc-c++ make nodejs
-
-# Verify node version
-node -v
-```
-
-# Git
-
-```bash
-git config --global user.name "{YOUR NAME HERE}"
-git config --global user.email "{your.email@here}"
-# If you prefer vim
-git config --global core.editor "vim"
-# On October 1, 2020, GitHub renamed 'master' to 'main'; the defaultBranch variable will match that locally
-git config --global init.defaultBranch main
-```
-
-# Software
-
-Here's the software that I feel is necessary on a day-to-day basis for The Odin Project.
-
-## Cuda
-
-Here's how you get [CUDA working in blender](https://discussion.fedoraproject.org/t/nvidia-cuda-is-not-shown-in-blender/75946/5)
+Here's how I got [CUDA working in blender](https://discussion.fedoraproject.org/t/nvidia-cuda-is-not-shown-in-blender/75946/5)
 
 ```bash
 sudo dnf upgrade
@@ -142,7 +120,7 @@ nvidia              56393728  667 nvidia_uvm,nvidia_modeset
 video                  65536  1 nvidia_modeset
 ```
 
-What worked for me, was just dropping the `|nouveau` to verify that it worked. I don't know exactly what I'm supposed to be looking for here. I re-ran that lsmod command with `nouveau` instead of `nvidia`, and it didn't return anything. I think that's good.
+What worked for me, was just dropping the `|nouveau` to verify that it worked. I don't know exactly what I'm supposed to be looking verifying here. Just checking to see if the module is / isn't loaded? I re-ran that lsmod command with `nouveau` instead of `nvidia`, and it didn't return anything. I think that's good.
 
 I looked in my grub config, and it was far different than what he had listed, and the blacklist options were in there to blacklist nouveau in the kernel. So I ran
 
@@ -150,8 +128,38 @@ I looked in my grub config, and it was far different than what he had listed, an
 sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 ```
 
-And rebooted a final time.
+And rebooted a final time. (And CUDA is not available as an option in blender.)
 
+# Gnome Setup
+
+If you plan on using Gnome extensions, be sure to install the browser connector.
+
+```
+dnf install gnome-browser-connector
+```
+
+Then, see (my) [Gnome Setup](./setup-gnome.md) page.
+
+# Nodejs 18
+
+```bash
+# Download and install the repo
+curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
+
+# Install the required tooling and nodejs 18 (from the repo that was just added)
+sudo yum -y install gcc-c++ make nodejs
+
+# Verify node version
+node -v
+```
+
+# Git
+
+See (my) [Git Setup](./git.md#setup) section.
+
+# Software
+
+Here's the software that I feel is necessary on a day-to-day basis for The Odin Project.
 
 ## blender
 
@@ -171,7 +179,7 @@ Installed through "Software" / flatpack.
 
 Docker has a [set of instructions](https://docs.docker.com/engine/install/fedora/) on their website to install on Fedora.
 
-## Pgadmin
+## pgAdmin 4
 
 ```
 sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm

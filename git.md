@@ -1,5 +1,9 @@
 # Git <!-- omit in toc -->
 
+Git is a distributed version control system. It was developed by Linus Torvalds to provide versioning for the linux kernel. It is (basically) time travel and backup for your files.
+
+- [Setup](#setup)
+  - [Default Git Editor](#default-git-editor)
 - [The 80 percent](#the-80-percent)
 - [Branching](#branching)
   - [Create Branch Shorthand](#create-branch-shorthand)
@@ -15,12 +19,28 @@
 - [Quick Guide (new repo)](#quick-guide-new-repo)
   - [Creating a new repository on the command line](#creating-a-new-repository-on-the-command-line)
   - [Pushing an existing repository from the command line](#pushing-an-existing-repository-from-the-command-line)
-- [Change git editor](#change-git-editor)
 - [Git Commit Guidelines](#git-commit-guidelines)
 - [Writing a README.md](#writing-a-readmemd)
 - [Reference Links](#reference-links)
 
-Git is a distributed version control system. It was developed by Linus Torvalds to provide versioning for the linux kernel. It is (basically) time travel and backup for your files.
+# Setup
+
+```bash
+git config --global user.name "{YOUR NAME HERE}"
+git config --global user.email "{your.email@here}"
+# If you prefer vim
+git config --global core.editor "vim"   # <- Personal Preference (see below)
+# On October 1, 2020, GitHub renamed 'master' to 'main'; the defaultBranch variable will match that locally
+git config --global init.defaultBranch main
+```
+
+## Default Git Editor
+
+```bash
+git config --global core.editor "vim"           # vim (my preference)
+git config --global core.editor "pico"          # default
+git config --global core.editor "code --wait"   # vscode
+```
 
 # The 80 percent
 
@@ -179,14 +199,6 @@ git push -u origin main
 ```bash
 git remote add origin git@gitea.xeno.org:grok/writing.git
 git push -u origin main
-```
-
-# Change git editor
-
-```bash
-git config --global core.editor "vim"           # vim (my preference)
-git config --global core.editor "pico"          # default
-git config --global core.editor "code --wait"   # vscode
 ```
 
 # Git Commit Guidelines
