@@ -1,25 +1,32 @@
 [figure-headings]: ./.project/figures/markdown/headings.png
 
-- [🚧 Work In Progress (14JUN2023)](#-work-in-progress-14jun2023)
-- [Markdown](#markdown)
-- [README.md](#readmemd)
-- [Reference Links](#reference-links)
+# Markdown <!-- omit in toc -->
+
+# 🚧 Work In Progress (07JUL2023)
+
+- [🚧 Work In Progress (07JUL2023)](#-work-in-progress-07jul2023)
+- [Markdown ➡ PDF](#markdown--pdf)
+- [Git README.md](#git-readmemd)
 - [Headings](#headings)
 - [Links](#links)
   - [Link Definitions](#link-definitions)
 - [🚧 Mermaid](#-mermaid)
   - [State Diagram](#state-diagram)
     - [An example State Diagram (Graph)](#an-example-state-diagram-graph)
-
-# 🚧 Work In Progress (14JUN2023)
-
-# Markdown
+- [Reference Links](#reference-links)
 
 The constraints provided by Markdown force "good" note-taking habits. I will not claim to have the "best notes," but what I will say is that the quality of my notes improved when I started using markdown.
 
 Markdown is not complicated. But there is a bit of an art to managing a large markdown project. It's a skill that I am still developing. For the most part, Markdown is "just" understanding what is possible within the constraints of the 'language.'
 
-# README.md
+# Markdown ➡ PDF
+
+```bash
+pandoc ./footprints.md -o test.pdf
+pandoc ./footprints.md -V geometry:landscape -o test.pdf
+```
+
+# Git README.md
 
 The `README.md` is the public face for your project. The ability to write a good one is a _fantastic_ skill to have.
 
@@ -42,19 +49,6 @@ The `README.md` is the public face for your project. The ability to write a good
 7. (if applicable) Credit any resources being used (images, boiler plate / starter code, etc.)
 8. (optional/blog) Explain your development process
 9. (optional/blog) Explain your motivation behind the project
-
-# Reference Links
-
-| Title                                                                                                                                                          | Site            | Description                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
-| [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) | Github          | Markdown guide, produced by the site that is rendering this markdown; github.                        |
-| [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)                                                                                                      | Markdown Guide  | Has a lot of concise examples, and an "extended syntax" page that is very good for table formatting. |
-| [Extended Syntax](https://www.markdownguide.org/cheat-sheet/)                                                                                                  | Markdown Guide  | Great for making tables behave reasonably in Gitea and on GitHub                                     |
-| [CommonMark](https://commonmark.org/)                                                                                                                          | Common Mark     | Advocate for a common specification for markdown                                                     |
-| [Markdown in 60 sec](https://commonmark.org/help/)                                                                                                             | Common Mark     | Learn Markdown in 60 seconds (It really is this easy to get started.)                                |
-| [Markdown in 10 min](https://commonmark.org/help/tutorial/)                                                                                                    | Common Mark     | A tutorial that has you practice markdown, meant to take about ten minutes.                          |
-| ...[Variables?](https://stackoverflow.com/questions/24580042/github-markdown-are-macros-and-variables-possible)                                                | StackOverflow   | I learned many things from the discussion on this page.                                              |
-| [Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)                                                                                        | Daring Fireball | A very strong syntax resource.                                                                       |
 
 # Headings
 
@@ -171,3 +165,16 @@ stateDiagram
   }
 
 ```
+
+# Reference Links
+
+| Title                                                                                                                                                          | Site            | Description                                                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
+| [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) | Github          | Markdown guide, produced by the site that is rendering this markdown; github.                        |
+| [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)                                                                                                      | Markdown Guide  | Has a lot of concise examples, and an "extended syntax" page that is very good for table formatting. |
+| [Extended Syntax](https://www.markdownguide.org/cheat-sheet/)                                                                                                  | Markdown Guide  | Great for making tables behave reasonably in Gitea and on GitHub                                     |
+| [CommonMark](https://commonmark.org/)                                                                                                                          | Common Mark     | Advocate for a common specification for markdown                                                     |
+| [Markdown in 60 sec](https://commonmark.org/help/)                                                                                                             | Common Mark     | Learn Markdown in 60 seconds (It really is this easy to get started.)                                |
+| [Markdown in 10 min](https://commonmark.org/help/tutorial/)                                                                                                    | Common Mark     | A tutorial that has you practice markdown, meant to take about ten minutes.                          |
+| ...[Variables?](https://stackoverflow.com/questions/24580042/github-markdown-are-macros-and-variables-possible)                                                | StackOverflow   | I learned many things from the discussion on this page.                                              |
+| [Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)                                                                                        | Daring Fireball | A very strong syntax resource.                                                                       |
