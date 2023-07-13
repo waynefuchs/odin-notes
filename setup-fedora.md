@@ -1,8 +1,6 @@
 # Fedora <!-- omit in toc -->
 
-In June 2023 I did an update / upgrade on ubuntu and it caused my system not to boot. (NVIDIA driver issue that defaulted my system to an oracle kernel) That, combined with the snap issues I've been having, other X11/Wayland related NVIDIA driver issues, and other general frustrations with the direction that Canonical has been taking; I have decided to give Fedora a shot.
-
-July 10 Update: It's been 20 days since I installed Fedora. I am _very_ happy with that decision.
+Fedora is a Linux distribution that is the upstream source for CentOS and Red Hat Enterprise Linux (RHEL). There are five editions: `personal computer`, `server`, `cloud computing`, `containerization`, and `internet of things`.
 
 - [Install Brave](#install-brave)
 - [Install VSCode](#install-vscode)
