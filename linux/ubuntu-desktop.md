@@ -1,3 +1,10 @@
+<!-- Local Content Links -->
+
+[vscode-setup]: ../vscode-configuration.md
+[gnome-setup]: ./Gnome-configuration.md
+[git-setup]: ../git.md#setup
+[docker-db-setup]: ../databases/docker-db-setup.md
+
 # Ubuntu Setup
 
 Ubuntu is a linux distribution that is based on Debian. It is released every 6 months, with each release receiving 9 months of support. Every 2 years, a Long Term Support (LTS) version is released, which is supported for five years.
@@ -43,11 +50,11 @@ sudo apt install chrome-gnome-shell
 sudo apt install gnome-browser-connector
 ```
 
-Then, see (my) [Gnome Setup](./setup-gnome.md) page.
+Then, see (my) [Gnome Setup][gnome-setup] page.
 
 # Git
 
-See (my) [Git Setup](./git.md#setup) section.
+See (my) [Git Setup][git-setup] section.
 
 # Install Docker
 
@@ -55,7 +62,7 @@ See (my) [Git Setup](./git.md#setup) section.
 
 # Install Databases (if required)
 
-See (my) [Docker Databases Setup](./databases/Docker-Databases.md) information to get up and running with Postgres and Mongodb.
+See (my) [Docker Databases Setup][docker-db-setup] information to get up and running with Postgres and Mongodb.
 
 I have a home lab (separate servers) that I now run my databases on, and would recommend that route to anyone that has the ability to do so.
 
@@ -86,7 +93,7 @@ I try and avoid snaps as much as possible. Here are the ones I use.
 
 # VSCode Setup
 
-See (my) [VSCode Setup](./setup-vscode.md).
+See (my) [VSCode Setup][vscode-setup].
 
 # Postman with Gnome Launcher
 
@@ -112,7 +119,7 @@ Remote desktop access, similar to VNC.
 
 Download and install [NoMachine](https://www.nomachine.com/)
 
-`sudo apt install ./<downloaded-nomachine-file.deb>`
+`sudo apt install <downloaded-nomachine-file.deb>`
 
 # Remove Games
 
