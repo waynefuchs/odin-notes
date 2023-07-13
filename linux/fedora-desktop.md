@@ -1,3 +1,8 @@
+<!-- Links to Local Content -->
+
+[vscode-setup]: ../VSCode-Configuration.md
+[gnome-setup]: ./Gnome-Configuration.md
+
 # Fedora <!-- omit in toc -->
 
 Fedora is a Linux distribution that is the upstream source for CentOS and Red Hat Enterprise Linux (RHEL). There are five editions: `personal computer`, `server`, `cloud computing`, `containerization`, and `internet of things`.
@@ -26,7 +31,7 @@ The [Brave Website](https://brave.com/linux/#fedora-centos-streamrhel) has insta
 
 # Install VSCode
 
-On the [VSCode Website](https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions) there are instructions to get vscode up and running. Then, (my) [VSCode Setup](../setup-vscode.md) for configuration and extensions.
+On the [VSCode Website](https://code.visualstudio.com/docs/setup/linux#_rhel-fedora-and-centos-based-distributions) there are instructions to get vscode up and running. Then, (my) [VSCode Configuration][vscode-setup] for configuration and extensions.
 
 # Generate a ssl key
 
@@ -136,7 +141,7 @@ If you plan on using Gnome extensions, be sure to install the browser connector.
 dnf install gnome-browser-connector
 ```
 
-Then, see (my) [Gnome Setup](./setup-gnome.md) page.
+Then, see (my) [Gnome Setup][gnome-setup] page.
 
 # Nodejs 18
 

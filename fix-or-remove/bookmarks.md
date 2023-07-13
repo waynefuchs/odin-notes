@@ -1,4 +1,11 @@
-- [Web Design Bookmarks](#web-design-bookmarks)
+# Bookmarks
+
+This page is sort of a culmination of the links that I have found useful at one point or another.
+
+> 🚧 TODO: Clean this up and make it more usable
+
+- [Bookmarks](#bookmarks)
+  - [Contributing to Open Source](#contributing-to-open-source)
   - [Learning Web Design](#learning-web-design)
   - [Version Control](#version-control)
   - [HTML](#html)
@@ -22,9 +29,13 @@
     - [Interesting APIs and Documentation](#interesting-apis-and-documentation)
   - [React Education and Documentation Links](#react-education-and-documentation-links)
 
-# Web Design Bookmarks
+## Contributing to Open Source
 
-> TODO: Clean this up and make it more usable
+I want to get involved with Open Source to get some more real world experience. Here is my personal curated shortlist.
+
+| Project                                                                        | Link Description        |
+| ------------------------------------------------------------------------------ | ----------------------- |
+| [The Odin Project](https://github.com/orgs/TheOdinProject/projects/27/views/1) | Curriculum Kanban Board |
 
 ## Learning Web Design
 
@@ -171,8 +182,8 @@ It's too easy to waste time playing with colors... Combine this with a UI/UX too
 
 ## React Education and Documentation Links
 
-| Site                                                                               | Description                                           |
-| ---------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [React Lifecycles](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) | A visual representation of react component lifecycles |
-| [NextJS Course](https://masteringnextjs.com/)                                      | By Lee Robinson, the creator of NextJS                |
-| [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)                | Finds the "colon code" for emojis (not so useful)     |
+| Site                                                                               | Description                                                           |
+| ---------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [React Lifecycles](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/) | A visual representation of react component lifecycles                 |
+| [NextJS Course](https://masteringnextjs.com/)                                      | By Lee Robinson, the creator of NextJS                                |
+| [Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)                | Finds the "colon code" for emojis (not so useful; just use the emoji) |
