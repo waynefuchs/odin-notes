@@ -1,9 +1,8 @@
 - [Docker Database Setup](#docker-database-setup)
+- [Postgres Backup](#postgres-backup)
+- [Restore](#restore)
 - [Links](#links)
-- [Docker Commands](#docker-commands)
 - [docker-compose](#docker-compose)
-  - [start the databases](#start-the-databases)
-  - [stop the databases](#stop-the-databases)
 - [Notes for a YouTube Tutorial Video](#notes-for-a-youtube-tutorial-video)
   - [`.dockerignore`](#dockerignore)
   - [`Dockerfile`](#dockerfile)
@@ -16,36 +15,41 @@
 
 # Docker Database Setup
 
-I run these using `docker-compose.yaml` files, which auto-start on system load.
+I run all of my development databases using the following `docker-compose.yaml` files, which auto-start on system load due to the `restart: always` directive in the docker-compose.yaml.
+
+# Postgres Backup
+
+Assuming the container is running and is called `db_postgres`:
+
+```bash
+# This can be copy/pasted
+docker exec -i db_postgres /usr/bin/pg_dumpall -U postgres > backup/postgres-`date +"%Y-%m-%d-%H.%M.%S"`.sql
+```
+
+# Restore
+
+Assuming the container is running and is called `db_postgres`
+
+```bash
+# This needs to be typed to fill in details
+docker exec -it db_postgres /bin/bash
+psql -U postgres -f /backup/{file to restore}.sql template1
+```
 
 # Links
 
-| Software                                        | Note                                                                                                                                                 |
-| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Penpot](https://penpot.app/)                   | A _really good_ open source replacement for Figma. The docker-compose file is provided with installation instructions on the self-host install page. |
-| [Mongodb](https://hub.docker.com/_/mongo)       | The MongoDB database                                                                                                                                 |
-| [PostgreSQL](https://hub.docker.com/_/postgres) | The PostgreSQL database                                                                                                                              |
-| [Adminer](https://hub.docker.com/_/adminer)     | A database administration panel                                                                                                                      |
-
-# Docker Commands
-
-| Command                            | Description                                             |
-| ---------------------------------- | ------------------------------------------------------- |
-| `docker exec -it [hash/name] bash` | get a shell on a running container                      |
-| `docker ps`                        | list running docker containers                          |
-| `docker compose down`              | Shut down the current `docker-compose.yaml` containers. |
-| `docker compose build`             | build an image                                          |
-| `docker compose up -d`             | Start containers using the `docker-compose.yaml` file.  |
+| Software                                        | Note                    |
+| ----------------------------------------------- | ----------------------- |
+| [Mongodb](https://hub.docker.com/_/mongo)       | The MongoDB database    |
+| [PostgreSQL](https://hub.docker.com/_/postgres) | The PostgreSQL database |
 
 # docker-compose
 
-> ⚠️ Caution: There may be a better way to write this `docker-compose.yaml` in terms of security, reliability, data persistence, et cetera. This is what has worked (flawlessly) for me, at the time of this writing, for approximately a year. With that said, use this at your own risk.
+> ⚠️ Caution: For security, reliability, data persistence, et cetera; there may be a better way to write this `docker-compose.yaml`. This, however, is what has worked (flawlessly) for me for years. With that said, use this at your own risk.
 
-> ⓘ Note: I combine PostgreSQL and MongoDB into a single docker container to keep database stuff together. This may be better to split out separately.
+> ⓘ Note: I keep all of my databases in a single docker container to keep database stuff together. This may be better to split out separately.
 
-> ⓘ TODO: Figure out nginx proxy with nodejs. I would love to start "containerizing" my applications.
-
-```
+```yaml
 # docker-compose.yaml
 version: "3.9"
 
@@ -69,7 +73,7 @@ services:
     networks:
       - dockerdev
     environment:
-      POSTGRES_PASSWORD: {YOUR-PASSWORD-HERE}
+      POSTGRES_PASSWORD: { YOUR-PASSWORD-HERE }
     ports:
       - "5432:5432"
     volumes:
@@ -91,18 +95,6 @@ volumes:
 
 networks:
   dockerdev:
-```
-
-## start the databases
-
-```
-docker compose up -d
-```
-
-## stop the databases
-
-```
-docker compose down
 ```
 
 # Notes for a YouTube Tutorial Video

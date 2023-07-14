@@ -1,7 +1,7 @@
 <!-- Local Content Links -->
 
 [vscode-setup]: ../vscode-configuration.md
-[gnome-setup]: ./Gnome-configuration.md
+[gnome-setup]: ./gnome-configuration.md
 [git-setup]: ../git.md#setup
 [docker-db-setup]: ../databases/docker-db-setup.md
 
@@ -31,7 +31,7 @@ Ubuntu is a linux distribution that is based on Debian. It is released every 6 m
 
 Windows expects the system clock to be set to local time. Linux defaults to GMT. The easiest solution is to set linux to use local time.
 
-```
+```bash
 timedatectl set-local-rtc 1
 ```
 

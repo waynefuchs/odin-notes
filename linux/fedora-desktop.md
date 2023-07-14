@@ -1,7 +1,7 @@
 <!-- Local Content Links -->
 
 [vscode-setup]: ../vscode-configuration.md
-[gnome-setup]: ./Gnome-configuration.md
+[gnome-setup]: ./gnome-configuration.md
 [git-setup]: ../git.md#setup
 
 # Fedora <!-- omit in toc -->
