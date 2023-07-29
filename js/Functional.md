@@ -1,5 +1,9 @@
 # My Functional Programming Cheat Sheet <!-- omit in toc -->
 
+[Functional Javascript](https://opensource.com/article/17/6/functional-javascript)
+
+Functional programming is a _declarative_ programming paradigm (describe what you want to do, rather than how)
+
 - [Array](#array)
 - [every](#every)
 - [fill](#fill)
