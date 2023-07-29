@@ -1,6 +1,8 @@
 - [Docker Database Setup](#docker-database-setup)
-- [Postgres Backup](#postgres-backup)
-- [Restore](#restore)
+- [Postgres](#postgres)
+  - [TODO PUT DOCKER FILE HERE](#todo-put-docker-file-here)
+  - [Backup](#backup)
+  - [Restore](#restore)
 - [Links](#links)
 - [docker-compose](#docker-compose)
 - [Notes for a YouTube Tutorial Video](#notes-for-a-youtube-tutorial-video)
@@ -17,22 +19,26 @@
 
 I run all of my development databases using the following `docker-compose.yaml` files, which auto-start on system load due to the `restart: always` directive in the docker-compose.yaml.
 
-# Postgres Backup
+# Postgres
+
+## TODO PUT DOCKER FILE HERE
+
+## Backup
 
 Assuming the container is running and is called `db_postgres`:
 
 ```bash
 # This can be copy/pasted
-docker exec -i db_postgres /usr/bin/pg_dumpall -U postgres > backup/postgres-`date +"%Y-%m-%d-%H.%M.%S"`.sql
+docker exec -i db-postgres-1 /usr/bin/pg_dumpall -U postgres > backup/postgres-`date +"%Y-%m-%d-%H.%M.%S"`.sql
 ```
 
-# Restore
+## Restore
 
 Assuming the container is running and is called `db_postgres`
 
 ```bash
 # This needs to be typed to fill in details
-docker exec -it db_postgres /bin/bash
+docker exec -it db-postgres-1 /bin/bash
 psql -U postgres -f /backup/{file to restore}.sql template1
 ```
 

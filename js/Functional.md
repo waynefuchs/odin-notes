@@ -1,20 +1,24 @@
-- [My Functional Programming Cheat Sheet](#my-functional-programming-cheat-sheet)
-  - [every](#every)
-  - [fill](#fill)
-  - [filter](#filter)
-  - [find | findIndex | findLast | findLastIndex](#find--findindex--findlast--findlastindex)
-  - [forEach](#foreach)
-  - [includes](#includes)
-  - [map](#map)
-  - [reduce](#reduce)
-  - [some](#some)
-  - [sort](#sort)
+# My Functional Programming Cheat Sheet <!-- omit in toc -->
 
-# My Functional Programming Cheat Sheet
+- [Array](#array)
+- [every](#every)
+- [fill](#fill)
+- [filter](#filter)
+- [find | findIndex | findLast | findLastIndex](#find--findindex--findlast--findlastindex)
+- [flat](#flat)
+- [flatMap](#flatmap)
+- [forEach](#foreach)
+- [includes](#includes)
+- [map](#map)
+- [reduce](#reduce)
+- [some](#some)
+- [sort](#sort)
 
-[`Array.prototype` Mozilla Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+# Array
 
-## every
+[`Array.prototype` Mozilla Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+
+# every
 
 Returns `true`|`false` on whether all elements pass the implemented test.
 
@@ -23,7 +27,7 @@ Returns `true`|`false` on whether all elements pass the implemented test.
 [1, "a", 2, 3, 4].every((n) => !isNaN(n));
 ```
 
-## fill
+# fill
 
 Changes specified elements to a static value.
 `[].fill(StaticValue, StartIndex, ToIndex=EndOfArray)`
@@ -33,7 +37,7 @@ Changes specified elements to a static value.
 [1, 2, 3, 4].fill(99, 1, 3);
 ```
 
-## filter
+# filter
 
 Return a new array, removing all elements that do not pass the implemented test.
 
@@ -42,7 +46,7 @@ Return a new array, removing all elements that do not pass the implemented test.
 [1, "a", 2, 3, 4].filter((n) => !isNaN(n));
 ```
 
-## find | findIndex | findLast | findLastIndex
+# find | findIndex | findLast | findLastIndex
 
 Find: Return the first element that satisfies the implemented test.
 FindIndex: Return the index of the first element that satisfies the implemented test.
@@ -63,7 +67,28 @@ FindLastIndex: Return the index of the last element that satisfies the implement
 [0, 0, 99, 105].findLastIndex((n) => n > 2);
 ```
 
-## forEach
+# flat
+
+Flatten an array, traversing into the array by `depth` amount. `flat(depth)` where depth defaults to 1.
+
+```js
+// returns [1, 2, [3, 4], 5]
+[1, 2, [[3, 4], 5]].flat(); // flat() = flat(1)
+
+// returns [1, 2, 3, 4, 5]
+[1, 2, [[3, 4], 5]].flat(2);
+```
+
+# flatMap
+
+Combine `map` + `flat(1)` into a single operation.
+
+```js
+// [ false, 'foo', 'bar', false ]
+[1, 2, 3].flatMap((n) => (n === 2 ? ["foo", "bar"] : false));
+```
+
+# forEach
 
 Execute a provided function once for each element
 `forEach((element, index, array) => {})`
@@ -75,11 +100,11 @@ Execute a provided function once for each element
 });
 ```
 
-## includes
+# includes
 
 Return bool indicating whether specified element is contained in array.
 
-## map
+# map
 
 Map Elements to Results
 `map((element, index, array) => {})`
@@ -91,7 +116,7 @@ Map Elements to Results
 [1, 2, 3, 4].map((i) => i + 1);
 ```
 
-## reduce
+# reduce
 
 Combine all elements together in some manner.
 
@@ -108,11 +133,11 @@ Examples:
 [1, 2, 3, 4].reduce((pv, cv) => pv + cv, 0);
 ```
 
-## some
+# some
 
 Test whether at least one element in the array passes the implemented test.
 
-## sort
+# sort
 
 ```js
 const month = {

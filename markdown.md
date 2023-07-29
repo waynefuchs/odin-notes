@@ -2,22 +2,27 @@
 
 # Markdown <!-- omit in toc -->
 
-# 🚧 Work In Progress (07JUL2023)
+# 🚧 Work In Progress <!-- omit in toc -->
 
-- [🚧 Work In Progress (07JUL2023)](#-work-in-progress-07jul2023)
+- asdf
+- 07JUL2023
+
+---
+
+Markdown is a Text-to-HTML _~~hack of a perl script~~_ translation tool. It allows for easily written and readable text documents that can be parsed into well organized and easily searchable formatted and styled documentation.
+
+The constraints provided by Markdown _also_ force "good" note-taking habits. Most people will notice the quality of their notes will improve when using markdown.
+
 - [Markdown ➡ PDF](#markdown--pdf)
 - [Git README.md](#git-readmemd)
 - [Headings](#headings)
-- [Links](#links)
-  - [Link Definitions](#link-definitions)
+- [🚧 Links](#-links)
+  - [Internal / External Links](#internal--external-links)
+  - [➕ Link Definitions](#-link-definitions)
 - [🚧 Mermaid](#-mermaid)
   - [State Diagram](#state-diagram)
     - [An example State Diagram (Graph)](#an-example-state-diagram-graph)
 - [Reference Links](#reference-links)
-
-The constraints provided by Markdown force "good" note-taking habits. I will not claim to have the "best notes," but what I will say is that the quality of my notes improved when I started using markdown.
-
-Markdown is not complicated. But there is a bit of an art to managing a large markdown project. It's a skill that I am still developing. For the most part, Markdown is "just" understanding what is possible within the constraints of the 'language.'
 
 # Markdown ➡ PDF
 
@@ -28,29 +33,31 @@ pandoc ./footprints.md -V geometry:landscape -o test.pdf
 
 # Git README.md
 
-The `README.md` is the public face for your project. The ability to write a good one is a _fantastic_ skill to have.
+The `README.md` is the public face for every project and being able to write a good one is important. Some recommendations:
 
-🚧 Here are some guidelines I am curating in regard to writing a good README.md.
-
-1. Use Media in READMEs
-   - Photos
+1. Use Media
+   - Photos (screenshots, pictures, emoji, logos, etc)
    - Videos
-   - Gifs
    - Audio
 2. Provide installation instructions
 3. Provide instructions for operation of the software
+   - Prerequisites
    - Configuration
    - Options
-   - Standard / Non-standard use cases
+   - Standard _and_ Non-standard use cases
    - CLI Switches
-4. List out the technologies you used
+4. List technologies used
 5. (If applicable) Provide information on how to contribute towards the project
 6. (if applicable) License information
-7. (if applicable) Credit any resources being used (images, boiler plate / starter code, etc.)
-8. (optional/blog) Explain your development process
-9. (optional/blog) Explain your motivation behind the project
+7. (if applicable) Credit any resources being used (images, boiler plate / starter code, libraries, etc.)
+8. (optional/blog) Your development process
+9. (optional/blog) Motivation and Passion behind the project
+
+> ⓘ Note: The [Fira Code](https://github.com/tonsky/FiraCode) github project is one of the better Markdown files that I have seen. (It's the one that immediately came to mind when thinking of examples.)
 
 # Headings
+
+Headings are not to be used for formatting. They are used for document structure. Technically
 
 ```markdown
 # Heading Level 1
@@ -68,15 +75,40 @@ The `README.md` is the public face for your project. The ability to write a good
 
 ![Heading Example][figure-headings]
 
-# Links
+# 🚧 Links
 
-## Link Definitions
+> 🚧 TODO: Links are so simple, and incredibly complicated because of the difference between markdown variants.
 
-You can think of a link definition as a sort of link variable that is stripped from the document in the HTML output.
+## Internal / External Links
 
+```Markdown
+[Internal Page Link](README.md)
+[External Page Link](https://www.google.com/)
 ```
-[arbitrary case-insensitive reference text]: https://with.some.uri "And an Optional Title ... Or Not"
+
+[Internal Page Link](README.md): This Project's Landing Page
+[External Page Link](https://www.google.com/): Google
+
+## ➕ Link Definitions
+
+A link definition is a variable that is stripped from the document in the HTML output.
+
+There are three parts to a link defiition. `[arbitrary case-insensitive reference text]: https://with.some.uri "And an Optional Title"`
+
+Link Definition Example
+
+```Markdown
+[project-main-readme]: ./README.md "This Project"
+[Foo Bar](project-main-readme)
 ```
+
+<!-- This will not be rendered -->
+
+[project-main-readme]: ./README.md "This Project" <!-- The Link Definition -->
+
+[Foo Bar](project-main-readme) <!-- The Link Definition being used -->
+
+<!-- END non-rendering Link Definition Example -->
 
 This defines a "markdown variable" with the key-value pair of:
 
@@ -168,13 +200,14 @@ stateDiagram
 
 # Reference Links
 
-| Title                                                                                                                                                          | Site            | Description                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------- |
-| [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) | Github          | Markdown guide, produced by the site that is rendering this markdown; github.                        |
-| [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)                                                                                                      | Markdown Guide  | Has a lot of concise examples, and an "extended syntax" page that is very good for table formatting. |
-| [Extended Syntax](https://www.markdownguide.org/cheat-sheet/)                                                                                                  | Markdown Guide  | Great for making tables behave reasonably in Gitea and on GitHub                                     |
-| [CommonMark](https://commonmark.org/)                                                                                                                          | Common Mark     | Advocate for a common specification for markdown                                                     |
-| [Markdown in 60 sec](https://commonmark.org/help/)                                                                                                             | Common Mark     | Learn Markdown in 60 seconds (It really is this easy to get started.)                                |
-| [Markdown in 10 min](https://commonmark.org/help/tutorial/)                                                                                                    | Common Mark     | A tutorial that has you practice markdown, meant to take about ten minutes.                          |
-| ...[Variables?](https://stackoverflow.com/questions/24580042/github-markdown-are-macros-and-variables-possible)                                                | StackOverflow   | I learned many things from the discussion on this page.                                              |
-| [Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)                                                                                        | Daring Fireball | A very strong syntax resource.                                                                       |
+| Title                                                                                                                                                          | Site            | Description                                                                                                                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) | Github          | Markdown guide, produced by the site that is rendering this markdown; github.                                                                                                                                                          |
+| [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)                                                                                                      | Markdown Guide  | Has a lot of concise examples, and an "extended syntax" page that is very good for table formatting.                                                                                                                                   |
+| [Extended Syntax](https://www.markdownguide.org/cheat-sheet/)                                                                                                  | Markdown Guide  | Great for making tables behave reasonably in Gitea and on GitHub                                                                                                                                                                       |
+| [CommonMark](https://commonmark.org/)                                                                                                                          | Common Mark     | Advocate for a common specification for markdown                                                                                                                                                                                       |
+| [Markdown in 60 sec](https://commonmark.org/help/)                                                                                                             | Common Mark     | Learn Markdown in 60 seconds (It really is this easy to get started.)                                                                                                                                                                  |
+| [Markdown in 10 min](https://commonmark.org/help/tutorial/)                                                                                                    | Common Mark     | A tutorial that has you practice markdown, meant to take about ten minutes.                                                                                                                                                            |
+| ...[Variables?](https://stackoverflow.com/questions/24580042/github-markdown-are-macros-and-variables-possible)                                                | StackOverflow   | I learned many things from the discussion on this page.                                                                                                                                                                                |
+| [Markdown: Syntax](https://daringfireball.net/projects/markdown/syntax)                                                                                        | Daring Fireball | The original source of Markdown.                                                                                                                                                                                                       |
+| [On why Markdown is not a good, or even a half-decent, markup language](https://news.ycombinator.com/item?id=36793694)                                         | Hacker News     | I disagree. The comments are a bit spicy and incredibly informative / interesting with a lot of very knowledgeable people providing links.<br />🚧 TODO: Finish gleaning what I can from the comments before the info is lost to time. |
