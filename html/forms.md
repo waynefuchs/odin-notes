@@ -3,7 +3,7 @@
   - [\<form\>](#form)
   - [Button](#button)
     - [Input](#input)
-    - [Label](#label)
+  - [Label](#label)
   - [Links](#links)
     - [HTML](#html)
     - [JS Validation](#js-validation)
@@ -67,7 +67,7 @@ Container to hold form elements.
 - `required`: Require the field to be filled out.
 - `value=""`: The value of the form element. **Note**: For radio buttons, specify a value if you need to know which radio button is "on."
 
-### Label
+## Label
 
 `<label><input> text</label>`: Associate text with an input element. (You can click on the text to interact with the input)
 
