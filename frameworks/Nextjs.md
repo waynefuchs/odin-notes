@@ -1,5 +1,11 @@
 # NextJS
 
+# Useful Packages
+
+| package                      | description                                                                                           |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `npm i --save-dev cross-env` | Allow using path in package.json `"dev": "cross-env NODE_OPTIONS='--inspect' next dev"` for debugging |
+
 ## API
 
 [API Routes Introduction](https://nextjs.org/docs/api-routes/introduction)

@@ -1,3 +1,15 @@
+# Array <!-- omit in toc -->
+
+Arrays are fixed-size contiguous memory chunks. The javascript implementation has _many_ helper methods.
+
+> ⓘ An Array in javascript isn't actually an array, it is technically a List.
+>
+> Unless you consider performance, memory, and garbage collection; you can ignore the distinction between lists and arrays, and most people in the javascript world use `list` and `array` interchangeably.
+>
+> A list can be resized and behaves like a linked list with the ability to insert items into the array.
+>
+> The [ArrayBuffer](./ArrayBuffer.md) data structure in javascript behaves like a traditional C-style array.
+
 - [Array Creation](#array-creation)
   - [Speed](#speed)
 - [Properties](#properties)

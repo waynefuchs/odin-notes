@@ -1,38 +1,32 @@
 [figure-BigOGraph]: ../.project/figures/big-o.png
 
-- ["Big O" Notation](#big-o-notation)
-  - [Links](#links)
-  - ["Alternatives" to Big-O](#alternatives-to-big-o)
-    - [Big Ω (Omega Notation)](#big-ω-omega-notation)
-    - [Big-Θ (Big-Theta Notation)](#big-θ-big-theta-notation)
-  - [Time / Space Complexity](#time--space-complexity)
-  - [Orders of Common Functions](#orders-of-common-functions)
-  - [Orders of Uncommon Functions](#orders-of-uncommon-functions)
-  - [Examples](#examples)
-    - [O(1)](#o1)
-    - [O(log n)](#olog-n)
-    - [O(n)](#on)
-    - [O(n log n)](#on-log-n)
-    - [O(n$^2$)](#on2)
-  - [Graph](#graph)
+# "Big O" Notation <!-- omit in toc -->
 
-# "Big O" Notation
+**Big O** is a measure of computational **time** or memory complexity vs **input** ralational to the input growth in an algorithm, and is (usually) analyzed in terms of "worst-case."
 
-**Big O** is a measure of **memory** and/or **time** complexity in an algorithm and is recorded in terms of "worst-case".
+> ⓘ Average and Best case are alternative niche options.
 
-There can be differences between the same Time Complexity. (eg: `O(n)` = `O(2n)` in big-O) and it is important to be as efficient as possible, even within each time complexity grouping.
+> ⓘ Constants are disregarded resulting in different operating speeds within the same theoretical time complexity:
+> `O(n)` = `O(n-14)` = `O(33n)`
 
-> ⓘ Info: The "O" in "Big O" stands for Order. (From the german word "Ordnung")
+> ⓘ The "O" in "Big O" stands for Order. (From German word "Ordnung")
 
-## Links
-
-| Title                                                                                                                                                             | Site              | Description                                                                     |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
-| [Big O Notation in Javascript](https://www.doabledanny.com/big-o-notation-in-javascript)                                                                          | Doable Danny      | The Ultimate Beginners Guide with Examples                                      |
-| [The Big-O Cheat Sheet](https://www.bigocheatsheet.com/)                                                                                                          | Big-O Cheat Sheet | A very cool reference with graphs and data                                      |
-| [Step-by-Step Big O Complexity Analysis Guide, using Javscript](https://www.sahinarslan.tech/posts/step-by-step-big-o-complexity-analysis-guide-using-javascript) | Şahin Arslan      | A beginner friendly presentation of Big-O                                       |
-| [Big O: Space Complexity](https://dev.to/mwong068/big-o-space-complexity-lcm)                                                                                     | dev.to            | A beginner-level overview of space complexity.                                  |
-| [Recursion and Space Complexity](https://dev.to/elmarshall/recursion-and-space-complexity-13gc)                                                                   | dev.to            | Uses an analogy to explain the _very_ basics of space complexity and recursion. |
+- ["Alternatives" to Big-O](#alternatives-to-big-o)
+  - [Big Ω (Omega Notation)](#big-ω-omega-notation)
+  - [Big-Θ (Big-Theta Notation)](#big-θ-big-theta-notation)
+- [Time / Space Complexity](#time--space-complexity)
+- [Orders of Common Functions](#orders-of-common-functions)
+- [Orders of Uncommon Functions](#orders-of-uncommon-functions)
+- [Examples](#examples)
+  - [O(1)](#o1)
+  - [O(log n)](#olog-n)
+  - [O(sqrt(n))](#osqrtn)
+  - [O(n)](#on)
+  - [O(n log n)](#on-log-n)
+  - [O(n$^2$)](#on2)
+  - [O(n$^3$)](#on3)
+- [Graph](#graph)
+- [References](#references)
 
 ## "Alternatives" to Big-O
 
@@ -79,18 +73,59 @@ The data set for all examples: `const data = [0, 1, .. n];`
 
 ### O(1)
 
-As good as it gets; regardless of n, the result will always take constant time.
+The result will always take constant time.
+
+> ⚠️It is counter-intuitive that `O(1)` = `O(c)`.
+>
+> However, this is why Big-O exists; to infer that constants in an algorithm's complexity are relatively meaningless. As long as the complexity does not increase with the growth of the input.
 
 ```js
-// A simple array read
-console.log(data[n - 1]);
+// Accessing an array is O(1)
+/* From a game that kids play in the first grade
+
+The "game" teaches how to "make ten" from any number to begin thinking in base 10.
+*/
+function makeTen(iHave) {
+  const array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0];
+  if (!(iHave >= 0 && iHave <= 10)) return undefined;
+  return array[iHave];
+}
+console.log(getNthElementPlusFive([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0], 3)); // 12
+
+// This is O(1) even though it has a for loop!
+function getNthElementPlusFive(input, n) {
+  let result = input[n];
+  for (let i = 0; i < 5; i++) {
+    result++;
+  }
+  return result;
+}
+
+// Simple arithmetic operations are O(1)
+/* This function is a silly solution of calculating the area of a square, merely to illustrate a Big-O concept.
+
+Even though there are additional calculations that would make this O(2 + error checking), the theoretical Big-O notation is O(1)
+*/
+function areaOfASquare(n) {
+  // I could do the calculation multiple times here
+  // (as long as the calculation was not dependant on n)
+  const result = n * n;
+  const anotherResult = n ** 2;
+  // I could do error checking here
+  if (result !== anotherResult) return undefined;
+  // The algorithm is still O(1)
+  return result;
+}
 ```
 
 ### O(log n)
 
 Doubling the size of n, increases the complexity by 1. (Very good)
 
+> ⓘ Note: Binary search trees operate on this level
+
 ```js
+// Silly example
 function logarithmicExample(data) {
   let numberOfLoops = 0;
   for (let logI = 1; logI < data.length; logI *= 2) {
@@ -113,6 +148,10 @@ console.log(logarithmicExample(Array(8))); // 3
 console.log(logarithmicExample(Array(64))); // 6
 ```
 
+### O(sqrt(n))
+
+Not typically mentioned, but reveals a trick.
+
 ### O(n)
 
 Linear complexity, as n grows, so does the complexity in a 1:1 constant.
@@ -129,11 +168,13 @@ function linearSearch(searchValue, data) {
 
 ### O(n log n)
 
-The most simple way I can think to describe this one is: `O(log n) × O(n)`
+The most simple way I can think to describe this one is: `O(log n) + O(n)` Or: You look at the entire data set once, then perform a log n "halving" operation on the same data set.
 
 (Personal rule of thumb) An algorithm that performs at this level, or worse, may benefit from optimization.
 
 > ⓘ Note: You can assume (for interview questions, and as a rule of thumb) that most sorting operations, using a language's built-in sort, operate on the `O(n log n)` time complexity.
+
+> ⓘ Note: Quicksort performs on this level.
 
 ```js
 // A combination of the O(log n) and O(n) examples above...
@@ -153,7 +194,7 @@ console.log(linearLogarithmic(Array(64))); // 384 (eg: 64×6; n=64, O(n)=64, O(l
 
 ### O(n$^2$)
 
-Quadratic complexity; an example is to iterate over every element in an array, and then inside of that array, also iterate over every element in that array. Usually not a great practice. Can work for a quick-and-dirty on-off solution.
+Quadratic complexity; an example is to iterate over every element in an array, and then inside of that array, also iterate over every element in that array. Usually not a great practice. Can work for a quick-and-dirty brute force solution. When I'm doing this, my code smell senses begin tingling.
 
 ```js
 // Naive implementation
@@ -169,6 +210,33 @@ function hasDuplicates(data) {
 }
 ```
 
+### O(n$^3$)
+
+```js
+const input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// O(n^3)
+function sumValuesNested(data) {
+  let sum = 0;
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data.length; j++) {
+      for (let k = 0; k < data.length; k++) {
+        sum += data[k];
+      }
+    }
+  }
+  return sum;
+}
+
+// O(n) solution for the same problem
+const SumValuesBetter = (data) =>
+  input.length ** 2 * input.reduce((p, v) => p + v, 0);
+
+// output
+console.log(sumValuesNested(input)); // 5500
+console.log(sumValuesBetter(input)); // 5500
+```
+
 ## Graph
 
 Big O is used to ballpark how a particular piece of code may perform.
@@ -177,7 +245,7 @@ However, I wanted to know in slightly more concrete terms how much more poorly O
 
 ![Big-O Graph][figure-BigOGraph]
 
-> Since writing the Octave code was a bit of a rabbit hole of it's own, I have included it here. I really miss mathcad. I wish I had learned Matlab instead of Mathcad, then a transition to Octave would be better. I just really need to force myself to use it.
+> Since writing the Octave code was a bit of a rabbit hole of it's own, I have included it here.
 
 ```matlab
 # Octave GNU
@@ -202,3 +270,14 @@ legend("location", "north");
 ylim([0 scale]);
 #axis("equal");
 ```
+
+## References
+
+| Title                                                                                                                                                             | Site              | Description                                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------- |
+| [Big O Time Complexity](https://frontendmasters.com/courses/algorithms/big-o-time-complexity/)                                                                    | Frontend Masters  | "The Last Algorithms Course You'll Need" by ThePrimeagen                        |
+| [Big O Notation in Javascript](https://www.doabledanny.com/big-o-notation-in-javascript)                                                                          | Doable Danny      | The Ultimate Beginners Guide with Examples                                      |
+| [The Big-O Cheat Sheet](https://www.bigocheatsheet.com/)                                                                                                          | Big-O Cheat Sheet | A very cool reference with graphs and data                                      |
+| [Step-by-Step Big O Complexity Analysis Guide, using Javscript](https://www.sahinarslan.tech/posts/step-by-step-big-o-complexity-analysis-guide-using-javascript) | Şahin Arslan      | A beginner friendly presentation of Big-O                                       |
+| [Big O: Space Complexity](https://dev.to/mwong068/big-o-space-complexity-lcm)                                                                                     | dev.to            | A beginner-level overview of space complexity.                                  |
+| [Recursion and Space Complexity](https://dev.to/elmarshall/recursion-and-space-complexity-13gc)                                                                   | dev.to            | Uses an analogy to explain the _very_ basics of space complexity and recursion. |
