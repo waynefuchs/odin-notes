@@ -210,22 +210,6 @@ The preferred underlying data structure for a queue is the linked list, as it wi
 
 # Trees
 
-```mermaid
-stateDiagram-v2
-  F --> D
-  F --> J
-  D --> B
-  D --> E
-  B --> A
-  B --> C
-  J --> G
-  J --> K
-  G:::hidden --> NULL1:::hidden
-  G --> I
-  I --> H
-  I:::hidden --> NULL2:::hidden
-```
-
 ```
       ___F___           Level 0 (F)
      /       \
