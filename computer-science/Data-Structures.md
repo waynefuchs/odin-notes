@@ -11,6 +11,10 @@ My (hopefully brief) explanation of various data structures. The line between da
 - [ArrayList 👷](#arraylist-)
 - [ArrayBuffer 👷](#arraybuffer-)
 - [Linked List](#linked-list)
+  - [Link Management](#link-management)
+    - [Node Insertion: At the beginning of the list](#node-insertion-at-the-beginning-of-the-list)
+    - [Node Insertion: Between two nodes](#node-insertion-between-two-nodes)
+    - [Node Removal](#node-removal)
   - [Singly Linked Lists](#singly-linked-lists)
   - [Doubly Linked Lists](#doubly-linked-lists)
   - [Circular Linked Lists](#circular-linked-lists)
@@ -94,46 +98,70 @@ let edges = {
 
 A series of data containers called nodes that contain reference(s) to the next node. (and the previous node in a doubly linked list.) Implementation and effectiveness will vary depending on the programming language.
 
-- The `head` node, or the first node in the list, must be stored to access the data in a linked list
-- A reference to the `tail` node is also required for fast end-of-list insertion and removal
-- A `length` or `count` counter should be maintained by the Linked List
-- Each node will point to the `prev` and/or `next` node
+Linked lists provide cheap insertion and deletion of nodes.
 
-Linked lists provide cheap insertion and deletion of nodes. These operations only require setting the associated links, which results in `O(1)` time complexity.
+> ⓘ It is better to use a different data structure (array) if the list will need to be accessed at any point within the list other than the ends.
 
-Traversal of the list to search for and obtain nodes is computationally expensive; `O(n)` in time complexity.
+> ⚠️ Traversal of the list to search for and obtain nodes is computationally expensive; `O(n)` in time complexity.
 
-> ⓘ It is far better to use a different data structure if the list will need to be accessed at any point within the list other than the ends.
+## Link Management
+
+Implementing a linked list is a matter of link management.
+
+### Node Insertion: At the beginning of the list
+
+```pseudocode
+
+```
+
+### Node Insertion: Between two nodes
+
+```pseudocode
+// Insertion of a new node `B` after node `A`
+SET B.next = C
+SET A.next = B
+```
+
+```mermaid
+graph TD
+subgraph final
+  direction LR
+  Ai((A)) --> Bi((B))
+  Bi --> Ci((C))
+end
+subgraph initial
+  direction LR
+  Bf((B))
+  Af((A)) --> Cf((C))
+end
+```
+
+### Node Removal
+
+Removal of node `c` from the list pictured above is as follows:
+
+```pseudocode
+SET b's link to d
+```
 
 ## Singly Linked Lists
 
-> Implementation of singly linked lists is trivial.
->
-> ```mermaid
-> graph LR
->     A[a = head] --> B((b))
->     B --> C((c))
->     C --> D((d))
->     D --> E((...))
->     E --> F[z = tail]
-> ```
->
-> ### Node Insertion
->
-> Insertion of a new node `n` after node `c` would be as follows (order is important):
->
-> ```pseudocode
-> SET n's link to d
-> SET c's link to n
-> ```
->
-> ### Node Removal
->
-> Removal of node `c` from the list pictured above is as follows:
->
-> ```pseudocode
-> SET b's link to d
-> ```
+A unidirectional chain of nodes from `head` to `tail`.
+
+```mermaid
+graph LR
+subgraph head
+  A((A))
+end
+subgraph tail
+  Z((Z))
+end
+A((A)) --> B((B))
+B --> C((C))
+C --> D((D))
+D --> E((...))
+E --> Z
+```
 
 ## Doubly Linked Lists
 
