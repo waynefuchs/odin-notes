@@ -1,25 +1,36 @@
-- [Data Structures](#data-structures)
-  - [Graph](#graph)
-    - [Adjacency Matrix](#adjacency-matrix)
-    - [Adjacency List](#adjacency-list)
-  - [Linked Lists](#linked-lists)
-    - [Doubly Linked Lists](#doubly-linked-lists)
-    - [Circular Linked Lists](#circular-linked-lists)
-  - [Trees](#trees)
-    - [Tree Properties](#tree-properties)
-    - [Tree Outline](#tree-outline)
+# Data Structures <!-- omit from toc -->
+
+My (hopefully brief) explanation of various data structures. The line between data structures and [algorithms](./algorithms.md) is thin. There will be some cross over.
+
+- [Choosing a Data Structure](#choosing-a-data-structure)
+  - [Array vs. List vs. ArrayList](#array-vs-list-vs-arraylist)
+- [Graphs and Related Concepts](#graphs-and-related-concepts)
+  - [Adjacency Matrix](#adjacency-matrix)
+  - [Adjacency List](#adjacency-list)
+- [Array 👷](#array-)
+- [ArrayList 👷](#arraylist-)
+- [ArrayBuffer 👷](#arraybuffer-)
+- [Linked List](#linked-list)
+  - [Singly Linked Lists](#singly-linked-lists)
+  - [Doubly Linked Lists](#doubly-linked-lists)
+  - [Circular Linked Lists](#circular-linked-lists)
   - [Queue](#queue)
   - [Stack](#stack)
+- [Trees](#trees)
+  - [Tree Properties](#tree-properties)
+  - [Types of Trees](#types-of-trees)
+  - [Tree Outline](#tree-outline)
+- [Additional Resources](#additional-resources)
 
-# Data Structures
+# Choosing a Data Structure
 
-These are the requisite (abstract) data structures that are necessary to understand algorithms. I use the word 'abstract' because languages don't directly implement these data structures.
+## Array vs. List vs. ArrayList
 
-[CodesDope: Introduction to Data Structures](https://www.codesdope.com/course/data-structures-introduction/)
+- If you want to access only the "ends" of your data, choose a (linked) list.
+- If you are randomly accessing data throughout the data set, choose an array
+-
 
----
-
-## Graph
+# Graphs and Related Concepts
 
 Graphs have been analyzed extensively in mathematics. ([Discrete Mathematics](https://en.wikipedia.org/wiki/Discrete_mathematics))
 
@@ -27,7 +38,7 @@ A graph is similar to a tree in that it has nodes and branches, but differs in t
 
 Edges are typically stored in an **Adjacency Matrix** or **Adjacency List**.
 
-### Adjacency Matrix
+## Adjacency Matrix
 
 If the number of nodes is known / fixed, an Adjacency Matrix is likely the correct choice. It is easy to implement (2D Bool Array), and is O(1) edge insertion/removal/lookup time. However, Adding/Removing a node is expensive: O(n$^2$).
 
@@ -52,7 +63,7 @@ let edges = [
 ];
 ```
 
-### Adjacency List
+## Adjacency List
 
 Adding a node is cheap: O(n). Adding a an edge is cheap: O(n)
 
@@ -73,17 +84,147 @@ let edges = {
 };
 ```
 
----
+# Array 👷
 
-## Linked Lists
+# ArrayList 👷
 
-### Doubly Linked Lists
+# ArrayBuffer 👷
 
-### Circular Linked Lists
+# Linked List
 
----
+A series of data containers called nodes that contain reference(s) to the next node. (and the previous node in a doubly linked list.) Implementation and effectiveness will vary depending on the programming language.
 
-## Trees
+- The `head` node, or the first node in the list, must be stored to access the data in a linked list
+- A reference to the `tail` node is also required for fast end-of-list insertion and removal
+- A `length` or `count` counter should be maintained by the Linked List
+- Each node will point to the `prev` and/or `next` node
+
+Linked lists provide cheap insertion and deletion of nodes. These operations only require setting the associated links, which results in `O(1)` time complexity.
+
+Traversal of the list to search for and obtain nodes is computationally expensive; `O(n)` in time complexity.
+
+> ⓘ It is far better to use a different data structure if the list will need to be accessed at any point within the list other than the ends.
+
+## Singly Linked Lists
+
+> Implementation of singly linked lists is trivial.
+>
+> ```mermaid
+> graph LR
+>     A[a = head] --> B((b))
+>     B --> C((c))
+>     C --> D((d))
+>     D --> E((...))
+>     E --> F[z = tail]
+> ```
+>
+> ### Node Insertion
+>
+> Insertion of a new node `n` after node `c` would be as follows (order is important):
+>
+> ```pseudocode
+> SET n's link to d
+> SET c's link to n
+> ```
+>
+> ### Node Removal
+>
+> Removal of node `c` from the list pictured above is as follows:
+>
+> ```pseudocode
+> SET b's link to d
+> ```
+
+## Doubly Linked Lists
+
+> Insertion and deletion operations on doubly linked lists is somewhat nontrivial until familiarity is developed.
+>
+> ```mermaid
+> graph LR
+>     A((a)) --> B((b))
+>     B --> A
+>     B --> C((c))
+>     C --> B
+>     C --> D((d))
+>     D --> C
+>     D --> E((...))
+>     E --> D
+> ```
+>
+> ### Node Insertion
+>
+> Inserting a node `n` after node `c` would be as follows:
+>
+> ```pseudocode
+> Obtain reference to d
+> SET d.back to n
+> SET n.forward to d
+> SET n.back to c
+> SET c.forward to n
+> ```
+>
+> ### Node Removal
+>
+> Removal of node `c` from the list pictured above is as follows:
+>
+> ```pseudocode
+> Obtain reference to b
+> Obtain reference to d
+> SET d.back to b
+> SET b.forward to d
+> // For cleanliness if the node will be reused
+> SET c.back to null
+> SET c.forward to null
+> RETURN c
+> ```
+
+## Circular Linked Lists
+
+```mermaid
+graph LR
+    A[a] --> B((b))
+    B --> C((c))
+    C --> D((d))
+    D --> E((...))
+    E --> A
+```
+
+## Queue
+
+Queues are FIFO (First-In First-Out), meaning they work exactly like a line at the checkout.
+
+The preferred underlying data structure for a queue is the linked list, as it will provide O(1) operations for enqueue and dequeue.
+
+|  method | implementation              | description                                       |
+| ------: | --------------------------- | ------------------------------------------------- |
+| dequeue | `item = linkedList.shift()` | Take item from the front of the queue             |
+| enqueue | `linkedList.push(item)`     | Put item at the end of the queue                  |
+|    peek | `linkedList.head`           | Look at the next item in line without removing it |
+
+## Stack
+
+- LIFO (Last-In First-Out)
+- Synopsis: Works like the children's ring toy
+- Push: `array.push(item)`: Add an item on to the top of the stack
+- Pop: `item = array.pop()`: Take an item off of the top of the stack
+
+# Trees
+
+```mermaid
+stateDiagram-v2
+  F --> D
+  F --> J
+  D --> B
+  D --> E
+  B --> A
+  B --> C
+  J --> G
+  J --> K
+  G:::hidden --> NULL1:::hidden
+  G --> I
+  I --> H
+  I:::hidden --> NULL2:::hidden
+```
 
 ```
       ___F___           Level 0 (F)
@@ -99,7 +240,7 @@ A   C         I         Level 3 (ACI)
 
 > Figure: Tree
 
-### Tree Properties
+## Tree Properties
 
 - A tree is a specialized graph.
 - Trees have (n$_{count}$ - 1) edges; one edge for each node's parent, where the root node does not have a parent edge. (Thus: n-1 edges)
@@ -107,13 +248,13 @@ A   C         I         Level 3 (ACI)
 - The node at the top of a tree is the **root** node.
 - A node without any children is a **leaf** node.
 
-### Types of Trees
+## Types of Trees
 
-- Binary Tree: A tree where each node has a *left* and *right* edge.
+- Binary Tree: A tree where each node has a _left_ and _right_ edge.
 - Binary Search Tree: A binary tree where the data is ordered such that: `left <= node <= right` for every node in the tree. If duplicates are allowed (not usual), they will either always be on the left or on the right.
 - Not all trees are Binary Trees. For example, if storing a tree of phone numbers, it may be beneficial to have a tree where each node has 10 branches, one for each digit 0-9.
 
-### Tree Outline
+## Tree Outline
 
 > TODO: This should be split into sections
 
@@ -141,20 +282,6 @@ A   C         I         Level 3 (ACI)
     - left-right-data (LRD)
     - right-left-data (RLD)
 
----
+# Additional Resources
 
-## Queue
-
-- FIFO (First-In First-Out)
-- Synopsis: Works just like a line at the checkout.
-- Enqueue: `array.push(item)`: Put item at the end of the queue
-- Dequeue: `item = array.shift()`: Take item from the front of the queue
-
----
-
-## Stack
-
-- LIFO (Last-In First-Out)
-- Synopsis: Works like the children's ring toy
-- Push: `array.push(item)`: Add an item on to the top of the stack
-- Pop: `item = array.pop()`: Take an item off of the top of the stack
+- CodesDope: [Introduction to Data Structures](https://www.codesdope.com/course/data-structures-introduction/)
