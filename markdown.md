@@ -4,60 +4,67 @@
 
 # 🚧 Work In Progress <!-- omit in toc -->
 
-- asdf
 - 07JUL2023
+- 19JAN2024
 
 ---
 
 Markdown is a Text-to-HTML _~~hack of a perl script~~_ translation tool. It allows for easily written and readable text documents that can be parsed into well organized and easily searchable formatted and styled documentation.
 
-The constraints provided by Markdown _also_ force "good" note-taking habits. Most people will notice the quality of their notes will improve when using markdown.
-
-- [Markdown ➡ PDF](#markdown--pdf)
+- [Github Profile](#github-profile)
 - [Git README.md](#git-readmemd)
+  - [Sections to include](#sections-to-include)
+  - [Additionally Inlude (polish)](#additionally-inlude-polish)
+- [Examples](#examples)
 - [Headings](#headings)
 - [🚧 Links](#-links)
   - [Internal / External Links](#internal--external-links)
-  - [➕ Link Definitions](#-link-definitions)
+  - [Link Definitions](#link-definitions)
 - [🚧 Mermaid](#-mermaid)
-  - [State Diagram](#state-diagram)
-    - [An example State Diagram (Graph)](#an-example-state-diagram-graph)
+  - [An example State Diagram in Mermaid](#an-example-state-diagram-in-mermaid)
+- [Markdown ➡ PDF with CLI](#markdown--pdf-with-cli)
 - [Reference Links](#reference-links)
 
-# Markdown ➡ PDF
-
-```bash
-pandoc ./footprints.md -o test.pdf
-pandoc ./footprints.md -V geometry:landscape -o test.pdf
-```
+# Github Profile
 
 # Git README.md
 
-The `README.md` is the public face for every project and being able to write a good one is important. Some recommendations:
+The `README.md` is the public face for every project. Being able to write an eye catching project landing page is a great way to show off your work in a professional manner, and to prove that you have what it takes to work on production ready projects.
 
-1. Use Media
+## Sections to include
+
+> ⚠️ Do not undersell your project with negative words like "test", "toy", "just", or "learn". This is exceptionally important in the project title.
+
+| Section         | Description                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **Title**       | Make the title memorable and personal that makes it sound like a real project                                                  |
+| **Description** | 1-3 sentences that describe what the project is in as simple and clear language as possible                                    |
+| The "Why?"      | Motivation / Goal / The problem the project solves                                                                             |
+| Quick Start     | Mention Prerequisites and Provide installation instructions                                                                    |
+| Usage           | Provide instructions for operation of the software (Configuration, Options, Standard and Non-standard use cases, CLI Switches) |
+| Contributing    |                                                                                                                                |
+
+> ⓘ The title and the description **_need_** to be good. Comparable to thumbnail and title in a youtube video. This is what sells your project. If a hiring manager gets bored or perceives you are lacking confidence during the first few sentences of your project, there is a chance they will move on to the next applicant.
+
+## Additionally Inlude (polish)
+
+1. Media
    - Photos (screenshots, pictures, emoji, logos, etc)
    - Videos
    - Audio
-2. Provide installation instructions
-3. Provide instructions for operation of the software
-   - Prerequisites
-   - Configuration
-   - Options
-   - Standard _and_ Non-standard use cases
-   - CLI Switches
-4. List technologies used
-5. (If applicable) Provide information on how to contribute towards the project
-6. (if applicable) License information
-7. (if applicable) Credit any resources being used (images, boiler plate / starter code, libraries, etc.)
-8. (optional/blog) Your development process
-9. (optional/blog) Motivation and Passion behind the project
+2. List technologies used
+3. (if applicable) License information
+4. (if applicable) Credit any resources being used (images, boiler plate / starter code, libraries, etc.)
+5. (optional/blog) Your development process
+6. (optional/blog) Motivation and Passion behind the project
 
-> ⓘ Note: The [Fira Code](https://github.com/tonsky/FiraCode) github project is one of the better Markdown files that I have seen. (It's the one that immediately came to mind when thinking of examples.)
+# Examples
+
+- The [Fira Code](https://github.com/tonsky/FiraCode) github project
 
 # Headings
 
-Headings are not to be used for formatting. They are used for document structure. Technically
+Headings are not to be used for formatting. They are used for document structure.
 
 ```markdown
 # Heading Level 1
@@ -82,33 +89,37 @@ Headings are not to be used for formatting. They are used for document structure
 ## Internal / External Links
 
 ```Markdown
-[Internal Page Link](README.md)
-[External Page Link](https://www.google.com/)
+[Internal Page Link](README.md): This Project's Landing Page
+[External Page Link](https://www.google.com/): Google
 ```
 
 [Internal Page Link](README.md): This Project's Landing Page
 [External Page Link](https://www.google.com/): Google
 
-## ➕ Link Definitions
+## Link Definitions
+
+> ⚠️ This feature is not implemented in all markdown renderers. It does work in _Gitea_ and on _Github_.
 
 A link definition is a variable that is stripped from the document in the HTML output.
 
-There are three parts to a link defiition. `[arbitrary case-insensitive reference text]: https://with.some.uri "And an Optional Title"`
+There are three parts to a link definition.
+
+```markdown
+<!-- [definition]: uri "title" -->
+
+[arbitrary case-insensitive reference text]: https://with.some.uri "And an Optional Title"
+```
 
 Link Definition Example
 
 ```Markdown
 [project-main-readme]: ./README.md "This Project"
-[Foo Bar](project-main-readme)
+[The main Readme in this project](project-main-readme)
 ```
 
-<!-- This will not be rendered -->
+[projectmainreadme]: ./README.md "This Project"
 
-[project-main-readme]: ./README.md "This Project" <!-- The Link Definition -->
-
-[Foo Bar](project-main-readme) <!-- The Link Definition being used -->
-
-<!-- END non-rendering Link Definition Example -->
+[The main Readme in this project](project-main-readme)
 
 This defines a "markdown variable" with the key-value pair of:
 
@@ -142,15 +153,9 @@ Link will direct user here.
 
 # 🚧 Mermaid
 
-This is possibly the coolest addition to markdown.
+The official [Mermaid.js](https://mermaid.js.org/) website is where I get most of my mermaid info. I often find myself feeling like mermaid isn't _quite_ there yet, or that there are a few features that I wish that it had. But, the more that I use it, the more that I see the potential and possibility in simplistic diagrams.
 
-> 🚧 TODO: Add examples in for each mermaid module
-
-## State Diagram
-
-A state diagram is a type of diagram used in computer science and related fields to describe the behavior of systems. They require that the system described is composed of a finite number of states.
-
-### An example State Diagram (Graph)
+## An example State Diagram in Mermaid
 
 ```mermaid
 %% It is better to use actual markdown titles because there are circumstances that the title renders poorly
@@ -196,6 +201,13 @@ stateDiagram
     a --> b
   }
 
+```
+
+# Markdown ➡ PDF with CLI
+
+```bash
+pandoc ./footprints.md -o test.pdf
+pandoc ./footprints.md -V geometry:landscape -o test.pdf
 ```
 
 # Reference Links
