@@ -18,7 +18,6 @@
 - [Ranking of Common Big-O Functions](#ranking-of-common-big-o-functions)
 - [Orders of Uncommon Functions](#orders-of-uncommon-functions)
 - [Tricks 🎉](#tricks-)
-- [Examples](#examples)
   - [O(1)](#o1)
   - [O(log n)](#olog-n)
   - [O($\\sqrt n$)](#osqrt-n)
@@ -49,33 +48,29 @@ Big-O is often used to discuss time complexity, but it also applies to space com
 
 The short list below is taken from Harvard's CS50. A more complete list can be found on the [wiki](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions).
 
-| Big O      | Time Complexity Description                                           | Type            | Speed     |
-| ---------- | --------------------------------------------------------------------- | --------------- | --------- |
-| O(1)       | Operation does not change based on amount of data                     | Constant        | Very Fast |
-| O(log n)   | Divide and Conquer, Binary Search Tree                                | Logarithmic     |
-| O(n)       | An examination of all data in an array                                | Linear          |
-| O(n log n) | Read entire set and perform a logarithmic set operation for each read | Polylogarithmic |
-| O(n$^2$)   | Examination of data set twice                                         | Quadratic       | Very Slow |
-|            | **_Acceptibility / Unacceptability Line_**                            |                 |           |
+| Big O            | Time Complexity Description                                           | Type            | Speed      |
+| ---------------- | --------------------------------------------------------------------- | --------------- | ---------- |
+| O($1$)           | Operation does not change based on amount of data                     | Constant        | Very Fast  |
+| O($log$ $n$)     | Divide and Conquer, Binary Search Tree                                | Logarithmic     |
+| O($\sqrt n$)     | Between `log n` and `n` time complexity.                              | square root     | Acceptable |
+| O($n$)           | An examination of all data in an array                                | Linear          |
+| O($n$ $log$ $n$) | Read entire set and perform a logarithmic set operation for each read | Polylogarithmic |
+| O($n^2$)         | Examination of data set twice                                         | Quadratic       | Very Slow  |
+|                  | **_Acceptibility / Unacceptability Line_**                            |                 |            |
 
 ## Orders of Uncommon Functions
 
-| Big O        | Time Complexity Description                                 | Type        | Speed           |
-| ------------ | ----------------------------------------------------------- | ----------- | --------------- |
-| O($\sqrt n$) | Between `log n` and `n` time complexity.                    | square root | Acceptable      |
-|              | **_Acceptibility / Unacceptability Line_**                  |             |                 |
-| O(n$^3$)     | Worse than n$^2$, there is usually a more optimal solution. | cubed       | Extremely Slow  |
-| O(2$^n$)     | Doubles for every n                                         | doubling    | Incredibly Slow |
-| O(n!)        | Anything over n=8 becomes difficult to solve.               | Factorial   | Unacceptable    |
+| Big O    | Time Complexity Description                                 | Type      | Speed           |
+| -------- | ----------------------------------------------------------- | --------- | --------------- |
+|          | **_Acceptibility / Unacceptability Line_**                  |           |                 |
+| O($n^3$) | Worse than n$^2$, there is usually a more optimal solution. | cubed     | Extremely Slow  |
+| O($2^n$) | Doubles for every n                                         | doubling  | Incredibly Slow |
+| O($n!$)  | Anything over n=8 becomes difficult to solve.               | Factorial | Unacceptable    |
 
 ## Tricks 🎉
 
 - Any time an algorithm repeatedly "halves" the search field, it will generally be `O(n log n)` or `O(log n)`.
-- Summation problems are `O(n^2)`, denoted by $\sum_{i=1}^{n} i=  \dfrac{n(n+1)}{2}$. (Story of Gauss solving summation of 1..100 in mere seconds while in primary school.) When you FOIL that equation out, you are left with $n^2 + n$, the n is insignificant in comparison to $n^2$.
-
-## Examples
-
-The data set for all examples: `const data = [0, 1, .. n];`
+- Summation problems are `O(n^2)`, denoted by $\sum_{i=1}^{n} i=  \dfrac{n(n+1)}{2}$. (Story of Gauss solving summation of 1..100 in mere seconds while in primary school.) When you FOIL that equation, $n^2 + n$ emerges and the n is insignificant in comparison to $n^2$.
 
 ### O(1)
 
