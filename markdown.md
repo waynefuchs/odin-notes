@@ -12,7 +12,9 @@
 Markdown is a Text-to-HTML _~~hack of a perl script~~_ translation tool. It allows for easily written and readable text documents that can be parsed into well organized and easily searchable formatted and styled documentation.
 
 - [Github Profile](#github-profile)
-- [Git README.md](#git-readmemd)
+  - [Github Profile `README.md`](#github-profile-readmemd)
+- [Resume](#resume)
+- [Git Repository README.md](#git-repository-readmemd)
   - [Sections to include](#sections-to-include)
   - [Additionally Inlude (polish)](#additionally-inlude-polish)
 - [Examples](#examples)
@@ -27,7 +29,52 @@ Markdown is a Text-to-HTML _~~hack of a perl script~~_ translation tool. It allo
 
 # Github Profile
 
-# Git README.md
+> ⓘ Yes, I am aware the generic Github profile data is not markdown. This is the most relevant place in my notes to put this info.
+
+- Use a picture of yourself to distinguish yourself from bots
+- Use your real name
+- Make sure your username isn't offensive
+- Have a bio and make sure it shows you have a personality
+- Link the company you work for
+- Include what city / state you live in
+- Include the link to your personal site
+- Include socials, if that makes sense
+
+An excellent example is [Eddie Jaoude](https://github.com/eddiejaoude)'s profile.
+
+## Github Profile `README.md`
+
+This is a special repository on Github where you can upload a `README.md` that will be associated with your user profile. This feature is documented at GitHub's [Managing Your Github Profile](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme) page.
+
+I found another interesting resource on the [Special Github Repository](https://torrocus.com/blog/special-github-repository/).
+
+> The github profile is a great place "for a high-signal technical introduction about your technical life."
+>
+>     I've been enjoying web development for the first time ever since I built my first Go project, "stackwrapr". The consolidated toolchain makes me want to leave the JavaScript ecosystem behind for good. I'm currently on the look out for a role in backend web development, ideally writing Go or Python. I'd especially love to work at a startup on a tight knit team where I can make an impact quickly. If you're hiring, let's chat!
+>
+> [Lane Wagner](https://github.com/wagslane) @ [Boot.dev](boot.dev)
+
+The bio should show your opinions, personality, and things you've been learning. Injecting opinions shows you are human and like to think about things and are capable of appreciating design choices. It's a way to show experience without coming out and saying it.
+
+> "I love to work in Go, JavaScript and Python, but I'm happy to use whatever tool is most suited for the job at hand. My two favorite daily activities are learning and teaching within my team, and listening to Vampire Weekend while I jam out some code.
+>
+> I've recently been on a Rust/Zig kick, doing some sutff on the side when I have time. I'm also interested in the marriage of the SSR/SPA world, and how we can build client-first webapps that still have certain pages that prerender immediately for SEO purposes.
+>
+> Lane Wagner
+
+- Call out tech that is interesting to you.
+- Be specific (learning and teaching, in the above example, is generic and bland) (A hiring manager probably doesn't care about what bands you listen to)
+
+# Resume
+
+- Name + Contact Info
+- About me
+- Skills
+- Portfolio Projects
+- Education
+- Experience
+
+# Git Repository README.md
 
 The `README.md` is the public face for every project. Being able to write an eye catching project landing page is a great way to show off your work in a professional manner, and to prove that you have what it takes to work on production ready projects.
 
