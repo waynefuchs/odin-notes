@@ -2,7 +2,7 @@
 
 # "Big O" Notation <!-- omit in toc -->
 
-**Big O** is a measure of computational **time** or memory complexity vs **input** ralational to the input growth in an algorithm, and is (usually) analyzed in terms of "worst-case."
+**Big O** is a measure of computational **time** or memory complexity vs **input** relational to the input growth in an algorithm, and is (usually) analyzed in terms of "worst-case."
 
 > ⓘ Average and Best case are alternative niche options.
 
@@ -12,15 +12,16 @@
 > ⓘ The "O" in "Big O" stands for Order. (From German word "Ordnung")
 
 - ["Alternatives" to Big-O](#alternatives-to-big-o)
-  - [Big Ω (Omega Notation)](#big-ω-omega-notation)
-  - [Big-Θ (Big-Theta Notation)](#big-θ-big-theta-notation)
+  - [Big Ω (Omega)](#big-ω-omega)
+  - [Big-Θ (Theta)](#big-θ-theta)
 - [Time / Space Complexity](#time--space-complexity)
-- [Orders of Common Functions](#orders-of-common-functions)
+- [Ranking of Common Big-O Functions](#ranking-of-common-big-o-functions)
 - [Orders of Uncommon Functions](#orders-of-uncommon-functions)
+- [Tricks 🎉](#tricks-)
 - [Examples](#examples)
   - [O(1)](#o1)
   - [O(log n)](#olog-n)
-  - [O(sqrt(n))](#osqrtn)
+  - [O($\\sqrt n$)](#osqrt-n)
   - [O(n)](#on)
   - [O(n log n)](#on-log-n)
   - [O(n$^2$)](#on2)
@@ -32,11 +33,11 @@
 
 Big-O makes the most sense to ensure confidence that algorithms scale properly and will work as intended without leaving users frustrated with load times and program lock-ups. However, it can be interesting to consider best-case or average-case complexity.
 
-### Big Ω (Omega Notation)
+### Big Ω (Omega)
 
 Considers the "best case" result of an algorithm. This is considered far less useful than Big-O because it usually does not suitably indicate how an algorithm will scale.
 
-### Big-Θ (Big-Theta Notation)
+### Big-Θ (Theta)
 
 Simply put, the area between Big-Omega and Big-O.
 
@@ -44,7 +45,7 @@ Simply put, the area between Big-Omega and Big-O.
 
 Big-O is often used to discuss time complexity, but it also applies to space complexity (amount of memory an algorithm consumes), which can be important to consider, depending on your deployment environment. (eg: VM renting services, such as linode, are rather restricted in memory usage)
 
-## Orders of Common Functions
+## Ranking of Common Big-O Functions
 
 The short list below is taken from Harvard's CS50. A more complete list can be found on the [wiki](https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions).
 
@@ -66,6 +67,11 @@ The short list below is taken from Harvard's CS50. A more complete list can be f
 | O(n$^3$)     | Worse than n$^2$, there is usually a more optimal solution. | cubed       | Extremely Slow  |
 | O(2$^n$)     | Doubles for every n                                         | doubling    | Incredibly Slow |
 | O(n!)        | Anything over n=8 becomes difficult to solve.               | Factorial   | Unacceptable    |
+
+## Tricks 🎉
+
+- Any time an algorithm repeatedly "halves" the search field, it will generally be `O(n log n)` or `O(log n)`.
+- Summation problems are `O(n^2)`, denoted by $\sum_{i=1}^{n} i=  \dfrac{n(n+1)}{2}$. (Story of Gauss solving summation of 1..100 in mere seconds while in primary school.) When you FOIL that equation out, you are left with $n^2 + n$, the n is insignificant in comparison to $n^2$.
 
 ## Examples
 
@@ -148,9 +154,57 @@ console.log(logarithmicExample(Array(8))); // 3
 console.log(logarithmicExample(Array(64))); // 6
 ```
 
-### O(sqrt(n))
+### O($\sqrt n$)
 
-Not typically mentioned, but reveals a trick.
+Not typically mentioned due to its obscure usage.
+
+```js
+// Given two crystal balls that will break if dropped from high enough distance,
+// determine the exact spot in which it will break in the most optimized way.
+// (Note: they take 0 damage from each fall, unless they break.)
+
+// This would be a black-box function
+function checkIfBallBreaks(floor) {
+  return floor > 75 ? true : false;
+}
+
+// This is the algorithm
+function twoCrystalBalls(buildingHeight) {
+  const floor = Math.floor(Math.sqrt(buildingHeight));
+  let ballBroken = false;
+  let safeFloor = 0;
+
+  // Increment by the square root of the building height
+  for (let x = floor; !ballBroken; x += floor) {
+    ballBroken = checkIfBallBreaks(x);
+    if (ballBroken) {
+      console.log("Broke at floor", x);
+      break;
+    }
+    safeFloor = x;
+    console.log("Safe:", safeFloor);
+  }
+
+  // Backtrack to one floor above the last known safe floor and increment floor by floor until your last crystal ball breaks.
+  ballBroken = false;
+  for (let x = safeFloor + 1; !ballBroken; x++) {
+    ballBroken = checkIfBallBreaks(x);
+    if (ballBroken) {
+      console.log("Ball broke on floor", x);
+      break;
+    }
+    safeFloor = x;
+    console.log("Floor", safeFloor, "is safe...");
+  }
+
+  return safeFloor;
+}
+
+const g = twoCrystalBalls(300);
+console.log(
+  `You can drop crystal balls all day from floor ${g} without losing any.`
+);
+```
 
 ### O(n)
 
