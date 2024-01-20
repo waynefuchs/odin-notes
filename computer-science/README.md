@@ -1,13 +1,18 @@
 - [Computer Science](#computer-science)
-- [Big-O Notation](#big-o-notation)
-- [Data Structures](#data-structures)
-- [OOP Principles](#oop-principles)
-
+  - [Algorithms](#algorithms)
+  - [Big-O Notation](#big-o-notation)
+  - [Data Structures](#data-structures)
+  - [Design Patterns](#design-patterns)
+  - [OOP Principles](#oop-principles)
 
 # Computer Science
 
-# [Big-O Notation](./Big-O-Notation.md)
+## [Algorithms](./algorithms.md)
 
-# [Data Structures](./Data-Structures.md)
+## [Big-O Notation](./Big-O-Notation.md)
 
-# [OOP Principles](./OOP-Principles.md)
+## [Data Structures](./Data-Structures.md)
+
+## [Design Patterns](./Design-Patterns.md)
+
+## [OOP Principles](./OOP-Principles.md)
