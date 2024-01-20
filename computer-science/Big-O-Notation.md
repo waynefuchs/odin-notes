@@ -7,7 +7,9 @@
 > ⓘ Average and Best case are alternative niche options.
 
 > ⓘ Constants are disregarded resulting in different operating speeds within the same theoretical time complexity:
-> `O(n)` = `O(n-14)` = `O(33n)`
+> O($n$)
+> = O($n-14$)
+> = O($33n$)
 
 > ⓘ The "O" in "Big O" stands for Order. (From German word "Ordnung")
 
@@ -69,14 +71,14 @@ The short list below is taken from Harvard's CS50. A more complete list can be f
 
 ## Tricks 🎉
 
-- Any time an algorithm repeatedly "halves" the search field, it will generally be `O(n log n)` or `O(log n)`.
-- Summation problems are `O(n^2)`, denoted by $\sum_{i=1}^{n} i=  \dfrac{n(n+1)}{2}$. (Story of Gauss solving summation of 1..100 in mere seconds while in primary school.) When you FOIL that equation, $n^2 + n$ emerges and the n is insignificant in comparison to $n^2$.
+- Any time an algorithm repeatedly "halves" the search field, it will generally be O($n$ $log$ $n$) or O($log$ $n$).
+- Summation problems are O($n^2$), denoted by $\sum_{i=1}^{n} i=  \dfrac{n(n+1)}{2}$. (Story of Gauss solving summation of 1..100 in mere seconds while in primary school.) When you FOIL that equation, $n^2 + n$ emerges and the $n$ is "constant" and therefore discarded due to being insignificant in comparison to $n^2$.
 
 ### O(1)
 
 The result will always take constant time.
 
-> ⚠️It is counter-intuitive that `O(1)` = `O(c)`.
+> ⚠️It is counter-intuitive that O($1$) = O(`constant`).
 >
 > However, this is why Big-O exists; to infer that constants in an algorithm's complexity are relatively meaningless. As long as the complexity does not increase with the growth of the input.
 
@@ -217,11 +219,11 @@ function linearSearch(searchValue, data) {
 
 ### O(n log n)
 
-The most simple way I can think to describe this one is: `O(log n) + O(n)` Or: You look at the entire data set once, then perform a log n "halving" operation on the same data set.
+The most simple way I can think to describe this one is: O($log$ $n$) + O($n$). In other words, process the entire data set once, then perform a $log$ $n$ "halving" operation on the same data set.
 
-(Personal rule of thumb) An algorithm that performs at this level, or worse, may benefit from optimization.
+> ⓘ Personal rule of thumb: An algorithm that performs at this level, or worse, may benefit from optimization.
 
-> ⓘ Note: You can assume (for interview questions, and as a rule of thumb) that most sorting operations, using a language's built-in sort, operate on the `O(n log n)` time complexity.
+> ⓘ Note: Semi-safe to assume that sorting operations, using a language's built-in sort, operate on the O($n$ $log$ $n$) time complexity.
 
 > ⓘ Note: Quicksort performs on this level.
 
