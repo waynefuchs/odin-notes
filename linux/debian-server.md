@@ -33,10 +33,9 @@ export REMOTEHOST={HostnameOrIp}
 Then copy and paste the following in the window. You will be prompted for your password, twice.
 
 ```bash
-# Assuming the usernames are the same on local and remote hosts
-ssh $REMOTEHOST mkdir ~/.ssh
-scp ~/.ssh/id_rsa.pub $REMOTEHOST:~/.ssh/authorized_keys
-ssh $REMOTEHOST "chmod 700 .ssh; chmod 600 .ssh/authorized_keys"
+ssh $REMOTEHOST mkdir .ssh
+scp ~/.ssh/xeno_ed25519.pub $REMOTEHOST:.ssh/authorized_keys
+ssh $REMOTEHOST 'chmod 700 .ssh; chmod 600 .ssh/authorized_keys'
 ssh $REMOTEHOST
 ```
 
