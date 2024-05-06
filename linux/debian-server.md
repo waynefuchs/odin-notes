@@ -59,6 +59,12 @@ apt install sudo vim htop figlet
 
 Log out and in again to refresh the ssh group, cleanly.
 
+## Remove grub 5 second delay
+
+```bash
+sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+```
+
 # Software
 
 This is subject to change, but I currently use Debian as a server platform. That means there isn't a whole lot of software to install, mostly just docker images, and then yaml writing and configuring.
