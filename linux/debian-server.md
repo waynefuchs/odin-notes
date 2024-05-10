@@ -24,18 +24,21 @@ When going through the install process, there is a screen that shows "Software S
 
 # Transfer SSH key
 
-On your local system, put the host dns or ip address of the remote host into the `REMOTEHOST` variable.
+The following script will set up 
 
 ```bash
-export REMOTEHOST={HostnameOrIp}
-```
-
-Then copy and paste the following in the window. You will be prompted for your password, twice.
-
-```bash
-ssh $REMOTEHOST mkdir .ssh
-scp ~/.ssh/xeno_ed25519.pub $REMOTEHOST:.ssh/authorized_keys
+read -p "hostname: " REMOTEHOST
+echo "Ensuring remote '.ssh' directory exists:"
+ssh $REMOTEHOST mkdir -p .ssh
+read -p "Enter local key prefix [(KEYPREFIX)ed25519.pub]: " KEYPREFIX
+KEY=~/.ssh/
+KEY+=$KEYPREFIX
+KEY+=ed25519.pub
+echo "Transferring local key ($KEY) to remote 'authorized_keys' file:"
+scp $KEY $REMOTEHOST:.ssh/authorized_keys
+echo "Setting remote ssh directory and key permissions:"
 ssh $REMOTEHOST 'chmod 700 .ssh; chmod 600 .ssh/authorized_keys'
+echo "Logging in to remote host:"
 ssh $REMOTEHOST
 ```
 
