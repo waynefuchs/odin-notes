@@ -31,7 +31,7 @@ The following script will copy a local ssh key to a remote host's authorized_key
 ```bash
 RED='\033[0;31m'
 NC='\033[0m' # No Color
-printf "${RED}WARNING:${NC} This script will overwrite the remote 'authorized_keys' file\041\n"
+printf "${RED}WARNING:${NC} This script will append local key to the remote 'authorized_keys' file\041\n\tEnsure you remove any unused keys\041\041\041\n"
 read -p "hostname: " REMOTEHOST
 read -p "Enter local key prefix [(KEYPREFIX)ed25519.pub]: " KEYPREFIX
 KEYFILE=~/.ssh/
