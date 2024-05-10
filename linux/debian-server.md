@@ -24,21 +24,28 @@ When going through the install process, there is a screen that shows "Software S
 
 # Transfer SSH key
 
-The following script will set up 
+The following script will copy a local ssh key to a remote host's authorized_keys file to set up logging in using ssh keys instead of passwords.
+
+> ⓘ Note: Leave the key prefix field empty if you don't use a key prefix. `ed25519.pub` is the default public key that github recommends, and is what I have included in this script. `id_rsa.pub` is the ssh default. Other users of this script may wish to modify this to suit their needs.
 
 ```bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+printf "${RED}WARNING:${NC} This script will overwrite the remote 'authorized_keys' file\041\n"
 read -p "hostname: " REMOTEHOST
-echo "Ensuring remote '.ssh' directory exists:"
-ssh $REMOTEHOST mkdir -p .ssh
 read -p "Enter local key prefix [(KEYPREFIX)ed25519.pub]: " KEYPREFIX
-KEY=~/.ssh/
-KEY+=$KEYPREFIX
-KEY+=ed25519.pub
-echo "Transferring local key ($KEY) to remote 'authorized_keys' file:"
-scp $KEY $REMOTEHOST:.ssh/authorized_keys
-echo "Setting remote ssh directory and key permissions:"
-ssh $REMOTEHOST 'chmod 700 .ssh; chmod 600 .ssh/authorized_keys'
-echo "Logging in to remote host:"
+KEYFILE=~/.ssh/
+KEYFILE+=$KEYPREFIX
+KEYFILE+=ed25519.pub
+KEY=`cat $KEYFILE`
+printf "\n${RED}*${NC} Transferring local key ($KEYFILE) to remote 'authorized_keys' file:\n"
+ssh -T $REMOTEHOST << EOF
+  mkdir -p .ssh
+  echo $KEY >> .ssh/authorized_keys
+  chmod 700 .ssh
+  chmod 600 .ssh/authorized_keys
+EOF
+printf "\n${RED}*${NC} Logging in to remote host using transferred key:\n"
 ssh $REMOTEHOST
 ```
 
@@ -113,6 +120,9 @@ Then, add an entry to `/etc/fstab`
 
 # 🚧 OS Hardening
 
-Debian ships, by default, with a few questionable security settings. (such as, an enabled root user)
+🚧 TODO
 
-I am in the process of writing a script to harden debian. I'll put it here when I finish.
+- firewall
+- default ssh port change
+- ???
+- profit
