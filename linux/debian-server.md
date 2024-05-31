@@ -49,36 +49,28 @@ printf "\n${RED}*${NC} Logging in to remote host using transferred key:\n"
 ssh $REMOTEHOST
 ```
 
-## Packages
+# Install sudo, vim, htop, figlet
 
 Log In with user account, **not root**
 
 ```bash
-su  # Log in to root from a user account for the sudo group step below
-```
-
-```bash
+su
 apt install sudo vim htop figlet
-```
-
-## Add user to sudo group
-
-```bash
 /sbin/adduser $USER sudo
 ```
 
 Log out and in again to refresh the ssh group, cleanly.
 
-## Remove grub 5 second delay
+# Remove grub 5 second delay
 
 ```bash
 sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 sudo update-grub
 ```
 
-# Software
+# 🚧 Disable root login
 
-This is subject to change, but I currently use Debian as a server platform. That means there isn't a whole lot of software to install, mostly just docker images, and then yaml writing and configuring.
+🚧 31MAY2024 TODO: Write a script to automoate this... 
 
 
 # Update MOTD
@@ -92,11 +84,11 @@ echo -e '#!/usr/bin/bash\n/usr/bin/figlet -kp < /etc/hostname\nif [[ $HOSTNAME =
 sudo /usr/bin/chmod +x /etc/update-motd.d/00-hostname
 ```
 
-## Docker
+# Install Docker (optional)
 
 Docker has a [set of instructions](https://docs.docker.com/engine/install/debian/) on their website to install on Debian.
 
-# Mount Samba
+# Mount Samba (optional)
 
 If you want to mount samba shares, you need to install `cifs-utils`
 
@@ -125,12 +117,3 @@ After adding the entry to fstab, perform a daemon-reload.
 sudo systemctl daemon-reload
 sudo mount -a
 ```
-
-# 🚧 OS Hardening
-
-🚧 TODO
-
-- firewall
-- default ssh port change
-- ???
-- profit
