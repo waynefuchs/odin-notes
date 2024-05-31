@@ -4,13 +4,12 @@ The second oldest linux distribution, only behind Slackware. A server OS that is
 
 - [Installation](#installation)
 - [Transfer SSH key](#transfer-ssh-key)
-  - [Packages](#packages)
-  - [Add user to sudo group](#add-user-to-sudo-group)
-- [Software](#software)
-  - [Docker](#docker)
+- [Install sudo, vim, htop, figlet](#install-sudo-vim-htop-figlet)
+- [Remove grub 5 second delay](#remove-grub-5-second-delay)
+- [🚧 Disable root login](#-disable-root-login)
 - [Update MOTD](#update-motd)
-- [Mount Samba](#mount-samba)
-- [🚧 OS Hardening](#-os-hardening)
+- [Install Docker (optional)](#install-docker-optional)
+- [Mount Samba (optional)](#mount-samba-optional)
 
 # Installation
 
@@ -24,49 +23,53 @@ When going through the install process, there is a screen that shows "Software S
 
 # Transfer SSH key
 
-On your local system, put the host dns or ip address of the remote host into the `REMOTEHOST` variable.
+The following script will copy a local ssh key to a remote host's authorized_keys file to set up logging in using ssh keys instead of passwords.
+
+> ⓘ Note: Leave the key prefix field empty if you don't use a key prefix. `ed25519.pub` is the default public key that github recommends, and is what I have included in this script. `id_rsa.pub` is the ssh default. Other users of this script may wish to modify this to suit their needs.
 
 ```bash
-export REMOTEHOST={HostnameOrIp}
-```
-
-Then copy and paste the following in the window. You will be prompted for your password, twice.
-
-```bash
-# Assuming the usernames are the same on local and remote hosts
-ssh $REMOTEHOST mkdir ~/.ssh
-scp ~/.ssh/id_rsa.pub $REMOTEHOST:~/.ssh/authorized_keys
-ssh $REMOTEHOST "chmod 700 .ssh; chmod 600 .ssh/authorized_keys"
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+printf "${RED}WARNING:${NC} This script will append local key to the remote 'authorized_keys' file\041\n\tEnsure you remove any unused keys\041\041\041\n"
+read -p "hostname: " REMOTEHOST
+read -p "Enter local key prefix [(KEYPREFIX)ed25519.pub]: " KEYPREFIX
+KEYFILE=~/.ssh/
+KEYFILE+=$KEYPREFIX
+KEYFILE+=ed25519.pub
+KEY=`cat $KEYFILE`
+printf "\n${RED}*${NC} Transferring local key ($KEYFILE) to remote 'authorized_keys' file:\n"
+ssh -T $REMOTEHOST << EOF
+  mkdir -p .ssh
+  echo $KEY >> .ssh/authorized_keys
+  chmod 700 .ssh
+  chmod 600 .ssh/authorized_keys
+EOF
+printf "\n${RED}*${NC} Logging in to remote host using transferred key:\n"
 ssh $REMOTEHOST
 ```
 
-## Packages
+# Install sudo, vim, htop, figlet
 
 Log In with user account, **not root**
 
 ```bash
-su  # Log in to root from a user account for the sudo group step below
-```
-
-```bash
+su
 apt install sudo vim htop figlet
-```
-
-## Add user to sudo group
-
-```bash
 /sbin/adduser $USER sudo
 ```
 
 Log out and in again to refresh the ssh group, cleanly.
 
-# Software
+# Remove grub 5 second delay
 
-This is subject to change, but I currently use Debian as a server platform. That means there isn't a whole lot of software to install, mostly just docker images, and then yaml writing and configuring.
+```bash
+sudo sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+sudo update-grub
+```
 
-## Docker
+# 🚧 Disable root login
 
-Docker has a [set of instructions](https://docs.docker.com/engine/install/debian/) on their website to install on Debian.
+🚧 31MAY2024 TODO: Write a script to automate this...
 
 # Update MOTD
 
@@ -79,7 +82,11 @@ echo -e '#!/usr/bin/bash\n/usr/bin/figlet -kp < /etc/hostname\nif [[ $HOSTNAME =
 sudo /usr/bin/chmod +x /etc/update-motd.d/00-hostname
 ```
 
-# Mount Samba
+# Install Docker (optional)
+
+Docker has a [set of instructions](https://docs.docker.com/engine/install/debian/) on their website to install on Debian.
+
+# Mount Samba (optional)
 
 If you want to mount samba shares, you need to install `cifs-utils`
 
@@ -102,8 +109,9 @@ Then, add an entry to `/etc/fstab`
 //HOST/SHARE	/mount/point/dir		cifs	guest,uid=USERNAME,gid=GROUPNAME,file_mode=FILEMODE	0	0
 ```
 
-# 🚧 OS Hardening
+After adding the entry to fstab, perform a daemon-reload.
 
-Debian ships, by default, with a few questionable security settings. (such as, an enabled root user)
-
-I am in the process of writing a script to harden debian. I'll put it here when I finish.
+```
+sudo systemctl daemon-reload
+sudo mount -a
+```
