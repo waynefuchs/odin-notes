@@ -80,9 +80,6 @@ sudo update-grub
 
 This is subject to change, but I currently use Debian as a server platform. That means there isn't a whole lot of software to install, mostly just docker images, and then yaml writing and configuring.
 
-## Docker
-
-Docker has a [set of instructions](https://docs.docker.com/engine/install/debian/) on their website to install on Debian.
 
 # Update MOTD
 
@@ -94,6 +91,10 @@ sudo rm -f /etc/update-motd.d/10-uname
 echo -e '#!/usr/bin/bash\n/usr/bin/figlet -kp < /etc/hostname\nif [[ $HOSTNAME =~ [g|j|p|q] ]]; then /usr/bin/echo ""; fi' |sudo tee /etc/update-motd.d/00-hostname
 sudo /usr/bin/chmod +x /etc/update-motd.d/00-hostname
 ```
+
+## Docker
+
+Docker has a [set of instructions](https://docs.docker.com/engine/install/debian/) on their website to install on Debian.
 
 # Mount Samba
 
@@ -116,6 +117,13 @@ Then, add an entry to `/etc/fstab`
 #     444: Read Only
 #     764: User RWX, Group RW, Other R
 //HOST/SHARE	/mount/point/dir		cifs	guest,uid=USERNAME,gid=GROUPNAME,file_mode=FILEMODE	0	0
+```
+
+After adding the entry to fstab, perform a daemon-reload.
+
+```
+sudo systemctl daemon-reload
+sudo mount -a
 ```
 
 # 🚧 OS Hardening
