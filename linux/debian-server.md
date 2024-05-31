@@ -4,13 +4,12 @@ The second oldest linux distribution, only behind Slackware. A server OS that is
 
 - [Installation](#installation)
 - [Transfer SSH key](#transfer-ssh-key)
-  - [Packages](#packages)
-  - [Add user to sudo group](#add-user-to-sudo-group)
-- [Software](#software)
-  - [Docker](#docker)
+- [Install sudo, vim, htop, figlet](#install-sudo-vim-htop-figlet)
+- [Remove grub 5 second delay](#remove-grub-5-second-delay)
+- [🚧 Disable root login](#-disable-root-login)
 - [Update MOTD](#update-motd)
-- [Mount Samba](#mount-samba)
-- [🚧 OS Hardening](#-os-hardening)
+- [Install Docker (optional)](#install-docker-optional)
+- [Mount Samba (optional)](#mount-samba-optional)
 
 # Installation
 
@@ -70,8 +69,7 @@ sudo update-grub
 
 # 🚧 Disable root login
 
-🚧 31MAY2024 TODO: Write a script to automoate this... 
-
+🚧 31MAY2024 TODO: Write a script to automate this...
 
 # Update MOTD
 
