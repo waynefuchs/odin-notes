@@ -54,6 +54,10 @@ Log In with user account, **not root**
 
 ```bash
 su
+```
+This command must be entered separately, and can not be chained.
+
+```bash
 apt install sudo vim htop figlet
 /sbin/adduser $USER sudo
 ```
