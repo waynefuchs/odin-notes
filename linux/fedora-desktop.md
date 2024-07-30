@@ -8,6 +8,7 @@
 
 Fedora is a Linux distribution that is the upstream source for CentOS and Red Hat Enterprise Linux (RHEL). There are five editions: `personal computer`, `server`, `cloud computing`, `containerization`, and `internet of things`.
 
+> OUT OF DATE; Update Required
 - [Install Brave](#install-brave)
 - [Install VSCode](#install-vscode)
 - [Generate a ssl key](#generate-a-ssl-key)
@@ -174,6 +175,13 @@ I typed `blender` in a terminal, and got a prompt to download and install all th
 ```bash
 sudo dnf install discord
 ```
+
+## Sound Device renaming and hiding
+
+1. Install `Extension Manager` in `Software`.
+2. In `Extension Manager`, go to the "Browse" tab and search for "quick settings audio" and install `Quick Settings Audio Devices Hider` and `Quick Settings Audio Devices Renamer`.
+3. Back in the "Installed" tab, click the "Settings" cog next to "Quick Settings Audio Devices Hider" and toggle off the devices you don't want to show up in the window manager audio picker.
+4. Click the cog next to "Quick Settings Audio Devices Hider" and rename the audio devices from nondescript things like "USB Audio Speaker Headphone NG67339 Not Real Device Thing Internal Output" to "DESKTOP SPEAKERS".
 
 ## MongoDB Compass
 
